@@ -23,3 +23,29 @@
 .reveal pre.sourceCode {
   background-color: var(--w4-code-block-bg) !important;
 }
+
+/* Fixed home control on reveal slides → course index */
+.slide-home {
+  position: fixed;
+  top: 0.85rem;
+  left: 1rem;
+  z-index: 40;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.4rem;
+  background: rgba(0, 0, 0, 0.08);
+  color: #333;
+  font-size: 1.35rem;
+  line-height: 1;
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.slide-home:hover {
+  background: rgba(0, 0, 0, 0.16);
+  color: #000;
+  text-decoration: none;
+}
