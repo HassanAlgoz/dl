@@ -3,6 +3,8 @@ project:
   render:
     - "**/*.qmd"
     - "!.venv/**"
+  preview:
+    port: 4200
 
 website:
   title: "Week 4: Deep Learning"
@@ -22,3 +24,6 @@ format:
     theme: cosmo
     css: styles.css
     toc: true
+  revealjs:
+    width: 1600
+    height: 900

@@ -90,3 +90,5 @@ raw/
 .env
 .env.*
 !.env.example
+
+cifar-100-python.tar.gz

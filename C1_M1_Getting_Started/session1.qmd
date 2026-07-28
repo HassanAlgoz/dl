@@ -71,20 +71,64 @@ The key difference: deep learning excels at unstructured data (images, speech, t
 
 ## ML vs DL {.smaller}
 
-| Characteristic | Machine Learning (ML) | Deep Learning (DL) |
-| --- | --- | --- |
-| **Performance Envelope** | Competitive on structured/tabular data | Dominant in unstructured domains (vision, speech, NLP) |
-| **Data Regime** | Performs well with small to medium datasets | Typically requires large-scale datasets to generalize well |
-| **Computational Cost** | Often CPU-friendly; faster training | GPU/TPU-dependent; computationally expensive |
-| **Model Class** | Linear models, Decision Trees, Random Forests, Gradient Boosting | Multi-layer Neural Networks, CNNs, RNNs, Transformers |
-| **Feature Engineering** | Relies heavily on manual feature design informed by domain knowledge | Learns hierarchical representations directly from raw data |
-| **Interpretability** | Many models are interpretable (linear models, trees) | Largely opaque; "black box" nature requiring post-hoc explainability |
+We'll compare ML and DL across six characteristics:
+
+1. Performance Envelope
+2. Data Regime
+3. Computational Cost
+4. Model Class
+5. Feature Engineering
+6. Interpretability
+
+Let's look at each one, one by one.
 
 ::: {.notes}
 Deep learning isn't always the right solution. It's great when traditional rule-based approaches fail, when environments change continuously, or when you need to discover patterns in massive datasets.
 
 But it's not good when you need to explain decisions, when simple rules work fine, when errors can't be tolerated, or when you have limited data. The key is choosing the right tool for the job.
 :::
+
+## 1. Performance Envelope
+
+![Performance Envelope](../assets/diff_1_performance.png){fig-align="center"}
+
+- **ML:** Competitive on structured/tabular data
+- **DL:** Dominant in unstructured domains like vision, speech, and NLP
+
+## 2. Data Regime
+
+![Data Regime](../assets/diff_2_data_regime.png){fig-align="center"}
+
+- **ML:** Performs well with small to medium datasets
+- **DL:** Typically needs large-scale datasets to generalize well
+
+## 3. Computational Cost
+
+![Computational Cost](../assets/diff_3_computational_cost.png){fig-align="center"}
+
+- **ML:** Often CPU-friendly with faster training
+- **DL:** Usually GPU/TPU-dependent and more computationally expensive
+
+## 4. Model Class
+
+![Model Class](../assets/diff_4_model_class.png){fig-align="center"}
+
+- **ML:** Linear models, Decision Trees, Random Forests, Gradient Boosting
+- **DL:** Multi-layer Neural Networks, CNNs, RNNs, Transformers
+
+## 5. Feature Engineering
+
+![Feature Engineering](../assets/diff_5_feature_engineering.png){fig-align="center"}
+
+- **ML:** Relies heavily on manual feature design
+- **DL:** Learns hierarchical representations directly from raw data
+
+## 6. Interpretability
+
+![Interpretability](../assets/diff_6_interpretability.png){fig-align="center"}
+
+- **ML:** Many models are relatively interpretable
+- **DL:** Often behaves like a black box and needs post-hoc explanation
 
 ## Many Deep Learning Applications
 
@@ -214,9 +258,38 @@ Deep neural networks are like the visual cortex of the brain. They start with si
 
 > PyTorch is an open-source deep learning framework designed to accelerate the path from research prototyping to production deployment. Originally developed by Meta’s AI Research lab (FAIR) and released in 2016, it is now governed by the PyTorch Foundation under the Linux Foundation.
 
-![PyTorch Logo](../assets/pytorch-logo.png)
+![PyTorch Logo](../assets/pytorch-logo.png){fig-align="center" height=100}
+
+## Who uses PyTorch?
+
+![PyTorch across research and industry](../assets/pytorch_being_used_across_research_and_industry.png){fig-align="center"}
+
+- **Meta, Tesla, Microsoft, OpenAI** — research and production ML
+- Tesla's self-driving vision models run on PyTorch
+- Also used beyond tech — e.g. computer vision on tractors in agriculture
+
+::: {.notes}
+Many of the world's largest technology companies — Meta, Tesla, Microsoft — and AI labs like OpenAI use PyTorch to power research and ship ML into products.
+
+Andrej Karpathy (formerly head of AI at Tesla) has talked about how Tesla uses PyTorch for self-driving computer vision. It's not just Big Tech either — industries like agriculture use it for computer vision on tractors. If it's trusted at that scale, it's a solid framework to learn.
+:::
 
 ## Why PyTorch?
+
+- Researchers love it — long the [most-used framework on Papers With Code](https://paperswithcode.com/trends)
+- **GPU acceleration** handled behind the scenes
+- You focus on data and algorithms; PyTorch makes it run fast
+- Proven in production — Tesla, Meta, and more ship real products on it
+
+::: {.notes}
+Machine learning researchers love PyTorch. For years it has been the most used deep learning framework on Papers With Code, which tracks research papers and their code.
+
+PyTorch also takes care of GPU acceleration behind the scenes, so you can focus on manipulating data and writing algorithms while it keeps things fast.
+
+And if companies like Tesla and Meta use it to power hundreds of applications, drive thousands of cars, and deliver content to billions of people, it's clearly capable on the production side too.
+:::
+
+## Simple. Pythonic. Powerful.
 
 ```python
 import torch
@@ -225,8 +298,6 @@ b = torch.tensor([3.0])
 result = a + b
 print(result)  # tensor([5.])
 ```
-
-**Simple. Pythonic. Powerful.**
 
 ::: {.notes}
 Let me show you what makes PyTorch special with a simple example. Adding two numbers in PyTorch looks just like regular Python code. This simplicity wasn't always the case in deep learning frameworks.
@@ -238,8 +309,7 @@ The key insight here is that PyTorch makes deep learning feel like writing norma
 
 **Static Computational Graphs**
 
-- Define everything upfront
-- Compile before running
+- Must define and compile everything upfront
 - No flexibility to change
 - Cryptic error messages
 - No standard Python debugging
