@@ -1,0 +1,173 @@
+---
+title: "Module 2 - Session 1.5: From Equations to Networks"
+format: revealjs
+---
+
+## Why are we here?
+
+**You know this:**
+$y = mx + b$ (Line)
+
+**You need to know this:**
+$\mathbf{y} = \mathbf{W}\mathbf{x} + \mathbf{b}$ (Network Layer)
+
+**The Gap:**
+How do we go from "Slope & Intercept" to "Weights & Biases"?
+
+::: {.notes}
+We often jump straight into "tensors" and "matrix multiplication" in deep learning. But let's pause and build the bridge from high school math to deep learning math. If you understand this transition, the rest of the course is just implementation details.
+:::
+
+## The Neuron = The Linear Equation
+
+Recall our delivery problem:
+
+$$
+\text{Time} = \text{Weight} \cdot \text{Distance} + \text{Bias}
+$$
+
+$$
+y = w \cdot x + b
+$$
+
+- One input ($x$)
+- One output ($y$)
+- One weight ($w$)
+- One bias ($b$)
+
+::: {.notes}
+This is the building block. A single neuron is literally just a linear equation. It takes an input, scales it by a weight, adds a bias, and gives an output.
+:::
+
+## Problem: Real World is Complex
+
+Predicting delivery time needs more than just `distance`.
+
+We need:
+1. Distance ($x_1$)
+2. Number of Packages ($x_2$)
+
+**The Equation Expands:**
+$$
+y = w_1 x_1 + w_2 x_2 + b
+$$
+
+::: {.notes}
+As soon as we add more inputs, our simple equation gets longer. We have a weight for every input. $w_1$ handles distance, $w_2$ handles traffic, etc. This is still just ONE equation producing ONE output.
+:::
+
+## Packing Inputs into Vectors
+
+Writing $w_1 x_1 + w_2 x_2 + \dots$ gets tired fast.
+
+Let's pack our inputs into a **Vector**:
+$$
+\mathbf{x} = \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}
+$$
+
+And our weights into a **Vector**:
+$$
+\mathbf{w} = \begin{bmatrix} w_1 & w_2 \end{bmatrix}
+$$
+
+
+
+## The Dot Product:
+$$
+\mathbf{w} \cdot \mathbf{x} = 
+\begin{bmatrix} w_1 & w_2 \end{bmatrix} \cdot 
+\begin{bmatrix} x_1 \\ x_2 \end{bmatrix} 
+$$
+$$
+      = (w_1 \cdot x_1) + (w_2 \cdot x_2)
+$$
+
+## From One Output to Many
+
+What if we want to predict **Time** AND **Fuel Consumption**?
+
+We need TWO equations:
+
+1. $\text{Time} = w_{1,1}x_1 + w_{1,2}x_2 + b_1$
+2. $\text{Fuel} = w_{2,1}x_1 + w_{2,2}x_2 + b_2$
+
+**This is a System of Equations.**
+
+::: {.notes}
+Now we have two outputs. Each output needs its own set of weights for the inputs. The Time prediction processes distance differently than Fuel prediction does.
+:::
+
+## The Matrix: Packing Equations
+
+Look at the weights. They form a grid.
+
+$$
+\mathbf{W} = \begin{bmatrix}
+w_{1,1} & w_{1,2} \\
+w_{2,1} & w_{2,2}
+\end{bmatrix}
+$$
+
+- **Top Row**: Weights for "Time" equation.
+- **Bottom Row**: Weights for "Fuel" equation.
+
+**A Matrix is just a stack of weight vectors!**
+
+::: {.notes}
+This is the key insight. A Matrix isn't some scary new mathematical object. It is literally just a way to stack multiple linear equations on top of each other. Row 1 is Equation 1. Row 2 is Equation 2.
+:::
+
+## Matrix Multiplication Visualized
+
+$$
+\begin{bmatrix} y_1 \\ y_2 \end{bmatrix} = 
+\begin{bmatrix}
+\text{--- } \mathbf{w}_{\text{time}} \text{ ---} \\
+\text{--- } \mathbf{w}_{\text{fuel}} \text{ ---}
+\end{bmatrix}
+\begin{bmatrix} x_1 \\ x_2 \end{bmatrix}
++
+\begin{bmatrix} b_1 \\ b_2 \end{bmatrix}
+$$
+
+$$
+\mathbf{y} = \mathbf{W}\mathbf{x} + \mathbf{b}
+$$
+
+1. Take Row 1, Dot with $\mathbf{x}$ $\rightarrow$ $y_1$
+2. Take Row 2, Dot with $\mathbf{x}$ $\rightarrow$ $y_2$
+
+::: {.notes}
+When you multiply a matrix by a vector, you are just running those linear equations in parallel.
+:::
+
+## In PyTorch Terms
+
+$$
+\mathbf{y} = \mathbf{W}\mathbf{x} + \mathbf{b}
+$$
+
+Matches this code exactly:
+```python
+layer = nn.Linear(in_features=2, out_features=2)
+y = layer(x)
+```
+
+- `in_features=2`: Size of input vector $\mathbf{x}$ (columns of W)
+- `out_features=2`: Size of output vector $\mathbf{y}$ (rows of W)
+
+::: {.notes}
+When you define `nn.Linear(2, 2)`, PyTorch creates a $2 \times 2$ matrix of random weights. When you pass data through it, it performs that matrix multiplication.
+:::
+
+## Why This Matters
+
+**Deep Learning is just:**
+
+1. **Hierarchy**: Stacking these layers.
+2. **Dimension Transformation**: Changing the vector size step-by-step.
+   - Input (Pixels): Vector of 784
+   - Hidden Layer 1: Vector of 128 (Features)
+   - Output Layer: Vector of 10 (Classes)
+
+**The Network transforms data shape to answer questions.**

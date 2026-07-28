@@ -1,0 +1,91 @@
+---
+title: "Week 4 Delivery Guide"
+format: html
+---
+
+## Learning Objectives Assessment
+
+> **IMPORTANT: Please read and share this with the students: [Student Notes](student_notes.qmd)**, to setup expectations for the entire week.
+
+---
+
+**It is up to you to decide how you should**:
+
+1. Discourage cheating and encourage effort
+2. Measure the actual acquisition of skills and knowledge (preventing both: underfitting and overfitting)
+3. Make the learning process a self-rewarding experience unto itself
+
+## Successful Delivery (suggestions)
+
+Below are **some suggestions** for you to consider when delivering this week.
+
+## 1. Require Proof of Effort
+
+To ensure students are actively working on the assignments, and control for copy-pasting, GenAI Policy Violations, or worse yet: having another student do the work for them:
+
+- students MUST commit to GitHub repos on **each question** of **each assignment** (mentioning the question number in the commit message)
+- to make things easier, some lab work includes instant-feedback exercises via Unit Tests, so that's a clear checkpoint for a commit
+
+You can `git -C ./student_repo log` to check the commit history, which should look something like this:
+
+```
+commit 2d0273722392f26a723b862de7c837642b3b096b
+Author: Renadalju <riihyunee@gmail.com>
+Date:   Thu Jan 1 18:49:54 2026 +0300
+
+    solve M7.03: use the cross_validate function and compute multiple scores/errors
+
+commit 78fd8f2d3633fe31ee64077ab5872ac146ef7687
+Author: Renadalju <riihyunee@gmail.com>
+Date:   Thu Jan 1 18:46:17 2026 +0300
+
+    solve M7.03: use the mean absolute error (MAE)
+
+commit bfd369daa6fdd471588a91bc381f5531a4c52700
+Author: Renadalju <riihyunee@gmail.com>
+Date:   Thu Jan 1 18:44:20 2026 +0300
+
+    solve M7.03: estimate the generalization performance of the model
+
+commit 6830b25ca215ed486ea1febee7d5ee751f39af29
+Author: Renadalju <riihyunee@gmail.com>
+Date:   Thu Jan 1 18:42:43 2026 +0300
+
+    solve M7.03:  create a linear regression model.
+
+commit 62cfe5a1669a875f99515d2ed6f3e94f0fbe742d
+Author: Renadalju <riihyunee@gmail.com>
+Date:   Thu Jan 1 18:41:14 2026 +0300
+
+    add Exercise M7.03
+```
+
+Notice how adding the exercise (before solving it) should be the first commit.
+
+## 2. Encourage Application of Skills
+
+A **Project**'s goal is demonstrating some level of mastery in applying the knowledge & skills acquired in this week (+ previous weeks). Note: just like the assignments, commits of the project should be frequent and meaningful work-units (with clear commit messages).
+
+### 2.1 Require Proof of Contribution
+
+"Teamwork".. to control for "oh we worked on this together so I copied it" to justify HUGE commits. Each student must contribute using their own GitHub account:
+
+- Can clone with write access contributor
+- Can collaborate using **Pull Requests** (PRs)
+- Can use [**VS Code Live Share**](https://visualstudio.microsoft.com/services/live-share/) for pair programming
+
+No excuses for not committing:
+
+- **Make it clear that any untracked work is as good as no work**
+- **Huge commits are no work either**
+
+## 3. Reward Extra Effort
+
+- Bonus points awarded to students who actively participate in lecture, asking the right questions (not for the sake of just asking), 
+- and helping others when needed
+- Optional exercises do exist for the advanced students
+- When they **methodically**/**systematically** improve their training/inference performance, significant enough to be noticeable:
+  - accuracy
+  - resource utilization
+  - latency/speed
+  - design simplicity (code complexity, readability, maintainability, etc.)

@@ -1,0 +1,24 @@
+project:
+  type: website
+  render:
+    - "**/*.qmd"
+    - "!.venv/**"
+
+website:
+  title: "Week 4: Deep Learning"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: lab_setup.qmd
+        text: Lab Setup
+      - href: student_notes.qmd
+        text: Student Notes
+      - href: trainer_notes.qmd
+        text: Trainer Notes
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true

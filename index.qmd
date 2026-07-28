@@ -1,0 +1,61 @@
+---
+title: "Week 4: Deep Learning Modules"
+format: html
+---
+
+# Modules
+
+**Overview**: This week introduces you to deep learning with PyTorch and building image classifiers.
+
+## Notes
+
+- [Trainer Notes](trainer_notes.qmd)
+- [Student Notes](student_notes.qmd)
+- [Lab Setup](lab_setup.qmd)
+
+## Module 1: PyTorch Fundamentals (2 Days)
+
+- [Session 1: Introduction to PyTorch and Neural Networks](C1_M1_Getting_Started/session1.qmd)
+- [Session 2: The ML Pipeline and Building Your First Model](C1_M1_Getting_Started/session2.qmd)
+- [Session 3: Activation Functions](C1_M1_Getting_Started/session3.qmd)
+- [Session 4: Working with Tensors](C1_M1_Getting_Started/session4.qmd)
+- Lab 1: Building a Simple Neural Network
+- Lab 2: Modeling Non-Linear Patterns with Activation Functions
+- Lab 3: Tensors: The Core of PyTorch
+- Assignment: Deeper Regression, Smarter Features
+
+## Module 2: Image Classification with PyTorch (1 Day)
+
+- [Session 1: Data and Model Building](C1_M2_PyTorch_Workflow/session1.qmd)
+- [Session 1.5: From Equations to Vectors (Optional)](C1_M2_PyTorch_Workflow/from_equations_to_vectors.qmd)
+- [Session 2: Loss Functions and Optimizers](C1_M2_PyTorch_Workflow/session2.qmd)
+- [Session 3: Device Management and Image Classification Setup](C1_M2_PyTorch_Workflow/session3.qmd)
+- [Session 4: Training and Evaluating Your Classifier](C1_M2_PyTorch_Workflow/session4.qmd)
+- Lab 1: Building Your First Image Classifier
+- Assignment: EMNIST Letter Detective
+
+## Module 3: Data Management (0.5 Day)
+
+- Lab 1: Data Management
+- Assignment: Building a Robust Data Pipeline
+
+## Module 4: Core Neural Network Components (1 Day)
+
+- [Session 1: Convolutional Neural Networks](C1_M4_Core_NN_Components/session1.qmd)
+- [Session 1.5: Transfer Learning](C1_M4_Core_NN_Components/session_transfer_learning.qmd)
+- [Session 2: PyTorch Techniques and Model Inspection](C1_M4_Core_NN_Components/session2.qmd)
+- Lab 1: Building a CNN for Nature Classification
+- Lab 2: Model Debugging, Inspection, and Modularization
+- Assignment: Overcoming Overfitting: Building a Robust CNN
+
+--- 
+
+## IMPORTANT Notes to Presenter
+
+> - Press `S` for speaker notes.
+> - Press `M` for outline view or `O` for slide overview.
+
+## Resources
+
+- [TensorFlow Playground](https:/playground.tensorflow.org/)
+- [NN Playground](https:/nnplayground.com/)
