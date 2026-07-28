@@ -1,128 +1,98 @@
 ---
-title: "Module 1 - Session 2: The ML Pipeline and Building Your First Model"
+title: "Introduction to PyTorch"
 format: revealjs
 ---
 
-# Session 2
+# The PyTorch Framework
 
-## The Machine Learning Pipeline
+![](../assets/pytorch-logo.png){fig-align="center" height=100}
 
-**Six stages from data to deployed model**
+**PyTorch** is an open-source deep learning framework designed to accelerate the path from research prototyping to production deployment. Originally developed by Meta’s AI Research lab (FAIR) and released in 2016, it is now governed by the PyTorch Foundation under the Linux Foundation.
 
-![The Machine Learning Pipeline](../assets/ml_pipeline.png)
+## Who uses PyTorch?
+
+![PyTorch across research and industry](../assets/pytorch_being_used_across_research_and_industry.png){fig-align="center"}
+
+- **Meta, Tesla, Microsoft, OpenAI** — research and production ML
+- Tesla's self-driving vision models run on PyTorch
+- Also used beyond tech — e.g. computer vision on tractors in agriculture
 
 ::: {.notes}
-Last session, we saw how neural networks learn using the delivery time problem. Now, before we jump into code, we need a systematic approach. This framework will be used throughout the entire Professional Certificate, whether you're training a delivery predictor or building image classifiers later.
+Many of the world's largest technology companies — Meta, Tesla, Microsoft — and AI labs like OpenAI use PyTorch to power research and ship ML into products.
 
-The pipeline ensures we don't skip critical steps and helps us understand where we are in the process at any given time.
+Andrej Karpathy (formerly head of AI at Tesla) has talked about how Tesla uses PyTorch for self-driving computer vision. It's not just Big Tech either — industries like agriculture use it for computer vision on tractors. If it's trusted at that scale, it's a solid framework to learn.
 :::
 
-## Stage 1: Data Ingestion
+## Why they use it?
 
-**Gathering and organizing raw data**
-
-- Delivery records from company database
-- Messy data: inconsistent formats, missing values, errors
-- Organize for PyTorch to work efficiently
+- Researchers love it — long the [most-used framework on Papers With Code](https://paperswithcode.com/trends)
+- **GPU acceleration** handled behind the scenes
+- You focus on data and algorithms; PyTorch makes it run fast
+- Proven in production — Tesla, Meta, and more ship real products on it
 
 ::: {.notes}
-It all starts with data. Before you can train any model, you need to gather your raw information and organize it so PyTorch can work with each data point efficiently.
+Machine learning researchers love PyTorch. For years it has been the most used deep learning framework on Papers With Code, which tracks research papers and their code.
 
-For the delivery predictor, that data comes from the company's delivery records. But here's where things get tricky - real-world data is messy. Earlier records might list delivery times as free-text entries like "22 minutes," while newer ones use numeric values like 22.0. There are always issues: missing values, negative delivery times, or records suggesting you were biking at 200 miles per hour.
+PyTorch also takes care of GPU acceleration behind the scenes, so you can focus on manipulating data and writing algorithms while it keeps things fast.
 
-This kind of messy data is the norm, not the exception. In your first lab, we'll keep things simple with clean data, but understanding these steps helps you appreciate what goes into real-world projects.
+And if companies like Tesla and Meta use it to power hundreds of applications, drive thousands of cars, and deliver content to billions of people, it's clearly capable on the production side too.
 :::
 
-## Stage 2: Data Preparation
+## Simple. Pythonic. Powerful.
 
-**Cleaning, transforming, and organizing**
-
-- Fix errors (impossible times, duplicates)
-- Handle missing values
-- Engineer features (addresses → distances)
-
-**Most time-consuming stage in real projects**
+```python
+import torch
+a = torch.tensor([2.0])
+b = torch.tensor([3.0])
+result = a + b
+print(result)  # tensor([5.])
+```
 
 ::: {.notes}
-Getting the data was just the beginning. Whether you're working with delivery records, customer images, or email text, the next challenge is the same: you have to clean, transform, and organize that data into a form your model can actually learn from.
+Let me show you what makes PyTorch special with a simple example. Adding two numbers in PyTorch looks just like regular Python code. This simplicity wasn't always the case in deep learning frameworks.
 
-For delivery data, that might mean fixing errors like removing impossible delivery times or duplicate entries. It could mean handling missing values when timestamps weren't recorded. Or engineering new features by converting addresses like "123 Oak Street" into distances like 8.2 miles.
-
-This stage often takes the most time and the most code in a real project. That's normal. Most models don't fail because the math was wrong - they fail because the data was messy.
+The key insight here is that PyTorch makes deep learning feel like writing normal Python. This wasn't true of early frameworks, which required complex setup and compilation steps just to do simple operations.
 :::
 
-## Stage 3: Model Building
 
-**Designing the architecture**
+## Early Frameworks vs. PyTorch
 
-- How many neurons?
-- How are they connected?
-- What types of layers?
+::::: {.columns}
+:::: {.column width="50%"}
+**Static Computational Graphs**
 
-**For delivery predictor:** one neuron (simplest architecture)
+- Must define and compile everything upfront
+- No flexibility to change
+- Cryptic error messages
+- No standard Python debugging
+::::
+
+:::: {.column width="50%"}
+**Dynamic Computation**
+
+- Write clean Pythonic code
+- Use normal loops and if statements
+- Change anything, anytime
+- Error messages point to your code
+- Standard Python debugging
+::::
+:::::
 
 ::: {.notes}
-Now that your data is cleaned and ready, it's time to design the model that's going to learn from it. Whether you're predicting delivery times, classifying images, or analyzing text, this step is about choosing the right architecture for your problem.
+Early deep learning frameworks used something called static computational graphs. Think of it like a factory assembly line - you had to design the entire production process before you could run anything. If you made a mistake or wanted to experiment, you had to stop everything, tear it down, and rebuild from scratch.
 
-Architecture means structure: How many neurons are you going to use? How are they connected? What types of layers does the model need?
+This made even simple operations complex. You couldn't use normal Python if statements or loops. Error messages pointed to internal system code, not your actual mistakes. People spent more time fighting their tools than doing actual work.
 
-For your delivery predictor, the architecture is as simple as it gets - one neuron that learns the relationship between distance and delivery time. In PyTorch, defining that model's architecture takes just a single line of code. The beautiful thing about PyTorch is that even this simple model follows the same patterns as much more complex ones you'll tackle later.
+PyTorch emerged from researchers' frustration with these limitations. The core principle: deep learning should feel like normal Python. You write clean code, and PyTorch handles the computational complexity behind the scenes.
+
+This approach made PyTorch incredibly popular, especially in research where experimentation and flexibility are crucial. Today, it's backed by a massive community and has become the go-to choice for everyone from students to cutting-edge AI researchers.
 :::
 
-## Stage 4: Training
+# Building Your First Neural Network
 
-**Teaching the model to make predictions**
-
-- Feed examples (8.2 miles → 22 minutes)
-- Measure prediction errors
-- Adjust parameters to improve
-- Repeat for many epochs
-
-::: {.notes}
-Having a good model design is just the blueprint. Next, you actually have to teach it to make good predictions. Here's where your model starts learning.
-
-You'll feed in examples like "this delivery was 8.2 miles and took 22 minutes" or "this one was 12.5 miles and took 31 minutes." The model will gradually start to figure out the pattern.
-
-In the training stage, you'll learn how to configure the key pieces that make this process work: How do you measure prediction errors? How do you guide the model to improve? How do you control how fast it learns? Then you'll run the training loop, where PyTorch does the heavy lifting and your model learns from the data.
-:::
-
-## Stage 5: Evaluation
-
-**Testing on unseen data**
-
-- Use test set (held back during training)
-- Measure performance (accuracy, error)
-- Detect issues and debug
-
-**Key question:** Does your model work well enough to trust it?
-
-::: {.notes}
-Even when training finishes successfully, you're not done yet. Now comes the real test: Can your model make a good prediction on new, unseen data?
-
-To know if you have a really good model, you need to see how well it performs on new data - examples it wasn't trained on. You'll use a test set, a portion of the delivery data that you held back during training.
-
-Maybe a model predicts 28 minutes for a 15-mile delivery, but in reality it took 32 minutes. How often is your model close? How often is it way off? As you move through the course, you'll learn how to detect deeper issues and debug models when things go wrong. But for now, the key question is simple: Does your model work well enough for you to trust it?
-:::
-
-## Stage 6: Deployment
-
-**Getting your model into the real world**
-
-*(We'll cover this later in the course)*
-
-::: {.notes}
-Stage 6 is deployment - getting your model out into the real world for people to use. We'll leave this one out of the pipeline for now and come back to it when the time comes.
-
-Now that you've seen the full picture, you're ready to dive right in. In the rest of this session, you'll see how even our simple delivery model follows these exact stages in PyTorch code.
-:::
-
-## Building Your First Neural Network
-
-**Let's see it in PyTorch code**
-
-::: {.notes}
 You've seen the machine learning pipeline and understand how neural networks learn. Now let's take a look at how it all maps to actual PyTorch code. We'll start with the imports, then move through data preparation, model building, training, and making predictions.
-:::
+
+**Let's see it in PyTorch code.**
 
 ## Imports
 

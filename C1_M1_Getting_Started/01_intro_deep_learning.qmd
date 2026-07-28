@@ -4,11 +4,7 @@ subtitle: "Distinguish between Deep Learning and Machine Learning"
 format: revealjs
 ---
 
-# Introduction to Deep Learning
-
-Welcome to Module 1 of PyTorch Fundamentals. This module will take you from understanding why PyTorch exists to building and training your first neural network. We'll start with the motivation behind PyTorch, then dive into the fundamental building blocks, and end with hands-on implementation.
-
-The question chain shows how each session builds on the previous one: understanding PyTorch's philosophy leads to understanding neural networks, which leads to understanding the pipeline, which leads to implementation.
+# Deep Learning
 
 ## Machine Learning vs Programming
 
@@ -63,7 +59,12 @@ Instead of manually engineering features (like "does this image have edges?" or 
 
 ![Visual Cortex High-Level Features](../assets/visual_cortex_high-level_features.png)
 
-Hierarchical Feature Extraction: From Retinal Input to Complex Object Recognition in the Ventral Stream goes through a layered system in the brain.
+Hierarchical Feature Extraction: From Retinal Input to Complex Object Recognition in the Ventral Stream goes through a **layered system in the brain**.
+
+
+::: {.notes}
+Deep neural networks are like the visual cortex of the brain. They start with simple features like edges and shapes, and build up to more complex features like objects and scenes.
+:::
 
 ## Supervised Deep Learning Datasets
 
@@ -140,6 +141,9 @@ Let's look at each one, one by one.
 - **DL:** Usually GPU/TPU-dependent and more computationally expensive
 
 ## Choose the right tool for the task?
+
+- ML often requires manual feature engineering and works well on structured/tabular data
+- DL excels at unstructured data (images, speech, text) and learns hierarchical representations directly from raw data
 
 **Not a good fit for DL:**
 

@@ -1,1 +1,25 @@
 /* css styles */
+
+:root {
+  --r-block-code-font-size: 2rem;
+  --w4-code-block-bg: #fcfcfc;
+}
+
+/* Make inline code stand out without affecting fenced code blocks. */
+:not(pre) > code {
+  background-color: rgba(120, 120, 120, 0.14);
+  border: 1px solid rgba(120, 120, 120, 0.18);
+  border-radius: 0.3rem;
+  padding: 0.12rem 0.35rem;
+}
+
+/* Slightly increase fenced code block readability. */
+.reveal pre,
+.reveal pre code {
+  font-size: var(--r-block-code-font-size);
+}
+
+.reveal div.sourceCode,
+.reveal pre.sourceCode {
+  background-color: var(--w4-code-block-bg) !important;
+}

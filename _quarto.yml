@@ -25,5 +25,7 @@ format:
     css: styles.css
     toc: true
   revealjs:
+    css: styles.css
     width: 1600
     height: 900
+    slide-number: true
