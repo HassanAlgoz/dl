@@ -70,7 +70,7 @@ $$
 In our delivery context:
 
 $$
-\text{Time} = \text{Weight} \times \text{Distance} + \text{Constant}
+\text{Time} = \text{Rate} \times \text{Distance} + \text{Constant}
 $$
 :::
 
@@ -103,7 +103,7 @@ To get the model with the best $w$ and $b$ as close to the data as possible; i.e
 ::: {.column width="50%"}
 ::: {.incremental}
 4. Calculate gradient (calculus)
-5. Update parameters along the gradient
+5. Update parameters down the gradient
 6. Repeat hundreds/thousands of times
 :::
 :::
@@ -115,6 +115,16 @@ Here's how the learning process works. The neuron starts with random values for 
 Then it uses calculus (specifically, gradient descent) to figure out which direction to adjust the weight and bias. It's essentially asking: "If I increase the weight just a little, does the error go up or down?" Once it figures that out, it takes a small step in the right direction, measures the error again, and repeats.
 
 This process happens hundreds or thousands of times until the neuron finds values close to the best possible ones.
+:::
+
+## Learning: Animated
+
+![Single neuron fitting delivery times](../assets/nn_regression.gif){fig-align="center" width="85%"}
+
+Watch $w$ and $b$ update each epoch until the line fits the data. [Desmos Graph](https://www.desmos.com/calculator/rtbeyemmlz).
+
+::: {.notes}
+This animation shows the learning loop in action. The orange line is the neuron's current prediction — Time = w × Distance + b. It starts poorly, measures MSE, takes a gradient step, and repeats. Over hundreds of epochs the line settles onto the historical delivery points.
 :::
 
 ## Multi-variable Regression
@@ -431,7 +441,7 @@ optimizer = optim.SGD(model.parameters(), lr=0.01)
 Each **epoch** is one full pass through training data:
 
 ```{.python code-line-numbers="1|2|3|4|5|6|1-6"}
-for epoch in range(500):       # 500 passes
+for epoch in range(100):       # 100 passes
     optimizer.zero_grad()      # Clear calculations from previous loop
     outputs = model(distances) # Make predictions
     loss = loss_function(outputs, times)  # Estimate error
@@ -536,6 +546,6 @@ This approach made PyTorch incredibly popular, especially in research where expe
 
 > "What I hear, I forget. What I see, I remember. What I do, I understand."
 
-<a href="https://colab.research.google.com/github/DeepLearningAI/W4_DL/blob/main/C1_M1_Getting_Started/C1_M1_Lab_1_simple_nn/C1_M1_Lab_1_simple_nn.ipynb">
+<a href="https://colab.research.google.com/github/HassanAlgoz/learn-pytorch/blob/main/C1_M1_Getting_Started/C1_M1_Lab_1_simple_nn/C1_M1_Lab_1_simple_nn.ipynb">
   <img src="../assets/Open%20in%20Colab-F9AB00.svg" alt="Open in Colab" height="50"/>
 </a>
