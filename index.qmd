@@ -29,7 +29,6 @@ format: html
 ## Module 2: Image Classification with PyTorch
 
 - [Session 1: Data and Model Building](C1_M2_PyTorch_Workflow/session1.qmd)
-- [Session 1.5: From Equations to Vectors (Optional)](C1_M2_PyTorch_Workflow/from_equations_to_vectors.qmd)
 - [Session 2: Loss Functions and Optimizers](C1_M2_PyTorch_Workflow/session2.qmd)
 - [Session 3: Device Management and Image Classification Setup](C1_M2_PyTorch_Workflow/session3.qmd)
 - [Session 4: Training and Evaluating Your Classifier](C1_M2_PyTorch_Workflow/session4.qmd)

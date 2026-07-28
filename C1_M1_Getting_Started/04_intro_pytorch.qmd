@@ -97,14 +97,10 @@ You've seen the machine learning pipeline and understand how neural networks lea
 ## Imports
 
 ```python
-import torch
-import torch.nn as nn
-import torch.optim as optim
+import torch                # core functionality
+import torch.nn as nn       # neural network components
+import torch.optim as optim # training tools
 ```
-
-- `torch`: core functionality
-- `nn`: neural network components
-- `optim`: training tools
 
 ::: {.notes}
 These imports give you PyTorch's core functionality. `torch` provides the fundamental operations, `nn` (neural networks) gives you components for building models, and `optim` provides tools for training these networks. These three modules cover most of what you'll need for building and training models.
@@ -113,13 +109,15 @@ These imports give you PyTorch's core functionality. `torch` provides the fundam
 ## Preparing Data
 
 ```python
+# x: inputs
 distances = torch.tensor([[5.0], [6.0], [8.0], [10.0]], 
                          dtype=torch.float32)
+# y: outputs
 times = torch.tensor([[22.2], [25.6], [31.2], [38.5]], 
                      dtype=torch.float32)
 ```
 
-**Tensors:** optimized containers for neural network math
+**Tensors** are N-dimensional arrays.
 
 ::: {.notes}
 In real projects, data ingestion and preparation are separate steps. First you gather messy data, then you clean and format it. But for this example, I've combined those stages and provided data that's already clean and ready to use.
@@ -129,29 +127,47 @@ You're creating tensors from Python lists, but they're more than just lists. Ten
 Notice how each number is wrapped in its own set of brackets. These outer brackets represent a batch - a collection of individual data points. Each inner set of brackets is one sample in the batch. Since each delivery only has one feature (distance), each sample contains just one value.
 :::
 
-## Understanding Tensor Shapes
 
-```python
-distances = torch.tensor([[5.0], [6.0], [8.0], [10.0]])
-distances.shape  # torch.Size([4, 1])
-```
+## A bit of Linear Algebra
 
-- First dimension: batch size (4 samples)
-- Second dimension: features per sample (1 feature)
+Equation of a line:
 
-::: {.notes}
-The shape tells you exactly how your data is organized. `[4, 1]` means 4 samples, each with 1 feature. This structure is crucial - PyTorch models expect input with a batch dimension. The first number tells the model how many samples it's getting. The rest describe what each sample looks like.
+$$
+y = mx + b
+$$
 
-If you had multiple features (distance, time of day, weather), each sample would have multiple values, but the batch structure would remain the same.
-:::
+Where:
 
-## Tensor Dimensions: 3 dimensions
-
-![How to read brackets as dimensions](../assets/tensor_dims.png){fig-align="center"}
+- $m$ is the **slope**
+- $b$ is the **intercept**
 
 ::: {.notes}
-
+We often jump straight into "tensors" and "matrix multiplication" in deep learning. But let's pause and build the bridge from high school math to deep learning math. If you understand this transition, the rest of the course is just implementation details.
 :::
+
+## The Neuron = The Linear Equation
+
+How do we go from "Slope & Intercept" to Nerual Networks' **"Weights & Biases"**?
+
+Recall our delivery problem:
+
+$$
+\text{Time} = \text{Weight} \times \text{Distance} + \text{Constant}
+$$
+
+In other words:
+
+$$
+y = w x + b
+$$
+
+- $w$ is **weight**
+- $b$ is the **bias**
+
+::: {.notes}
+This is the building block. A single neuron is literally just a linear equation. It takes an input, scales it by a weight, adds a bias, and gives an output.
+:::
+
 
 ## Creating the Model
 
@@ -172,6 +188,102 @@ Here, you're only using one layer - your single neuron. It's technically a linea
 
 This neuron will learn the best weight and bias to map distances to delivery times, just like finding the best-fitting line through all your data points.
 :::
+
+## Understanding Tensor Shapes
+
+Use `Tensor.shape` to inspect:
+
+```python
+distances = torch.tensor([[5.0], [6.0], [8.0], [10.0]])
+
+distances.shape  # torch.Size([4, 1])
+```
+
+What does it mean?
+
+- First dimension: batch size (4 samples)
+- Second dimension: features per sample (1 feature)
+
+::: {.notes}
+The shape tells you exactly how your data is organized. `[4, 1]` means 4 samples, each with 1 feature. This structure is crucial - PyTorch models expect input with a batch dimension. The first number tells the model how many samples it's getting. The rest describe what each sample looks like.
+
+If you had multiple features (distance, time of day, weekend, rush hour), each sample would have multiple values, but the batch structure would remain the same.
+:::
+
+## Tensor Dimensions: 3 dimensions
+
+![How to read brackets as dimensions](../assets/tensor_dims.png){fig-align="center"}
+
+::: {.notes}
+
+:::
+
+## Multiple Inputs
+
+Predicting delivery time needs more than just `distance`.
+
+In the labs, we use four features:
+
+1. Distance ($x_1$)
+2. Time of day ($x_2$)
+3. Weekend flag ($x_3$)
+4. Rush hour flag ($x_4$)
+
+**The equation expands:**
+$$
+y = w_1 x_1 + w_2 x_2 + w_3 x_3 + w_4 x_4 + b
+$$
+
+::: {.notes}
+As soon as we add more inputs, our simple equation gets longer. We have a weight for every input: $w_1$ for distance, $w_2$ for time of day, $w_3$ for weekend, $w_4$ for rush hour. This is still just ONE equation producing ONE output (delivery time).
+:::
+
+
+## Packing Inputs into Vectors
+
+Writing $w_1 x_1 + w_2 x_2 + w_3 x_3 + w_4 x_4$ gets tired fast.
+
+Let's pack our inputs into a **vector**:
+$$
+\mathbf{x} = \begin{bmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \end{bmatrix}
+$$
+
+And our weights into a **vector**:
+$$
+\mathbf{w} = \begin{bmatrix} w_1 & w_2 & w_3 & w_4 \end{bmatrix}
+$$
+
+## The Dot Product
+
+$$
+\begin{aligned}
+\mathbf{w} \cdot \mathbf{x}
+&= \begin{bmatrix} w_1 & w_2 & w_3 & w_4 \end{bmatrix}
+\cdot
+\begin{bmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \end{bmatrix} \\
+&= w_1 x_1 + w_2 x_2 + w_3 x_3 + w_4 x_4
+\end{aligned}
+$$
+
+Then add bias: $y = \mathbf{w} \cdot \mathbf{x} + b$
+
+## In PyTorch Terms
+
+$$
+\mathbf{y} = \mathbf{W}\mathbf{x} + \mathbf{b}
+$$
+
+Matches this code exactly:
+```python
+layer = nn.Linear(in_features=4, out_features=1)
+y = layer(x)
+```
+
+- `in_features=4`: Size of input vector $\mathbf{x}$ (columns of W — our four lab features)
+- `out_features=1`: Size of output vector $\mathbf{y}$ (rows of W)
+- The call `layer(x)` produces `y` the output of this layer.
+
+Notice we don't need to know the names of the features, they are just numeric values.
 
 ## Loss Function
 
@@ -198,8 +310,8 @@ optimizer = optim.SGD(model.parameters(), lr=0.01)
 
 **SGD (Stochastic Gradient Descent):**
 
-- Figures out which direction to adjust weights/bias
-- `lr` (learning rate): controls step size
+- Figures out which direction to adjust the **parameters** (_weights_ and _biases_)
+- `lr` (**learning rate**): a hyper-parameter of SGD that controls the step size
 
 ::: {.notes}
 The optimizer is the algorithm that figures out which direction to adjust your weight and bias to reduce that error. `model.parameters()` is how you access those values in PyTorch - in this case, just the weight and bias from your single neuron.
@@ -213,9 +325,9 @@ If you're curious about the math behind loss functions or optimization, you'll g
 
 ```python
 for epoch in range(500):
-    optimizer.zero_grad()      # Clear old calculations
+    optimizer.zero_grad()      # Clear calculations from previous loop
     outputs = model(distances) # Make predictions
-    loss = loss_function(outputs, times)  # Measure error
+    loss = loss_function(outputs, times)  # Estimate error
     loss.backward()            # Calculate gradients
     optimizer.step()           # Update weights/bias
 ```
@@ -267,7 +379,7 @@ with torch.no_grad():
     print(prediction)
 ```
 
-**`torch.no_grad()`:** skip training overhead for faster inference
+The **`torch.no_grad()`** disables _gradient_ tracking (only relevant while training) for faster **inference** (_prediction_).
 
 ::: {.notes}
 Now that the model is trained, let's try making a prediction. The line with `torch.no_grad()` tells PyTorch that you're not training anymore, just doing inference. Training takes extra work under the hood, but for inference, we can skip all that and run much more efficiently.
