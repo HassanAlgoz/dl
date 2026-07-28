@@ -323,3 +323,21 @@ Up next is the tensor lab, where you'll practice these concepts. Followed by a g
 
 You've mastered PyTorch fundamentals. It's time to put them to work.
 :::
+
+
+## Understanding Tensor Shapes
+
+```python
+Use `Tensor.shape` to inspect:
+distances = torch.tensor([[5.0], [6.0], [8.0], [10.0]])
+distances.shape  # torch.Size([4, 1])
+```
+
+What does it mean?
+
+- First dimension: batch size (4 samples)
+- Second dimension: features per sample (1 feature)
+
+## Tensor Dimensions: 3 dimensions
+
+![How to read brackets as dimensions](../assets/tensor_dims.png){fig-align="center"}

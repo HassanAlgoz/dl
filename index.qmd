@@ -15,16 +15,17 @@ format: html
 
 ## Module 1: PyTorch Fundamentals
 
-- [Introduction to Deep Learning](C1_M1_Getting_Started/01_intro_deep_learning.qmd)
-- [The Neural Network Model and Learning Algorithm](C1_M1_Getting_Started/02_intro_neural_networks.qmd)
-- [Deep Learning Data Pipelines](C1_M1_Getting_Started/03_dl_data_pipelines.qmd)
-- [Building a Neural Network Model with PyTorch](C1_M1_Getting_Started/04_intro_pytorch.qmd)
-- [Session 4: Activation Functions](C1_M1_Getting_Started/session3.qmd)
-- [Session 5: Working with Tensors](C1_M1_Getting_Started/session4.qmd)
-- Lab 1: Building a Simple Neural Network
-- Lab 2: Modeling Non-Linear Patterns with Activation Functions
-- Lab 3: Tensors: The Core of PyTorch
-- Assignment: Deeper Regression, Smarter Features
+1. [Introduction to Deep Learning](C1_M1_Getting_Started/01_intro_deep_learning.qmd)
+2. [Neural Networks in PyTorch](C1_M1_Getting_Started/02_neural_networks_in_pytorch.qmd)
+     - [Lab 1: Building a Simple Neural Network](C1_M1_Getting_Started/C1_M1_Lab_1_simple_nn/C1_M1_Lab_1_simple_nn.ipynb)
+3. [Activation Functions](C1_M1_Getting_Started/03_activations.qmd)
+     - [Lab 2: Modeling Non-Linear Patterns with Activation Functions](C1_M1_Getting_Started/C1_M1_Lab_2_activation_functions/C1_M1_Lab_2_activation_functions.ipynb)
+4. [Working with Tensors](C1_M1_Getting_Started/04_tensors.qmd)
+     - [Lab 3: Tensors: The Core of PyTorch](C1_M1_Getting_Started/C1_M1_Lab_3_tensors/C1_M1_Lab_3_tensors.ipynb)
+
+Assignment:
+
+- [Deeper Regression, Smarter Features](C1_M1_Getting_Started/C1M1_Assignment/C1M1_Assignment.ipynb)
 
 ## Module 2: Image Classification with PyTorch
 
