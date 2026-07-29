@@ -31,4 +31,4 @@ format:
     slide-number: true
     include-after-body:
       - text: |
-          <a class="slide-home" href="../index.html" title="Back to course index" aria-label="Back to course index">⌂</a>
+          <a class="slide-home" href="../../../index.html" title="Back to course index" aria-label="Back to course index">⌂</a>

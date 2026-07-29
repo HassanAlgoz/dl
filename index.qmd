@@ -15,40 +15,40 @@ format: html
 
 ## Module 1: PyTorch Fundamentals
 
-1. [Introduction to Deep Learning](C1_M1_Getting_Started/01_intro_deep_learning.qmd)
-2. [Neural Networks in PyTorch](C1_M1_Getting_Started/02_neural_networks_in_pytorch.qmd)
-     - [Lab 1: Building a Simple Neural Network](C1_M1_Getting_Started/C1_M1_Lab_1_simple_nn/C1_M1_Lab_1_simple_nn.ipynb)
-3. [Activation Functions](C1_M1_Getting_Started/03_activations.qmd)
-     - [Lab 2: Modeling Non-Linear Patterns with Activation Functions](C1_M1_Getting_Started/C1_M1_Lab_2_activation_functions/C1_M1_Lab_2_activation_functions.ipynb)
-4. [Working with Tensors](C1_M1_Getting_Started/04_tensors.qmd)
-     - [Lab 3: Tensors: The Core of PyTorch](C1_M1_Getting_Started/C1_M1_Lab_3_tensors/C1_M1_Lab_3_tensors.ipynb)
+1. [Introduction to Deep Learning](modules/M1/ch1_intro/01_intro_deep_learning.qmd)
+2. [Build Neural Networks in PyTorch](modules/M1/ch1_intro/02_neural_networks_in_pytorch.qmd)
+     - [Building a Simple Neural Network](modules/M1/ch1_intro/lab1_simple_nn/lab1_simple_nn.ipynb)
+3. [Module 1 - Session 3: Activation Functions](modules/M1/ch2_activations/03_activations.qmd)
+     - [Modeling Non-Linear Patterns with Activation Functions](modules/M1/ch2_activations/lab2_activation_functions/lab2_activation_functions.ipynb)
+4. [Module 1 - Session 4: Working with Tensors](modules/M1/ch3_tensors/04_tensors.qmd)
+     - [Tensors: The Core of PyTorch](modules/M1/ch3_tensors/lab3_tensors/lab3_tensors.ipynb)
 
 Assignment:
 
-- [Deeper Regression, Smarter Features](C1_M1_Getting_Started/C1M1_Assignment/C1M1_Assignment.ipynb)
+- [Programming Assignment: Deeper Regression, Smarter Features](modules/M1/assignment/assignment.ipynb)
 
 ## Module 2: Image Classification with PyTorch
 
-- [Session 1: Data and Model Building](C1_M2_PyTorch_Workflow/session1.qmd)
-- [Session 2: Loss Functions and Optimizers](C1_M2_PyTorch_Workflow/session2.qmd)
-- [Session 3: Device Management and Image Classification Setup](C1_M2_PyTorch_Workflow/session3.qmd)
-- [Session 4: Training and Evaluating Your Classifier](C1_M2_PyTorch_Workflow/session4.qmd)
-- Lab 1: Building Your First Image Classifier
-- Assignment: EMNIST Letter Detective
+- [Module 2 - Session 1: Data and Model Building](modules/M2/ch1_data_model/session1.qmd)
+- [Module 2 - Session 2: Loss Functions and Optimizers](modules/M2/ch2_loss_optimizers/session2.qmd)
+- [Module 2 - Session 3: Device Management and Image Classification Setup](modules/M2/ch3_device_setup/session3.qmd)
+- [Module 2 - Session 4: Training and Evaluating Your Classifier](modules/M2/ch4_training/session4.qmd)
+- [Building Your First Image Classifier](modules/M2/ch4_training/lab1_mnist_classifier/lab1_mnist_classifier.ipynb)
+- [Programming Assignment: EMNIST Letter Detective](modules/M2/assignment/assignment.ipynb)
 
 ## Module 3: Data Management
 
-- Lab 1: Data Management
-- Assignment: Building a Robust Data Pipeline
+- [Data Management](modules/M3/ch1_data_management/lab1_data_management/lab1_data_management.ipynb)
+- [Programming Assignment: Building a Robust Data Pipeline](modules/M3/assignment/assignment.ipynb)
 
 ## Module 4: Core Neural Network Components
 
-- [Session 1: Convolutional Neural Networks](C1_M4_Core_NN_Components/session1.qmd)
-- [Session 1.5: Transfer Learning](C1_M4_Core_NN_Components/session_transfer_learning.qmd)
-- [Session 2: PyTorch Techniques and Model Inspection](C1_M4_Core_NN_Components/session2.qmd)
-- Lab 1: Building a CNN for Nature Classification
-- Lab 2: Model Debugging, Inspection, and Modularization
-- Assignment: Overcoming Overfitting: Building a Robust CNN
+- [Module 4 - Session 1: Convolutional Neural Networks](modules/M4/ch1_cnn/session1.qmd)
+- [Module 4 - Session 1.5: Transfer Learning](modules/M4/ch2_transfer/session_transfer_learning.qmd)
+- [Module 4 - Session 2: PyTorch Techniques and Model Inspection](modules/M4/ch3_techniques/session2.qmd)
+- [Building a CNN for Nature Classification](modules/M4/ch1_cnn/lab1_cnn_nature_classifier/lab1_cnn_nature_classifier.ipynb)
+- [Model Debugging, Inspection, and Modularization](modules/M4/ch3_techniques/lab3_debugging/lab3_debugging.ipynb)
+- [Programming Assignment - Overcoming Overfitting: Building a Robust CNN](modules/M4/assignment/assignment.ipynb)
 
 --- 
 

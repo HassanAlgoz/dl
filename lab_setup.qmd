@@ -31,10 +31,10 @@ From the original repo, you may:
 
 Use the `%cd` magic command to move into your specific lab folder. Note that if your folder names contain spaces, you should wrap the path in quotes.
 
-Example for `C1_M1_Lab_1_simple_nn` you will `%cd` in the following way:
+Example for `lab1_simple_nn` you will `%cd` in the following way:
 
 ```sh
-%cd "/content/W4_DL/C1_M1_Getting_Started/C1_M1_Lab_1_simple_nn"
+%cd "/content/W4_DL/modules/M1/ch1_intro/lab1_simple_nn"
 ```
 
 To confirm you are in the correct directory run:
@@ -45,7 +45,7 @@ To confirm you are in the correct directory run:
 
 You should see:
 
-- `C1_M1_Lab_1_simple_nn.ipynb`
+- `lab1_simple_nn.ipynb`
 - `helper_utils.py`
 
 ## Optional: Working from inside VS Code instead of the Colab Notebook
