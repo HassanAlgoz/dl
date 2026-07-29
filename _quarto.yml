@@ -7,17 +7,7 @@ project:
     port: 4200
 
 website:
-  title: "Week 4: Deep Learning"
-  navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - href: lab_setup.qmd
-        text: Lab Setup
-      - href: student_notes.qmd
-        text: Student Notes
-      - href: trainer_notes.qmd
-        text: Trainer Notes
+  title: "Deep Learning with PyTorch"
 
 format:
   html:
@@ -29,6 +19,10 @@ format:
     width: 1600
     height: 900
     slide-number: true
+    chalkboard: true
+    controls: true
+    hash-type: number
+    history: false
     include-after-body:
       - text: |
           <a class="slide-home" href="../../../index.html" title="Back to course index" aria-label="Back to course index">⌂</a>

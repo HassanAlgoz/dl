@@ -50,6 +50,18 @@
   text-decoration: none;
 }
 
+/* Hide home control in Reveal print / PDF export mode. */
+html.print-pdf .slide-home,
+body.print-pdf .slide-home {
+  display: none !important;
+}
+
+@media print {
+  .slide-home {
+    display: none !important;
+  }
+}
+
 /* Keep figure captions aligned with centered images (Quarto defaults captions left). */
 .reveal img.quarto-figure-center + p.caption,
 .reveal .quarto-figure-center figcaption,
