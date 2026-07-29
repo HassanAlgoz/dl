@@ -1,5 +1,7 @@
 ---
 title: "Module 2 - Session 4: Training and Evaluating Your Classifier"
+author: "Hassan Algoz"
+date: "2026-07-29"
 format: revealjs
 ---
 

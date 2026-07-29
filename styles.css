@@ -24,41 +24,162 @@
   background-color: var(--w4-code-block-bg) !important;
 }
 
-/* Fixed home control on reveal slides → course index */
-.slide-home {
+/* Presenter chrome: top breadcrumb + bottom metadata banners */
+.slide-chrome-top,
+.slide-chrome-bottom {
   position: fixed;
-  top: 0.85rem;
-  left: 1rem;
+  left: 0;
+  right: 0;
   z-index: 40;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.78rem;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+  color: #2a2a2a;
+  background: rgba(248, 248, 248, 0.96);
+  border-color: rgba(0, 0, 0, 0.1);
+  pointer-events: auto;
+}
+
+.slide-chrome-top {
+  top: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.slide-chrome-bottom {
+  bottom: 0;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.slide-chrome-crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.45rem;
+  min-width: 0;
+}
+
+.slide-chrome-sep {
+  color: rgba(0, 0, 0, 0.35);
+  user-select: none;
+}
+
+.slide-chrome-home,
+.slide-chrome-link,
+.slide-chrome-label {
+  color: inherit;
+  text-decoration: none;
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: default;
+  max-width: 28rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+a.slide-chrome-home,
+a.slide-chrome-link,
+button.slide-chrome-link {
+  cursor: pointer;
+}
+
+a.slide-chrome-home:hover,
+a.slide-chrome-link:hover,
+button.slide-chrome-link:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+.slide-chrome-home {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.25rem;
-  height: 2.25rem;
-  border-radius: 0.4rem;
-  background: rgba(0, 0, 0, 0.08);
-  color: #333;
-  font-size: 1.35rem;
+  width: 1.35rem;
+  font-size: 1rem;
   line-height: 1;
-  text-decoration: none;
-  transition: background 0.15s ease, color 0.15s ease;
 }
 
-.slide-home:hover {
-  background: rgba(0, 0, 0, 0.16);
-  color: #000;
-  text-decoration: none;
+.slide-chrome-meta {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-/* Hide home control in Reveal print / PDF export mode. */
-html.print-pdf .slide-home,
-body.print-pdf .slide-home {
+.slide-chrome-author {
+  flex: 1 1 0;
+  text-align: left;
+}
+
+.slide-chrome-course {
+  flex: 1.4 1 0;
+  text-align: center;
+  font-weight: 600;
+}
+
+.slide-chrome-date {
+  flex: 1 1 0;
+  text-align: center;
+}
+
+.slide-chrome-slides {
+  flex: 0 0 auto;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  min-width: 4.5rem;
+}
+
+/* In PDF/print layout, hide the viewport-fixed chrome; per-page clones live inside .pdf-page. */
+html.print-pdf .slide-chrome-global,
+html.reveal-print .slide-chrome-global,
+body.print-pdf .slide-chrome-global {
   display: none !important;
 }
 
+html.print-pdf .pdf-page .slide-chrome-top,
+html.print-pdf .pdf-page .slide-chrome-bottom,
+html.reveal-print .pdf-page .slide-chrome-top,
+html.reveal-print .pdf-page .slide-chrome-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  display: flex !important;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  background: #f8f8f8;
+}
+
+html.print-pdf .pdf-page .slide-chrome-top,
+html.reveal-print .pdf-page .slide-chrome-top {
+  top: 0;
+  bottom: auto;
+}
+
+html.print-pdf .pdf-page .slide-chrome-bottom,
+html.reveal-print .pdf-page .slide-chrome-bottom {
+  bottom: 0;
+  top: auto;
+}
+
 @media print {
-  .slide-home {
+  .slide-chrome-global {
     display: none !important;
+  }
+
+  .pdf-page .slide-chrome-top,
+  .pdf-page .slide-chrome-bottom {
+    display: flex !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 }
 

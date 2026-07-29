@@ -1,12 +1,14 @@
 ---
 title: "Introduction to Deep Learning"
 subtitle: "Distinguish between Deep Learning and Machine Learning"
+author: "Hassan Algoz"
+date: "2026-07-29"
 format: revealjs
 ---
 
 ## Module Overview
 
-1. Introduction to Deep Learning
+1. **Introduction to Deep Learning**
 2. Build Neural Networks in PyTorch
 3. Activation Functions
 4. Working with Tensors

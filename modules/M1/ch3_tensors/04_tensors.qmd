@@ -1,5 +1,7 @@
 ---
 title: "Module 1 - Session 4: Working with Tensors"
+author: "Hassan Algoz"
+date: "2026-07-29"
 format: revealjs
 ---
 

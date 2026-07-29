@@ -7,7 +7,7 @@ format: html
 
 Since CPUs are not enough for Deep Learning models; we'll need a GPU. For, that we'll need Google Colab. Understanding the client-server interaction is crucial for working with such remote code execution environments (here shown as Jupyter Server).
 
-![](./assets/jupyter-server.png){fig-align="center"}
+![](../assets/jupyter-server.png){fig-align="center"}
 
 The image above shows how we interact with remote servers, such as Google Colab, to run our code:
 
