@@ -304,10 +304,8 @@ import torch.optim as optim  # training tools
 These imports give you PyTorch's core functionality. `torch` provides the fundamental operations, `nn` (neural networks) gives you components for building models, and `optim` provides tools for training these networks. These three modules cover most of what you'll need for building and training models.
 :::
 
-## Tensors
+## Tensors {auto-animate=true}
 
-:::: {.columns}
-::: {.column width="45%"}
 Table of inputs and outputs:
 
 | Distance (miles) | Time (minutes) |
@@ -316,27 +314,62 @@ Table of inputs and outputs:
 | 3.0              | 15.3           |
 | 4.0              | 18.8           |
 | 5.0              | 22.2           |
-:::
 
-::: {.column width="55%"}
-
-::: {.fragment}
 **Tensors** are just n-dimensional arrays:
 
-```python
+```{.python code-line-numbers="false"}
+distances = torch.tensor(...)
+
+times = torch.tensor(...)
+```
+
+## Tensors {auto-animate=true}
+
+**Tensors** are just n-dimensional arrays:
+
+```{.python code-line-numbers="false"}
 distances = torch.tensor(
-    [[2.0], [3.0], [4.0], [5.0]],
+    [2.0, 3.0, 4.0, 5.0],
+)
+
+times = torch.tensor(
+    [11.9, 15.3, 18.8, 22.2],
+)
+```
+
+## Tensors {auto-animate=true}
+
+**Tensors** are just n-dimensional arrays:
+
+```{.python code-line-numbers="false"}
+distances = torch.tensor(
+    [2.0, 3.0, 4.0, 5.0],
     dtype=torch.float32,
 )
 
 times = torch.tensor(
-    [[11.9], [15.3], [18.8], [22.2]],
+    [11.9, 15.3, 18.8, 22.2],
     dtype=torch.float32,
 )
 ```
-:::
-:::
-::::
+
+## Tensors {auto-animate=true}
+
+**Tensors** are just n-dimensional arrays:
+
+```{.python code-line-numbers="false"}
+distances = torch.tensor(
+    [  # batch dimension
+        [2.0], [3.0], [4.0], [5.0],
+    ], dtype=torch.float32,
+)
+
+times = torch.tensor(
+    [  # batch dimension
+        [11.9], [15.3], [18.8], [22.2],
+    ], dtype=torch.float32,
+)
+```
 
 ::: {.notes}
 In real projects, data ingestion and preparation are separate steps. First you gather messy data, then you clean and format it. But for this example, I've combined those stages and provided data that's already clean and ready to use.
@@ -350,7 +383,7 @@ Notice how each number is wrapped in its own set of brackets. These outer bracke
 
 :::: {.columns}
 ::: {.column width="45%"}
-![](../assets/single_neuron.png){fig-align="center" width="100%"}
+![Single Neuron](../assets/single_neuron.png){fig-align="center" width="100%"}
 :::
 
 ::: {.column width="55%"}
@@ -381,7 +414,7 @@ This neuron will learn the best weight and bias to map distances to delivery tim
 
 :::: {.columns}
 ::: {.column width="45%"}
-![](../assets/neuron_multi-input.png){fig-align="center" width="100%"}
+![Multi-input Neuron](../assets/neuron_multi-input.png){fig-align="center" width="100%"}
 :::
 
 ::: {.column width="55%"}
@@ -440,7 +473,7 @@ optimizer = optim.SGD(model.parameters(), lr=0.01)
 
 ## The Training Loop
 
-![](../assets/training_loop.png){fig-align="center" height=300}
+![Update neuron parameters from feedback](../assets/training_loop.png){fig-align="center" height=300}
 
 
 ::: {.fragment}
@@ -510,7 +543,7 @@ Speaking of building, that's exactly what's next. It's time to get hands-on and 
 
 ::: {.fragment}
 
-**Static Computational Graphs**
+**🗿 Static Computational Graphs**
 
 - Must define and compile everything upfront
 - No flexibility to change
@@ -525,7 +558,7 @@ Speaking of building, that's exactly what's next. It's time to get hands-on and 
 
 ::: {.fragment}
 
-**Dynamic Computation**
+**🐍 Dynamic Computation**
 
 - Write clean Pythonic code
 - Use normal loops and if statements
