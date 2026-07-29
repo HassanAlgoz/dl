@@ -49,3 +49,11 @@
   color: #000;
   text-decoration: none;
 }
+
+/* Keep figure captions aligned with centered images (Quarto defaults captions left). */
+.reveal img.quarto-figure-center + p.caption,
+.reveal .quarto-figure-center figcaption,
+.quarto-figure.quarto-figure-center > figcaption,
+.quarto-figure.quarto-figure-center > p.caption {
+  text-align: center;
+}
