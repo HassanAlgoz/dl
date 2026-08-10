@@ -294,8 +294,6 @@ Same idea as the single-neuron model, but now each sample has three inputs. `nn.
 A **Loss Function** estimates how far off model predictions are from the true data.
 
 ::: {.fragment}
-If you predict 45 minutes when it actually took 60, that's a bigger error than predicting 58 minutes.
-
 To "learn" is to minimize this loss.
 :::
 
@@ -326,16 +324,17 @@ MSE averages the squared differences between true values and predictions. Squari
 
 The **Optimizer** is the algorithm that figures out which direction to adjust your weight and bias to reduce that error.
 
+::: {.fragment}
 _SGD (Stochastic Gradient Descent)_ is one such method.
+:::
 
+::: {.fragment}
 ```python
-optimizer = optim.SGD(model.parameters(), lr=0.01)
+optimizer = optim.SGD(
+    model.parameters(), # model's weights and biases
+    lr=0.01             # learning rate (step size)
+)
 ```
-
-::: {.incremental}
-- `model.parameters()` is how you access the model's weights and biases in PyTorch.
-- `lr` (**learning rate**): a hyper-parameter of SGD that controls the step size
-- Try `0.1`, `0.01`, and `0.001` in the lab — watch how the loss decreases for each
 :::
 
 ::: {.notes}
@@ -383,8 +382,8 @@ Let's break down each line: `optimizer.zero_grad()` clears out all calculated va
 After training, you can read what the model learned:
 
 ```python
-print(model.weight)  # learned slope(s)
-print(model.bias)    # learned intercept
+print(model.weight)
+print(model.bias)
 ```
 
 ::: {.fragment}

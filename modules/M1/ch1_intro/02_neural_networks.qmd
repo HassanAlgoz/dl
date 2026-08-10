@@ -129,7 +129,7 @@ This animation shows the learning loop in action. The orange line is the neuron'
 
 ## Why To Use Batches
 
-{{< video https://www.youtube.com/embed/s164HyJuL94 height="65%" width="80%" >}}
+{{< video https://www.youtube.com/embed/s164HyJuL94 height="40%" width="60%" >}}
 
 Depcits training on batch sizes: 1, 4, 16, 32.
 
@@ -170,7 +170,7 @@ A neuron with multiple inputs just extends the same pattern. It's still a linear
 
 ## Animated: Single Neuron Multiple Inputs
 
-{{< video https://www.youtube.com/embed/vbeanwfm0Q4 height="65%" width="80%" >}}
+{{< video https://www.youtube.com/embed/vbeanwfm0Q4 height="40%" width="60%" >}}
 
 A visual representation of a single neuron with 3 inputs within a neural network, showing both how this might fit into a larger neural network as well as the actual atomic calcuations for the indvidual neuron: **inputs $\times$ weights $+$ bias**.
 
@@ -228,13 +228,13 @@ $$
 
 ## How a matrix product is calculated
 
-{{< video https://www.youtube.com/embed/KBPvlUp-m5Y height="65%" width="80%" >}}
+{{< video https://www.youtube.com/embed/KBPvlUp-m5Y height="40%" width="60%" >}}
 
 A visualization that shows the atomic operations that make up a matrix product of 2 matrices
 
 ## Animated: Neuron Dot Product
 
-{{< video https://www.youtube.com/embed/7ReqEO4U7Lc height="65%" width="80%" >}}
+{{< video https://www.youtube.com/embed/7ReqEO4U7Lc height="40%" width="60%" >}}
 
 Visualizing how the dot product is used for multiplying weights and inputs within **a single neuron** in a neural network, and the atomic operations that take place for this calculation.
 
@@ -263,15 +263,19 @@ Soon, you'll see how easy it is to stack these layers together in PyTorch. But f
 
 ## Animated: Layer Dot Product
 
-{{< video https://www.youtube.com/embed/Fhbcl0grca8 height="65%" width="80%" >}}
+{{< video https://www.youtube.com/embed/Fhbcl0grca8 height="40%" width="60%" >}}
 
 Depicting how the dot product fits in to the calculation of inputs, weights, and biases for **an entire layer** of neurons in a neural network.
 
 ## Animated: Visualizing Neural Networks Sizes
 
-{{< video https://www.youtube.com/embed/vbeanwfm0Q4 height="65%" width="80%" >}}
+{{< video https://www.youtube.com/embed/Ls1dJqZtI7w height="40%" width="60%" >}}
 
 A visualization of various sizes of neural networks, meant to show how the sheer volume of trainable parameters can increase quite quickly as you add more neurons per layer.
+
+## Meme: Matrix Multiplications
+
+![](../assets/meme_its_all_matrix_mult.png){fig-align="center" height="640"}
 
 ## Activation Function
 
@@ -290,7 +294,7 @@ An **activation function** is a non-linear transformation. They add curvature to
 
 ## Weights & Bias and ReLU Activation
 
-{{< video https://www.youtube.com/embed/SRAFVJ5UbB0 height="65%" width="80%" >}}
+{{< video https://www.youtube.com/embed/SRAFVJ5UbB0 height="40%" width="60%" >}}
 
 This animation depicts the two types of learnable parameters for a neural network, the weight and bias, as well as how each impacts the output of a single neuron.
 
@@ -309,7 +313,7 @@ Each neuron learns:
 
 ## Animated: 2 Layers with Activations
 
-{{< video https://www.youtube.com/embed/joA6fEAbAQc height="65%" width="80%" >}}
+{{< video https://www.youtube.com/embed/joA6fEAbAQc height="40%" width="60%" >}}
 
 Why & how two or more hidden layers w/ nonlinear activation function works deep learning.
 
@@ -332,6 +336,8 @@ Why & how two or more hidden layers w/ nonlinear activation function works deep 
 
 ## Playground
 
+![](../assets/tensorflow_playground.png){fig-align="center" width=50%}
+
 Tinker With a Neural Network in Your Browser. Don’t Worry, You Can’t Break It:
 
-https://playground.tensorflow.org/
+[https://playground.tensorflow.org/](https://playground.tensorflow.org/)

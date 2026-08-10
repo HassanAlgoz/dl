@@ -92,3 +92,6 @@ raw/
 !.env.example
 
 cifar-100-python.tar.gz
+
+old_course/
+modules/**/*.pdf
