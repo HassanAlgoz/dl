@@ -16,6 +16,7 @@ project:
 
 website:
   title: "Deep Learning with PyTorch"
+  site-url: https://hassanalgoz.github.io/dl/
 
 format:
   html:
@@ -34,4 +35,17 @@ format:
     date-format: "YYYY-MM-DD"
     include-after-body:
       - text: |
-          <script src="/slide-chrome.js"></script>
+          <script>
+          (() => {
+            const path = location.pathname || "/";
+            const m = path.match(/^(.*?\/)(?:modules|docs)\//);
+            const root = m
+              ? m[1]
+              : path.endsWith("/")
+                ? path
+                : path.replace(/\/[^/]*$/, "/");
+            const s = document.createElement("script");
+            s.src = root + "slide-chrome.js";
+            document.body.appendChild(s);
+          })();
+          </script>

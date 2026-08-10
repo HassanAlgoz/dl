@@ -1,6 +1,14 @@
 (() => {
   const COURSE = "Deep Learning with PyTorch";
-  const INDEX = "/index.html";
+
+  function siteRoot() {
+    const path = location.pathname || "/";
+    const marker = path.match(/^(.*?\/)(?:modules|docs)\//);
+    if (marker) return marker[1];
+    return path.endsWith("/") ? path : path.replace(/\/[^/]*$/, "/");
+  }
+
+  const INDEX = siteRoot() + "index.html";
 
   function isPrintPdf() {
     return (
