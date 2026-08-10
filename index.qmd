@@ -15,39 +15,12 @@ format: html
 ## Module 1: PyTorch Fundamentals {#module-1}
 
 1. [Introduction to Deep Learning](modules/M1/ch1_intro/01_intro_deep_learning.qmd)
-2. [Build Neural Networks in PyTorch](modules/M1/ch1_intro/02_neural_networks.qmd)
+2. [Neural Networks](modules/M1/ch1_intro/02_neural_networks.qmd)
+3. [Introduction to PyTorch](modules/M1/ch1_intro/03_pytorch.qmd)
      - [Building a Simple Neural Network](https://colab.research.google.com/github/HassanAlgoz/learn-pytorch/blob/main/modules/M1/ch1_intro/lab1_simple_nn/lab1_simple_nn.ipynb)
-3. [Module 1 - Session 3: Activation Functions](modules/M1/ch2_activations/03_activations.qmd)
      - [Modeling Non-Linear Patterns with Activation Functions](https://colab.research.google.com/github/HassanAlgoz/learn-pytorch/blob/main/modules/M1/ch2_activations/lab2_activation_functions/lab2_activation_functions.ipynb)
-4. [Module 1 - Session 4: Working with Tensors](modules/M1/ch3_tensors/04_tensors.qmd)
-     - [Tensors: The Core of PyTorch](https://colab.research.google.com/github/HassanAlgoz/learn-pytorch/blob/main/modules/M1/ch3_tensors/lab3_tensors/lab3_tensors.ipynb)
-
-Assignment:
-
-- [Programming Assignment: Deeper Regression, Smarter Features](modules/M1/assignment/assignment.ipynb)
-
-## Module 2: Image Classification with PyTorch {#module-2}
-
-- [Module 2 - Session 1: Data and Model Building](modules/M2/ch1_data_model/session1.qmd)
-- [Module 2 - Session 2: Loss Functions and Optimizers](modules/M2/ch2_loss_optimizers/session2.qmd)
-- [Module 2 - Session 3: Device Management and Image Classification Setup](modules/M2/ch3_device_setup/session3.qmd)
-- [Module 2 - Session 4: Training and Evaluating Your Classifier](modules/M2/ch4_training/session4.qmd)
-- [Building Your First Image Classifier](modules/M2/ch4_training/lab1_mnist_classifier/lab1_mnist_classifier.ipynb)
-- [Programming Assignment: EMNIST Letter Detective](modules/M2/assignment/assignment.ipynb)
-
-## Module 3: Data Management {#module-3}
-
-- [Data Management](modules/M3/ch1_data_management/lab1_data_management/lab1_data_management.ipynb)
-- [Programming Assignment: Building a Robust Data Pipeline](modules/M3/assignment/assignment.ipynb)
-
-## Module 4: Core Neural Network Components {#module-4}
-
-- [Module 4 - Session 1: Convolutional Neural Networks](modules/M4/ch1_cnn/session1.qmd)
-- [Module 4 - Session 1.5: Transfer Learning](modules/M4/ch2_transfer/session_transfer_learning.qmd)
-- [Module 4 - Session 2: PyTorch Techniques and Model Inspection](modules/M4/ch3_techniques/session2.qmd)
-- [Building a CNN for Nature Classification](modules/M4/ch1_cnn/lab1_cnn_nature_classifier/lab1_cnn_nature_classifier.ipynb)
-- [Model Debugging, Inspection, and Modularization](modules/M4/ch3_techniques/lab3_debugging/lab3_debugging.ipynb)
-- [Programming Assignment - Overcoming Overfitting: Building a Robust CNN](modules/M4/assignment/assignment.ipynb)
+4. [Tensors Lab](https://colab.research.google.com/github/HassanAlgoz/learn-pytorch/blob/main/modules/M1/ch3_tensors/lab3_tensors.ipynb)
+   1. [Tensors Exercises](https://colab.research.google.com/github/HassanAlgoz/learn-pytorch/blob/main/modules/M1/ch3_tensors/lab3_tensors/lab3_tensors_exercises.ipynb)
 
 # Notes
 

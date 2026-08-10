@@ -1,8 +1,5 @@
 ---
 title: "Introduction to Deep Learning"
-subtitle: "Distinguish between Deep Learning and Machine Learning"
-author: "Hassan Algoz"
-date: "2026-07-29"
 format: revealjs
 ---
 

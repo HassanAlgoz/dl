@@ -1,7 +1,5 @@
 ---
 title: "Build Neural Networks in PyTorch"
-author: "Hassan Algoz"
-date: "2026-07-29"
 format: revealjs
 ---
 
@@ -38,6 +36,51 @@ Machine learning researchers love PyTorch. For years it has been the most used d
 PyTorch also takes care of GPU acceleration behind the scenes, so you can focus on manipulating data and writing algorithms while it keeps things fast.
 
 And if companies like Tesla and Meta use it to power hundreds of applications, drive thousands of cars, and deliver content to billions of people, it's clearly capable on the production side too.
+:::
+
+## Early Frameworks vs. PyTorch
+
+::::: {.columns}
+:::: {.column width="50%"}
+
+::: {.fragment}
+
+**🗿 Static Computational Graphs**
+
+- Must define and compile everything upfront
+- No flexibility to change
+- Cryptic error messages
+- No standard Python debugging
+
+:::
+
+::::
+
+:::: {.column width="50%"}
+
+::: {.fragment}
+
+**🐍 Dynamic Computation**
+
+- Write clean Pythonic code
+- Use normal loops and if statements
+- Change anything, anytime
+- Error messages point to your code
+- Standard Python debugging
+
+:::
+
+::::
+:::::
+
+::: {.notes}
+Early deep learning frameworks used something called static computational graphs. Think of it like a factory assembly line - you had to design the entire production process before you could run anything. If you made a mistake or wanted to experiment, you had to stop everything, tear it down, and rebuild from scratch.
+
+This made even simple operations complex. You couldn't use normal Python if statements or loops. Error messages pointed to internal system code, not your actual mistakes. People spent more time fighting their tools than doing actual work.
+
+PyTorch emerged from researchers' frustration with these limitations. The core principle: deep learning should feel like normal Python. You write clean code, and PyTorch handles the computational complexity behind the scenes.
+
+This approach made PyTorch incredibly popular, especially in research where experimentation and flexibility are crucial. Today, it's backed by a massive community and has become the go-to choice for everyone from students to cutting-edge AI researchers.
 :::
 
 ## Simple. Pythonic. Powerful.
@@ -199,6 +242,25 @@ Here, you're only using one layer - your single neuron. It's technically a linea
 This neuron will learn the best weight and bias to map distances to delivery times, just like finding the best-fitting line through all your data points.
 :::
 
+## Inside `nn.Linear(1, 1)`
+
+`nn.Linear(1, 1)` creates a learnable linear layer with 1 input feature and 1 output feature.
+
+::: {.fragment}
+Internally, PyTorch creates:
+
+- a weight matrix $W$ with shape `(1, 1)`
+- a bias shaped `(1)`
+:::
+
+::: {.fragment}
+The weight and bias start **random** — gradient descent will learn them.
+:::
+
+::: {.notes}
+Under the hood, `nn.Linear(1, 1)` is just that linear equation we already know: one weight and one bias. PyTorch initializes them randomly, then training updates them so the line fits the delivery data.
+:::
+
 ## Multi-variable Regression Neuron Model in PyTorch
 
 :::: {.columns}
@@ -217,10 +279,19 @@ model = nn.Sequential(
 :::
 ::::
 
+::: {.fragment}
+- First argument = number of **input features** (here: 3)
+- Second argument = number of **output neurons** (here: 1)
+- The model learns **one weight per feature** plus a bias
+:::
+
+::: {.notes}
+Same idea as the single-neuron model, but now each sample has three inputs. `nn.Linear(3, 1)` learns three weights and one bias — one weight for each input feature. Change the first number whenever your feature count changes.
+:::
 
 ## Loss Function
 
-A **Loss Functions** estimates how far off model predictions are from the true data.
+A **Loss Function** estimates how far off model predictions are from the true data.
 
 ::: {.fragment}
 If you predict 45 minutes when it actually took 60, that's a bigger error than predicting 58 minutes.
@@ -231,6 +302,15 @@ To "learn" is to minimize this loss.
 ::: {.fragment}
 For Regression we use $MSE$ (Mean Squared Error):
 
+$$
+\text{MSE} = \frac{1}{n}\sum_{i=1}^{n}(y_i - \hat{y}_i)^2
+$$
+
+- $y_i$: true value &nbsp;&nbsp; $\hat{y}_i$: prediction
+- Squaring penalizes large errors more
+:::
+
+::: {.fragment}
 ```python
 loss_function = nn.MSELoss()
 ```
@@ -239,7 +319,7 @@ loss_function = nn.MSELoss()
 ::: {.notes}
 Your model needs two tools to actually learn. The first is the loss function. We're using Mean Squared Error loss, which measures how wrong or how right your predictions are.
 
-MSE captures this by squaring the differences, which makes bigger mistakes matter more. The goal is to minimize this loss - the lower the loss, the better your model.
+MSE averages the squared differences between true values and predictions. Squaring makes bigger mistakes matter more. The goal is to minimize this loss - the lower the loss, the better your model.
 :::
 
 ## Optimizer
@@ -255,10 +335,13 @@ optimizer = optim.SGD(model.parameters(), lr=0.01)
 ::: {.incremental}
 - `model.parameters()` is how you access the model's weights and biases in PyTorch.
 - `lr` (**learning rate**): a hyper-parameter of SGD that controls the step size
+- Try `0.1`, `0.01`, and `0.001` in the lab — watch how the loss decreases for each
 :::
 
 ::: {.notes}
 `lr` is the learning rate. Smaller values mean you adjust parameters by smaller amounts. Larger values mean bigger adjustments. Both extremes can have challenges - too small and training is slow, too large and you might overshoot the best values.
+
+In the lab, try different learning rates like 0.1, 0.01, and 0.001 and observe how the loss curve changes.
 :::
 
 ## The Training Loop
@@ -286,13 +369,30 @@ Each full pass through the training data is called an epoch. In each epoch, the 
 
 Let's break down each line: `optimizer.zero_grad()` clears out all calculated values from the previous training round. Without it, PyTorch would accumulate adjustments across rounds, which would mess up your learning.
 
-`outputs = model(distances)` tells the model to use the distance as inputs and make predictions.
+`outputs = model(distances)` tells the model to use the distance as inputs and make predictions — a forward pass.
 
 `loss = loss_function(outputs, times)` compares the predictions to the real times and calculates how wrong they are.
 
 `loss.backward()` figures out how to adjust the weight and bias to reduce that error. Just like when I said "I need a steeper slope," it's now done with calculus behind the scenes. The technical term is backpropagation.
 
 `optimizer.step()` makes all those adjustments. The model is now slightly better at predicting delivery times.
+:::
+
+## Inspect Trained Parameters
+
+After training, you can read what the model learned:
+
+```python
+print(model.weight)  # learned slope(s)
+print(model.bias)    # learned intercept
+```
+
+::: {.fragment}
+For a single-neuron delivery model, these are the slope and intercept of your best-fit line.
+:::
+
+::: {.notes}
+Once training finishes, the random starting weight and bias have been updated. Printing `model.weight` and `model.bias` shows the learned parameters — for regression, that's essentially the slope and intercept of the line the model fit.
 :::
 
 ## Inference (Prediction)
@@ -322,14 +422,103 @@ with torch.no_grad():
 Now that the model is trained, let's try making a prediction. The line with `torch.no_grad()` tells PyTorch that you're not training anymore, just doing inference. Training takes extra work under the hood, but for inference, we can skip all that and run much more efficiently.
 
 If the model learned what it was supposed to, it should give you a good answer. But you're going to have to try it out in the lab to see for yourself.
-
-Speaking of building, that's exactly what's next. It's time to get hands-on and see if your delivery job is still safe.
 :::
 
-## Lab 1: Building a Simple Neural Network
+## Classification Architecture
 
-> "What I hear, I forget. What I see, I remember. What I do, I understand."
+```python
+model = nn.Sequential(
+    nn.Linear(2, 4),  # hidden layer: 2 features → 4 neurons
+    nn.ReLU(),        # non-linearity → curved decision boundary
+    nn.Linear(4, 3)   # output: 1 neuron per class
+)
+```
 
-<a href="https://colab.research.google.com/github/HassanAlgoz/learn-pytorch/blob/main/modules/M1/ch1_intro/lab1_simple_nn/lab1_simple_nn.ipynb">
-  <img src="../../../assets/Open%20in%20Colab-F9AB00.svg" alt="Open in Colab" height="50"/>
-</a>
+::: {.incremental}
+- Hidden layer learns useful combinations of the 2 inputs
+- **ReLU** lets the model learn a **non-linear** decision boundary
+- Output layer has **3 logits** — one score per class
+:::
+
+::: {.notes}
+The architecture changes for classification. We stack a hidden linear layer, a ReLU activation, and an output layer with one neuron per class. ReLU is what lets the decision boundary bend instead of staying a straight line. The raw outputs are logits — scores that CrossEntropy will turn into probabilities.
+:::
+
+## Cross Entropy Loss
+
+For discrete labels we use **Cross Entropy**, not MSE:
+
+$$
+\hat{p}_c = \frac{e^{z_c}}{\sum_{j=1}^{C} e^{z_j}}
+\qquad
+\text{CE} = -\sum_{c=1}^{C} y_c \log(\hat{p}_c)
+$$
+
+::: {.fragment}
+- $z_c$: logits (raw model outputs)
+- $\hat{p}_c$: softmax probabilities
+- $y_c$: one-hot true class &nbsp;(equivalently: $-\log \hat{p}_{\text{true}}$)
+:::
+
+::: {.notes}
+Softmax turns logits into probabilities that sum to one. Cross Entropy then penalizes assigning low probability to the true class.
+:::
+
+## `nn.CrossEntropyLoss`
+
+```python
+loss_function = nn.CrossEntropyLoss()
+optimizer = optim.SGD(model.parameters(), lr=0.01)
+```
+
+::: {.fragment}
+`nn.CrossEntropyLoss` applies softmax **internally** — do not add a softmax layer before it.
+:::
+
+::: {.fragment}
+![Logits to softmax probabilities](../assets/logits_softmax.png){fig-align="center" height=350}
+:::
+
+::: {.notes}
+Because the target is a class index, we switch from MSE to Cross Entropy. In PyTorch, `nn.CrossEntropyLoss` includes the softmax, so your model should output raw logits. SGD still works as the optimizer.
+:::
+
+## Same Training Loop
+
+The training loop is unchanged — only the **model** and **loss** differ:
+
+```{.python code-line-numbers="1|2|3|4|5|6|1-6"}
+for epoch in range(100):
+    optimizer.zero_grad()
+    predictions = model(x)           # forward pass
+    loss = loss_function(predictions, y)
+    loss.backward()                  # backpropagation
+    optimizer.step()                 # update weights
+```
+
+::: {.fragment}
+`zero_grad` → forward → loss → `backward` → `step` — same recipe for regression and classification.
+:::
+
+::: {.notes}
+Training is the same process you already know. Each epoch zeros gradients, runs a forward pass, computes the loss, backpropagates, and takes an optimizer step. Swap in the classification model and CrossEntropyLoss, and the loop still works.
+:::
+
+## Decision Boundaries
+
+After training, visualize what the classifier learned by predicting on a grid:
+
+```python
+with torch.no_grad():
+    logits = model(grid)
+    preds = logits.argmax(dim=1)  # class with highest score
+# plot regions with contourf + scatter of training points
+```
+
+::: {.fragment}
+You'll build and compare these plots in the lab (e.g. more hidden neurons, different activations).
+:::
+
+::: {.notes}
+A decision boundary plot colors the plane by the predicted class. Build a grid of points, run them through the model without gradients, take argmax over logits, and overlay the training points. In the lab you can try wider hidden layers or Tanh instead of ReLU and compare the shapes of the boundaries.
+:::
