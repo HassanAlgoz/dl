@@ -15,7 +15,7 @@ format: html
 ## Module 1: PyTorch Fundamentals {#module-1}
 
 1. [Introduction to Deep Learning](modules/M1/ch1_intro/01_intro_deep_learning.qmd)
-2. [Build Neural Networks in PyTorch](modules/M1/ch1_intro/02_neural_networks_in_pytorch.qmd)
+2. [Build Neural Networks in PyTorch](modules/M1/ch1_intro/02_neural_networks.qmd)
      - [Building a Simple Neural Network](https://colab.research.google.com/github/HassanAlgoz/learn-pytorch/blob/main/modules/M1/ch1_intro/lab1_simple_nn/lab1_simple_nn.ipynb)
 3. [Module 1 - Session 3: Activation Functions](modules/M1/ch2_activations/03_activations.qmd)
      - [Modeling Non-Linear Patterns with Activation Functions](https://colab.research.google.com/github/HassanAlgoz/learn-pytorch/blob/main/modules/M1/ch2_activations/lab2_activation_functions/lab2_activation_functions.ipynb)
