@@ -1,0 +1,192 @@
+/* css styles */
+
+:root {
+  --r-block-code-font-size: 2rem;
+  --w4-code-block-bg: #fcfcfc;
+}
+
+/* Make inline code stand out without affecting fenced code blocks. */
+:not(pre) > code {
+  background-color: rgba(120, 120, 120, 0.14);
+  border: 1px solid rgba(120, 120, 120, 0.18);
+  border-radius: 0.3rem;
+  padding: 0.12rem 0.35rem;
+}
+
+/* Slightly increase fenced code block readability. */
+.reveal pre,
+.reveal pre code {
+  font-size: var(--r-block-code-font-size);
+}
+
+.reveal div.sourceCode,
+.reveal pre.sourceCode {
+  background-color: var(--w4-code-block-bg) !important;
+}
+
+/* Presenter chrome: top breadcrumb + bottom metadata banners */
+.slide-chrome-top,
+.slide-chrome-bottom {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.78rem;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+  color: #2a2a2a;
+  background: rgba(248, 248, 248, 0.96);
+  border-color: rgba(0, 0, 0, 0.1);
+  pointer-events: auto;
+}
+
+.slide-chrome-top {
+  top: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.slide-chrome-bottom {
+  bottom: 0;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.slide-chrome-crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.45rem;
+  min-width: 0;
+}
+
+.slide-chrome-sep {
+  color: rgba(0, 0, 0, 0.35);
+  user-select: none;
+}
+
+.slide-chrome-home,
+.slide-chrome-link,
+.slide-chrome-label {
+  color: inherit;
+  text-decoration: none;
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: default;
+  max-width: 28rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+a.slide-chrome-home,
+a.slide-chrome-link,
+button.slide-chrome-link {
+  cursor: pointer;
+}
+
+a.slide-chrome-home:hover,
+a.slide-chrome-link:hover,
+button.slide-chrome-link:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+.slide-chrome-home {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.35rem;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.slide-chrome-meta {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.slide-chrome-author {
+  flex: 1 1 0;
+  text-align: left;
+}
+
+.slide-chrome-course {
+  flex: 1.4 1 0;
+  text-align: center;
+  font-weight: 600;
+}
+
+.slide-chrome-date {
+  flex: 1 1 0;
+  text-align: center;
+}
+
+.slide-chrome-slides {
+  flex: 0 0 auto;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  min-width: 4.5rem;
+}
+
+/* In PDF/print layout, hide the viewport-fixed chrome; per-page clones live inside .pdf-page. */
+html.print-pdf .slide-chrome-global,
+html.reveal-print .slide-chrome-global,
+body.print-pdf .slide-chrome-global {
+  display: none !important;
+}
+
+html.print-pdf .pdf-page .slide-chrome-top,
+html.print-pdf .pdf-page .slide-chrome-bottom,
+html.reveal-print .pdf-page .slide-chrome-top,
+html.reveal-print .pdf-page .slide-chrome-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  display: flex !important;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  background: #f8f8f8;
+}
+
+html.print-pdf .pdf-page .slide-chrome-top,
+html.reveal-print .pdf-page .slide-chrome-top {
+  top: 0;
+  bottom: auto;
+}
+
+html.print-pdf .pdf-page .slide-chrome-bottom,
+html.reveal-print .pdf-page .slide-chrome-bottom {
+  bottom: 0;
+  top: auto;
+}
+
+@media print {
+  .slide-chrome-global {
+    display: none !important;
+  }
+
+  .pdf-page .slide-chrome-top,
+  .pdf-page .slide-chrome-bottom {
+    display: flex !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+/* Keep figure captions aligned with centered images (Quarto defaults captions left). */
+.reveal img.quarto-figure-center + p.caption,
+.reveal .quarto-figure-center figcaption,
+.quarto-figure.quarto-figure-center > figcaption,
+.quarto-figure.quarto-figure-center > p.caption {
+  text-align: center;
+}

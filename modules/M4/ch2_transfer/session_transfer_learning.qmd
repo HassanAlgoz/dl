@@ -1,0 +1,98 @@
+---
+title: "Module 4 - Session 1.5: Transfer Learning"
+author: "Hassan Algoz"
+date: "2026-07-29"
+format: revealjs
+---
+
+## What is Transfer Learning?
+
+**Standing on the Shoulders of Giants**
+
+- Start with a model pre-trained on a massive dataset (vs. random weights)
+- **Goal**: Apply learned visual features to a new problem
+
+**Two key approaches:**
+
+1.  **Feature Extraction**: Find patterns, train only the classifier
+2.  **Fine-Tuning**: Adjust valid weights to fit specific task
+
+::: {.notes}
+Imagine you want to learn to play the electric guitar. You don't start by trying to understand the physics of sound waves or how to build a guitar from wood. You start with the skills you might have from playing the acoustic guitar or even just general musical knowledge.
+
+Transfer learning is the same. We take a model that has already learned to "see" the world (detect edges, shapes, textures) and apply that knowledge to our specific problem.
+:::
+
+## The Power of ImageNet
+
+**The "University" for Computer Vision Models**
+
+**Dataset Stats:**
+
+-  **14 Million+** Images and **1,000** Categories
+
+**Why it matters:**
+
+-  Models learn universal visual features (edges, textures, shapes)
+-  These features transfer to *your* specific problem
+-  Even transfers to different domains (e.g. medical imaging)
+
+::: {.notes}
+ImageNet is like the standard curriculum for computer vision. Models trained on it have seen more images than you likely ever will. They know what a "curve" looks like, what "fur" looks like, what "metal" looks like. Even if your dataset is medical X-rays (which aren't in ImageNet), the low-level features (edges, gradients) are still transferable.
+:::
+
+## Why Use Transfer Learning?
+
+1.  **Less Data Required**: You don't need millions of images; hundreds or thousands can suffice.
+2.  **Faster Training**: The model already knows how to "see"; it just needs to learn your specific classes.
+3.  **Better Performance**: Starting with good weights usually leads to higher accuracy than starting from scratch.
+
+## PyTorch Implementation
+
+**Step 1: Load a Pre-trained Model**
+
+```python
+from torchvision import models
+
+# Load ResNet18 with default (ImageNet) weights
+model = models.resnet18(weights='DEFAULT')
+```
+
+**Step 2: Freeze the Feature Extractor**
+
+```python
+# Prevent backprop through these layers
+for param in model.parameters():
+    param.requires_grad = False
+```
+
+::: {.notes}
+We freeze the parameters (weights) so that we don't destroy the pre-trained knowledge during the initial training phase. We want those "feature detector" layers to stay exactly as they are.
+:::
+
+## PyTorch Implementation (Continued)
+
+**Step 3: Replace the "Head" (Output Layer)**
+
+The original ResNet output 1000 classes. We need it to output *our* number of classes (e.g., 2).
+
+```python
+# Check input size of the final layer
+num_ftrs = model.fc.in_features 
+
+# Create a new linear layer for our specific problem
+model.fc = nn.Linear(num_ftrs, 2) 
+```
+
+Now, only `model.fc` has `requires_grad=True` by default.
+
+::: {.notes}
+This is the surgery part. We cut off the original head (which predicted 1000 ImageNet classes) and stitch on a new one tailored to our problem. When we train, only this new head gets updated.
+:::
+
+## Summary
+
+-   **Don't reinvent the wheel**: Use pre-trained models.
+-   **ImageNet**: The massive dataset that gives models their "vision".
+-   **Workflow**: Load Model $\rightarrow$ Freeze Parameters $\rightarrow$ Replace Head $\rightarrow$ Train.
+
