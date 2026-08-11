@@ -21,12 +21,12 @@ format: html
 
 ### Deep Learning: Intro to Building NNs with PyTorch
 
-1. [Quick Review of Gradient Descent](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M2/01-gradient-descent-walkthrough/01-gradient-descent-walkthrough.ipynb)
-   - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M2/01-gradient-descent-walkthrough/01-gradient-descent-walkthrough_exercise.ipynb)
-2. [Build Simple NN Models](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M2/02-feedforward-models/02-feedforward-models.ipynb)
-   - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M2/02-feedforward-models/02-feedforward-models_exercise.ipynb)
-3. [Neural Nets Practice](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M2/03-nn-modules/03-nn-modules.ipynb)
-   - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M2/03-nn-modules/03-nn-modules_exercise.ipynb)
+1. [Quick Review of Gradient Descent](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M2/01-gradient-descent-walkthrough/01_gradient_descent_walkthrough.ipynb)
+   - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M2/01-gradient-descent-walkthrough/01_gradient_descent_walkthrough_exercise.ipynb)
+2. [Build Simple NN Models](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M2/02-feedforward-models/02_feedforward_models.ipynb)
+   - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M2/02-feedforward-models/02_feedforward_models_exercise.ipynb)
+3. [Neural Nets Practice](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M2/03-nn-modules/03_nn_modules.ipynb)
+   - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M2/03-nn-modules/03_nn_modules_exercise.ipynb)
 4. [Optimization](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M2/04-optimization/04-optimization.ipynb)
    - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M2/04-optimization/04-optimization_exercise.ipynb)
 
@@ -34,7 +34,7 @@ format: html
 
 1. [Text Frequency Features](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M3/02-text-frequency/text-frequency.ipynb)
    - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M3/02-text-frequency/text-frequency_exercise.ipynb)
-2. [Text Embeddings: Word2Vec and BERT](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M3/03-embeddings/text-embeddings.ipynb)
-   - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M3/03-embeddings/text-embeddings_exercise.ipynb)
+2. [Text Embeddings: Word2Vec and BERT](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M3/03-embeddings/text_embeddings.ipynb)
+   - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M3/03-embeddings/text_embeddings_exercise.ipynb)
 3. [Build a Sentiment Analysis Classifier](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M3/04-text-classifier/text-classifier.ipynb)
    - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M3/04-text-classifier/text-classifier_exercise.ipynb)
