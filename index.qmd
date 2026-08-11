@@ -3,6 +3,10 @@ title: "Deep Learning"
 format: html
 ---
 
+## Day 2
+
+### Deep Learning: Into to Frameworks and Tools
+
 1. [Introduction to Deep Learning](modules/M1/ch1_intro/01_intro_deep_learning.qmd)
 2. [Neural Networks](modules/M1/ch1_intro/02_neural_networks.qmd)
 3. [Introduction to PyTorch](modules/M1/ch1_intro/03_pytorch.qmd)
@@ -11,4 +15,26 @@ format: html
      - [Modeling Non-Linear Patterns with Activation Functions](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M1/ch2_activations/lab2_activation_functions/lab2_activation_functions.ipynb)
        - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M1/ch2_activations/lab2_activation_functions/lab2_activation_functions_exercise.ipynb)
 4. [Tensors Lab](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M1/ch3_tensors/lab3_tensors.ipynb)
-   1. [Tensors Exercises](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M1/ch3_tensors/lab3_tensors/lab3_tensors_exercises.ipynb)
+   - [Tensors Exercises](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M1/ch3_tensors/lab3_tensors/lab3_tensors_exercises.ipynb)
+
+## Day 3
+
+### Deep Learning: Intro to Building NNs with PyTorch
+
+1. [Quick Review of Gradient Descent](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M2/01-gradient-descent-walkthrough/01-gradient-descent-walkthrough.ipynb)
+   - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M2/01-gradient-descent-walkthrough/01-gradient-descent-walkthrough_exercise.ipynb)
+2. [Build Simple NN Models](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M2/02-feedforward-models/02-feedforward-models.ipynb)
+   - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M2/02-feedforward-models/02-feedforward-models_exercise.ipynb)
+3. [Neural Nets Practice](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M2/03-nn-modules/03-nn-modules.ipynb)
+   - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M2/03-nn-modules/03-nn-modules_exercise.ipynb)
+4. [Optimization](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M2/04-optimization/04-optimization.ipynb)
+   - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M2/04-optimization/04-optimization_exercise.ipynb)
+
+### NLP and LLMs: Foundations of Modern NLP
+
+1. [Text Frequency Features](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M3/02-text-frequency/text-frequency.ipynb)
+   - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M3/02-text-frequency/text-frequency_exercise.ipynb)
+2. [Text Embeddings: Word2Vec and BERT](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M3/03-embeddings/text-embeddings.ipynb)
+   - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M3/03-embeddings/text-embeddings_exercise.ipynb)
+3. [Build a Sentiment Analysis Classifier](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M3/04-text-classifier/text-classifier.ipynb)
+   - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M3/04-text-classifier/text-classifier_exercise.ipynb)
