@@ -565,7 +565,6 @@
 <h2>Loss Function</h2>
 <p>A <strong>Loss Function</strong> estimates how far off model predictions are from the true data.</p>
 <div class="fragment">
-<p>If you predict 45 minutes when it actually took 60, that’s a bigger error than predicting 58 minutes.</p>
 <p>To “learn” is to minimize this loss.</p>
 </div>
 <div class="fragment">
@@ -599,13 +598,15 @@
 <section class="slide level2">
 <h2>Optimizer</h2>
 <p>The <strong>Optimizer</strong> is the algorithm that figures out which direction to adjust your weight and bias to reduce that error.</p>
+<div class="fragment">
 <p><em>SGD (Stochastic Gradient Descent)</em> is one such method.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a aria-label="1"></a>optimizer <span class="op">=</span> optim.SGD(model.parameters(), lr<span class="op">=</span><span class="fl">0.01</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<ul>
-<li class="fragment"><code>model.parameters()</code> is how you access the model’s weights and biases in PyTorch.</li>
-<li class="fragment"><code>lr</code> (<strong>learning rate</strong>): a hyper-parameter of SGD that controls the step size</li>
-<li class="fragment">Try <code>0.1</code>, <code>0.01</code>, and <code>0.001</code> in the lab — watch how the loss decreases for each</li>
-</ul>
+</div>
+<div class="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a aria-label="1"></a>optimizer <span class="op">=</span> optim.SGD(</span>
+<span id="cb11-2"><a aria-label="2"></a>    model.parameters(), <span class="co"># model's weights and biases</span></span>
+<span id="cb11-3"><a aria-label="3"></a>    lr<span class="op">=</span><span class="fl">0.01</span>             <span class="co"># learning rate (step size)</span></span>
+<span id="cb11-4"><a aria-label="4"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <aside class="notes">
 <p><code>lr</code> is the learning rate. Smaller values mean you adjust parameters by smaller amounts. Larger values mean bigger adjustments. Both extremes can have challenges - too small and training is slow, too large and you might overshoot the best values.</p>
 <p>In the lab, try different learning rates like 0.1, 0.01, and 0.001 and observe how the loss curve changes.</p>
@@ -661,8 +662,8 @@
 <section class="slide level2">
 <h2>Inspect Trained Parameters</h2>
 <p>After training, you can read what the model learned:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a aria-label="1"></a><span class="bu">print</span>(model.weight)  <span class="co"># learned slope(s)</span></span>
-<span id="cb13-2"><a aria-label="2"></a><span class="bu">print</span>(model.bias)    <span class="co"># learned intercept</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a aria-label="1"></a><span class="bu">print</span>(model.weight)</span>
+<span id="cb13-2"><a aria-label="2"></a><span class="bu">print</span>(model.bias)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="fragment">
 <p>For a single-neuron delivery model, these are the slope and intercept of your best-fit line.</p>
 </div>

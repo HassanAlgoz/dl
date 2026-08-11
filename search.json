@@ -21,6 +21,20 @@
     "text": "Introduction to Deep Learning\nNeural Networks\nIntroduction to PyTorch\n\nBuilding a Simple Neural Network\n\nExercise\n\nModeling Non-Linear Patterns with Activation Functions\n\nExercise\n\n\nTensors Lab\n\nTensors Exercises"
   },
   {
+    "objectID": "index.html#day-2",
+    "href": "index.html#day-2",
+    "title": "Deep Learning",
+    "section": "",
+    "text": "Introduction to Deep Learning\nNeural Networks\nIntroduction to PyTorch\n\nBuilding a Simple Neural Network\n\nExercise\n\nModeling Non-Linear Patterns with Activation Functions\n\nExercise\n\n\nTensors Lab\n\nTensors Exercises"
+  },
+  {
+    "objectID": "index.html#day-3",
+    "href": "index.html#day-3",
+    "title": "Deep Learning",
+    "section": "Day 3",
+    "text": "Day 3\n\nDeep Learning: Intro to Building NNs with PyTorch\n\nQuick Review of Gradient Descent\n\nExercise\n\nBuild Simple NN Models\n\nExercise\n\nNeural Nets Practice\n\nExercise\n\nOptimization\n\nExercise\n\n\n\n\nNLP and LLMs: Foundations of Modern NLP\n\nText Frequency Features\n\nExercise\n\nText Embeddings: Word2Vec and BERT\n\nExercise\n\nBuild a Sentiment Analysis Classifier\n\nExercise"
+  },
+  {
     "objectID": "docs/lab_setup.html",
     "href": "docs/lab_setup.html",
     "title": "Lab Setup",

@@ -320,21 +320,25 @@
 <li><strong>ML:</strong> Relies heavily on manual feature design</li>
 <li><strong>DL:</strong> Learns hierarchical representations directly from raw data</li>
 </ul>
+<p>Albiet, we use DL for tasks where the data itself is usually not engineerable in the first place.</p>
 </section>
 <section class="slide level2">
 <h2>3. Modeling</h2>
 
 <img data-src="../assets/tradeoff_modeling.png" class="r-stretch quarto-figure-center"><p class="caption">Modeling</p><ul>
 <li><strong>ML:</strong> Linear models, Decision Trees, Random Forests, Gradient Boosting</li>
-<li><strong>DL:</strong> Multi-layer Neural Networks, CNNs, RNNs, Transformers</li>
+<li><strong>DL:</strong> Vanilla NNs, CNNs, RNNs, Transformers</li>
 </ul>
 </section>
 <section class="slide level2">
 <h2>4. Interpretability</h2>
 
 <img data-src="../assets/tradeoff_interpretability.png" class="r-stretch quarto-figure-center"><p class="caption">Interpretability</p><ul>
-<li><strong>ML:</strong> Many models are relatively interpretable</li>
-<li><strong>DL:</strong> Often behaves like a black box and needs post-hoc explanation</li>
+<li><strong>ML:</strong> Many models are relatively interpretable
+<ul>
+<li>e.g., in a decision tree, one can trace a decision back to all the intermediate decisions that led to it</li>
+</ul></li>
+<li><strong>DL:</strong> Often behaves like a black box and needs post-hoc explanation (XAI research field)</li>
 </ul>
 </section>
 <section class="slide level2">
@@ -344,6 +348,7 @@
 <li><strong>ML:</strong> Performs well with small to medium datasets</li>
 <li><strong>DL:</strong> Typically needs large-scale datasets to generalize well</li>
 </ul>
+<p>Nowadays, we use <strong>Transfer Learning</strong> to apply pre-trained models on smaller datasets.</p>
 </section>
 <section class="slide level2">
 <h2>6. Computational Cost</h2>
