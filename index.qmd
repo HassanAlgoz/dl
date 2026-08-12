@@ -38,3 +38,17 @@ format: html
    - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M3/03-embeddings/text_embeddings_exercise.ipynb)
 3. [Build a Sentiment Analysis Classifier](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M3/04-text-classifier/text-classifier.ipynb)
    - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M3/04-text-classifier/text-classifier_exercise.ipynb)
+
+## Day 4
+
+### NLP and LLMs: Hugging Face Pipelines
+
+1. [Text Classification](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M4/02-pipelines/01-text-classification.ipynb)
+   - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M4/02-pipelines/01-text-classification_exercise.ipynb)
+2. [Token Classification (NER)](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M4/02-pipelines/02-token-classification.ipynb)
+   - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M4/02-pipelines/02-token-classification_exercise.ipynb)
+3. [Seq2Seq: Translation and Summarization](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M4/02-pipelines/03-seq2seq.ipynb)
+   - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M4/02-pipelines/03-seq2seq_exercise.ipynb)
+4. [Text Generation](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M4/02-pipelines/04-generation.ipynb)
+   - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M4/02-pipelines/04-generation_exercise.ipynb)
+5. [LLM Structured Output](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M4/02-pipelines/05_llm_structured_output.ipynb)
