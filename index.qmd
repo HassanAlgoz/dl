@@ -43,12 +43,14 @@ format: html
 
 ### NLP and LLMs: Hugging Face Pipelines
 
-1. [Text Classification](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M4/02-pipelines/01-text-classification.ipynb)
-   - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M4/02-pipelines/01-text-classification_exercise.ipynb)
-2. [Token Classification (NER)](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M4/02-pipelines/02-token-classification.ipynb)
-   - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M4/02-pipelines/02-token-classification_exercise.ipynb)
-3. [Seq2Seq: Translation and Summarization](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M4/02-pipelines/03-seq2seq.ipynb)
-   - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M4/02-pipelines/03-seq2seq_exercise.ipynb)
-4. [Text Generation](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M4/02-pipelines/04-generation.ipynb)
+1. [Text Classification](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M4/02-pipelines/01_text_classification.ipynb)
+   - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M4/02-pipelines/01_text_classification_exercise.ipynb)
+2. [Token Classification (NER)](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M4/02-pipelines/02_token_classification.ipynb)
+   - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M4/02-pipelines/02_token_classification_exercise.ipynb)
+3. [Seq2Seq: Translation and Summarization](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M4/02-pipelines/03_seq2seq.ipynb)
+   - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M4/02-pipelines/03_seq2seq_exercise.ipynb)
+4. [Text Generation](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M4/02-pipelines/04_generation.ipynb)
    - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M4/02-pipelines/04-generation_exercise.ipynb)
 5. [LLM Structured Output](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M4/02-pipelines/05_llm_structured_output.ipynb)
+   - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M4/02-pipelines/05_llm_structured_output_exercise.ipynb)
+
