@@ -39,7 +39,7 @@
     "href": "index.html#day-4",
     "title": "Deep Learning",
     "section": "Day 4",
-    "text": "Day 4\n\nNLP and LLMs: Hugging Face Pipelines\n\nText Classification\n\nExercise\n\nToken Classification (NER)\n\nExercise\n\nSeq2Seq: Translation and Summarization\n\nExercise\n\nText Generation\n\nExercise\n\nLLM Structured Output"
+    "text": "Day 4\n\nNLP and LLMs: Hugging Face Pipelines\n\nText Classification\n\nExercise\n\nToken Classification (NER)\n\nExercise\n\nSeq2Seq: Translation and Summarization\n\nExercise\n\nText Generation\n\nExercise\n\nLLM Structured Output\n\nExercise"
   },
   {
     "objectID": "docs/lab_setup.html",
