@@ -35,6 +35,13 @@
     "text": "Day 3\n\nDeep Learning: Intro to Building NNs with PyTorch\n\nQuick Review of Gradient Descent\n\nExercise\n\nBuild Simple NN Models\n\nExercise\n\nNeural Nets Practice\n\nExercise\n\nOptimization\n\nExercise\n\n\n\n\nNLP and LLMs: Foundations of Modern NLP\n\nText Frequency Features\n\nExercise\n\nText Embeddings: Word2Vec and BERT\n\nExercise\n\nBuild a Sentiment Analysis Classifier\n\nExercise"
   },
   {
+    "objectID": "index.html#day-4",
+    "href": "index.html#day-4",
+    "title": "Deep Learning",
+    "section": "Day 4",
+    "text": "Day 4\n\nNLP and LLMs: Hugging Face Pipelines\n\nText Classification\n\nExercise\n\nToken Classification (NER)\n\nExercise\n\nSeq2Seq: Translation and Summarization\n\nExercise\n\nText Generation\n\nExercise\n\nLLM Structured Output"
+  },
+  {
     "objectID": "docs/lab_setup.html",
     "href": "docs/lab_setup.html",
     "title": "Lab Setup",
