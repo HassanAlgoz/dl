@@ -8,7 +8,7 @@ project:
     - modules/M1/**/*.qmd
     # - modules/M2/**/*.qmd
     # - modules/M3/**/*.qmd
-    # - modules/M4/**/*.qmd
+    - modules/M4/**/*.qmd
   preview:
     port: 4200
   resources:
