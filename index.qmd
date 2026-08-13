@@ -3,6 +3,17 @@ title: "Deep Learning"
 format: html
 ---
 
+## Day 1
+
+### Unsupervised Learning: Clustering
+
+1. [Clusters in 1D, 2D, 3D](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M0/01-clustering/clusters_1d_2d_3d.ipynb)
+2. [Clustering Optimization](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M0/01-clustering/clustering_optimization.ipynb)
+   - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M0/01-clustering/clustering_optimization_exercise.ipynb)
+3. [Clusters in Nature: Seeds Dataset](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M0/01-clustering/clusters_in_nature_seeds.ipynb)
+4. [Application of Clustering in Geospatial Analytics via PostGIS](modules/M0/01-clustering/clustering_geospatial.md)
+5. [Implement a New Clustering Algorithm: K-Medoids](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M0/01-clustering/sklearn_cluster_new_oop.ipynb)
+
 ## Day 2
 
 ### Deep Learning: Into to Frameworks and Tools
