@@ -65,3 +65,9 @@ format: html
 5. [LLM Structured Output](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M4/02-pipelines/05_llm_structured_output.ipynb)
    - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M4/02-pipelines/05_llm_structured_output_exercise.ipynb)
 
+## Day 5
+
+### Leveraging GenAI as a Data Scientist
+
+1. [Leveraging GenAI as a Data Scientist](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M5/02-leveraging-genai-data-science/02_leveraging_genai_as_a_data_scientist.ipynb)
+2. [MLFlow Quick Start](https://mlflow.org/docs/latest/ml/getting-started/quickstart/)
