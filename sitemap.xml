@@ -1,31 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://hassanalgoz.github.io/dl/modules/M1/ch1_intro/03_pytorch.html</loc>
-    <lastmod>2026-08-12T11:55:42.970Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hassanalgoz.github.io/dl/modules/M1/ch1_intro/01_intro_deep_learning.html</loc>
-    <lastmod>2026-08-12T11:55:42.970Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hassanalgoz.github.io/dl/docs/student_notes.html</loc>
-    <lastmod>2026-08-12T11:55:42.941Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hassanalgoz.github.io/dl/index.html</loc>
-    <lastmod>2026-08-12T11:55:42.941Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hassanalgoz.github.io/dl/docs/lab_setup.html</loc>
-    <lastmod>2026-08-12T11:55:42.940Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hassanalgoz.github.io/dl/docs/trainer_notes.html</loc>
-    <lastmod>2026-08-12T11:55:42.941Z</lastmod>
+    <loc>https://hassanalgoz.github.io/dl/modules/M4/02-pipelines/tasks_vision.html</loc>
+    <lastmod>2026-08-14T05:19:55.602Z</lastmod>
   </url>
   <url>
     <loc>https://hassanalgoz.github.io/dl/modules/M1/ch1_intro/02_neural_networks.html</loc>
-    <lastmod>2026-08-12T11:55:42.970Z</lastmod>
+    <lastmod>2026-08-14T05:19:55.580Z</lastmod>
+  </url>
+  <url>
+    <loc>https://hassanalgoz.github.io/dl/docs/trainer_notes.html</loc>
+    <lastmod>2026-08-14T05:19:55.509Z</lastmod>
+  </url>
+  <url>
+    <loc>https://hassanalgoz.github.io/dl/docs/lab_setup.html</loc>
+    <lastmod>2026-08-14T05:19:55.509Z</lastmod>
+  </url>
+  <url>
+    <loc>https://hassanalgoz.github.io/dl/index.html</loc>
+    <lastmod>2026-08-14T05:19:55.510Z</lastmod>
+  </url>
+  <url>
+    <loc>https://hassanalgoz.github.io/dl/docs/student_notes.html</loc>
+    <lastmod>2026-08-14T05:19:55.509Z</lastmod>
+  </url>
+  <url>
+    <loc>https://hassanalgoz.github.io/dl/modules/M1/ch1_intro/01_intro_deep_learning.html</loc>
+    <lastmod>2026-08-14T05:19:55.580Z</lastmod>
+  </url>
+  <url>
+    <loc>https://hassanalgoz.github.io/dl/modules/M1/ch1_intro/03_pytorch.html</loc>
+    <lastmod>2026-08-14T05:19:55.580Z</lastmod>
   </url>
 </urlset>

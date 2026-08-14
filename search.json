@@ -1,75 +1,5 @@
 [
   {
-    "objectID": "docs/student_notes.html",
-    "href": "docs/student_notes.html",
-    "title": "Student Notes",
-    "section": "",
-    "text": "Skill:\n\nEach module has at least 1 lab and 1 assignment\n\nKnowledge:\n\nAuto-graded MCQ Quiz on Tuesday (M1 & M2)\nAuto-graded MCQ Quiz on Thursday (M3 & M4 + few questions from M1 & M2)\n\nHow do I get 100%?:\nAchievement of 100% requires understanding the material in the lab; which requires reading and review of the lab, as well as paying attention to the lecture that builds up to the lab. And then, doing the assignments. Review your work and check your understanding.\n\nBonus: you are engaged with the material and the lecture.\nBonus: you exhibit a high amount of effort in mastering the material. Example: doing the optional exercises like the ones in M1 Lab 3 (Tensors).\n\nHow to mess things up?:\n\nCheat\nSprinting through the lab without understanding the material\nDoing the lab at lecture time (you need to pay attention to the lecture to understand the material)\n\nRemember: if you get stuck, ask the instructor for help. We are here to help you learn; not to judge you."
-  },
-  {
-    "objectID": "docs/student_notes.html#week-4-assessment-quizzes-labs-and-assignments",
-    "href": "docs/student_notes.html#week-4-assessment-quizzes-labs-and-assignments",
-    "title": "Student Notes",
-    "section": "",
-    "text": "Skill:\n\nEach module has at least 1 lab and 1 assignment\n\nKnowledge:\n\nAuto-graded MCQ Quiz on Tuesday (M1 & M2)\nAuto-graded MCQ Quiz on Thursday (M3 & M4 + few questions from M1 & M2)\n\nHow do I get 100%?:\nAchievement of 100% requires understanding the material in the lab; which requires reading and review of the lab, as well as paying attention to the lecture that builds up to the lab. And then, doing the assignments. Review your work and check your understanding.\n\nBonus: you are engaged with the material and the lecture.\nBonus: you exhibit a high amount of effort in mastering the material. Example: doing the optional exercises like the ones in M1 Lab 3 (Tensors).\n\nHow to mess things up?:\n\nCheat\nSprinting through the lab without understanding the material\nDoing the lab at lecture time (you need to pay attention to the lecture to understand the material)\n\nRemember: if you get stuck, ask the instructor for help. We are here to help you learn; not to judge you."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Deep Learning",
-    "section": "",
-    "text": "Introduction to Deep Learning\nNeural Networks\nIntroduction to PyTorch\n\nBuilding a Simple Neural Network\n\nExercise\n\nModeling Non-Linear Patterns with Activation Functions\n\nExercise\n\n\nTensors Lab\n\nTensors Exercises"
-  },
-  {
-    "objectID": "index.html#day-2",
-    "href": "index.html#day-2",
-    "title": "Deep Learning",
-    "section": "",
-    "text": "Introduction to Deep Learning\nNeural Networks\nIntroduction to PyTorch\n\nBuilding a Simple Neural Network\n\nExercise\n\nModeling Non-Linear Patterns with Activation Functions\n\nExercise\n\n\nTensors Lab\n\nTensors Exercises"
-  },
-  {
-    "objectID": "index.html#day-3",
-    "href": "index.html#day-3",
-    "title": "Deep Learning",
-    "section": "Day 3",
-    "text": "Day 3\n\nDeep Learning: Intro to Building NNs with PyTorch\n\nQuick Review of Gradient Descent\n\nExercise\n\nBuild Simple NN Models\n\nExercise\n\nNeural Nets Practice\n\nExercise\n\nOptimization\n\nExercise\n\n\n\n\nNLP and LLMs: Foundations of Modern NLP\n\nText Frequency Features\n\nExercise\n\nText Embeddings: Word2Vec and BERT\n\nExercise\n\nBuild a Sentiment Analysis Classifier\n\nExercise"
-  },
-  {
-    "objectID": "index.html#day-4",
-    "href": "index.html#day-4",
-    "title": "Deep Learning",
-    "section": "Day 4",
-    "text": "Day 4\n\nNLP and LLMs: Hugging Face Pipelines\n\nText Classification\n\nExercise\n\nToken Classification (NER)\n\nExercise\n\nSeq2Seq: Translation and Summarization\n\nExercise\n\nText Generation\n\nExercise\n\nLLM Structured Output\n\nExercise"
-  },
-  {
-    "objectID": "docs/lab_setup.html",
-    "href": "docs/lab_setup.html",
-    "title": "Lab Setup",
-    "section": "",
-    "text": "Since CPUs are not enough for Deep Learning models; we’ll need a GPU. For, that we’ll need Google Colab. Understanding the client-server interaction is crucial for working with such remote code execution environments (here shown as Jupyter Server).\n\n\n\n\n\nThe image above shows how we interact with remote servers, such as Google Colab, to run our code:\n\nWe write code in the Browser Jupyter Notebooks or in VS Code\nOn save: the code is sent to the Juypter/Colab Server and stored there as .ipynb files\nOn run: the code is:\n\nsent to the kernel for execution\nthen back to the server to save the results\nwhich are then sent back to the browser"
-  },
-  {
-    "objectID": "docs/lab_setup.html#client-server-architecture",
-    "href": "docs/lab_setup.html#client-server-architecture",
-    "title": "Lab Setup",
-    "section": "",
-    "text": "Since CPUs are not enough for Deep Learning models; we’ll need a GPU. For, that we’ll need Google Colab. Understanding the client-server interaction is crucial for working with such remote code execution environments (here shown as Jupyter Server).\n\n\n\n\n\nThe image above shows how we interact with remote servers, such as Google Colab, to run our code:\n\nWe write code in the Browser Jupyter Notebooks or in VS Code\nOn save: the code is sent to the Juypter/Colab Server and stored there as .ipynb files\nOn run: the code is:\n\nsent to the kernel for execution\nthen back to the server to save the results\nwhich are then sent back to the browser"
-  },
-  {
-    "objectID": "docs/lab_setup.html#setup-instructions",
-    "href": "docs/lab_setup.html#setup-instructions",
-    "title": "Lab Setup",
-    "section": "Setup Instructions",
-    "text": "Setup Instructions\nFirst, Make sure you have a Google account. And can access Google Colab.\nFrom the original repo, you may:\n\nDownload as Zip then make a new repo\nor Fork the repo (to copy the repo under your username)\nThen, you can open a Colab Notebook and git clone it\nTo save your changes, you’ll have to git commit and git push\n\nUse the %cd magic command to move into your specific lab folder. Note that if your folder names contain spaces, you should wrap the path in quotes.\nExample for lab1_simple_nn you will %cd in the following way:\n%cd \"/content/W4_DL/modules/M1/ch1_intro/lab1_simple_nn\"\nTo confirm you are in the correct directory run:\n!ls\nYou should see:\n\nlab1_simple_nn.ipynb\nhelper_utils.py"
-  },
-  {
-    "objectID": "docs/lab_setup.html#optional-working-from-inside-vs-code-instead-of-the-colab-notebook",
-    "href": "docs/lab_setup.html#optional-working-from-inside-vs-code-instead-of-the-colab-notebook",
-    "title": "Lab Setup",
-    "section": "Optional: Working from inside VS Code instead of the Colab Notebook",
-    "text": "Optional: Working from inside VS Code instead of the Colab Notebook\nGoogle Colab for VS Code extension allows you to work in VS Code while the code is sent and executed in Colab servers. However, the steps above are still required."
-  },
-  {
     "objectID": "docs/trainer_notes.html",
     "href": "docs/trainer_notes.html",
     "title": "Week 4 Delivery Guide",
@@ -110,5 +40,89 @@
     "title": "Week 4 Delivery Guide",
     "section": "3. Reward Extra Effort",
     "text": "3. Reward Extra Effort\n\nBonus points awarded to students who actively participate in lecture, asking the right questions (not for the sake of just asking),\nand helping others when needed\nOptional exercises do exist for the advanced students\nWhen they methodically/systematically improve their training/inference performance, significant enough to be noticeable:\n\naccuracy\nresource utilization\nlatency/speed\ndesign simplicity (code complexity, readability, maintainability, etc.)"
+  },
+  {
+    "objectID": "docs/lab_setup.html",
+    "href": "docs/lab_setup.html",
+    "title": "Lab Setup",
+    "section": "",
+    "text": "Since CPUs are not enough for Deep Learning models; we’ll need a GPU. For, that we’ll need Google Colab. Understanding the client-server interaction is crucial for working with such remote code execution environments (here shown as Jupyter Server).\n\n\n\n\n\nThe image above shows how we interact with remote servers, such as Google Colab, to run our code:\n\nWe write code in the Browser Jupyter Notebooks or in VS Code\nOn save: the code is sent to the Juypter/Colab Server and stored there as .ipynb files\nOn run: the code is:\n\nsent to the kernel for execution\nthen back to the server to save the results\nwhich are then sent back to the browser"
+  },
+  {
+    "objectID": "docs/lab_setup.html#client-server-architecture",
+    "href": "docs/lab_setup.html#client-server-architecture",
+    "title": "Lab Setup",
+    "section": "",
+    "text": "Since CPUs are not enough for Deep Learning models; we’ll need a GPU. For, that we’ll need Google Colab. Understanding the client-server interaction is crucial for working with such remote code execution environments (here shown as Jupyter Server).\n\n\n\n\n\nThe image above shows how we interact with remote servers, such as Google Colab, to run our code:\n\nWe write code in the Browser Jupyter Notebooks or in VS Code\nOn save: the code is sent to the Juypter/Colab Server and stored there as .ipynb files\nOn run: the code is:\n\nsent to the kernel for execution\nthen back to the server to save the results\nwhich are then sent back to the browser"
+  },
+  {
+    "objectID": "docs/lab_setup.html#setup-instructions",
+    "href": "docs/lab_setup.html#setup-instructions",
+    "title": "Lab Setup",
+    "section": "Setup Instructions",
+    "text": "Setup Instructions\nFirst, Make sure you have a Google account. And can access Google Colab.\nFrom the original repo, you may:\n\nDownload as Zip then make a new repo\nor Fork the repo (to copy the repo under your username)\nThen, you can open a Colab Notebook and git clone it\nTo save your changes, you’ll have to git commit and git push\n\nUse the %cd magic command to move into your specific lab folder. Note that if your folder names contain spaces, you should wrap the path in quotes.\nExample for lab1_simple_nn you will %cd in the following way:\n%cd \"/content/W4_DL/modules/M1/ch1_intro/lab1_simple_nn\"\nTo confirm you are in the correct directory run:\n!ls\nYou should see:\n\nlab1_simple_nn.ipynb\nhelper_utils.py"
+  },
+  {
+    "objectID": "docs/lab_setup.html#optional-working-from-inside-vs-code-instead-of-the-colab-notebook",
+    "href": "docs/lab_setup.html#optional-working-from-inside-vs-code-instead-of-the-colab-notebook",
+    "title": "Lab Setup",
+    "section": "Optional: Working from inside VS Code instead of the Colab Notebook",
+    "text": "Optional: Working from inside VS Code instead of the Colab Notebook\nGoogle Colab for VS Code extension allows you to work in VS Code while the code is sent and executed in Colab servers. However, the steps above are still required."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Deep Learning",
+    "section": "",
+    "text": "Clusters in 1D, 2D, 3D\nClustering Optimization\n\nExercise\n\nClusters in Nature: Seeds Dataset\nApplication of Clustering in Geospatial Analytics via PostGIS\nImplement a New Clustering Algorithm: K-Medoids"
+  },
+  {
+    "objectID": "index.html#day-1",
+    "href": "index.html#day-1",
+    "title": "Deep Learning",
+    "section": "",
+    "text": "Clusters in 1D, 2D, 3D\nClustering Optimization\n\nExercise\n\nClusters in Nature: Seeds Dataset\nApplication of Clustering in Geospatial Analytics via PostGIS\nImplement a New Clustering Algorithm: K-Medoids"
+  },
+  {
+    "objectID": "index.html#day-2",
+    "href": "index.html#day-2",
+    "title": "Deep Learning",
+    "section": "Day 2",
+    "text": "Day 2\n\nDeep Learning: Into to Frameworks and Tools\n\nIntroduction to Deep Learning\nNeural Networks\nIntroduction to PyTorch\n\nBuilding a Simple Neural Network\n\nExercise\n\nModeling Non-Linear Patterns with Activation Functions\n\nExercise\n\n\nTensors Lab\n\nTensors Exercises"
+  },
+  {
+    "objectID": "index.html#day-3",
+    "href": "index.html#day-3",
+    "title": "Deep Learning",
+    "section": "Day 3",
+    "text": "Day 3\n\nDeep Learning: Intro to Building NNs with PyTorch\n\nQuick Review of Gradient Descent\n\nExercise\n\nBuild Simple NN Models\n\nExercise\n\nNeural Nets Practice\n\nExercise\n\nOptimization\n\nExercise\n\n\n\n\nNLP and LLMs: Foundations of Modern NLP\n\nText Frequency Features\n\nExercise\n\nText Embeddings: Word2Vec and BERT\n\nExercise\n\nBuild a Sentiment Analysis Classifier\n\nExercise"
+  },
+  {
+    "objectID": "index.html#day-4",
+    "href": "index.html#day-4",
+    "title": "Deep Learning",
+    "section": "Day 4",
+    "text": "Day 4\n\nNLP and LLMs: Hugging Face Pipelines\n\nText Classification\n\nExercise\n\nToken Classification (NER)\n\nExercise\n\nSeq2Seq: Translation and Summarization\n\nExercise\n\nText Generation\n\nExercise\n\nLLM Structured Output\n\nExercise"
+  },
+  {
+    "objectID": "index.html#day-5",
+    "href": "index.html#day-5",
+    "title": "Deep Learning",
+    "section": "Day 5",
+    "text": "Day 5\n\nLeveraging GenAI as a Data Scientist\n\nLeveraging GenAI as a Data Scientist\nMLFlow Quick Start"
+  },
+  {
+    "objectID": "docs/student_notes.html",
+    "href": "docs/student_notes.html",
+    "title": "Student Notes",
+    "section": "",
+    "text": "Skill:\n\nEach module has at least 1 lab and 1 assignment\n\nKnowledge:\n\nAuto-graded MCQ Quiz on Tuesday (M1 & M2)\nAuto-graded MCQ Quiz on Thursday (M3 & M4 + few questions from M1 & M2)\n\nHow do I get 100%?:\nAchievement of 100% requires understanding the material in the lab; which requires reading and review of the lab, as well as paying attention to the lecture that builds up to the lab. And then, doing the assignments. Review your work and check your understanding.\n\nBonus: you are engaged with the material and the lecture.\nBonus: you exhibit a high amount of effort in mastering the material. Example: doing the optional exercises like the ones in M1 Lab 3 (Tensors).\n\nHow to mess things up?:\n\nCheat\nSprinting through the lab without understanding the material\nDoing the lab at lecture time (you need to pay attention to the lecture to understand the material)\n\nRemember: if you get stuck, ask the instructor for help. We are here to help you learn; not to judge you."
+  },
+  {
+    "objectID": "docs/student_notes.html#week-4-assessment-quizzes-labs-and-assignments",
+    "href": "docs/student_notes.html#week-4-assessment-quizzes-labs-and-assignments",
+    "title": "Student Notes",
+    "section": "",
+    "text": "Skill:\n\nEach module has at least 1 lab and 1 assignment\n\nKnowledge:\n\nAuto-graded MCQ Quiz on Tuesday (M1 & M2)\nAuto-graded MCQ Quiz on Thursday (M3 & M4 + few questions from M1 & M2)\n\nHow do I get 100%?:\nAchievement of 100% requires understanding the material in the lab; which requires reading and review of the lab, as well as paying attention to the lecture that builds up to the lab. And then, doing the assignments. Review your work and check your understanding.\n\nBonus: you are engaged with the material and the lecture.\nBonus: you exhibit a high amount of effort in mastering the material. Example: doing the optional exercises like the ones in M1 Lab 3 (Tensors).\n\nHow to mess things up?:\n\nCheat\nSprinting through the lab without understanding the material\nDoing the lab at lecture time (you need to pay attention to the lecture to understand the material)\n\nRemember: if you get stuck, ask the instructor for help. We are here to help you learn; not to judge you."
   }
 ]
