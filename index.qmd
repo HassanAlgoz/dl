@@ -3,71 +3,99 @@ title: "Deep Learning"
 format: html
 ---
 
-## Day 1
+## Day 1: Unsupervised Machine Learning
 
-### Unsupervised Learning: Clustering
+### M1. Clustering
 
-1. [Clusters in 1D, 2D, 3D](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M0/01-clustering/clusters_1d_2d_3d.ipynb)
-2. [Clustering Optimization](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M0/01-clustering/clustering_optimization.ipynb)
-   - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M0/01-clustering/clustering_optimization_exercise.ipynb)
-3. [Clusters in Nature: Seeds Dataset](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M0/01-clustering/clusters_in_nature_seeds.ipynb)
-4. [Application of Clustering in Geospatial Analytics via PostGIS](modules/M0/01-clustering/clustering_geospatial.md)
-5. [Implement a New Clustering Algorithm: K-Medoids](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M0/01-clustering/sklearn_cluster_new_oop.ipynb)
+1. [🎞️ Intro to Clustering with K-Means](modules/unsupervised/01-slides/01-Intro-Clustering-with-K-Means.pdf)
+2. [🖥️ Clusters in 1D, 2D, 3D](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/unsupervised/02-clustering/clusters_1d_2d_3d.ipynb)
+3. [🖥️ Clustering Optimization](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/unsupervised/02-clustering/clustering_optimization.ipynb)
+   - [🖥️ Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/unsupervised/02-clustering/clustering_optimization_exercise.ipynb)
+4. [🖥️ Clusters in Nature: Seeds Dataset](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/unsupervised/02-clustering/clusters_in_nature_seeds.ipynb)
 
-## Day 2
+#### Practice
 
-### Deep Learning: Into to Frameworks and Tools
+- Exercise 1: [🖥️ K-Means Clustering with Seeds Data](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/unsupervised/02-clustering/kmeans_clustering_lab.ipynb) ([✅ Solution](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/unsupervised/02-clustering/kmeans_clustering_lab_solutions.ipynb))
+- Exercise 2: [🖥️ Evaluating K-Means Clusters with the Iris Dataset](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/unsupervised/02-clustering/cluster_evaluation_lab.ipynb) ([✅ Solution](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/unsupervised/02-clustering/cluster_evaluation_lab_solutions.ipynb))
 
-1. [Introduction to Deep Learning](modules/M1/ch1_intro/01_intro_deep_learning.qmd)
-2. [Neural Networks](modules/M1/ch1_intro/02_neural_networks.qmd)
-3. [Introduction to PyTorch](modules/M1/ch1_intro/03_pytorch.qmd)
-     - [Building a Simple Neural Network](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M1/ch1_intro/lab1_simple_nn/lab1_simple_nn.ipynb)
-       - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M1/ch1_intro/lab1_simple_nn/lab1_simple_nn_exercise.ipynb)
-     - [Modeling Non-Linear Patterns with Activation Functions](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M1/ch2_activations/lab2_activation_functions/lab2_activation_functions.ipynb)
-       - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M1/ch2_activations/lab2_activation_functions/lab2_activation_functions_exercise.ipynb)
-4. [Tensors Lab](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M1/ch3_tensors/lab3_tensors.ipynb)
-   - [Tensors Exercises](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M1/ch3_tensors/lab3_tensors/lab3_tensors_exercises.ipynb)
+### M2. DBSCAN and Agglomerative Clustering
+
+1. [🎞️ DBSCAN and Agglomerative Clustering](modules/unsupervised/01-slides/02-DBSCAN-and-Agglomerative-Clustering.pdf)
+2. [🖥️ Application of Clustering in Geospatial Analytics via PostGIS](modules/unsupervised/03-dbscan-agglom-clustering/clustering_geospatial.qmd)
+3. [🖥️ DBSCAN](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/unsupervised/03-dbscan-agglom-clustering/dbscan.ipynb)
+4. [🖥️ Agglomerative Clustering](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/unsupervised/03-dbscan-agglom-clustering/agglomerative-clustering.ipynb)
+
+#### Practice
+
+- Exercise: [🖥️ DBSCAN Practice](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/unsupervised/03-dbscan-agglom-clustering/practice_dbscan-lab.ipynb) ([✅ Solution](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/unsupervised/03-dbscan-agglom-clustering/practice_dbscan-lab-solutions.ipynb))
+
+### Resources
+
+- [🖼️ Visualizing K-Means Clustering](https://www.naftaliharris.com/blog/visualizing-k-means-clustering/)
+- [🖼️ Visualizing DBSCAN Clustering](https://www.naftaliharris.com/blog/visualizing-dbscan-clustering/)
+
+### M3. Object Oriented Programming
+
+- [🖥️ OOP: Implement a New Clustering Algorithm in Scikit-Learn](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/unsupervised/04-oop/sklearn_cluster_new_oop.ipynb)
+
+## Day 2: NLP and LLMs
+
+### M4. Deep Learning
+
+1. [🎞️ Introduction to Deep Learning](modules/deep-learning/01-slides/01_intro_deep_learning.qmd)
+   - [🖼️ Teachable Machine](https://teachablemachine.withgoogle.com/)
+2. [🎞️ Neural Networks](modules/deep-learning/01-slides/02_neural_networks.qmd)
+   - [🖼️ https://playground.tensorflow.org/](https://playground.tensorflow.org/)
+3. [🖥️ Linear Regression with Neural Networks](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/deep-learning/02-lab_nn/lab_nn_regression.ipynb)
+4. [🖥️ Binary Classification with Neural Networks](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/deep-learning/02-lab_nn/lab_nn_classification.ipynb)
+5. [🖥️ Modeling Delivery Times with Neural Networks](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/deep-learning/03-lab_nn/lab_nn.ipynb)
+   - [🖥️ Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/deep-learning/03-lab_nn/lab_nn_exercise.ipynb)
+
+### Resources
+
+- [🖼️ Visualizing Neural Network Sizes](https://nnfs.io/ntr/)
+
+### M5. Foundations of Modern NLP
+
+1. [🎞️ Slides](modules/nlp/01-slides/NLP-LLMs%201%20Foundations%20of%20Modern%20NLP.pdf)
+2. [🖥️ Text Frequency Features](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/nlp/02-text-frequency/text-frequency.ipynb)
+   - [🖥️ Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/nlp/02-text-frequency/text-frequency_exercise.ipynb)
+3. [🖥️ Build a Sentiment Analysis Classifier](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/nlp/03-text-classifier/text-classifier.ipynb)
+   - [🖥️ Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/nlp/03-text-classifier/text-classifier_exercise.ipynb)
+4. [🖥️ Text Embeddings: Word2Vec and BERT](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/nlp/04-embeddings/text_embeddings.ipynb)
+   - [🖥️ Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/nlp/04-embeddings/text_embeddings_exercise.ipynb)
 
 ## Day 3
 
-### Deep Learning: Intro to Building NNs with PyTorch
+### M6. Hugging Face Pipelines
 
-1. [Quick Review of Gradient Descent](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M2/01-gradient-descent-walkthrough/01_gradient_descent_walkthrough.ipynb)
-   - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M2/01-gradient-descent-walkthrough/01_gradient_descent_walkthrough_exercise.ipynb)
-2. [Build Simple NN Models](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M2/02-feedforward-models/02_feedforward_models.ipynb)
-   - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M2/02-feedforward-models/02_feedforward_models_exercise.ipynb)
-3. [Neural Nets Practice](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M2/03-nn-modules/03_nn_modules.ipynb)
-   - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M2/03-nn-modules/03_nn_modules_exercise.ipynb)
-4. [Optimization](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M2/04-optimization/04-optimization.ipynb)
-   - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M2/04-optimization/04-optimization_exercise.ipynb)
+1. [🖥️ Text Classification](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/01_text_classification.ipynb)
+   - [🖥️ Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/01_text_classification_exercise.ipynb)
+2. [🖥️ Token Classification (NER)](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/02_token_classification.ipynb)
+   - [🖥️ Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/02_token_classification_exercise.ipynb)
+3. [🖥️ Seq2Seq: Translation and Summarization](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/03_seq2seq.ipynb)
+   - [🖥️ Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/03_seq2seq_exercise.ipynb)
+5. [🖥️ Text Generation](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/04_generation.ipynb)
+   - [🖥️ Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/04-generation_exercise.ipynb)
+6. [🖥️ LLM Structured Output](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/05_llm_structured_output.ipynb)
+   - [🖥️ Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/05_llm_structured_output_exercise.ipynb)
 
-### NLP and LLMs: Foundations of Modern NLP
+### Resources
 
-1. [Text Frequency Features](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M3/02-text-frequency/text-frequency.ipynb)
-   - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M3/02-text-frequency/text-frequency_exercise.ipynb)
-2. [Text Embeddings: Word2Vec and BERT](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M3/03-embeddings/text_embeddings.ipynb)
-   - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M3/03-embeddings/text_embeddings_exercise.ipynb)
-3. [Build a Sentiment Analysis Classifier](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M3/04-text-classifier/text-classifier.ipynb)
-   - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M3/04-text-classifier/text-classifier_exercise.ipynb)
+- [Pipeline Tutorial](https://huggingface.co/docs/transformers/pipeline_tutorial)
+- [HuggingFace Tasks](https://huggingface.co/tasks)
+- [🖼️ Beam Search Visualizer](https://huggingface.co/spaces/agents-course/beam_search_visualizer)
+- [🖼️ Visual Story: Generative AI | Financial Times](https://ig.ft.com/generative-ai/)
 
-## Day 4
+## Day 3: GenAI
 
-### NLP and LLMs: Hugging Face Pipelines
+### M7. Leveraging GenAI as a Data Scientist
+ 
+1. [🎞️ Leveraging GenAI as a Data Scientist](modules/genai/01-slides/Leveraging-GenAI-as-a-Data-Scientist.pdf)
+2. [🖥️ Leveraging GenAI as a Data Scientist](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/genai/02-leveraging-genai-data-science/02_leveraging_genai_as_a_data_scientist.ipynb)
 
-1. [Text Classification](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M4/02-pipelines/01_text_classification.ipynb)
-   - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M4/02-pipelines/01_text_classification_exercise.ipynb)
-2. [Token Classification (NER)](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M4/02-pipelines/02_token_classification.ipynb)
-   - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M4/02-pipelines/02_token_classification_exercise.ipynb)
-3. [Seq2Seq: Translation and Summarization](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M4/02-pipelines/03_seq2seq.ipynb)
-   - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M4/02-pipelines/03_seq2seq_exercise.ipynb)
-4. [Text Generation](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M4/02-pipelines/04_generation.ipynb)
-   - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M4/02-pipelines/04-generation_exercise.ipynb)
-5. [LLM Structured Output](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M4/02-pipelines/05_llm_structured_output.ipynb)
-   - [Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M4/02-pipelines/05_llm_structured_output_exercise.ipynb)
+### M8. Machine Learning Operation (MLOps)
 
-## Day 5
-
-### Leveraging GenAI as a Data Scientist
-
-1. [Leveraging GenAI as a Data Scientist](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/M5/02-leveraging-genai-data-science/02_leveraging_genai_as_a_data_scientist.ipynb)
-2. [MLFlow Quick Start](https://mlflow.org/docs/latest/ml/getting-started/quickstart/)
+1. [🎞️ Deploying and Operating Machine Learning Models](modules/mlops/01-slides/DE_%20Deploying%20and%20Operating%20Machine%20Learning%20Models.pdf)
+2. [Machine learning apps](https://huggingface.co/docs/transformers/pipeline_gradio)
+3. [MLFlow Quick Start](https://mlflow.org/docs/latest/ml/getting-started/quickstart/)

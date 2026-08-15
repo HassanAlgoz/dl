@@ -5,14 +5,15 @@ project:
     - index.qmd
     - docs/**/*.qmd
     # Modules
-    - modules/M1/**/*.qmd
-    # - modules/M2/**/*.qmd
-    # - modules/M3/**/*.qmd
-    - modules/M4/**/*.qmd
+    - modules/unsupervised/**/*.qmd
+    - modules/deep-learning/**/*.qmd
+    # - modules/nlp/**/*.qmd
+    - modules/pipelines/**/*.qmd
   preview:
     port: 4200
   resources:
     - slide-chrome.js
+    - modules/**/*.pdf
 
 website:
   title: "Deep Learning with PyTorch"

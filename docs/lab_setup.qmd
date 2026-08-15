@@ -20,33 +20,7 @@ The image above shows how we interact with remote servers, such as Google Colab,
 
 ## Setup Instructions
 
-First, Make sure you have a Google account. And can access [Google Colab](https://colab.research.google.com/notebooks/basic_features_overview.ipynb#scrollTo=KR921S_OQSHG). 
-
-From the original repo, you may:
-
-- Download as Zip then make a new repo
-- or Fork the repo (to copy the repo under your username)
-- Then, you can open a Colab Notebook and `git clone` it
-- To save your changes, you'll have to `git commit` and `git push`
-
-Use the `%cd` magic command to move into your specific lab folder. Note that if your folder names contain spaces, you should wrap the path in quotes.
-
-Example for `lab1_simple_nn` you will `%cd` in the following way:
-
-```sh
-%cd "/content/W4_DL/modules/M1/ch1_intro/lab1_simple_nn"
-```
-
-To confirm you are in the correct directory run:
-
-```sh
-!ls
-```
-
-You should see:
-
-- `lab1_simple_nn.ipynb`
-- `helper_utils.py`
+Make sure you have a Google account. And can access [Google Colab](https://colab.research.google.com/notebooks/basic_features_overview.ipynb#scrollTo=KR921S_OQSHG). 
 
 ## Optional: Working from inside VS Code instead of the Colab Notebook
 

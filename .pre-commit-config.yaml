@@ -3,6 +3,7 @@ repos:
     rev: 0.9.1
     hooks:
       - id: nbstripout
+        files: ^modules/.*\.ipynb$
 
   - repo: https://github.com/oxipng/oxipng
     rev: v10.1.0
