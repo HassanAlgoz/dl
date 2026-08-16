@@ -1,5 +1,5 @@
 ---
-title: "Application of Clustering in Geospatial Analytics via PostGIS"
+title: "Application of Clustering in Geospatial Analytics"
 format: html
 ---
 

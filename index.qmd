@@ -21,7 +21,7 @@ format: html
 ### M2. DBSCAN and Agglomerative Clustering
 
 1. [🎞️ DBSCAN and Agglomerative Clustering](modules/unsupervised/01-slides/02-DBSCAN-and-Agglomerative-Clustering.pdf)
-2. [🖥️ Application of Clustering in Geospatial Analytics via PostGIS](modules/unsupervised/03-dbscan-agglom-clustering/clustering_geospatial.qmd)
+2. [🖥️ Application of Clustering in Geospatial Analytics](modules/unsupervised/03-dbscan-agglom-clustering/clustering_geospatial.qmd)
 3. [🖥️ DBSCAN](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/unsupervised/03-dbscan-agglom-clustering/dbscan.ipynb)
 4. [🖥️ Agglomerative Clustering](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/unsupervised/03-dbscan-agglom-clustering/agglomerative-clustering.ipynb)
 
