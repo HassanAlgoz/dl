@@ -34,7 +34,7 @@ format: html
 - [🖼️ Visualizing K-Means Clustering](https://www.naftaliharris.com/blog/visualizing-k-means-clustering/)
 - [🖼️ Visualizing DBSCAN Clustering](https://www.naftaliharris.com/blog/visualizing-dbscan-clustering/)
 
-## Day 2: Deep Learning
+<!-- ## Day 2: Deep Learning
 
 ### M3. Neural Network Models
 
@@ -102,4 +102,4 @@ format: html
 
 1. [🎞️ Deploying and Operating Machine Learning Models](modules/mlops/01-slides/DE_%20Deploying%20and%20Operating%20Machine%20Learning%20Models.pdf)
 2. [Machine learning apps](https://huggingface.co/docs/transformers/pipeline_gradio)
-3. [MLFlow Quick Start](https://mlflow.org/docs/latest/ml/getting-started/quickstart/)
+3. [MLFlow Quick Start](https://mlflow.org/docs/latest/ml/getting-started/quickstart/) -->
