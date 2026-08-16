@@ -2,56 +2,56 @@
   {
     "objectID": "modules/unsupervised/03-dbscan-agglom-clustering/clustering_geospatial.html",
     "href": "modules/unsupervised/03-dbscan-agglom-clustering/clustering_geospatial.html",
-    "title": "Application of Clustering in Geospatial Analytics via PostGIS",
+    "title": "Application of Clustering in Geospatial Analytics",
     "section": "",
     "text": "There are situations where k-means produces unintuitive and possibly undesirable clusters. This link illustrates these cases.\nScikit-learn has many different methods to solve the shortcomings of K-Means:\n\nDemo of DBSCAN clustering algorithm\nDemo of HDBSCAN clustering algorithm\nDemo of OPTICS clustering algorithm\nDemo of affinity propagation clustering algorithm\n\nIn geospatial data, like cities or neighborhoods, data points follow natural and man-made boundaries rather than perfect circles. Below we see an example of DBSCAN implemented by PostGIS database; where we can use SQL to query such data.\n\nPostGIS extends the capabilities of the PostgreSQL relational database by adding support for storing, indexing, and querying geospatial data."
   },
   {
     "objectID": "modules/unsupervised/03-dbscan-agglom-clustering/clustering_geospatial.html#advanced-techniques-of-clustering",
     "href": "modules/unsupervised/03-dbscan-agglom-clustering/clustering_geospatial.html#advanced-techniques-of-clustering",
-    "title": "Application of Clustering in Geospatial Analytics via PostGIS",
+    "title": "Application of Clustering in Geospatial Analytics",
     "section": "",
     "text": "There are situations where k-means produces unintuitive and possibly undesirable clusters. This link illustrates these cases.\nScikit-learn has many different methods to solve the shortcomings of K-Means:\n\nDemo of DBSCAN clustering algorithm\nDemo of HDBSCAN clustering algorithm\nDemo of OPTICS clustering algorithm\nDemo of affinity propagation clustering algorithm\n\nIn geospatial data, like cities or neighborhoods, data points follow natural and man-made boundaries rather than perfect circles. Below we see an example of DBSCAN implemented by PostGIS database; where we can use SQL to query such data.\n\nPostGIS extends the capabilities of the PostgreSQL relational database by adding support for storing, indexing, and querying geospatial data."
   },
   {
     "objectID": "modules/unsupervised/03-dbscan-agglom-clustering/clustering_geospatial.html#geographic-names-data",
     "href": "modules/unsupervised/03-dbscan-agglom-clustering/clustering_geospatial.html#geographic-names-data",
-    "title": "Application of Clustering in Geospatial Analytics via PostGIS",
+    "title": "Application of Clustering in Geospatial Analytics",
     "section": "Geographic Names Data",
     "text": "Geographic Names Data\nLet’s explore clustering using geographic names data.\nCreate a table to hold the data. Note that the table is generating the points automatically from the longitude/latitude (EPSG:4326) and transforming into a planar projection for the USA (EPSG:5070).\nCREATE TABLE geonames (\n  geonameid integer,\n  name text,\n  asciiname text,\n  alternatenames text,\n  latitude float8,\n  longitude float8,\n  fclass char,\n  fcode text,\n  country text,\n  cc2 text,\n  admin1 text,\n  admin2 text,\n  admin3 text,\n  admin4 text,\n  population bigint,\n  elevation integer,\n  dem text,\n  timezone text,\n  modification date,\n  geom geometry(point, 5070)\n    GENERATED ALWAYS AS\n      (ST_Transform(ST_Point(longitude, latitude, 4326),5070)) STORED\n);\nNow load the table. Note the super fun use of PROGRAM to pull data directly from the web and feed a COPY.\nCOPY geonames\n  FROM PROGRAM '(curl http://download.geonames.org/export/dump/US.zip &gt; /tmp/US.zip) && unzip -p /tmp/US.zip US.txt'\n  WITH (FORMAT CSV, DELIMITER E'\\t', HEADER false);\n(This trick only works using the postgres superuser, since it involves calling a program and writing to system disk. If you do not have superuser access, download and unzip the US.TXT file by hand and load it using COPY from the file.)\n\n\n\nUSA schools\n\n\nFinally, add a spatial index to the geom column.\nCREATE INDEX geonames_geom_x\n  ON geonames\n  USING GIST (geom);"
   },
   {
     "objectID": "modules/unsupervised/03-dbscan-agglom-clustering/clustering_geospatial.html#schools",
     "href": "modules/unsupervised/03-dbscan-agglom-clustering/clustering_geospatial.html#schools",
-    "title": "Application of Clustering in Geospatial Analytics via PostGIS",
+    "title": "Application of Clustering in Geospatial Analytics",
     "section": "Schools",
     "text": "Schools\nThere are 434 distinct feature codes in the geonames table. We will restrict our analysis to just the 205,848 schools, with an fcode of SCH.\nSELECT Count(DISTINCT fcode) FROM geonames;\nSELECT Count(fcode) FROM geonames WHERE fcode = 'SCH';\nSchools are an interesting feature to analyze because there’s a nice strong correlation between the number of schools and the population. There’s a lot of schools! But they are not uniformly distributed.\n\n\n\nMidwest schools\n\n\nIf we zoom into the midwest, the concentration of schools in populated places pops out. We can use PostGIS to turn this distribution difference into a data set of populated places!"
   },
   {
     "objectID": "modules/unsupervised/03-dbscan-agglom-clustering/clustering_geospatial.html#clustering-on-schools",
     "href": "modules/unsupervised/03-dbscan-agglom-clustering/clustering_geospatial.html#clustering-on-schools",
-    "title": "Application of Clustering in Geospatial Analytics via PostGIS",
+    "title": "Application of Clustering in Geospatial Analytics",
     "section": "Clustering on Schools",
     "text": "Clustering on Schools\nThe DBSCAN clustering algorithm is a “density based spatial clustering of applications with noise”. The PostGIS ST_ClusterDBSCAN implementation is a window function that takes three parameters:\n\nThe geometries to be analyzed for clusters.\nA ‘eps’ distance tolerance. Geometries must be within this distance to be added to a cluster.\nA ‘minpoints’ count. If a point is within the ‘eps’ distance of ‘minpoints’ cluster members, it is a “core member” of the cluster.\n\nAn input geometry is added to a cluster if it is either:\n\nA “core” geometry, that is within eps distance of at least minpoints input geometries (including itself); or\nA “border” geometry, that is within eps distance of a core geometry.\n\nHow does this play out in practice?\nIf we zoom further into Chicago, around the suburban/exurban transition, the schools are about 1000 meters apart, sometimes more sometimes less, transitioning out to 2000 meters and more in the exurbs.\n\n\n\nexurban school map\n\n\nFor our clusters, we will use:\n\nA eps distance of 2000m\nA minpoints of 5\nA partition on the state code (admin1) to cut down on the number of cluster numbers.\n\nCREATE TABLE geonames_sch AS\n  SELECT ST_ClusterDBScan(geom, 2000, 5)\n           OVER (PARTITION BY admin1) AS cluster, *\n  FROM geonames\n  WHERE fcode = 'SCH';\nThe result looks like this, with each cluster given a distinct color, and un-clustered schools rendered transparent.\n\n\n\nMidwest schools\n\n\nThe smaller clusters look a little arbitrary, but if we zoom in, we can see that even small population centers have been surfaced with this analytical technique.\nHere is Kanakee, Illinois, neatly identified as a populated place by its cluster of schools.\n\n\n\nKanakee"
   },
   {
     "objectID": "modules/unsupervised/03-dbscan-agglom-clustering/clustering_geospatial.html#clusters-to-points",
     "href": "modules/unsupervised/03-dbscan-agglom-clustering/clustering_geospatial.html#clusters-to-points",
-    "title": "Application of Clustering in Geospatial Analytics via PostGIS",
+    "title": "Application of Clustering in Geospatial Analytics",
     "section": "Clusters to Points",
     "text": "Clusters to Points\nNow that we have clusters, getting a populated place point is as simple as using the ST_Centroid function.\nCREATE TABLE geonames_popplaces AS\n  SELECT ST_Centroid(ST_Collect(geom))::geometry(Point, 5070) AS geom,\n         Count(*) AS school_count,\n         cluster, admin1\n  FROM geonames_sch\n  GROUP BY cluster, admin1\nWe have completed the analysis, converting the density difference in school locations into a set of derived populated place points.\n\n\n\nKanakee\n\n\nNow for the whole population cluster map!\n\n\n\nUS Pop map"
   },
   {
     "objectID": "modules/unsupervised/03-dbscan-agglom-clustering/clustering_geospatial.html#quick-recap",
     "href": "modules/unsupervised/03-dbscan-agglom-clustering/clustering_geospatial.html#quick-recap",
-    "title": "Application of Clustering in Geospatial Analytics via PostGIS",
+    "title": "Application of Clustering in Geospatial Analytics",
     "section": "Quick recap",
     "text": "Quick recap\n\nCreate a table ST_ClusterDBScan\n\nSet an eps for distance tolerance\nSet a minpoints to reduce density\nPartition on a different field to cut down on the number of cluster numbers.\n\nCreate a final table using the ST_Centroid"
   },
   {
     "objectID": "modules/unsupervised/03-dbscan-agglom-clustering/clustering_geospatial.html#reference",
     "href": "modules/unsupervised/03-dbscan-agglom-clustering/clustering_geospatial.html#reference",
-    "title": "Application of Clustering in Geospatial Analytics via PostGIS",
+    "title": "Application of Clustering in Geospatial Analytics",
     "section": "Reference",
     "text": "Reference\nRamsey, Paul. “PostGIS Clustering with DBSCAN.” Crunchy Data Blog, 19 Dec. 2023, https://www.crunchydata.com/blog/postgis-clustering-with-dbscan."
   },
@@ -60,14 +60,14 @@
     "href": "index.html",
     "title": "Deep Learning",
     "section": "",
-    "text": "🖥️ Clusters in 1D, 2D, 3D\n🎞️ Intro to Clustering with K-Means\n🖥️ Clustering Optimization\n\n🖥️ Exercise\n\n🖥️ Clusters in Nature: Seeds Dataset\n\n\n\n\nExercise 1: 🖥️ K-Means Clustering with Seeds Data (✅ Solution)\nExercise 2: 🖥️ Evaluating K-Means Clusters with the Iris Dataset (✅ Solution)\n\n\n\n\n\n\n🎞️ DBSCAN and Agglomerative Clustering\n🖥️ Application of Clustering in Geospatial Analytics via PostGIS\n🖥️ DBSCAN\n🖥️ Agglomerative Clustering\n\n\n\n\nExercise: 🖥️ DBSCAN Practice (✅ Solution)\n\n\n\n\n\n\n🖼️ Visualizing K-Means Clustering\n🖼️ Visualizing DBSCAN Clustering"
+    "text": "🖥️ Clusters in 1D, 2D, 3D\n🎞️ Intro to Clustering with K-Means\n🖥️ Clustering Optimization\n\n🖥️ Exercise\n\n🖥️ Clusters in Nature: Seeds Dataset\n\n\n\n\nExercise 1: 🖥️ K-Means Clustering with Seeds Data (✅ Solution)\nExercise 2: 🖥️ Evaluating K-Means Clusters with the Iris Dataset (✅ Solution)\n\n\n\n\n\n\n🎞️ DBSCAN and Agglomerative Clustering\n🖥️ Application of Clustering in Geospatial Analytics\n🖥️ DBSCAN\n🖥️ Agglomerative Clustering\n\n\n\n\nExercise: 🖥️ DBSCAN Practice (✅ Solution)\n\n\n\n\n\n\n🖼️ Visualizing K-Means Clustering\n🖼️ Visualizing DBSCAN Clustering"
   },
   {
     "objectID": "index.html#day-1-unsupervised-machine-learning",
     "href": "index.html#day-1-unsupervised-machine-learning",
     "title": "Deep Learning",
     "section": "",
-    "text": "🖥️ Clusters in 1D, 2D, 3D\n🎞️ Intro to Clustering with K-Means\n🖥️ Clustering Optimization\n\n🖥️ Exercise\n\n🖥️ Clusters in Nature: Seeds Dataset\n\n\n\n\nExercise 1: 🖥️ K-Means Clustering with Seeds Data (✅ Solution)\nExercise 2: 🖥️ Evaluating K-Means Clusters with the Iris Dataset (✅ Solution)\n\n\n\n\n\n\n🎞️ DBSCAN and Agglomerative Clustering\n🖥️ Application of Clustering in Geospatial Analytics via PostGIS\n🖥️ DBSCAN\n🖥️ Agglomerative Clustering\n\n\n\n\nExercise: 🖥️ DBSCAN Practice (✅ Solution)\n\n\n\n\n\n\n🖼️ Visualizing K-Means Clustering\n🖼️ Visualizing DBSCAN Clustering"
+    "text": "🖥️ Clusters in 1D, 2D, 3D\n🎞️ Intro to Clustering with K-Means\n🖥️ Clustering Optimization\n\n🖥️ Exercise\n\n🖥️ Clusters in Nature: Seeds Dataset\n\n\n\n\nExercise 1: 🖥️ K-Means Clustering with Seeds Data (✅ Solution)\nExercise 2: 🖥️ Evaluating K-Means Clusters with the Iris Dataset (✅ Solution)\n\n\n\n\n\n\n🎞️ DBSCAN and Agglomerative Clustering\n🖥️ Application of Clustering in Geospatial Analytics\n🖥️ DBSCAN\n🖥️ Agglomerative Clustering\n\n\n\n\nExercise: 🖥️ DBSCAN Practice (✅ Solution)\n\n\n\n\n\n\n🖼️ Visualizing K-Means Clustering\n🖼️ Visualizing DBSCAN Clustering"
   },
   {
     "objectID": "docs/lab_setup.html",
