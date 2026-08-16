@@ -9,6 +9,8 @@ project:
     - modules/deep-learning/**/*.qmd
     # - modules/nlp/**/*.qmd
     - modules/pipelines/**/*.qmd
+    - modules/genai/**/*.qmd
+    - modules/Building_with_Deep_Learning/**/*.qmd
   preview:
     port: 4200
   resources:

@@ -1,0 +1,142 @@
+---
+title: "Computer Vision Inference and Deployment"
+format: revealjs
+---
+
+# Computer Vision Inference Pipelines
+
+## Overview
+
+The YOLO model is one part of a bigger system:
+
+1. capture a frame from camera or video stream
+2. run a detector / segmenter / pose **model** (YOLO)
+3. post-process predictions
+4. track objects across frames
+5. render or trigger downstream actions
+
+In practice, computer vision is therefore both a **modeling** problem and a **systems** problem.
+
+## Roboflow Inference Library
+
+[Inference](https://inference.roboflow.com/start/overview/) is Roboflow's open-source hub for **deploying computer vision systems**.
+
+Instead of wiring every serving detail by hand, it gives you a reusable layer for:
+
+::: {.incremental}
+1. model **serving** (client-server communication)
+2. **Workflow** execution (business logic)
+3. **video stream** handling (I/O)
+4. **pre/post-processing** (per-frame logic)
+5. **CPU/GPU** optimization (performance)
+:::
+
+**Big idea:** you focus on the application logic (**Workflow**), while `Inference` handles the rest.
+
+## How the pieces fit together
+
+:::: {.columns}
+::: {.column width="50%"}
+**[1. `inference-sdk`](https://inference.roboflow.com/inference_helpers/inference_sdk/)**
+
+Lightweight Python client for talking to an Inference Server over HTTP.
+:::
+::: {.column width="50%"}
+**[2. `inference-cli`](https://inference.roboflow.com/inference_helpers/inference_cli/)**
+
+Command-line entry point for setup, management, and common server tasks.
+:::
+::::
+
+. . .
+
+:::: {.columns}
+::: {.column width="50%"}
+**[3. Inference Server](https://inference.roboflow.com/quickstart/docker/)**
+
+Docker-based HTTP service that exposes models and Workflows as an API.
+:::
+::: {.column width="50%"}
+**[4. `inference` package](https://inference.roboflow.com/using_inference/about/)**
+
+Core Python runtime for loading models and executing Workflow logic.
+:::
+::::
+
+[Inference ecosystem diagram](https://inference.roboflow.com/images/img-inference-diagram-v1.png)
+
+Client → Server Endpoint → **Core Runtime**
+
+## Core Runtime
+
+:::: {.columns}
+::: {.column width="50%"}
+**[Model serving](https://inference.roboflow.com/quickstart/run_a_model)**
+
+Run object detection, classification, segmentation, keypoints, OCR, VQA, and more.
+
+Works with [pre-trained](https://inference.roboflow.com/quickstart/aliases), [fine-tuned](https://roboflow.com/train), and selected [foundation](https://inference.roboflow.com/foundation/about) models.
+:::
+::: {.column width="50%"}
+**[Video streaming](https://inference.roboflow.com/workflows/video_processing/overview)**
+
+Use `InferencePipeline` for cameras, RTSP feeds, and video files with frame management built in.
+:::
+::::
+
+. . .
+
+:::: {.columns}
+::: {.column width="50%"}
+**[Speed](https://inference.roboflow.com/understand/features#speed)**
+
+Benefit from parallelization, hardware acceleration, dynamic batching, and optional TensorRT paths.
+:::
+::: {.column width="50%"}
+**[Extensibility](https://inference.roboflow.com/understand/features#extensibility)**
+
+The stack is open source, so you can add custom models, custom Workflow blocks, and new backends.
+:::
+::::
+
+## Deploy anywhere
+
+The deployment question is **where should it run?**
+
+:::: {.columns}
+::: {.column width="33%"}
+**[Serverless](https://docs.roboflow.com/deploy/serverless-hosted-api-v2)**
+
+**Best for:** simple request-response inference with spiky demand.
+
+**Billing:** per call ([metered](https://roboflow.com/pricing)).
+:::
+::: {.column width="33%"}
+**[Dedicated](https://docs.roboflow.com/deploy/dedicated-deployments)**
+
+**Best for:** heavier models and steadier production workloads.
+
+**Billing:** hourly VM.
+:::
+::: {.column width="33%"}
+**[Self-hosted](https://inference.roboflow.com/install/)**
+
+**Best for:** local hardware, offline operation, and strict infrastructure control.
+
+**Billing:** your own stack. See the [install guide](https://inference.roboflow.com/install/).
+:::
+::::
+
+All three support **fine-tuned models**, **pre-trained models**, and **Workflows**.
+
+See also: [What devices can I use?](https://inference.roboflow.com/quickstart/devices/)
+
+## First workflow: Hello World
+
+The official [Hello World tutorial](https://inference.roboflow.com/guides/hello-world/) is a fast way to validate your setup.
+
+In about five minutes, you:
+
+1. build and run a simple **Workflow**
+2. send data through a computer vision model
+3. inspect the output in the UI debugger
