@@ -1,45 +1,73 @@
 [
   {
-    "objectID": "docs/trainer_notes.html",
-    "href": "docs/trainer_notes.html",
-    "title": "Week 4 Delivery Guide",
+    "objectID": "modules/unsupervised/03-dbscan-agglom-clustering/clustering_geospatial.html",
+    "href": "modules/unsupervised/03-dbscan-agglom-clustering/clustering_geospatial.html",
+    "title": "Application of Clustering in Geospatial Analytics via PostGIS",
     "section": "",
-    "text": "IMPORTANT: Please read and share this with the students: Student Notes, to setup expectations for the entire week.\n\n\nIt is up to you to decide how you should:\n\nDiscourage cheating and encourage effort\nMeasure the actual acquisition of skills and knowledge (preventing both: underfitting and overfitting)\nMake the learning process a self-rewarding experience unto itself"
+    "text": "There are situations where k-means produces unintuitive and possibly undesirable clusters. This link illustrates these cases.\nScikit-learn has many different methods to solve the shortcomings of K-Means:\n\nDemo of DBSCAN clustering algorithm\nDemo of HDBSCAN clustering algorithm\nDemo of OPTICS clustering algorithm\nDemo of affinity propagation clustering algorithm\n\nIn geospatial data, like cities or neighborhoods, data points follow natural and man-made boundaries rather than perfect circles. Below we see an example of DBSCAN implemented by PostGIS database; where we can use SQL to query such data.\n\nPostGIS extends the capabilities of the PostgreSQL relational database by adding support for storing, indexing, and querying geospatial data."
   },
   {
-    "objectID": "docs/trainer_notes.html#learning-objectives-assessment",
-    "href": "docs/trainer_notes.html#learning-objectives-assessment",
-    "title": "Week 4 Delivery Guide",
+    "objectID": "modules/unsupervised/03-dbscan-agglom-clustering/clustering_geospatial.html#advanced-techniques-of-clustering",
+    "href": "modules/unsupervised/03-dbscan-agglom-clustering/clustering_geospatial.html#advanced-techniques-of-clustering",
+    "title": "Application of Clustering in Geospatial Analytics via PostGIS",
     "section": "",
-    "text": "IMPORTANT: Please read and share this with the students: Student Notes, to setup expectations for the entire week.\n\n\nIt is up to you to decide how you should:\n\nDiscourage cheating and encourage effort\nMeasure the actual acquisition of skills and knowledge (preventing both: underfitting and overfitting)\nMake the learning process a self-rewarding experience unto itself"
+    "text": "There are situations where k-means produces unintuitive and possibly undesirable clusters. This link illustrates these cases.\nScikit-learn has many different methods to solve the shortcomings of K-Means:\n\nDemo of DBSCAN clustering algorithm\nDemo of HDBSCAN clustering algorithm\nDemo of OPTICS clustering algorithm\nDemo of affinity propagation clustering algorithm\n\nIn geospatial data, like cities or neighborhoods, data points follow natural and man-made boundaries rather than perfect circles. Below we see an example of DBSCAN implemented by PostGIS database; where we can use SQL to query such data.\n\nPostGIS extends the capabilities of the PostgreSQL relational database by adding support for storing, indexing, and querying geospatial data."
   },
   {
-    "objectID": "docs/trainer_notes.html#successful-delivery-suggestions",
-    "href": "docs/trainer_notes.html#successful-delivery-suggestions",
-    "title": "Week 4 Delivery Guide",
-    "section": "Successful Delivery (suggestions)",
-    "text": "Successful Delivery (suggestions)\nBelow are some suggestions for you to consider when delivering this week."
+    "objectID": "modules/unsupervised/03-dbscan-agglom-clustering/clustering_geospatial.html#geographic-names-data",
+    "href": "modules/unsupervised/03-dbscan-agglom-clustering/clustering_geospatial.html#geographic-names-data",
+    "title": "Application of Clustering in Geospatial Analytics via PostGIS",
+    "section": "Geographic Names Data",
+    "text": "Geographic Names Data\nLet’s explore clustering using geographic names data.\nCreate a table to hold the data. Note that the table is generating the points automatically from the longitude/latitude (EPSG:4326) and transforming into a planar projection for the USA (EPSG:5070).\nCREATE TABLE geonames (\n  geonameid integer,\n  name text,\n  asciiname text,\n  alternatenames text,\n  latitude float8,\n  longitude float8,\n  fclass char,\n  fcode text,\n  country text,\n  cc2 text,\n  admin1 text,\n  admin2 text,\n  admin3 text,\n  admin4 text,\n  population bigint,\n  elevation integer,\n  dem text,\n  timezone text,\n  modification date,\n  geom geometry(point, 5070)\n    GENERATED ALWAYS AS\n      (ST_Transform(ST_Point(longitude, latitude, 4326),5070)) STORED\n);\nNow load the table. Note the super fun use of PROGRAM to pull data directly from the web and feed a COPY.\nCOPY geonames\n  FROM PROGRAM '(curl http://download.geonames.org/export/dump/US.zip &gt; /tmp/US.zip) && unzip -p /tmp/US.zip US.txt'\n  WITH (FORMAT CSV, DELIMITER E'\\t', HEADER false);\n(This trick only works using the postgres superuser, since it involves calling a program and writing to system disk. If you do not have superuser access, download and unzip the US.TXT file by hand and load it using COPY from the file.)\n\n\n\nUSA schools\n\n\nFinally, add a spatial index to the geom column.\nCREATE INDEX geonames_geom_x\n  ON geonames\n  USING GIST (geom);"
   },
   {
-    "objectID": "docs/trainer_notes.html#require-proof-of-effort",
-    "href": "docs/trainer_notes.html#require-proof-of-effort",
-    "title": "Week 4 Delivery Guide",
-    "section": "1. Require Proof of Effort",
-    "text": "1. Require Proof of Effort\nTo ensure students are actively working on the assignments, and control for copy-pasting, GenAI Policy Violations, or worse yet: having another student do the work for them:\n\nstudents MUST commit to GitHub repos on each question of each assignment (mentioning the question number in the commit message)\nto make things easier, some lab work includes instant-feedback exercises via Unit Tests, so that’s a clear checkpoint for a commit\n\nYou can git -C ./student_repo log to check the commit history, which should look something like this:\ncommit 2d0273722392f26a723b862de7c837642b3b096b\nAuthor: Renadalju &lt;riihyunee@gmail.com&gt;\nDate:   Thu Jan 1 18:49:54 2026 +0300\n\n    solve M7.03: use the cross_validate function and compute multiple scores/errors\n\ncommit 78fd8f2d3633fe31ee64077ab5872ac146ef7687\nAuthor: Renadalju &lt;riihyunee@gmail.com&gt;\nDate:   Thu Jan 1 18:46:17 2026 +0300\n\n    solve M7.03: use the mean absolute error (MAE)\n\ncommit bfd369daa6fdd471588a91bc381f5531a4c52700\nAuthor: Renadalju &lt;riihyunee@gmail.com&gt;\nDate:   Thu Jan 1 18:44:20 2026 +0300\n\n    solve M7.03: estimate the generalization performance of the model\n\ncommit 6830b25ca215ed486ea1febee7d5ee751f39af29\nAuthor: Renadalju &lt;riihyunee@gmail.com&gt;\nDate:   Thu Jan 1 18:42:43 2026 +0300\n\n    solve M7.03:  create a linear regression model.\n\ncommit 62cfe5a1669a875f99515d2ed6f3e94f0fbe742d\nAuthor: Renadalju &lt;riihyunee@gmail.com&gt;\nDate:   Thu Jan 1 18:41:14 2026 +0300\n\n    add Exercise M7.03\nNotice how adding the exercise (before solving it) should be the first commit."
+    "objectID": "modules/unsupervised/03-dbscan-agglom-clustering/clustering_geospatial.html#schools",
+    "href": "modules/unsupervised/03-dbscan-agglom-clustering/clustering_geospatial.html#schools",
+    "title": "Application of Clustering in Geospatial Analytics via PostGIS",
+    "section": "Schools",
+    "text": "Schools\nThere are 434 distinct feature codes in the geonames table. We will restrict our analysis to just the 205,848 schools, with an fcode of SCH.\nSELECT Count(DISTINCT fcode) FROM geonames;\nSELECT Count(fcode) FROM geonames WHERE fcode = 'SCH';\nSchools are an interesting feature to analyze because there’s a nice strong correlation between the number of schools and the population. There’s a lot of schools! But they are not uniformly distributed.\n\n\n\nMidwest schools\n\n\nIf we zoom into the midwest, the concentration of schools in populated places pops out. We can use PostGIS to turn this distribution difference into a data set of populated places!"
   },
   {
-    "objectID": "docs/trainer_notes.html#encourage-application-of-skills",
-    "href": "docs/trainer_notes.html#encourage-application-of-skills",
-    "title": "Week 4 Delivery Guide",
-    "section": "2. Encourage Application of Skills",
-    "text": "2. Encourage Application of Skills\nA Project’s goal is demonstrating some level of mastery in applying the knowledge & skills acquired in this week (+ previous weeks). Note: just like the assignments, commits of the project should be frequent and meaningful work-units (with clear commit messages).\n\n2.1 Require Proof of Contribution\n“Teamwork”.. to control for “oh we worked on this together so I copied it” to justify HUGE commits. Each student must contribute using their own GitHub account:\n\nCan clone with write access contributor\nCan collaborate using Pull Requests (PRs)\nCan use VS Code Live Share for pair programming\n\nNo excuses for not committing:\n\nMake it clear that any untracked work is as good as no work\nHuge commits are no work either"
+    "objectID": "modules/unsupervised/03-dbscan-agglom-clustering/clustering_geospatial.html#clustering-on-schools",
+    "href": "modules/unsupervised/03-dbscan-agglom-clustering/clustering_geospatial.html#clustering-on-schools",
+    "title": "Application of Clustering in Geospatial Analytics via PostGIS",
+    "section": "Clustering on Schools",
+    "text": "Clustering on Schools\nThe DBSCAN clustering algorithm is a “density based spatial clustering of applications with noise”. The PostGIS ST_ClusterDBSCAN implementation is a window function that takes three parameters:\n\nThe geometries to be analyzed for clusters.\nA ‘eps’ distance tolerance. Geometries must be within this distance to be added to a cluster.\nA ‘minpoints’ count. If a point is within the ‘eps’ distance of ‘minpoints’ cluster members, it is a “core member” of the cluster.\n\nAn input geometry is added to a cluster if it is either:\n\nA “core” geometry, that is within eps distance of at least minpoints input geometries (including itself); or\nA “border” geometry, that is within eps distance of a core geometry.\n\nHow does this play out in practice?\nIf we zoom further into Chicago, around the suburban/exurban transition, the schools are about 1000 meters apart, sometimes more sometimes less, transitioning out to 2000 meters and more in the exurbs.\n\n\n\nexurban school map\n\n\nFor our clusters, we will use:\n\nA eps distance of 2000m\nA minpoints of 5\nA partition on the state code (admin1) to cut down on the number of cluster numbers.\n\nCREATE TABLE geonames_sch AS\n  SELECT ST_ClusterDBScan(geom, 2000, 5)\n           OVER (PARTITION BY admin1) AS cluster, *\n  FROM geonames\n  WHERE fcode = 'SCH';\nThe result looks like this, with each cluster given a distinct color, and un-clustered schools rendered transparent.\n\n\n\nMidwest schools\n\n\nThe smaller clusters look a little arbitrary, but if we zoom in, we can see that even small population centers have been surfaced with this analytical technique.\nHere is Kanakee, Illinois, neatly identified as a populated place by its cluster of schools.\n\n\n\nKanakee"
   },
   {
-    "objectID": "docs/trainer_notes.html#reward-extra-effort",
-    "href": "docs/trainer_notes.html#reward-extra-effort",
-    "title": "Week 4 Delivery Guide",
-    "section": "3. Reward Extra Effort",
-    "text": "3. Reward Extra Effort\n\nBonus points awarded to students who actively participate in lecture, asking the right questions (not for the sake of just asking),\nand helping others when needed\nOptional exercises do exist for the advanced students\nWhen they methodically/systematically improve their training/inference performance, significant enough to be noticeable:\n\naccuracy\nresource utilization\nlatency/speed\ndesign simplicity (code complexity, readability, maintainability, etc.)"
+    "objectID": "modules/unsupervised/03-dbscan-agglom-clustering/clustering_geospatial.html#clusters-to-points",
+    "href": "modules/unsupervised/03-dbscan-agglom-clustering/clustering_geospatial.html#clusters-to-points",
+    "title": "Application of Clustering in Geospatial Analytics via PostGIS",
+    "section": "Clusters to Points",
+    "text": "Clusters to Points\nNow that we have clusters, getting a populated place point is as simple as using the ST_Centroid function.\nCREATE TABLE geonames_popplaces AS\n  SELECT ST_Centroid(ST_Collect(geom))::geometry(Point, 5070) AS geom,\n         Count(*) AS school_count,\n         cluster, admin1\n  FROM geonames_sch\n  GROUP BY cluster, admin1\nWe have completed the analysis, converting the density difference in school locations into a set of derived populated place points.\n\n\n\nKanakee\n\n\nNow for the whole population cluster map!\n\n\n\nUS Pop map"
+  },
+  {
+    "objectID": "modules/unsupervised/03-dbscan-agglom-clustering/clustering_geospatial.html#quick-recap",
+    "href": "modules/unsupervised/03-dbscan-agglom-clustering/clustering_geospatial.html#quick-recap",
+    "title": "Application of Clustering in Geospatial Analytics via PostGIS",
+    "section": "Quick recap",
+    "text": "Quick recap\n\nCreate a table ST_ClusterDBScan\n\nSet an eps for distance tolerance\nSet a minpoints to reduce density\nPartition on a different field to cut down on the number of cluster numbers.\n\nCreate a final table using the ST_Centroid"
+  },
+  {
+    "objectID": "modules/unsupervised/03-dbscan-agglom-clustering/clustering_geospatial.html#reference",
+    "href": "modules/unsupervised/03-dbscan-agglom-clustering/clustering_geospatial.html#reference",
+    "title": "Application of Clustering in Geospatial Analytics via PostGIS",
+    "section": "Reference",
+    "text": "Reference\nRamsey, Paul. “PostGIS Clustering with DBSCAN.” Crunchy Data Blog, 19 Dec. 2023, https://www.crunchydata.com/blog/postgis-clustering-with-dbscan."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Deep Learning",
+    "section": "",
+    "text": "🖥️ Clusters in 1D, 2D, 3D\n🎞️ Intro to Clustering with K-Means\n🖥️ Clustering Optimization\n\n🖥️ Exercise\n\n🖥️ Clusters in Nature: Seeds Dataset\n\n\n\n\nExercise 1: 🖥️ K-Means Clustering with Seeds Data (✅ Solution)\nExercise 2: 🖥️ Evaluating K-Means Clusters with the Iris Dataset (✅ Solution)\n\n\n\n\n\n\n🎞️ DBSCAN and Agglomerative Clustering\n🖥️ Application of Clustering in Geospatial Analytics via PostGIS\n🖥️ DBSCAN\n🖥️ Agglomerative Clustering\n\n\n\n\nExercise: 🖥️ DBSCAN Practice (✅ Solution)\n\n\n\n\n\n\n🖼️ Visualizing K-Means Clustering\n🖼️ Visualizing DBSCAN Clustering"
+  },
+  {
+    "objectID": "index.html#day-1-unsupervised-machine-learning",
+    "href": "index.html#day-1-unsupervised-machine-learning",
+    "title": "Deep Learning",
+    "section": "",
+    "text": "🖥️ Clusters in 1D, 2D, 3D\n🎞️ Intro to Clustering with K-Means\n🖥️ Clustering Optimization\n\n🖥️ Exercise\n\n🖥️ Clusters in Nature: Seeds Dataset\n\n\n\n\nExercise 1: 🖥️ K-Means Clustering with Seeds Data (✅ Solution)\nExercise 2: 🖥️ Evaluating K-Means Clusters with the Iris Dataset (✅ Solution)\n\n\n\n\n\n\n🎞️ DBSCAN and Agglomerative Clustering\n🖥️ Application of Clustering in Geospatial Analytics via PostGIS\n🖥️ DBSCAN\n🖥️ Agglomerative Clustering\n\n\n\n\nExercise: 🖥️ DBSCAN Practice (✅ Solution)\n\n\n\n\n\n\n🖼️ Visualizing K-Means Clustering\n🖼️ Visualizing DBSCAN Clustering"
   },
   {
     "objectID": "docs/lab_setup.html",
@@ -60,7 +88,7 @@
     "href": "docs/lab_setup.html#setup-instructions",
     "title": "Lab Setup",
     "section": "Setup Instructions",
-    "text": "Setup Instructions\nFirst, Make sure you have a Google account. And can access Google Colab.\nFrom the original repo, you may:\n\nDownload as Zip then make a new repo\nor Fork the repo (to copy the repo under your username)\nThen, you can open a Colab Notebook and git clone it\nTo save your changes, you’ll have to git commit and git push\n\nUse the %cd magic command to move into your specific lab folder. Note that if your folder names contain spaces, you should wrap the path in quotes.\nExample for lab1_simple_nn you will %cd in the following way:\n%cd \"/content/W4_DL/modules/M1/ch1_intro/lab1_simple_nn\"\nTo confirm you are in the correct directory run:\n!ls\nYou should see:\n\nlab1_simple_nn.ipynb\nhelper_utils.py"
+    "text": "Setup Instructions\nMake sure you have a Google account. And can access Google Colab."
   },
   {
     "objectID": "docs/lab_setup.html#optional-working-from-inside-vs-code-instead-of-the-colab-notebook",
@@ -68,61 +96,5 @@
     "title": "Lab Setup",
     "section": "Optional: Working from inside VS Code instead of the Colab Notebook",
     "text": "Optional: Working from inside VS Code instead of the Colab Notebook\nGoogle Colab for VS Code extension allows you to work in VS Code while the code is sent and executed in Colab servers. However, the steps above are still required."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Deep Learning",
-    "section": "",
-    "text": "Clusters in 1D, 2D, 3D\nClustering Optimization\n\nExercise\n\nClusters in Nature: Seeds Dataset\nApplication of Clustering in Geospatial Analytics via PostGIS\nImplement a New Clustering Algorithm: K-Medoids"
-  },
-  {
-    "objectID": "index.html#day-1",
-    "href": "index.html#day-1",
-    "title": "Deep Learning",
-    "section": "",
-    "text": "Clusters in 1D, 2D, 3D\nClustering Optimization\n\nExercise\n\nClusters in Nature: Seeds Dataset\nApplication of Clustering in Geospatial Analytics via PostGIS\nImplement a New Clustering Algorithm: K-Medoids"
-  },
-  {
-    "objectID": "index.html#day-2",
-    "href": "index.html#day-2",
-    "title": "Deep Learning",
-    "section": "Day 2",
-    "text": "Day 2\n\nDeep Learning: Into to Frameworks and Tools\n\nIntroduction to Deep Learning\nNeural Networks\nIntroduction to PyTorch\n\nBuilding a Simple Neural Network\n\nExercise\n\nModeling Non-Linear Patterns with Activation Functions\n\nExercise\n\n\nTensors Lab\n\nTensors Exercises"
-  },
-  {
-    "objectID": "index.html#day-3",
-    "href": "index.html#day-3",
-    "title": "Deep Learning",
-    "section": "Day 3",
-    "text": "Day 3\n\nDeep Learning: Intro to Building NNs with PyTorch\n\nQuick Review of Gradient Descent\n\nExercise\n\nBuild Simple NN Models\n\nExercise\n\nNeural Nets Practice\n\nExercise\n\nOptimization\n\nExercise\n\n\n\n\nNLP and LLMs: Foundations of Modern NLP\n\nText Frequency Features\n\nExercise\n\nText Embeddings: Word2Vec and BERT\n\nExercise\n\nBuild a Sentiment Analysis Classifier\n\nExercise"
-  },
-  {
-    "objectID": "index.html#day-4",
-    "href": "index.html#day-4",
-    "title": "Deep Learning",
-    "section": "Day 4",
-    "text": "Day 4\n\nNLP and LLMs: Hugging Face Pipelines\n\nText Classification\n\nExercise\n\nToken Classification (NER)\n\nExercise\n\nSeq2Seq: Translation and Summarization\n\nExercise\n\nText Generation\n\nExercise\n\nLLM Structured Output\n\nExercise"
-  },
-  {
-    "objectID": "index.html#day-5",
-    "href": "index.html#day-5",
-    "title": "Deep Learning",
-    "section": "Day 5",
-    "text": "Day 5\n\nLeveraging GenAI as a Data Scientist\n\nLeveraging GenAI as a Data Scientist\nMLFlow Quick Start"
-  },
-  {
-    "objectID": "docs/student_notes.html",
-    "href": "docs/student_notes.html",
-    "title": "Student Notes",
-    "section": "",
-    "text": "Skill:\n\nEach module has at least 1 lab and 1 assignment\n\nKnowledge:\n\nAuto-graded MCQ Quiz on Tuesday (M1 & M2)\nAuto-graded MCQ Quiz on Thursday (M3 & M4 + few questions from M1 & M2)\n\nHow do I get 100%?:\nAchievement of 100% requires understanding the material in the lab; which requires reading and review of the lab, as well as paying attention to the lecture that builds up to the lab. And then, doing the assignments. Review your work and check your understanding.\n\nBonus: you are engaged with the material and the lecture.\nBonus: you exhibit a high amount of effort in mastering the material. Example: doing the optional exercises like the ones in M1 Lab 3 (Tensors).\n\nHow to mess things up?:\n\nCheat\nSprinting through the lab without understanding the material\nDoing the lab at lecture time (you need to pay attention to the lecture to understand the material)\n\nRemember: if you get stuck, ask the instructor for help. We are here to help you learn; not to judge you."
-  },
-  {
-    "objectID": "docs/student_notes.html#week-4-assessment-quizzes-labs-and-assignments",
-    "href": "docs/student_notes.html#week-4-assessment-quizzes-labs-and-assignments",
-    "title": "Student Notes",
-    "section": "",
-    "text": "Skill:\n\nEach module has at least 1 lab and 1 assignment\n\nKnowledge:\n\nAuto-graded MCQ Quiz on Tuesday (M1 & M2)\nAuto-graded MCQ Quiz on Thursday (M3 & M4 + few questions from M1 & M2)\n\nHow do I get 100%?:\nAchievement of 100% requires understanding the material in the lab; which requires reading and review of the lab, as well as paying attention to the lecture that builds up to the lab. And then, doing the assignments. Review your work and check your understanding.\n\nBonus: you are engaged with the material and the lecture.\nBonus: you exhibit a high amount of effort in mastering the material. Example: doing the optional exercises like the ones in M1 Lab 3 (Tensors).\n\nHow to mess things up?:\n\nCheat\nSprinting through the lab without understanding the material\nDoing the lab at lecture time (you need to pay attention to the lecture to understand the material)\n\nRemember: if you get stuck, ask the instructor for help. We are here to help you learn; not to judge you."
   }
 ]

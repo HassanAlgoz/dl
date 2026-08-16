@@ -56,6 +56,12 @@
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+/* Lift chalkboard / menu tools above the bottom chrome banner. */
+.reveal .slide-chalkboard-buttons,
+.reveal .slide-menu-button {
+  bottom: calc(1.85rem + 8px);
+}
+
 .slide-chrome-crumbs {
   display: flex;
   flex-wrap: wrap;
