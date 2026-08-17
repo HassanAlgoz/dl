@@ -61,6 +61,11 @@ In teams of 2, train your models by following the [Bananameter Tutorial on Teach
 3. [🎞️ Computer Vision Applications](modules/Building_with_Deep_Learning/02-computer-vision/10_computer_vision_applications.qmd)
 4. [🎞️ RTSP Inference Pipeline](modules/Building_with_Deep_Learning/02-computer-vision/11_rtsp_inference_pipeline.qmd)
 
+#### Practice
+
+- [Exercise 1: Run an Object Detection Model](modules/Building_with_Deep_Learning/02-computer-vision/yolo26_model.qmd)
+- [Exercise 2: Roboflow Rapid](https://rapid.roboflow.com/yolotutorial)
+
 <!-- ### M4. NLP Pipelines with HuggingFace
 
 1. [🎞️ Deep Learning Ecosystem](modules/Building_with_Deep_Learning/01-llms/01_ecosystem.qmd)

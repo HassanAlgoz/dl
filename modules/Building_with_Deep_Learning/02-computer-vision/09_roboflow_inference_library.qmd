@@ -19,9 +19,7 @@ In practice, computer vision is therefore both a **modeling** problem and a **sy
 
 ## Roboflow Inference Library
 
-[Inference](https://inference.roboflow.com/start/overview/) is Roboflow's open-source hub for **deploying computer vision systems**.
-
-Instead of wiring every serving detail by hand, it gives you a reusable layer for:
+[Inference](https://inference.roboflow.com/start/overview/) is Roboflow's open-source hub for **deploying computer vision systems**. It gives you a reusable layer for:
 
 ::: {.incremental}
 1. model **serving** (client-server communication)
