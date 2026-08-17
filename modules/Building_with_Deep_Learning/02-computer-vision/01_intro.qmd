@@ -1,14 +1,25 @@
 ---
-title: "Computer Vision Applications"
+title: "Introduction"
 format: revealjs
 ---
 
-# Realtime Inference
+# Computer Vision Applications
 
-## Overview
+## Images vs Video
+
+**Image snapshot**:
+
+- Input: Image
+- Output: Prediction
+
+**Video stream**: Long-running loop
+
+- Input: Sequence of Images
+- Output: events, visuals, or actions
+
+## Realtime Inference
 
 **Realtime** means the system processes input and reacts fast enough that the user experiences it as happening now (a live camera feed feels interactive. A delayed batch job does not).
-
 
 ::: {.fragment}
 
@@ -20,18 +31,6 @@ Every realtime inference system is shaped by two choices:
 - **What it consumes:** a one-off image snapshot or a continuous video stream.
 
 :::
-
-## What is consumes
-
-**Image snapshot**:
-
-- Input: Image
-- Output: Prediction
-
-**Video stream**: Long-running loop
-
-- Input: Sequence of Images
-- Output: events, visuals, or actions
 
 ## Where it runs
 

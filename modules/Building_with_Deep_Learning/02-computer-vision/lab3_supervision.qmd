@@ -1,0 +1,20 @@
+---
+title: Supervision
+format: html
+---
+
+![](../assets/supervision_lenny.png){fig-align="center"}
+
+[Supervision](https://supervision.roboflow.com/latest/) is the library used for **post-processing**, which is done in the `on_prediction(...)` function.
+
+## Your Task
+
+**Goal:** Use Supervision to turn raw model predictions into something useful — annotations, tracks, or counts — by running one of the tutorials below in your own code.
+
+Pick one of the tutorials below and run it in your code:
+
+- [detect and annotate objects](https://supervision.roboflow.com/latest/how_to/detect_and_annotate/) on images,
+- [track objects](https://supervision.roboflow.com/latest/how_to/track_objects/) across video,
+- [count objects in zones](https://supervision.roboflow.com/latest/how_to/count_in_zone/),
+- [count line crossings](https://supervision.roboflow.com/latest/notebooks/count-objects-crossing-the-line/),
+- [build task-specific analytics](https://supervision.roboflow.com/latest/notebooks/occupancy_analytics/) such as parking occupancy.

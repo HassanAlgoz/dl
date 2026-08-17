@@ -1,0 +1,18 @@
+---
+title: Run a YOLO Model (Exercise)
+format: html
+---
+
+## What is YOLO?
+
+**YOLO** (You Only Look Once) is a family of **real-time computer vision models**. Instead of scanning an image in multiple passes, YOLO processes the whole image at once and returns predictions in a single forward pass — which is why it is fast enough for live video.
+
+[Ultralytics YOLO26](https://www.ultralytics.com/) is the latest generation in this family. One pretrained checkpoint can be swapped to different **task heads** — detection, classification, segmentation, pose estimation, and more — without changing the overall workflow.
+
+If you attended the lecture, revisit [Introduction to Computer Vision Tasks](08_roboflow_intro.qmd) for the full task list and examples.
+
+## Your Task
+
+**Goal:** Explore the YOLO26 task catalog, pick one vision task, and run a pretrained model on an image of your choice.
+
+Bring any image you like — a photo from your phone, a screenshot, or a sample from the web.

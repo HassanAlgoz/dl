@@ -1,0 +1,29 @@
+---
+title: Build a Computer Vision Workflow (Exercise)
+format: html
+---
+
+## What is a Roboflow Workflow?
+
+A pretrained model returns raw predictions — bounding boxes, class names, confidence scores. A real application usually needs more: filtering results, counting objects, drawing overlays, or triggering downstream actions.
+
+A **Workflow** is Roboflow's way of wiring those steps together visually. You connect **blocks** (model, filter, visualization, logic) into a pipeline, test it in a debugger, and deploy it through the Inference Server.
+
+Think of it as the **application layer** on top of the model. The lecture slides on [Computer Vision Inference and Deployment](09_roboflow_inference_library.qmd) explain how Workflows fit into the broader Inference ecosystem.
+
+## Your Task
+
+**Goal:** Build and run a simple object-detection Workflow, visualize its output, and understand how you would call it from code.
+
+Follow the official [Hello World tutorial](https://docs.roboflow.com/workflows/tutorials-1/hello-world). It takes about five minutes.
+
+Pick one setup mode:
+
+| Mode | Best for | Requirements |
+| --- | --- | --- |
+| **Cloud connected** | Fastest start | Free [Roboflow account](https://app.roboflow.com/workflows) |
+| **Detached** | Local, no account | [Self-hosted Inference Server](https://docs.roboflow.com/deployment/self-hosted/self-hosted) running locally |
+
+::: {.callout-note}
+In **Detached** mode, start the server with `inference server start --dev`, then open the Workflow Builder at [localhost:9001/build](http://localhost:9001/build).
+:::

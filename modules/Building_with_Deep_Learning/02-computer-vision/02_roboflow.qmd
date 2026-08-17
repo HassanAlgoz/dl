@@ -1,0 +1,61 @@
+---
+title: "Introducing Roboflow"
+format: revealjs
+---
+
+# Roboflow Ecosystem
+
+## Model: YOLO26
+
+[Ultralytics](https://www.ultralytics.com/) YOLO26 is a unified family of **real-time vision models** described in the [YOLO26 paper](https://arxiv.org/abs/2606.03748). It has task-specific heads for multiple vision tasks.
+
+![](../assets/ultralytics_yolo_tasks.png){fig-align="center"}
+
+---
+
+### One family, many tasks
+
+YOLO26 family supports the following tasks:
+
+1. [Classification](https://docs.ultralytics.com/tasks/classify): Assigns a single label or category to the whole image (e.g. classifying an image as either "cat" or "dog").
+2. [Detection](https://docs.ultralytics.com/tasks/detect): Identifies and localizes objects within an image by drawing bounding boxes around them. For example, finding and classifying every car or person in a traffic camera feed.
+3. [Oriented detection](https://docs.ultralytics.com/tasks/obb): Similar to object detection, but allows the bounding boxes to be rotated or oriented, which is useful for accurately localizing objects that aren’t upright, such as vehicles or text at an angle.
+
+---
+
+### One family, many tasks
+
+4. **Instance and semantic segmentation:** Divides an image into segments at the pixel level.
+   1. [Semantic segmentation](https://docs.ultralytics.com/tasks/semantic): labels each pixel with its object class (e.g. "road", "sky").
+   2. [Instance segmentation](https://docs.ultralytics.com/tasks/segment): also distinguishes between different objects of the same class (e.g. two separate persons).
+5. [Pose / keypoint estimation](https://docs.ultralytics.com/tasks/pose): Detects and localizes important points or "keypoints" of objects, most commonly used for estimating human pose by marking joints like elbows, knees, and ankles within an image.
+
+## Computer Vision Projects
+
+Strong realtime CV products also need tooling around the model:
+
+- **data ingestion** and **annotation**
+- **training** and **experiment management**
+- **inference serving** in production
+- **post-processing** and visualization
+- **tracking** across video frames
+
+## The Roboflow ecosystem
+
+[**Roboflow**](https://docs.roboflow.com/) provides an integrated set of tools and libraries for every stage.
+
+- [Roboflow Rapid](https://rapid.roboflow.com/): lets you go from raw data to a ready-to-use object detection API in five minutes.
+  - [Universe](https://universe.roboflow.com/): browse reusable **datasets** and **models**
+- [Roboflow App](https://app.roboflow.com/): build **workflows**, upload data, annotate, train, and deploy
+
+## Inference Library
+
+[Inference](https://inference.roboflow.com/start/overview/) is Roboflow's open-source hub for **deploying computer vision systems**. It gives you a reusable layer for:
+
+::: {.incremental}
+1. model **serving** (client-server communication)
+2. **Workflow** execution (business logic)
+3. **video stream** handling (I/O)
+4. **pre/post-processing** (per-frame logic)
+5. **CPU/GPU** optimization (performance)
+:::

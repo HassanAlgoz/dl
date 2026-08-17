@@ -1,6 +1,0 @@
----
-title: Run a YOLO Model
-format: html
----
-
-Navigate the [tasks](https://docs.ultralytics.com/tasks) and select a model, to run it on an image you give it to it.

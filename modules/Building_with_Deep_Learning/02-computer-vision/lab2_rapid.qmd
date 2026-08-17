@@ -1,0 +1,16 @@
+---
+title: Roboflow Rapid (Exercise)
+format: html
+---
+
+## What is Roboflow Rapid?
+
+Training a custom vision model usually means collecting data, labeling it, choosing hyperparameters, and waiting for training to finish. [Roboflow Rapid](https://rapid.roboflow.com/) compresses that loop into minutes: you upload images, annotate what you want the model to find, and Rapid trains a detector for you.
+
+Rapid is the fastest way to answer a practical question: **"Can a model learn to recognize *my* objects?"** The result is a model you can test in the browser and deploy as an API — no local GPU required.
+
+## Your Task
+
+**Goal:** Use Roboflow Rapid to train a small custom object detector on images you provide, then test it on a new image.
+
+Open the tutorial: [rapid.roboflow.com/yolotutorial](https://rapid.roboflow.com/yolotutorial)

@@ -55,16 +55,21 @@ In teams of 2, train your models by following the [Bananameter Tutorial on Teach
 
 ### M4. Applied Computer Vision
 
-1. [🎞️ Introduction to Computer Vision Tasks](modules/Building_with_Deep_Learning/02-computer-vision/08_roboflow_intro.qmd)
-2. [🎞️ Computer Vision Inference and Deployment](modules/Building_with_Deep_Learning/02-computer-vision/09_roboflow_inference_library.qmd)
-   - [🖥️ Exercise: Build a Computer Vision Workflow](modules/Building_with_Deep_Learning/02-computer-vision/lab_workflow.qmd) (Estimated 45m)
-3. [🎞️ Computer Vision Applications](modules/Building_with_Deep_Learning/02-computer-vision/10_computer_vision_applications.qmd)
-4. [🎞️ RTSP Inference Pipeline](modules/Building_with_Deep_Learning/02-computer-vision/11_rtsp_inference_pipeline.qmd)
+1. [🎞️ Introduction to Computer Vision](modules/Building_with_Deep_Learning/02-computer-vision/01_intro.qmd)
+   - [🖥️ Lab: YOLO26](modules/Building_with_Deep_Learning/02-computer-vision/lab1_yolo26.qmd)
+2. [🎞️ The Roboflow Ecosystem](modules/Building_with_Deep_Learning/02-computer-vision/02_roboflow.qmd)
+   - [🖥️ Lab: Rapid](modules/Building_with_Deep_Learning/02-computer-vision/lab2_rapid.qmd)
+   - [🖥️ Lab: Supervision](modules/Building_with_Deep_Learning/02-computer-vision/lab3_supervision.qmd)
+   - [🖥️ Lab: Workflows](modules/Building_with_Deep_Learning/02-computer-vision/lab4_workflow.qmd)
+3. [🎞️ Video Processing](modules/Building_with_Deep_Learning/02-computer-vision/03_video.qmd)
 
-#### Practice
+#### Resources
 
-- [Exercise 1: Run an Object Detection Model](modules/Building_with_Deep_Learning/02-computer-vision/yolo26_model.qmd)
-- [Exercise 2: Roboflow Rapid](https://rapid.roboflow.com/yolotutorial)
+[End-to-end walkthroughs](https://docs.roboflow.com/workflows/tutorials-1/video-tutorials) of computer vision projects built with Workflows and Inference:
+
+- [Build an AI-Powered Self-Serve Checkout](https://youtu.be/aPxlImNxj5A): Identify different pieces of hardware, calculate the total cost, and record the results to a database.
+- [Intro to Workflows](https://youtu.be/r3Ke7ZEh2Qo): Build and deploy Workflows for common use cases like detecting vehicles, filtering detections, visualizing results, and calculating dwell time on a live video stream.
+- [Build a Smart Parking System](https://youtu.be/tZa-QgFn7jg): License plate detection, object tracking with ByteTrack, and real-time notifications with a Telegram bot.
 
 <!-- ### M4. NLP Pipelines with HuggingFace
 
