@@ -58,24 +58,34 @@ Strong realtime CV products also need tooling around the model:
 
 [Roboflow](https://docs.roboflow.com/) focuses on the application workflow around realtime computer vision, providing an integrated set of tools and libraries for every stage:
 
+
+::: {.fragment}
+
 ### Dataset, Model, Training, and Deployment
 
-. . .
 
+::: {.incremental}
 - [Roboflow App](https://app.roboflow.com/): upload data, annotate, train, and deploy
 - [Universe](https://universe.roboflow.com/): browse reusable datasets and models
   - [Roboflow Annotate](https://docs.roboflow.com/annotate/annotation-tools): provides a fast, robust interface through which you can annotate images, manually or with AI.
   - [Roboflow Rapid](https://rapid.roboflow.com/): lets you go from raw data to a ready-to-use object detection API in five minutes.
+:::
+
+:::
 
 ## Inference Workflows
 
-. . .
-
+::: {.incremental}
 - [Inference](https://inference.roboflow.com/): run models in deployment workflows
 - [Supervision](https://supervision.roboflow.com/latest/): post-process and visualize predictions
 - [Trackers](https://trackers.roboflow.com/latest/): track objects across frames with [algorithms](https://trackers.roboflow.com/latest/#algorithms) such as SORT, ByteTrack, OC-SORT, and BoT-SORT
+:::
+
+::: {.fragment}
 
 Each layer builds on the previous, streamlining the process from raw data to usable, realtime computer vision applications.
+
+:::
 
 ## Takeaways
 

@@ -1,19 +1,121 @@
+name: Release PDFs
+
 on:
   workflow_dispatch:
   push:
-    branches: main
+    branches: [main]
+    paths:
+      - "**/*.qmd"
+      - "_quarto.yml"
+      - "styles.css"
+      - "slide-chrome.js"
+      - ".github/workflows/release-modules.yml"
 
-name: Release modules
+permissions:
+  contents: write
+
+concurrency:
+  group: release-pdfs
+  cancel-in-progress: true
 
 jobs:
   release:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
-        
+
+      - name: Render site
+        run: quarto render
+
+      - name: Install DeckTape
+        run: npm install -g decktape
+
+      - name: Export PDFs
+        run: |
+          set -euo pipefail
+
+          python3 -m http.server 8000 --directory _site &
+          for _ in $(seq 1 30); do
+            if curl -sf -o /dev/null "http://localhost:8000/"; then
+              break
+            fi
+            sleep 1
+          done
+          curl -sf -o /dev/null "http://localhost:8000/"
+
+          CHROME=$(command -v google-chrome || command -v google-chrome-stable || true)
+          chrome_opts=(--chrome-arg=--no-sandbox --chrome-arg=--disable-setuid-sandbox)
+          if [[ -n "${CHROME}" ]]; then
+            chrome_opts+=(--chrome-path="${CHROME}")
+          fi
+
+          mkdir -p dist-pdfs
+
+          export_one() {
+            local qmd="$1"
+            local rel="${qmd#./}"
+            local stem="${rel%.qmd}"
+            local html="_site/${stem}.html"
+            local pdf="dist-pdfs/${stem}.pdf"
+            local url="http://localhost:8000/${stem}.html"
+            local format
+
+            if [[ ! -f "${html}" ]]; then
+              echo "Skipping ${rel} (not rendered)"
+              return 0
+            fi
+
+            format=$(awk 'BEGIN{fm=0} /^---[[:space:]]*$/{fm++; next} fm==1 && $1=="format:"{print $2; exit}' "${qmd}")
+            mkdir -p "$(dirname "${pdf}")"
+            echo "Exporting ${rel} (${format:-unknown}) -> ${pdf}"
+
+            case "${format}" in
+              revealjs)
+                decktape "${chrome_opts[@]}" --size 1600x900 reveal "${url}" "${pdf}"
+                ;;
+              html)
+                decktape "${chrome_opts[@]}" generic "${url}" "${pdf}"
+                ;;
+              *)
+                echo "Unknown format '${format}' for ${rel}; using generic"
+                decktape "${chrome_opts[@]}" generic "${url}" "${pdf}"
+                ;;
+            esac
+          }
+
+          while IFS= read -r -d '' qmd; do
+            export_one "${qmd}"
+          done < <(find docs modules -name '*.qmd' -not -path 'modules/Building_with_Deep_Learning/lessons/*' -print0)
+
+          while IFS= read -r -d '' pdf; do
+            dest="dist-pdfs/${pdf}"
+            mkdir -p "$(dirname "${dest}")"
+            cp "${pdf}" "${dest}"
+          done < <(find modules -name '*.pdf' -print0)
+
+          ( cd dist-pdfs && zip -r "${GITHUB_WORKSPACE}/dl-pdfs.zip" . )
+          echo "Generated:"
+          find dist-pdfs -type f | sort
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: pdfs
+          name: Offline PDFs
+          target_commitish: ${{ github.sha }}
+          make_latest: true
+          overwrite_files: true
+          fail_on_unmatched_files: true
+          body: |
+            Lecture PDFs generated from ${{ github.sha }}.
+
+            Download `dl-pdfs.zip` for everything, or grab an individual PDF below.
+          files: |
+            dl-pdfs.zip
+            dist-pdfs/**/*.pdf
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -7,48 +7,41 @@ format: revealjs
 
 ## Overview
 
-**Realtime** means the system processes input and reacts fast enough that the user experiences it as happening now.
+**Realtime** means the system processes input and reacts fast enough that the user experiences it as happening now (a live camera feed feels interactive. A delayed batch job does not).
 
-:::: {.columns}
-::: {.column width="50%"}
-**Mental model**
 
-A live camera feed feels interactive. A delayed batch job does not.
-:::
-::: {.column width="50%"}
-**Design questions**
+::: {.fragment}
 
-1. Where does inference run?
-2. What kind of input arrives?
-:::
-::::
-
-## Two Design Axes
+### Two Design Axes
 
 Every realtime inference system is shaped by two choices:
 
 - **Where it runs:** inside your application process or behind a server boundary.
 - **What it consumes:** a one-off image snapshot or a continuous video stream.
 
-:::: {.columns}
-::: {.column width="50%"}
-**Image snapshot**
-
-Request in → prediction out
 :::
-::: {.column width="50%"}
-**Video stream**
 
-Long-running loop → events, visuals, or actions
-:::
-::::
+## What is consumes
 
-## In-Process vs Server
+**Image snapshot**:
+
+- Input: Image
+- Output: Prediction
+
+**Video stream**: Long-running loop
+
+- Input: Sequence of Images
+- Output: events, visuals, or actions
+
+## Where it runs
 
 [Running a model](https://inference.roboflow.com/quickstart/run_a_model/) may happen in one of two ways:
 
 - **Server:** the [`inference-sdk`](https://inference.roboflow.com/inference_helpers/inference_sdk/) sends requests to an [Inference Server](https://inference.roboflow.com/quickstart/docker/) over HTTP.
 - **In-process:** the [`inference` Python package](https://inference.roboflow.com/using_inference/about/) loads and runs models directly in your process.
+
+
+::: {.fragment}
 
 | **Question** | **In-process** | **Server** |
 | --- | --- | --- |
@@ -56,6 +49,8 @@ Long-running loop → events, visuals, or actions
 | How do you call it? | Function / package API | HTTP / SDK request |
 | Best when... | You want tight local control | Inference is one piece of a bigger system |
 | Trade-off | Simple | Complex integration |
+
+:::
 
 ## Inference as a Service
 
@@ -117,10 +112,10 @@ This is why streaming systems are usually designed around **pipelines**, not sin
 Inference can also behave like an **appliance**: a system that continuously watches video and triggers downstream behavior.
 
 :::: {.columns}
-::: {.column width="57%"}
-![](../assets/inference_appliance.svg){fig-align="center"}
+::: {.column width="65%"}
+![](../assets/inference_appliance.svg){fig-align="center" width=100%}
 :::
-::: {.column width="43%"}
+::: {.column width="35%"}
 **Common actions:**
 
 - 💾 update a database,
@@ -143,7 +138,7 @@ Inference can also behave like an **appliance**: a system that continuously watc
 ::: {.column width="50%"}
 - collecting traffic analytics,
 - stopping a conveyor belt on jams,
-- sounding an alarm when a scrap heap overflows,
+- sounding an alarm when a scrap heap overflows.
 :::
 ::::
 

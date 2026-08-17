@@ -1,0 +1,52 @@
+---
+title: Interactive Neural Networks Playground (Solution)
+format: html
+---
+
+## TensorFlow Playground
+
+TensorFlow Playground uses URL hash fragments (starting with `#` instead of `?`) to store the configuration state. This allows you to share exact setups without needing to reload the webpage.
+
+Here are the complete URLs that directly load the final configurations for each of the five activities:
+
+**1. Discover Why We Need Non-Linearity**
+*(Circle dataset, 1 hidden layer with 3 neurons, ReLU activation, $X_1$ and $X_2$ features)*
+
+```text
+https://playground.tensorflow.org/#activation=relu&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.123&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false
+
+```
+
+**2. Feature Engineering vs. Deep Networks**
+*(Circle dataset, 0 hidden layers, Linear activation, only $X_1^2$ and $X_2^2$ features)*
+
+```text
+https://playground.tensorflow.org/#activation=linear&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=&seed=0.123&showTestData=false&discretize=false&percTrainData=50&x=false&y=false&xTimesY=false&xSquared=true&ySquared=true&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false
+
+```
+
+**3. The "XOR" Problem**
+*(XOR dataset, 1 hidden layer with 4 neurons, Tanh activation, $X_1$ and $X_2$ features)*
+
+```text
+https://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=xor&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=4&seed=0.123&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false
+
+```
+
+**4. Conquer the "Spiral"**
+*(Spiral dataset, 3 hidden layers with 8 neurons each, ReLU activation, learning rate 0.03)*
+
+```text
+https://playground.tensorflow.org/#activation=relu&batchSize=10&dataset=spiral&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=8,8,8&seed=0.123&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false
+
+```
+
+**5. Overfitting and Regularization**
+*(Circle dataset with 30% noise, 3 hidden layers with 8 neurons each, ReLU activation, L2 Regularization at 0.03)*
+
+```text
+https://playground.tensorflow.org/#activation=relu&regularization=L2&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0.03&noise=30&networkShape=8,8,8&seed=0.123&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false
+
+```
+
+*(Note: Simply copy and paste these into your browser. Once loaded, click the **Play** button in the top left to watch the network train from that exact state.)*

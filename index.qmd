@@ -3,6 +3,8 @@ title: "Deep Learning"
 format: html
 ---
 
+[Download lecture PDFs](https://github.com/HassanAlgoz/dl/releases/tag/pdfs) for offline reading.
+
 ## Day 1: Unsupervised Machine Learning
 
 ### M1. Clustering
@@ -31,27 +33,35 @@ format: html
 
 ### Resources
 
+- [Overview of Clustering Methods | scikit-learn](https://scikit-learn.org/stable/modules/clustering.html#overview-of-clustering-methods)
 - [🖼️ Visualizing K-Means Clustering](https://www.naftaliharris.com/blog/visualizing-k-means-clustering/)
 - [🖼️ Visualizing DBSCAN Clustering](https://www.naftaliharris.com/blog/visualizing-dbscan-clustering/)
 
-<!-- ## Day 2: Deep Learning
+## Day 2: Deep Learning
 
 ### M3. Neural Network Models
 
 1. [🎞️ Introduction to Deep Learning](modules/deep-learning/01-slides/01_intro_deep_learning.qmd)
    - [🖼️ Teachable Machine](https://teachablemachine.withgoogle.com/)
 2. [🎞️ Neural Networks](modules/deep-learning/01-slides/02_neural_networks.qmd)
-   - [🖼️ https://playground.tensorflow.org/](https://playground.tensorflow.org/)
-3. [🖥️ Linear Regression with Neural Networks](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/deep-learning/02-lab_nn/lab_nn_regression.ipynb)
-4. [🖥️ Binary Classification with Neural Networks](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/deep-learning/02-lab_nn/lab_nn_classification.ipynb)
-5. [🖥️ Modeling Delivery Times with Neural Networks](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/deep-learning/03-lab_nn/lab_nn.ipynb)
+   - [🖥️ Exercise: NN Playground](modules/deep-learning/lab_playground/nn_playground.qmd) ([✅ Solution](modules/deep-learning/lab_playground/nn_playground_solution.qmd))
+3. [🖥️ NN Binary Classification](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/deep-learning/02-lab_nn/lab_nn_classification.ipynb)
+4. [🖥️ NN Regression: Modeling Delivery Times](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/deep-learning/03-lab_nn/lab_nn.ipynb)
    - [🖥️ Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/deep-learning/03-lab_nn/lab_nn_exercise.ipynb)
 
-#### Resources
+#### Practice
 
-- [🖼️ Visualizing Neural Network Sizes](https://nnfs.io/ntr/)
+In teams of 2, train your models by following the [Bananameter Tutorial on Teachable Machine](https://medium.com/@warronbebster/teachable-machine-tutorial-bananameter-4bfffa765866). (Estimated: 1 hour)
 
-### M4. NLP Pipelines with HuggingFace
+### M4. Applied Computer Vision
+
+1. [🎞️ Introduction to Computer Vision Tasks](modules/Building_with_Deep_Learning/02-computer-vision/08_roboflow_intro.qmd)
+2. [🎞️ Computer Vision Inference and Deployment](modules/Building_with_Deep_Learning/02-computer-vision/09_roboflow_inference_library.qmd)
+   - [🖥️ Exercise: Build a Computer Vision Workflow](modules/Building_with_Deep_Learning/02-computer-vision/lab_workflow.qmd) (Estimated 45m)
+3. [🎞️ Computer Vision Applications](modules/Building_with_Deep_Learning/02-computer-vision/10_computer_vision_applications.qmd)
+4. [🎞️ RTSP Inference Pipeline](modules/Building_with_Deep_Learning/02-computer-vision/11_rtsp_inference_pipeline.qmd)
+
+<!-- ### M4. NLP Pipelines with HuggingFace
 
 1. [🎞️ Deep Learning Ecosystem](modules/Building_with_Deep_Learning/01-llms/01_ecosystem.qmd)
    - [🖥️ YouTube Video Transcription with Whisper](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/Building_with_Deep_Learning/01-llms/youtube_whisper.ipynb)
@@ -90,13 +100,6 @@ format: html
 8. [🎞️ The Case for Software Engineering Skills](modules/genai/03-agentic-engineering/06_limits.qmd)
 
 ## Day 4
-
-### M7. Computer Vision Models
-
-1. [🎞️ Introduction to Computer Vision Tasks](modules/Building_with_Deep_Learning/02-computer-vision/08_roboflow_intro.qmd)
-2. [🎞️ Computer Vision Inference and Deployment](modules/Building_with_Deep_Learning/02-computer-vision/09_roboflow_inference_library.qmd)
-3. [🎞️ Computer Vision Applications](modules/Building_with_Deep_Learning/02-computer-vision/10_computer_vision_applications.qmd)
-4. [🎞️ RTSP Inference Pipeline](modules/Building_with_Deep_Learning/02-computer-vision/11_rtsp_inference_pipeline.qmd)
 
 ### M9. Machine Learning Operation (MLOps)
 

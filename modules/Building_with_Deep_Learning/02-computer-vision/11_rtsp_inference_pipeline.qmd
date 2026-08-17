@@ -257,6 +257,8 @@ Before wiring a live video pipeline, ask:
 
 These design choices determine latency, resilience, and operator experience.
 
+## Customg Logic
+
 Choose `init_with_custom_logic()` when:
 
 . . .

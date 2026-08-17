@@ -1,0 +1,119 @@
+---
+title: Interactive Neural Networks Playground (Exercise)
+format: html
+---
+
+## TensorFlow Playground
+
+[**TensorFlow Playground**](https://playground.tensorflow.org/) is a web-based visualization tool that lets you experiment with neural networks in real time without writing any code.
+
+![](../assets/tensorflow_playground.png){fig-align="center" width=60%}
+
+Visit [https://playground.tensorflow.org/](https://playground.tensorflow.org/) to go along with this exercise.
+
+## Activity 1: Discover Why We Need Non-Linearity
+
+**Goal:** Understand the limitations of simple linear models and why neural networks need activation functions.
+
+1. **Select the Dataset:** Choose **Gaussian** (top right under *Data*).
+2. **Set Up the Network:**
+* **Features:** Keep only $X_1$ and $X_2$ selected.
+* **Hidden Layers:** Set to **0** (no hidden layers).
+* **Activation:** Set to **Linear**.
+
+
+3. **Run:** Click the **Play** button at the top left.
+* *Result:* The network easily draws a straight line separating the orange and blue dots.
+
+
+4. **Switch Dataset:** Now select the **Circle** dataset. Hit **Play** again.
+* *Observation:* The straight line moves around, but it **cannot** separate the inner blue dots from the outer orange ring.
+
+
+5. **Fix it with Activation:**
+* Add **1 Hidden Layer** with **3 neurons**.
+* Change **Activation** from **Linear** to **ReLU** or **Tanh**.
+* Hit **Play**.
+
+
+
+> **Key Takeaway:** Real-world data is rarely linearly separable. Adding hidden layers combined with non-linear activation functions (like ReLU or Tanh) allows the network to bend and curve its decision boundaries.
+
+---
+
+## Activity 2: Feature Engineering vs. Deep Networks
+
+**Goal:** Learn how giving a model better input features can simplify the network architecture.
+
+1. **Select the Dataset:** Choose **Circle**.
+2. **Set Hidden Layers to 0.**
+3. **Deselect** $X_1$ and $X_2$ as features.
+4. **Select** $X_1^2$ and $X_2^2$ instead.
+5. **Run:** Click **Play**.
+
+> **Key Takeaway:** With the right features ($X_1^2$ and $X_2^2$ describe a circle mathematically: $x^2 + y^2 = r^2$), a simple model without any hidden layers can solve a non-linear problem instantly. Deep learning reduces the need for manual feature engineering, but good features still make learning much easier.
+
+---
+
+## Activity 3: The "XOR" Problem (Combining Features)
+
+**Goal:** Understand how hidden neurons combine simpler lines into complex geometric shapes.
+
+1. **Select the Dataset:** Choose **Exclusive OR (XOR)** (four alternating quadrants).
+2. **Set Features:** Select only $X_1$ and $X_2$.
+3. **Build the Network:**
+* Add **1 Hidden Layer** with **4 Neurons**.
+* Set **Activation** to **Tanh** or **ReLU**.
+
+
+4. **Run and Pause:** Hit **Play**, and as it converges, hover your mouse over each individual neuron in the hidden layer.
+
+> **Key Takeaway:** Each neuron in the hidden layer learns a distinct straight decision boundary. The final output layer combines these individual boundaries into a box/cross shape that solves the XOR problem.
+
+---
+
+## Activity 4: Conquer the "Spiral" (Handling Complex Data)
+
+**Goal:** Experience how network depth and width impact learning capacity on hard problems.
+
+1. **Select the Dataset:** Choose **Spiral** (bottom right dataset—the hardest one).
+2. **First Attempt (Underfitting):** Try running it with 1 hidden layer and 2 neurons.
+* *Observation:* The network fails to learn the interweaving spirals.
+
+
+3. **Scale Up:**
+* Add **3 to 4 Hidden Layers**.
+* Put **6 to 8 Neurons** in the first few layers.
+* Set **Activation** to **ReLU** or **Tanh**.
+* Set **Learning Rate** to **0.03**.
+
+
+4. **Run:** Watch the **Test Loss** and **Training Loss** numbers in the top-right graph.
+
+> **Key Takeaway:** Highly intricate patterns require greater network "capacity" (more layers and neurons) to learn the fine-grained curves of the data distribution.
+
+---
+
+## Activity 5: Overfitting and Regularization
+
+**Goal:** See what happens when a network memorizes noise, and how to stop it.
+
+1. **Select the Dataset:** Choose **XOR** or **Circle**.
+2. **Add Noise:** Slide the **Noise** bar up to **30%–40%** (this scatters points into the wrong territories).
+3. **Build an Overpowered Network:**
+* Add **3 Hidden Layers** with **8 Neurons** each.
+* Run the model for 500+ epochs.
+* Watch the background: it will warp crazily to surround single stray dots.
+* Notice that **Training Loss** keeps dropping, but **Test Loss** stays high or goes up.
+
+
+4. **Apply Regularization:**
+* Change **Regularization** from *None* to **L2**.
+* Set **Regularization Rate** to **0.01** or **0.03**.
+* Hit **Reset** and **Play**.
+
+
+
+> **Key Takeaway:** Overfitting occurs when a model memorizes random noise instead of learning the true pattern. L2 Regularization penalizes overly complex decision boundaries, forcing the network to smooth out its predictions.
+
+---

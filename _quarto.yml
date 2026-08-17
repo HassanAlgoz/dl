@@ -8,9 +8,9 @@ project:
     - modules/unsupervised/**/*.qmd
     - modules/deep-learning/**/*.qmd
     # - modules/nlp/**/*.qmd
-    - modules/pipelines/**/*.qmd
-    - modules/genai/**/*.qmd
-    - modules/Building_with_Deep_Learning/**/*.qmd
+    # - modules/pipelines/**/*.qmd
+    # - modules/genai/**/*.qmd
+    - modules/Building_with_Deep_Learning/02-computer-vision/**/*.qmd
   preview:
     port: 4200
   resources:

@@ -333,11 +333,3 @@ Why & how two or more hidden layers w/ nonlinear activation function works deep 
 - For **Classification** a softmax layer is added to convert to probabilities that sum up to 1
 
 ![](../assets/logits_softmax.png){fig-align="center"}
-
-## Playground
-
-![](../assets/tensorflow_playground.png){fig-align="center" width=50%}
-
-Tinker With a Neural Network in Your Browser. Don’t Worry, You Can’t Break It:
-
-[https://playground.tensorflow.org/](https://playground.tensorflow.org/)
