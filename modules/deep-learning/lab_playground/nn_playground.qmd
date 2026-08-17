@@ -46,7 +46,7 @@ Visit [https://playground.tensorflow.org/](https://playground.tensorflow.org/) t
 **Goal:** Learn how giving a model better input features can simplify the network architecture.
 
 1. **Select the Dataset:** Choose **Circle**.
-2. **Set Hidden Layers to 0.**
+2. **Set Hidden Layers to 1.**
 3. **Deselect** $X_1$ and $X_2$ as features.
 4. **Select** $X_1^2$ and $X_2^2$ instead.
 5. **Run:** Click **Play**.
@@ -91,29 +91,3 @@ Visit [https://playground.tensorflow.org/](https://playground.tensorflow.org/) t
 4. **Run:** Watch the **Test Loss** and **Training Loss** numbers in the top-right graph.
 
 > **Key Takeaway:** Highly intricate patterns require greater network "capacity" (more layers and neurons) to learn the fine-grained curves of the data distribution.
-
----
-
-## Activity 5: Overfitting and Regularization
-
-**Goal:** See what happens when a network memorizes noise, and how to stop it.
-
-1. **Select the Dataset:** Choose **XOR** or **Circle**.
-2. **Add Noise:** Slide the **Noise** bar up to **30%–40%** (this scatters points into the wrong territories).
-3. **Build an Overpowered Network:**
-* Add **3 Hidden Layers** with **8 Neurons** each.
-* Run the model for 500+ epochs.
-* Watch the background: it will warp crazily to surround single stray dots.
-* Notice that **Training Loss** keeps dropping, but **Test Loss** stays high or goes up.
-
-
-4. **Apply Regularization:**
-* Change **Regularization** from *None* to **L2**.
-* Set **Regularization Rate** to **0.01** or **0.03**.
-* Hit **Reset** and **Play**.
-
-
-
-> **Key Takeaway:** Overfitting occurs when a model memorizes random noise instead of learning the true pattern. L2 Regularization penalizes overly complex decision boundaries, forcing the network to smooth out its predictions.
-
----
