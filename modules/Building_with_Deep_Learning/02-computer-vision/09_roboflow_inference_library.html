@@ -169,82 +169,91 @@
 <li class="fragment"><strong>pre/post-processing</strong> (per-frame logic)</li>
 <li class="fragment"><strong>CPU/GPU</strong> optimization (performance)</li>
 </ol>
+<div class="fragment">
+<div class="callout callout-none no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
 <p><strong>Big idea:</strong> you focus on the application logic (<strong>Workflow</strong>), while <code>Inference</code> handles the rest.</p>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section class="slide level2">
 <h2>How the pieces fit together</h2>
+<h3>Inference ecosystem diagram</h3>
+<p>Client → Server Endpoint → <strong>Core Runtime</strong></p>
+
+<img data-src="https://inference.roboflow.com/images/img-inference-diagram-v1.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section class="slide level2">
+
+<h3>Components</h3>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column fragment" style="width:50%;">
 <p><strong><a href="https://inference.roboflow.com/inference_helpers/inference_sdk/">1. <code>inference-sdk</code></a></strong></p>
 <p>Lightweight Python client for talking to an Inference Server over HTTP.</p>
-</div><div class="column" style="width:50%;">
+</div><div class="column fragment" style="width:50%;">
 <p><strong><a href="https://inference.roboflow.com/inference_helpers/inference_cli/">2. <code>inference-cli</code></a></strong></p>
 <p>Command-line entry point for setup, management, and common server tasks.</p>
 </div></div>
-<div class="fragment">
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column fragment" style="width:50%;">
 <p><strong><a href="https://inference.roboflow.com/quickstart/docker/">3. Inference Server</a></strong></p>
 <p>Docker-based HTTP service that exposes models and Workflows as an API.</p>
-</div><div class="column" style="width:50%;">
+</div><div class="column fragment" style="width:50%;">
 <p><strong><a href="https://inference.roboflow.com/using_inference/about/">4. <code>inference</code> package</a></strong></p>
 <p>Core Python runtime for loading models and executing Workflow logic.</p>
 </div></div>
-<p><a href="https://inference.roboflow.com/images/img-inference-diagram-v1.png">Inference ecosystem diagram</a></p>
-<p>Client → Server Endpoint → <strong>Core Runtime</strong></p>
-</div>
 </section>
 <section class="slide level2">
 <h2>Core Runtime</h2>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column fragment" style="width:50%;">
 <p><strong><a href="https://inference.roboflow.com/quickstart/run_a_model">Model serving</a></strong></p>
-<p>Run object detection, classification, segmentation, keypoints, OCR, VQA, and more.</p>
-<p>Works with <a href="https://inference.roboflow.com/quickstart/aliases">pre-trained</a>, <a href="https://roboflow.com/train">fine-tuned</a>, and selected <a href="https://inference.roboflow.com/foundation/about">foundation</a> models.</p>
-</div><div class="column" style="width:50%;">
+<ul>
+<li>Run object detection, classification, segmentation, keypoints, OCR, VQA, and more.</li>
+<li>Works with <a href="https://inference.roboflow.com/quickstart/aliases">pre-trained</a>, <a href="https://roboflow.com/train">fine-tuned</a>, and selected <a href="https://inference.roboflow.com/foundation/about">foundation</a> models.</li>
+</ul>
+</div><div class="column fragment" style="width:50%;">
 <p><strong><a href="https://inference.roboflow.com/workflows/video_processing/overview">Video streaming</a></strong></p>
-<p>Use <code>InferencePipeline</code> for cameras, RTSP feeds, and video files with frame management built in.</p>
+<ul>
+<li>Use <code>InferencePipeline</code> for cameras, RTSP feeds, and video files with frame management built in.</li>
+</ul>
 </div></div>
-<div class="fragment">
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column fragment" style="width:50%;">
 <p><strong><a href="https://inference.roboflow.com/understand/features#speed">Speed</a></strong></p>
-<p>Benefit from parallelization, hardware acceleration, dynamic batching, and optional TensorRT paths.</p>
-</div><div class="column" style="width:50%;">
+<ul>
+<li>Benefit from parallelization, hardware acceleration, dynamic batching, and optional TensorRT paths.</li>
+</ul>
+</div><div class="column fragment" style="width:50%;">
 <p><strong><a href="https://inference.roboflow.com/understand/features#extensibility">Extensibility</a></strong></p>
-<p>The stack is open source, so you can add custom models, custom Workflow blocks, and new backends.</p>
+<ul>
+<li>The stack is open source, so you can add custom models, custom Workflow blocks, and new backends.</li>
+</ul>
 </div></div>
-</div>
 </section>
 <section class="slide level2">
 <h2>Deploy anywhere</h2>
 <p>The deployment question is <strong>where should it run?</strong></p>
 <div class="columns">
-<div class="column" style="width:33%;">
+<div class="column fragment" style="width:33%;">
 <p><strong><a href="https://docs.roboflow.com/deploy/serverless-hosted-api-v2">Serverless</a></strong></p>
 <p><strong>Best for:</strong> simple request-response inference with spiky demand.</p>
 <p><strong>Billing:</strong> per call (<a href="https://roboflow.com/pricing">metered</a>).</p>
-</div><div class="column" style="width:33%;">
+</div><div class="column fragment" style="width:33%;">
 <p><strong><a href="https://docs.roboflow.com/deploy/dedicated-deployments">Dedicated</a></strong></p>
 <p><strong>Best for:</strong> heavier models and steadier production workloads.</p>
 <p><strong>Billing:</strong> hourly VM.</p>
-</div><div class="column" style="width:33%;">
+</div><div class="column fragment" style="width:33%;">
 <p><strong><a href="https://inference.roboflow.com/install/">Self-hosted</a></strong></p>
 <p><strong>Best for:</strong> local hardware, offline operation, and strict infrastructure control.</p>
 <p><strong>Billing:</strong> your own stack. See the <a href="https://inference.roboflow.com/install/">install guide</a>.</p>
 </div></div>
+<div class="fragment">
 <p>All three support <strong>fine-tuned models</strong>, <strong>pre-trained models</strong>, and <strong>Workflows</strong>.</p>
 <p>See also: <a href="https://inference.roboflow.com/quickstart/devices/">What devices can I use?</a></p>
-</section>
-<section class="slide level2">
-<h2>First workflow: Hello World</h2>
-<p>The official <a href="https://inference.roboflow.com/guides/hello-world/">Hello World tutorial</a> is a fast way to validate your setup.</p>
-<p>In about five minutes, you:</p>
-<ol type="1">
-<li>build and run a simple <strong>Workflow</strong></li>
-<li>send data through a computer vision model</li>
-<li>inspect the output in the UI debugger</li>
-</ol>
+</div>
 
 
 </section></section>

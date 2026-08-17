@@ -148,42 +148,37 @@
 </section>
 <section class="slide level2">
 <h2>Overview</h2>
-<p><strong>Realtime</strong> means the system processes input and reacts fast enough that the user experiences it as happening now.</p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>Mental model</strong></p>
-<p>A live camera feed feels interactive. A delayed batch job does not.</p>
-</div><div class="column" style="width:50%;">
-<p><strong>Design questions</strong></p>
-<ol type="1">
-<li>Where does inference run?</li>
-<li>What kind of input arrives?</li>
-</ol>
-</div></div>
-</section>
-<section class="slide level2">
-<h2>Two Design Axes</h2>
+<p><strong>Realtime</strong> means the system processes input and reacts fast enough that the user experiences it as happening now (a live camera feed feels interactive. A delayed batch job does not).</p>
+<div class="fragment">
+<h3>Two Design Axes</h3>
 <p>Every realtime inference system is shaped by two choices:</p>
 <ul>
 <li><strong>Where it runs:</strong> inside your application process or behind a server boundary.</li>
 <li><strong>What it consumes:</strong> a one-off image snapshot or a continuous video stream.</li>
 </ul>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>Image snapshot</strong></p>
-<p>Request in → prediction out</p>
-</div><div class="column" style="width:50%;">
-<p><strong>Video stream</strong></p>
-<p>Long-running loop → events, visuals, or actions</p>
-</div></div>
+</div>
 </section>
 <section class="slide level2">
-<h2>In-Process vs Server</h2>
+<h2>What is consumes</h2>
+<p><strong>Image snapshot</strong>:</p>
+<ul>
+<li>Input: Image</li>
+<li>Output: Prediction</li>
+</ul>
+<p><strong>Video stream</strong>: Long-running loop</p>
+<ul>
+<li>Input: Sequence of Images</li>
+<li>Output: events, visuals, or actions</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Where it runs</h2>
 <p><a href="https://inference.roboflow.com/quickstart/run_a_model/">Running a model</a> may happen in one of two ways:</p>
 <ul>
 <li><strong>Server:</strong> the <a href="https://inference.roboflow.com/inference_helpers/inference_sdk/"><code>inference-sdk</code></a> sends requests to an <a href="https://inference.roboflow.com/quickstart/docker/">Inference Server</a> over HTTP.</li>
 <li><strong>In-process:</strong> the <a href="https://inference.roboflow.com/using_inference/about/"><code>inference</code> Python package</a> loads and runs models directly in your process.</li>
 </ul>
+<div class="fragment">
 <table class="caption-top">
 <colgroup>
 <col style="width: 33%">
@@ -220,6 +215,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section class="slide level2">
 <h2>Inference as a Service</h2>
@@ -281,13 +277,13 @@
 <h2>From Processing to Action</h2>
 <p>Inference can also behave like an <strong>appliance</strong>: a system that continuously watches video and triggers downstream behavior.</p>
 <div class="columns">
-<div class="column" style="width:57%;">
+<div class="column" style="width:65%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="../assets/inference_appliance.svg" class="quarto-figure quarto-figure-center"></p>
+<p><img data-src="../assets/inference_appliance.svg" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
-</div><div class="column" style="width:43%;">
+</div><div class="column" style="width:35%;">
 <p><strong>Common actions:</strong></p>
 <ul>
 <li>💾 update a database,</li>
@@ -311,7 +307,7 @@
 <ul>
 <li>collecting traffic analytics,</li>
 <li>stopping a conveyor belt on jams,</li>
-<li>sounding an alarm when a scrap heap overflows,</li>
+<li>sounding an alarm when a scrap heap overflows.</li>
 </ul>
 </div></div>
 </section>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Deep Learning – Deep Learning with PyTorch</title>
+<title>Workflow Hello World – Deep Learning with PyTorch</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -29,22 +29,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-e3adbaa939bcd423dddc8c8a834270b4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-e3adbaa939bcd423dddc8c8a834270b4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../../styles.css">
 </head>
 
 <body class="quarto-light">
@@ -84,31 +84,15 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#day-1-unsupervised-machine-learning" id="toc-day-1-unsupervised-machine-learning" class="nav-link active" data-scroll-target="#day-1-unsupervised-machine-learning">Day 1: Unsupervised Machine Learning</a>
-  <ul class="collapse">
-  <li><a href="#m1.-clustering" id="toc-m1.-clustering" class="nav-link" data-scroll-target="#m1.-clustering">M1. Clustering</a></li>
-  <li><a href="#m2.-dbscan-and-agglomerative-clustering" id="toc-m2.-dbscan-and-agglomerative-clustering" class="nav-link" data-scroll-target="#m2.-dbscan-and-agglomerative-clustering">M2. DBSCAN and Agglomerative Clustering</a></li>
-  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
-  </ul></li>
-  <li><a href="#day-2-deep-learning" id="toc-day-2-deep-learning" class="nav-link" data-scroll-target="#day-2-deep-learning">Day 2: Deep Learning</a>
-  <ul class="collapse">
-  <li><a href="#m3.-neural-network-models" id="toc-m3.-neural-network-models" class="nav-link" data-scroll-target="#m3.-neural-network-models">M3. Neural Network Models</a></li>
-  <li><a href="#m4.-applied-computer-vision" id="toc-m4.-applied-computer-vision" class="nav-link" data-scroll-target="#m4.-applied-computer-vision">M4. Applied Computer Vision</a></li>
-  </ul></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Deep Learning</h1>
+<h1 class="title">Workflow Hello World</h1>
 </div>
 
 
@@ -125,136 +109,28 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><a href="https://github.com/HassanAlgoz/dl/releases/tag/pdfs">Download lecture PDFs</a> for offline reading.</p>
-<section id="day-1-unsupervised-machine-learning" class="level2">
-<h2 class="anchored" data-anchor-id="day-1-unsupervised-machine-learning">Day 1: Unsupervised Machine Learning</h2>
-<section id="m1.-clustering" class="level3">
-<h3 class="anchored" data-anchor-id="m1.-clustering">M1. Clustering</h3>
+<p>The official <a href="https://inference.roboflow.com/guides/hello-world/">Hello World tutorial</a> is a fast way to validate your setup.</p>
+<p>In about five minutes, you:</p>
 <ol type="1">
-<li><a href="https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/unsupervised/02-clustering/clusters_1d_2d_3d.ipynb">🖥️ Clusters in 1D, 2D, 3D</a></li>
-<li><a href="modules/unsupervised/01-slides/01-Intro-Clustering-with-K-Means.pdf">🎞️ Intro to Clustering with K-Means</a></li>
-<li><a href="https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/unsupervised/02-clustering/clustering_optimization.ipynb">🖥️ Clustering Optimization</a>
-<ul>
-<li><a href="https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/unsupervised/02-clustering/clustering_optimization_exercise.ipynb">🖥️ Exercise</a></li>
-</ul></li>
-<li><a href="https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/unsupervised/02-clustering/clusters_in_nature_seeds.ipynb">🖥️ Clusters in Nature: Seeds Dataset</a></li>
+<li>build and run a simple <strong>Workflow</strong></li>
+<li>send data through a computer vision model</li>
+<li>inspect the output in the UI debugger</li>
 </ol>
-<section id="practice" class="level4">
-<h4 class="anchored" data-anchor-id="practice">Practice</h4>
-<ul>
-<li>Exercise 1: <a href="https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/unsupervised/02-clustering/kmeans_clustering_lab.ipynb">🖥️ K-Means Clustering with Seeds Data</a> (<a href="https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/unsupervised/02-clustering/kmeans_clustering_lab_solutions.ipynb">✅ Solution</a>)</li>
-<li>Exercise 2: <a href="https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/unsupervised/02-clustering/cluster_evaluation_lab.ipynb">🖥️ Evaluating K-Means Clusters with the Iris Dataset</a> (<a href="https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/unsupervised/02-clustering/cluster_evaluation_lab_solutions.ipynb">✅ Solution</a>)</li>
-</ul>
-</section>
-</section>
-<section id="m2.-dbscan-and-agglomerative-clustering" class="level3">
-<h3 class="anchored" data-anchor-id="m2.-dbscan-and-agglomerative-clustering">M2. DBSCAN and Agglomerative Clustering</h3>
-<ol type="1">
-<li><a href="modules/unsupervised/01-slides/02-DBSCAN-and-Agglomerative-Clustering.pdf">🎞️ DBSCAN and Agglomerative Clustering</a></li>
-<li><a href="./modules/unsupervised/03-dbscan-agglom-clustering/clustering_geospatial.html">🖥️ Application of Clustering in Geospatial Analytics</a></li>
-<li><a href="https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/unsupervised/03-dbscan-agglom-clustering/dbscan.ipynb">🖥️ DBSCAN</a></li>
-<li><a href="https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/unsupervised/03-dbscan-agglom-clustering/agglomerative-clustering.ipynb">🖥️ Agglomerative Clustering</a></li>
-</ol>
-<section id="practice-1" class="level4">
-<h4 class="anchored" data-anchor-id="practice-1">Practice</h4>
-<ul>
-<li>Exercise: <a href="https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/unsupervised/03-dbscan-agglom-clustering/practice_dbscan-lab.ipynb">🖥️ DBSCAN Practice</a> (<a href="https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/unsupervised/03-dbscan-agglom-clustering/practice_dbscan-lab-solutions.ipynb">✅ Solution</a>)</li>
-</ul>
-</section>
-</section>
-<section id="resources" class="level3">
-<h3 class="anchored" data-anchor-id="resources">Resources</h3>
-<ul>
-<li><a href="https://scikit-learn.org/stable/modules/clustering.html#overview-of-clustering-methods">Overview of Clustering Methods | scikit-learn</a></li>
-<li><a href="https://www.naftaliharris.com/blog/visualizing-k-means-clustering/">🖼️ Visualizing K-Means Clustering</a></li>
-<li><a href="https://www.naftaliharris.com/blog/visualizing-dbscan-clustering/">🖼️ Visualizing DBSCAN Clustering</a></li>
-</ul>
-</section>
-</section>
-<section id="day-2-deep-learning" class="level2">
-<h2 class="anchored" data-anchor-id="day-2-deep-learning">Day 2: Deep Learning</h2>
-<section id="m3.-neural-network-models" class="level3">
-<h3 class="anchored" data-anchor-id="m3.-neural-network-models">M3. Neural Network Models</h3>
-<ol type="1">
-<li><a href="./modules/deep-learning/01-slides/01_intro_deep_learning.html">🎞️ Introduction to Deep Learning</a>
-<ul>
-<li><a href="https://teachablemachine.withgoogle.com/">🖼️ Teachable Machine</a></li>
-</ul></li>
-<li><a href="./modules/deep-learning/01-slides/02_neural_networks.html">🎞️ Neural Networks</a>
-<ul>
-<li><a href="./modules/deep-learning/lab_playground/nn_playground.html">🖥️ Exercise: NN Playground</a> (<a href="./modules/deep-learning/lab_playground/nn_playground_solution.html">✅ Solution</a>)</li>
-</ul></li>
-<li><a href="https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/deep-learning/02-lab_nn/lab_nn_classification.ipynb">🖥️ NN Binary Classification</a></li>
-<li><a href="https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/deep-learning/03-lab_nn/lab_nn.ipynb">🖥️ NN Regression: Modeling Delivery Times</a>
-<ul>
-<li><a href="https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/deep-learning/03-lab_nn/lab_nn_exercise.ipynb">🖥️ Exercise</a></li>
-</ul></li>
-</ol>
-<section id="practice-2" class="level4">
-<h4 class="anchored" data-anchor-id="practice-2">Practice</h4>
-<p>In teams of 2, train your models by following the <a href="https://medium.com/@warronbebster/teachable-machine-tutorial-bananameter-4bfffa765866">Bananameter Tutorial on Teachable Machine</a>. (Estimated: 1 hour)</p>
-</section>
-</section>
-<section id="m4.-applied-computer-vision" class="level3">
-<h3 class="anchored" data-anchor-id="m4.-applied-computer-vision">M4. Applied Computer Vision</h3>
-<ol type="1">
-<li><a href="./modules/Building_with_Deep_Learning/02-computer-vision/08_roboflow_intro.html">🎞️ Introduction to Computer Vision Tasks</a></li>
-<li><a href="./modules/Building_with_Deep_Learning/02-computer-vision/09_roboflow_inference_library.html">🎞️ Computer Vision Inference and Deployment</a>
-<ul>
-<li><a href="./modules/Building_with_Deep_Learning/02-computer-vision/lab_workflow.html">🖥️ Exercise: Build a Computer Vision Workflow</a> (Estimated 45m)</li>
-</ul></li>
-<li><a href="./modules/Building_with_Deep_Learning/02-computer-vision/10_computer_vision_applications.html">🎞️ Computer Vision Applications</a></li>
-<li><a href="./modules/Building_with_Deep_Learning/02-computer-vision/11_rtsp_inference_pipeline.html">🎞️ RTSP Inference Pipeline</a></li>
-</ol>
-<!-- ### M4. NLP Pipelines with HuggingFace
-
-1. [🎞️ Deep Learning Ecosystem](modules/Building_with_Deep_Learning/01-llms/01_ecosystem.qmd)
-   - [🖥️ YouTube Video Transcription with Whisper](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/Building_with_Deep_Learning/01-llms/youtube_whisper.ipynb)
-2. [🖥️ Using `transformers` Models via Pipelines](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/Building_with_Deep_Learning/01-llms/02_pipelines.ipynb)
-3. [🖥️ Text Classification](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/01_text_classification.ipynb)
-   - [🖥️ Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/01_text_classification_exercise.ipynb)
-4. [🖥️ Token Classification (NER)](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/02_token_classification.ipynb)
-   - [🖥️ Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/02_token_classification_exercise.ipynb)
-5. [🖥️ Seq2Seq: Translation and Summarization](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/03_seq2seq.ipynb)
-   - [🖥️ Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/03_seq2seq_exercise.ipynb)
-6. [🖥️ Inside a Pipeline](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/Building_with_Deep_Learning/01-llms/03_inside_pipeline.ipynb)
-7. [🖥️ Controlling LLM Generation](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/Building_with_Deep_Learning/01-llms/04_llm_generate.ipynb)
-   - [🖥️ LLM Structured Output](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/Building_with_Deep_Learning/01-llms/05_llm_structured_output.ipynb)
-8. [🎞️ Model Selection and Training](modules/Building_with_Deep_Learning/01-llms/06_train.qmd)
-9. [🎞️ Model Serving](modules/Building_with_Deep_Learning/01-llms/07_serve.qmd)
-
-#### Resources
-
-- [🖼️ Visual Story: Generative AI | Financial Times](https://ig.ft.com/generative-ai/)
-- [🖼️ Beam Search Visualizer](https://huggingface.co/spaces/agents-course/beam_search_visualizer)
-- Explore Embeddings: [🖥️ Distributed Word Representations: Word2Vec](https://colab.research.google.com/github/PacktPublishing/Generative-AI-with-Python-and-PyTorch-Second-Edition/blob/main/ch_03/01_word2vec.ipynb#scrollTo=8G12Ukan3bQQ)
-  - (Extra Details) Word2vec from Scratch: [jaketae](https://jaketae.github.io/study/word2vec/) or [nickvdw/word2vec-from-scratch](https://github.com/nickvdw/word2vec-from-scratch).
-- [HuggingFace Tasks](https://huggingface.co/tasks)
-  - [🖥️ NLP Tasks](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/Building_with_Deep_Learning/01-llms/tasks_nlp.ipynb)
-  - [🖥️ Audio Tasks](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/Building_with_Deep_Learning/01-llms/tasks_audio.ipynb)
-
-### M6. Agentic Engineering
-
-1. [🎞️ Leveraging GenAI as a Data Scientist](modules/genai/01-slides/Leveraging-GenAI-as-a-Data-Scientist.pdf)
-2. [🖥️ Leveraging GenAI as a Data Scientist](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/genai/02-leveraging-genai-data-science/02_genai_for_ds.ipynb)
-3. [🎞️ Agentic Engineering](modules/genai/03-agentic-engineering/01_intro.qmd)
-4. [🎞️ Prompting Coding Agents](modules/genai/03-agentic-engineering/02_prompting.qmd)
-5. [🎞️ Agent Modes](modules/genai/03-agentic-engineering/03_agent_modes.qmd)
-6. [🎞️ Agentic Codebase](modules/genai/03-agentic-engineering/04_agentic_codebase.qmd)
-7. [🎞️ Skills for Software Engineers](modules/genai/03-agentic-engineering/05_skills_for_ai.qmd)
-8. [🎞️ The Case for Software Engineering Skills](modules/genai/03-agentic-engineering/06_limits.qmd)
-
-## Day 4
-
-### M9. Machine Learning Operation (MLOps)
-
-1. [🎞️ Deploying and Operating Machine Learning Models](modules/mlops/01-slides/DE_%20Deploying%20and%20Operating%20Machine%20Learning%20Models.pdf)
-2. [Machine learning apps](https://huggingface.co/docs/transformers/pipeline_gradio)
-3. [MLFlow Quick Start](https://mlflow.org/docs/latest/ml/getting-started/quickstart/) -->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Note: Select <strong>Detatched</strong> to run the Workflow Builder UI locally without a Roboflow account or API key.</p>
+</div>
+</div>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
