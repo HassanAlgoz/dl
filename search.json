@@ -1,108 +1,24 @@
 [
   {
-    "objectID": "modules/Building_with_Deep_Learning/02-computer-vision/lab_workflow.html",
-    "href": "modules/Building_with_Deep_Learning/02-computer-vision/lab_workflow.html",
-    "title": "Workflow Hello World",
+    "objectID": "modules/Building_with_Deep_Learning/02-computer-vision/yolo26_model.html",
+    "href": "modules/Building_with_Deep_Learning/02-computer-vision/yolo26_model.html",
+    "title": "Run a YOLO Model",
     "section": "",
-    "text": "The official Hello World tutorial is a fast way to validate your setup.\nIn about five minutes, you:\n\nbuild and run a simple Workflow\nsend data through a computer vision model\ninspect the output in the UI debugger\n\n\n\n\n\n\n\nNote\n\n\n\nNote: Select Detatched to run the Workflow Builder UI locally without a Roboflow account or API key."
+    "text": "Navigate the tasks and select a model, to run it on an image you give it to it."
   },
   {
-    "objectID": "modules/deep-learning/lab_playground/nn_playground.html",
-    "href": "modules/deep-learning/lab_playground/nn_playground.html",
-    "title": "Interactive Neural Networks Playground (Exercise)",
+    "objectID": "modules/deep-learning/lab_playground/nn_playground_solution.html",
+    "href": "modules/deep-learning/lab_playground/nn_playground_solution.html",
+    "title": "Interactive Neural Networks Playground (Solution)",
     "section": "",
-    "text": "TensorFlow Playground is a web-based visualization tool that lets you experiment with neural networks in real time without writing any code.\n\n\n\n\n\nVisit https://playground.tensorflow.org/ to go along with this exercise."
+    "text": "TensorFlow Playground uses URL hash fragments (starting with # instead of ?) to store the configuration state. This allows you to share exact setups without needing to reload the webpage.\nHere are the complete URLs that directly load the final configurations for each of the five activities:\n1. Discover Why We Need Non-Linearity (Circle dataset, 1 hidden layer with 3 neurons, ReLU activation, \\(X_1\\) and \\(X_2\\) features)\nhttps://playground.tensorflow.org/#activation=relu&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.123&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false\n\n2. Feature Engineering vs. Deep Networks (Circle dataset, 0 hidden layers, Linear activation, only \\(X_1^2\\) and \\(X_2^2\\) features)\nhttps://playground.tensorflow.org/#activation=linear&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=&seed=0.123&showTestData=false&discretize=false&percTrainData=50&x=false&y=false&xTimesY=false&xSquared=true&ySquared=true&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false\n\n3. The “XOR” Problem (XOR dataset, 1 hidden layer with 4 neurons, Tanh activation, \\(X_1\\) and \\(X_2\\) features)\nhttps://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=xor&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=4&seed=0.123&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false\n\n4. Conquer the “Spiral” (Spiral dataset, 3 hidden layers with 8 neurons each, ReLU activation, learning rate 0.03)\nhttps://playground.tensorflow.org/#activation=relu&batchSize=10&dataset=spiral&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=8,8,8&seed=0.123&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false\n\n5. Overfitting and Regularization (Circle dataset with 30% noise, 3 hidden layers with 8 neurons each, ReLU activation, L2 Regularization at 0.03)\nhttps://playground.tensorflow.org/#activation=relu&regularization=L2&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0.03&noise=30&networkShape=8,8,8&seed=0.123&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false\n\n(Note: Simply copy and paste these into your browser. Once loaded, click the Play button in the top left to watch the network train from that exact state.)"
   },
   {
-    "objectID": "modules/deep-learning/lab_playground/nn_playground.html#tensorflow-playground",
-    "href": "modules/deep-learning/lab_playground/nn_playground.html#tensorflow-playground",
-    "title": "Interactive Neural Networks Playground (Exercise)",
+    "objectID": "modules/deep-learning/lab_playground/nn_playground_solution.html#tensorflow-playground",
+    "href": "modules/deep-learning/lab_playground/nn_playground_solution.html#tensorflow-playground",
+    "title": "Interactive Neural Networks Playground (Solution)",
     "section": "",
-    "text": "TensorFlow Playground is a web-based visualization tool that lets you experiment with neural networks in real time without writing any code.\n\n\n\n\n\nVisit https://playground.tensorflow.org/ to go along with this exercise."
-  },
-  {
-    "objectID": "modules/deep-learning/lab_playground/nn_playground.html#activity-1-discover-why-we-need-non-linearity",
-    "href": "modules/deep-learning/lab_playground/nn_playground.html#activity-1-discover-why-we-need-non-linearity",
-    "title": "Interactive Neural Networks Playground (Exercise)",
-    "section": "Activity 1: Discover Why We Need Non-Linearity",
-    "text": "Activity 1: Discover Why We Need Non-Linearity\nGoal: Understand the limitations of simple linear models and why neural networks need activation functions.\n\nSelect the Dataset: Choose Gaussian (top right under Data).\nSet Up the Network:\n\n\nFeatures: Keep only \\(X_1\\) and \\(X_2\\) selected.\nHidden Layers: Set to 0 (no hidden layers).\nActivation: Set to Linear.\n\n\nRun: Click the Play button at the top left.\n\n\nResult: The network easily draws a straight line separating the orange and blue dots.\n\n\nSwitch Dataset: Now select the Circle dataset. Hit Play again.\n\n\nObservation: The straight line moves around, but it cannot separate the inner blue dots from the outer orange ring.\n\n\nFix it with Activation:\n\n\nAdd 1 Hidden Layer with 3 neurons.\nChange Activation from Linear to ReLU or Tanh.\nHit Play.\n\n\nKey Takeaway: Real-world data is rarely linearly separable. Adding hidden layers combined with non-linear activation functions (like ReLU or Tanh) allows the network to bend and curve its decision boundaries."
-  },
-  {
-    "objectID": "modules/deep-learning/lab_playground/nn_playground.html#activity-2-feature-engineering-vs.-deep-networks",
-    "href": "modules/deep-learning/lab_playground/nn_playground.html#activity-2-feature-engineering-vs.-deep-networks",
-    "title": "Interactive Neural Networks Playground (Exercise)",
-    "section": "Activity 2: Feature Engineering vs. Deep Networks",
-    "text": "Activity 2: Feature Engineering vs. Deep Networks\nGoal: Learn how giving a model better input features can simplify the network architecture.\n\nSelect the Dataset: Choose Circle.\nSet Hidden Layers to 0.\nDeselect \\(X_1\\) and \\(X_2\\) as features.\nSelect \\(X_1^2\\) and \\(X_2^2\\) instead.\nRun: Click Play.\n\n\nKey Takeaway: With the right features (\\(X_1^2\\) and \\(X_2^2\\) describe a circle mathematically: \\(x^2 + y^2 = r^2\\)), a simple model without any hidden layers can solve a non-linear problem instantly. Deep learning reduces the need for manual feature engineering, but good features still make learning much easier."
-  },
-  {
-    "objectID": "modules/deep-learning/lab_playground/nn_playground.html#activity-3-the-xor-problem-combining-features",
-    "href": "modules/deep-learning/lab_playground/nn_playground.html#activity-3-the-xor-problem-combining-features",
-    "title": "Interactive Neural Networks Playground (Exercise)",
-    "section": "Activity 3: The “XOR” Problem (Combining Features)",
-    "text": "Activity 3: The “XOR” Problem (Combining Features)\nGoal: Understand how hidden neurons combine simpler lines into complex geometric shapes.\n\nSelect the Dataset: Choose Exclusive OR (XOR) (four alternating quadrants).\nSet Features: Select only \\(X_1\\) and \\(X_2\\).\nBuild the Network:\n\n\nAdd 1 Hidden Layer with 4 Neurons.\nSet Activation to Tanh or ReLU.\n\n\nRun and Pause: Hit Play, and as it converges, hover your mouse over each individual neuron in the hidden layer.\n\n\nKey Takeaway: Each neuron in the hidden layer learns a distinct straight decision boundary. The final output layer combines these individual boundaries into a box/cross shape that solves the XOR problem."
-  },
-  {
-    "objectID": "modules/deep-learning/lab_playground/nn_playground.html#activity-4-conquer-the-spiral-handling-complex-data",
-    "href": "modules/deep-learning/lab_playground/nn_playground.html#activity-4-conquer-the-spiral-handling-complex-data",
-    "title": "Interactive Neural Networks Playground (Exercise)",
-    "section": "Activity 4: Conquer the “Spiral” (Handling Complex Data)",
-    "text": "Activity 4: Conquer the “Spiral” (Handling Complex Data)\nGoal: Experience how network depth and width impact learning capacity on hard problems.\n\nSelect the Dataset: Choose Spiral (bottom right dataset—the hardest one).\nFirst Attempt (Underfitting): Try running it with 1 hidden layer and 2 neurons.\n\n\nObservation: The network fails to learn the interweaving spirals.\n\n\nScale Up:\n\n\nAdd 3 to 4 Hidden Layers.\nPut 6 to 8 Neurons in the first few layers.\nSet Activation to ReLU or Tanh.\nSet Learning Rate to 0.03.\n\n\nRun: Watch the Test Loss and Training Loss numbers in the top-right graph.\n\n\nKey Takeaway: Highly intricate patterns require greater network “capacity” (more layers and neurons) to learn the fine-grained curves of the data distribution."
-  },
-  {
-    "objectID": "modules/deep-learning/lab_playground/nn_playground.html#activity-5-overfitting-and-regularization",
-    "href": "modules/deep-learning/lab_playground/nn_playground.html#activity-5-overfitting-and-regularization",
-    "title": "Interactive Neural Networks Playground (Exercise)",
-    "section": "Activity 5: Overfitting and Regularization",
-    "text": "Activity 5: Overfitting and Regularization\nGoal: See what happens when a network memorizes noise, and how to stop it.\n\nSelect the Dataset: Choose XOR or Circle.\nAdd Noise: Slide the Noise bar up to 30%–40% (this scatters points into the wrong territories).\nBuild an Overpowered Network:\n\n\nAdd 3 Hidden Layers with 8 Neurons each.\nRun the model for 500+ epochs.\nWatch the background: it will warp crazily to surround single stray dots.\nNotice that Training Loss keeps dropping, but Test Loss stays high or goes up.\n\n\nApply Regularization:\n\n\nChange Regularization from None to L2.\nSet Regularization Rate to 0.01 or 0.03.\nHit Reset and Play.\n\n\nKey Takeaway: Overfitting occurs when a model memorizes random noise instead of learning the true pattern. L2 Regularization penalizes overly complex decision boundaries, forcing the network to smooth out its predictions."
-  },
-  {
-    "objectID": "docs/lab_setup.html",
-    "href": "docs/lab_setup.html",
-    "title": "Lab Setup",
-    "section": "",
-    "text": "Since CPUs are not enough for Deep Learning models; we’ll need a GPU. For, that we’ll need Google Colab. Understanding the client-server interaction is crucial for working with such remote code execution environments (here shown as Jupyter Server).\n\n\n\n\n\nThe image above shows how we interact with remote servers, such as Google Colab, to run our code:\n\nWe write code in the Browser Jupyter Notebooks or in VS Code\nOn save: the code is sent to the Juypter/Colab Server and stored there as .ipynb files\nOn run: the code is:\n\nsent to the kernel for execution\nthen back to the server to save the results\nwhich are then sent back to the browser"
-  },
-  {
-    "objectID": "docs/lab_setup.html#client-server-architecture",
-    "href": "docs/lab_setup.html#client-server-architecture",
-    "title": "Lab Setup",
-    "section": "",
-    "text": "Since CPUs are not enough for Deep Learning models; we’ll need a GPU. For, that we’ll need Google Colab. Understanding the client-server interaction is crucial for working with such remote code execution environments (here shown as Jupyter Server).\n\n\n\n\n\nThe image above shows how we interact with remote servers, such as Google Colab, to run our code:\n\nWe write code in the Browser Jupyter Notebooks or in VS Code\nOn save: the code is sent to the Juypter/Colab Server and stored there as .ipynb files\nOn run: the code is:\n\nsent to the kernel for execution\nthen back to the server to save the results\nwhich are then sent back to the browser"
-  },
-  {
-    "objectID": "docs/lab_setup.html#setup-instructions",
-    "href": "docs/lab_setup.html#setup-instructions",
-    "title": "Lab Setup",
-    "section": "Setup Instructions",
-    "text": "Setup Instructions\nMake sure you have a Google account. And can access Google Colab."
-  },
-  {
-    "objectID": "docs/lab_setup.html#optional-working-from-inside-vs-code-instead-of-the-colab-notebook",
-    "href": "docs/lab_setup.html#optional-working-from-inside-vs-code-instead-of-the-colab-notebook",
-    "title": "Lab Setup",
-    "section": "Optional: Working from inside VS Code instead of the Colab Notebook",
-    "text": "Optional: Working from inside VS Code instead of the Colab Notebook\nGoogle Colab for VS Code extension allows you to work in VS Code while the code is sent and executed in Colab servers. However, the steps above are still required."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Deep Learning",
-    "section": "",
-    "text": "Download lecture PDFs for offline reading."
-  },
-  {
-    "objectID": "index.html#day-1-unsupervised-machine-learning",
-    "href": "index.html#day-1-unsupervised-machine-learning",
-    "title": "Deep Learning",
-    "section": "Day 1: Unsupervised Machine Learning",
-    "text": "Day 1: Unsupervised Machine Learning\n\nM1. Clustering\n\n🖥️ Clusters in 1D, 2D, 3D\n🎞️ Intro to Clustering with K-Means\n🖥️ Clustering Optimization\n\n🖥️ Exercise\n\n🖥️ Clusters in Nature: Seeds Dataset\n\n\nPractice\n\nExercise 1: 🖥️ K-Means Clustering with Seeds Data (✅ Solution)\nExercise 2: 🖥️ Evaluating K-Means Clusters with the Iris Dataset (✅ Solution)\n\n\n\n\nM2. DBSCAN and Agglomerative Clustering\n\n🎞️ DBSCAN and Agglomerative Clustering\n🖥️ Application of Clustering in Geospatial Analytics\n🖥️ DBSCAN\n🖥️ Agglomerative Clustering\n\n\nPractice\n\nExercise: 🖥️ DBSCAN Practice (✅ Solution)\n\n\n\n\nResources\n\nOverview of Clustering Methods | scikit-learn\n🖼️ Visualizing K-Means Clustering\n🖼️ Visualizing DBSCAN Clustering"
-  },
-  {
-    "objectID": "index.html#day-2-deep-learning",
-    "href": "index.html#day-2-deep-learning",
-    "title": "Deep Learning",
-    "section": "Day 2: Deep Learning",
-    "text": "Day 2: Deep Learning\n\nM3. Neural Network Models\n\n🎞️ Introduction to Deep Learning\n\n🖼️ Teachable Machine\n\n🎞️ Neural Networks\n\n🖥️ Exercise: NN Playground (✅ Solution)\n\n🖥️ NN Binary Classification\n🖥️ NN Regression: Modeling Delivery Times\n\n🖥️ Exercise\n\n\n\nPractice\nIn teams of 2, train your models by following the Bananameter Tutorial on Teachable Machine. (Estimated: 1 hour)\n\n\n\nM4. Applied Computer Vision\n\n🎞️ Introduction to Computer Vision Tasks\n🎞️ Computer Vision Inference and Deployment\n\n🖥️ Exercise: Build a Computer Vision Workflow (Estimated 45m)\n\n🎞️ Computer Vision Applications\n🎞️ RTSP Inference Pipeline"
+    "text": "TensorFlow Playground uses URL hash fragments (starting with # instead of ?) to store the configuration state. This allows you to share exact setups without needing to reload the webpage.\nHere are the complete URLs that directly load the final configurations for each of the five activities:\n1. Discover Why We Need Non-Linearity (Circle dataset, 1 hidden layer with 3 neurons, ReLU activation, \\(X_1\\) and \\(X_2\\) features)\nhttps://playground.tensorflow.org/#activation=relu&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.123&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false\n\n2. Feature Engineering vs. Deep Networks (Circle dataset, 0 hidden layers, Linear activation, only \\(X_1^2\\) and \\(X_2^2\\) features)\nhttps://playground.tensorflow.org/#activation=linear&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=&seed=0.123&showTestData=false&discretize=false&percTrainData=50&x=false&y=false&xTimesY=false&xSquared=true&ySquared=true&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false\n\n3. The “XOR” Problem (XOR dataset, 1 hidden layer with 4 neurons, Tanh activation, \\(X_1\\) and \\(X_2\\) features)\nhttps://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=xor&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=4&seed=0.123&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false\n\n4. Conquer the “Spiral” (Spiral dataset, 3 hidden layers with 8 neurons each, ReLU activation, learning rate 0.03)\nhttps://playground.tensorflow.org/#activation=relu&batchSize=10&dataset=spiral&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=8,8,8&seed=0.123&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false\n\n5. Overfitting and Regularization (Circle dataset with 30% noise, 3 hidden layers with 8 neurons each, ReLU activation, L2 Regularization at 0.03)\nhttps://playground.tensorflow.org/#activation=relu&regularization=L2&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0.03&noise=30&networkShape=8,8,8&seed=0.123&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false\n\n(Note: Simply copy and paste these into your browser. Once loaded, click the Play button in the top left to watch the network train from that exact state.)"
   },
   {
     "objectID": "modules/unsupervised/03-dbscan-agglom-clustering/clustering_geospatial.html",
@@ -161,17 +77,108 @@
     "text": "Reference\nRamsey, Paul. “PostGIS Clustering with DBSCAN.” Crunchy Data Blog, 19 Dec. 2023, https://www.crunchydata.com/blog/postgis-clustering-with-dbscan."
   },
   {
-    "objectID": "modules/deep-learning/lab_playground/nn_playground_solution.html",
-    "href": "modules/deep-learning/lab_playground/nn_playground_solution.html",
-    "title": "Interactive Neural Networks Playground (Solution)",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Deep Learning",
     "section": "",
-    "text": "TensorFlow Playground uses URL hash fragments (starting with # instead of ?) to store the configuration state. This allows you to share exact setups without needing to reload the webpage.\nHere are the complete URLs that directly load the final configurations for each of the five activities:\n1. Discover Why We Need Non-Linearity (Circle dataset, 1 hidden layer with 3 neurons, ReLU activation, \\(X_1\\) and \\(X_2\\) features)\nhttps://playground.tensorflow.org/#activation=relu&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.123&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false\n\n2. Feature Engineering vs. Deep Networks (Circle dataset, 0 hidden layers, Linear activation, only \\(X_1^2\\) and \\(X_2^2\\) features)\nhttps://playground.tensorflow.org/#activation=linear&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=&seed=0.123&showTestData=false&discretize=false&percTrainData=50&x=false&y=false&xTimesY=false&xSquared=true&ySquared=true&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false\n\n3. The “XOR” Problem (XOR dataset, 1 hidden layer with 4 neurons, Tanh activation, \\(X_1\\) and \\(X_2\\) features)\nhttps://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=xor&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=4&seed=0.123&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false\n\n4. Conquer the “Spiral” (Spiral dataset, 3 hidden layers with 8 neurons each, ReLU activation, learning rate 0.03)\nhttps://playground.tensorflow.org/#activation=relu&batchSize=10&dataset=spiral&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=8,8,8&seed=0.123&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false\n\n5. Overfitting and Regularization (Circle dataset with 30% noise, 3 hidden layers with 8 neurons each, ReLU activation, L2 Regularization at 0.03)\nhttps://playground.tensorflow.org/#activation=relu&regularization=L2&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0.03&noise=30&networkShape=8,8,8&seed=0.123&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false\n\n(Note: Simply copy and paste these into your browser. Once loaded, click the Play button in the top left to watch the network train from that exact state.)"
+    "text": "Download lecture PDFs for offline reading."
   },
   {
-    "objectID": "modules/deep-learning/lab_playground/nn_playground_solution.html#tensorflow-playground",
-    "href": "modules/deep-learning/lab_playground/nn_playground_solution.html#tensorflow-playground",
-    "title": "Interactive Neural Networks Playground (Solution)",
+    "objectID": "index.html#day-1-unsupervised-machine-learning",
+    "href": "index.html#day-1-unsupervised-machine-learning",
+    "title": "Deep Learning",
+    "section": "Day 1: Unsupervised Machine Learning",
+    "text": "Day 1: Unsupervised Machine Learning\n\nM1. Clustering\n\n🖥️ Clusters in 1D, 2D, 3D\n🎞️ Intro to Clustering with K-Means\n🖥️ Clustering Optimization\n\n🖥️ Exercise\n\n🖥️ Clusters in Nature: Seeds Dataset\n\n\nPractice\n\nExercise 1: 🖥️ K-Means Clustering with Seeds Data (✅ Solution)\nExercise 2: 🖥️ Evaluating K-Means Clusters with the Iris Dataset (✅ Solution)\n\n\n\n\nM2. DBSCAN and Agglomerative Clustering\n\n🎞️ DBSCAN and Agglomerative Clustering\n🖥️ Application of Clustering in Geospatial Analytics\n🖥️ DBSCAN\n🖥️ Agglomerative Clustering\n\n\nPractice\n\nExercise: 🖥️ DBSCAN Practice (✅ Solution)\n\n\n\n\nResources\n\nOverview of Clustering Methods | scikit-learn\n🖼️ Visualizing K-Means Clustering\n🖼️ Visualizing DBSCAN Clustering"
+  },
+  {
+    "objectID": "index.html#day-2-deep-learning",
+    "href": "index.html#day-2-deep-learning",
+    "title": "Deep Learning",
+    "section": "Day 2: Deep Learning",
+    "text": "Day 2: Deep Learning\n\nM3. Neural Network Models\n\n🎞️ Introduction to Deep Learning\n\n🖼️ Teachable Machine\n\n🎞️ Neural Networks\n\n🖥️ Exercise: NN Playground (✅ Solution)\n\n🖥️ NN Binary Classification\n🖥️ NN Regression: Modeling Delivery Times\n\n🖥️ Exercise\n\n\n\nPractice\nIn teams of 2, train your models by following the Bananameter Tutorial on Teachable Machine. (Estimated: 1 hour)\n\n\n\nM4. Applied Computer Vision\n\n🎞️ Introduction to Computer Vision Tasks\n🎞️ Computer Vision Inference and Deployment\n\n🖥️ Exercise: Build a Computer Vision Workflow (Estimated 45m)\n\n🎞️ Computer Vision Applications\n🎞️ RTSP Inference Pipeline\n\n\nPractice\n\nExercise 1: Run an Object Detection Model\nExercise 2: Roboflow Rapid"
+  },
+  {
+    "objectID": "docs/lab_setup.html",
+    "href": "docs/lab_setup.html",
+    "title": "Lab Setup",
     "section": "",
-    "text": "TensorFlow Playground uses URL hash fragments (starting with # instead of ?) to store the configuration state. This allows you to share exact setups without needing to reload the webpage.\nHere are the complete URLs that directly load the final configurations for each of the five activities:\n1. Discover Why We Need Non-Linearity (Circle dataset, 1 hidden layer with 3 neurons, ReLU activation, \\(X_1\\) and \\(X_2\\) features)\nhttps://playground.tensorflow.org/#activation=relu&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.123&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false\n\n2. Feature Engineering vs. Deep Networks (Circle dataset, 0 hidden layers, Linear activation, only \\(X_1^2\\) and \\(X_2^2\\) features)\nhttps://playground.tensorflow.org/#activation=linear&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=&seed=0.123&showTestData=false&discretize=false&percTrainData=50&x=false&y=false&xTimesY=false&xSquared=true&ySquared=true&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false\n\n3. The “XOR” Problem (XOR dataset, 1 hidden layer with 4 neurons, Tanh activation, \\(X_1\\) and \\(X_2\\) features)\nhttps://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=xor&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=4&seed=0.123&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false\n\n4. Conquer the “Spiral” (Spiral dataset, 3 hidden layers with 8 neurons each, ReLU activation, learning rate 0.03)\nhttps://playground.tensorflow.org/#activation=relu&batchSize=10&dataset=spiral&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=8,8,8&seed=0.123&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false\n\n5. Overfitting and Regularization (Circle dataset with 30% noise, 3 hidden layers with 8 neurons each, ReLU activation, L2 Regularization at 0.03)\nhttps://playground.tensorflow.org/#activation=relu&regularization=L2&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0.03&noise=30&networkShape=8,8,8&seed=0.123&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false\n\n(Note: Simply copy and paste these into your browser. Once loaded, click the Play button in the top left to watch the network train from that exact state.)"
+    "text": "Since CPUs are not enough for Deep Learning models; we’ll need a GPU. For, that we’ll need Google Colab. Understanding the client-server interaction is crucial for working with such remote code execution environments (here shown as Jupyter Server).\n\n\n\n\n\nThe image above shows how we interact with remote servers, such as Google Colab, to run our code:\n\nWe write code in the Browser Jupyter Notebooks or in VS Code\nOn save: the code is sent to the Juypter/Colab Server and stored there as .ipynb files\nOn run: the code is:\n\nsent to the kernel for execution\nthen back to the server to save the results\nwhich are then sent back to the browser"
+  },
+  {
+    "objectID": "docs/lab_setup.html#client-server-architecture",
+    "href": "docs/lab_setup.html#client-server-architecture",
+    "title": "Lab Setup",
+    "section": "",
+    "text": "Since CPUs are not enough for Deep Learning models; we’ll need a GPU. For, that we’ll need Google Colab. Understanding the client-server interaction is crucial for working with such remote code execution environments (here shown as Jupyter Server).\n\n\n\n\n\nThe image above shows how we interact with remote servers, such as Google Colab, to run our code:\n\nWe write code in the Browser Jupyter Notebooks or in VS Code\nOn save: the code is sent to the Juypter/Colab Server and stored there as .ipynb files\nOn run: the code is:\n\nsent to the kernel for execution\nthen back to the server to save the results\nwhich are then sent back to the browser"
+  },
+  {
+    "objectID": "docs/lab_setup.html#setup-instructions",
+    "href": "docs/lab_setup.html#setup-instructions",
+    "title": "Lab Setup",
+    "section": "Setup Instructions",
+    "text": "Setup Instructions\nMake sure you have a Google account. And can access Google Colab."
+  },
+  {
+    "objectID": "docs/lab_setup.html#optional-working-from-inside-vs-code-instead-of-the-colab-notebook",
+    "href": "docs/lab_setup.html#optional-working-from-inside-vs-code-instead-of-the-colab-notebook",
+    "title": "Lab Setup",
+    "section": "Optional: Working from inside VS Code instead of the Colab Notebook",
+    "text": "Optional: Working from inside VS Code instead of the Colab Notebook\nGoogle Colab for VS Code extension allows you to work in VS Code while the code is sent and executed in Colab servers. However, the steps above are still required."
+  },
+  {
+    "objectID": "modules/deep-learning/lab_playground/nn_playground.html",
+    "href": "modules/deep-learning/lab_playground/nn_playground.html",
+    "title": "Interactive Neural Networks Playground (Exercise)",
+    "section": "",
+    "text": "TensorFlow Playground is a web-based visualization tool that lets you experiment with neural networks in real time without writing any code.\n\n\n\n\n\nVisit https://playground.tensorflow.org/ to go along with this exercise."
+  },
+  {
+    "objectID": "modules/deep-learning/lab_playground/nn_playground.html#tensorflow-playground",
+    "href": "modules/deep-learning/lab_playground/nn_playground.html#tensorflow-playground",
+    "title": "Interactive Neural Networks Playground (Exercise)",
+    "section": "",
+    "text": "TensorFlow Playground is a web-based visualization tool that lets you experiment with neural networks in real time without writing any code.\n\n\n\n\n\nVisit https://playground.tensorflow.org/ to go along with this exercise."
+  },
+  {
+    "objectID": "modules/deep-learning/lab_playground/nn_playground.html#activity-1-discover-why-we-need-non-linearity",
+    "href": "modules/deep-learning/lab_playground/nn_playground.html#activity-1-discover-why-we-need-non-linearity",
+    "title": "Interactive Neural Networks Playground (Exercise)",
+    "section": "Activity 1: Discover Why We Need Non-Linearity",
+    "text": "Activity 1: Discover Why We Need Non-Linearity\nGoal: Understand the limitations of simple linear models and why neural networks need activation functions.\n\nSelect the Dataset: Choose Gaussian (top right under Data).\nSet Up the Network:\n\n\nFeatures: Keep only \\(X_1\\) and \\(X_2\\) selected.\nHidden Layers: Set to 0 (no hidden layers).\nActivation: Set to Linear.\n\n\nRun: Click the Play button at the top left.\n\n\nResult: The network easily draws a straight line separating the orange and blue dots.\n\n\nSwitch Dataset: Now select the Circle dataset. Hit Play again.\n\n\nObservation: The straight line moves around, but it cannot separate the inner blue dots from the outer orange ring.\n\n\nFix it with Activation:\n\n\nAdd 1 Hidden Layer with 3 neurons.\nChange Activation from Linear to ReLU or Tanh.\nHit Play.\n\n\nKey Takeaway: Real-world data is rarely linearly separable. Adding hidden layers combined with non-linear activation functions (like ReLU or Tanh) allows the network to bend and curve its decision boundaries."
+  },
+  {
+    "objectID": "modules/deep-learning/lab_playground/nn_playground.html#activity-2-feature-engineering-vs.-deep-networks",
+    "href": "modules/deep-learning/lab_playground/nn_playground.html#activity-2-feature-engineering-vs.-deep-networks",
+    "title": "Interactive Neural Networks Playground (Exercise)",
+    "section": "Activity 2: Feature Engineering vs. Deep Networks",
+    "text": "Activity 2: Feature Engineering vs. Deep Networks\nGoal: Learn how giving a model better input features can simplify the network architecture.\n\nSelect the Dataset: Choose Circle.\nSet Hidden Layers to 0.\nDeselect \\(X_1\\) and \\(X_2\\) as features.\nSelect \\(X_1^2\\) and \\(X_2^2\\) instead.\nRun: Click Play.\n\n\nKey Takeaway: With the right features (\\(X_1^2\\) and \\(X_2^2\\) describe a circle mathematically: \\(x^2 + y^2 = r^2\\)), a simple model without any hidden layers can solve a non-linear problem instantly. Deep learning reduces the need for manual feature engineering, but good features still make learning much easier."
+  },
+  {
+    "objectID": "modules/deep-learning/lab_playground/nn_playground.html#activity-3-the-xor-problem-combining-features",
+    "href": "modules/deep-learning/lab_playground/nn_playground.html#activity-3-the-xor-problem-combining-features",
+    "title": "Interactive Neural Networks Playground (Exercise)",
+    "section": "Activity 3: The “XOR” Problem (Combining Features)",
+    "text": "Activity 3: The “XOR” Problem (Combining Features)\nGoal: Understand how hidden neurons combine simpler lines into complex geometric shapes.\n\nSelect the Dataset: Choose Exclusive OR (XOR) (four alternating quadrants).\nSet Features: Select only \\(X_1\\) and \\(X_2\\).\nBuild the Network:\n\n\nAdd 1 Hidden Layer with 4 Neurons.\nSet Activation to Tanh or ReLU.\n\n\nRun and Pause: Hit Play, and as it converges, hover your mouse over each individual neuron in the hidden layer.\n\n\nKey Takeaway: Each neuron in the hidden layer learns a distinct straight decision boundary. The final output layer combines these individual boundaries into a box/cross shape that solves the XOR problem."
+  },
+  {
+    "objectID": "modules/deep-learning/lab_playground/nn_playground.html#activity-4-conquer-the-spiral-handling-complex-data",
+    "href": "modules/deep-learning/lab_playground/nn_playground.html#activity-4-conquer-the-spiral-handling-complex-data",
+    "title": "Interactive Neural Networks Playground (Exercise)",
+    "section": "Activity 4: Conquer the “Spiral” (Handling Complex Data)",
+    "text": "Activity 4: Conquer the “Spiral” (Handling Complex Data)\nGoal: Experience how network depth and width impact learning capacity on hard problems.\n\nSelect the Dataset: Choose Spiral (bottom right dataset—the hardest one).\nFirst Attempt (Underfitting): Try running it with 1 hidden layer and 2 neurons.\n\n\nObservation: The network fails to learn the interweaving spirals.\n\n\nScale Up:\n\n\nAdd 3 to 4 Hidden Layers.\nPut 6 to 8 Neurons in the first few layers.\nSet Activation to ReLU or Tanh.\nSet Learning Rate to 0.03.\n\n\nRun: Watch the Test Loss and Training Loss numbers in the top-right graph.\n\n\nKey Takeaway: Highly intricate patterns require greater network “capacity” (more layers and neurons) to learn the fine-grained curves of the data distribution."
+  },
+  {
+    "objectID": "modules/deep-learning/lab_playground/nn_playground.html#activity-5-overfitting-and-regularization",
+    "href": "modules/deep-learning/lab_playground/nn_playground.html#activity-5-overfitting-and-regularization",
+    "title": "Interactive Neural Networks Playground (Exercise)",
+    "section": "Activity 5: Overfitting and Regularization",
+    "text": "Activity 5: Overfitting and Regularization\nGoal: See what happens when a network memorizes noise, and how to stop it.\n\nSelect the Dataset: Choose XOR or Circle.\nAdd Noise: Slide the Noise bar up to 30%–40% (this scatters points into the wrong territories).\nBuild an Overpowered Network:\n\n\nAdd 3 Hidden Layers with 8 Neurons each.\nRun the model for 500+ epochs.\nWatch the background: it will warp crazily to surround single stray dots.\nNotice that Training Loss keeps dropping, but Test Loss stays high or goes up.\n\n\nApply Regularization:\n\n\nChange Regularization from None to L2.\nSet Regularization Rate to 0.01 or 0.03.\nHit Reset and Play.\n\n\nKey Takeaway: Overfitting occurs when a model memorizes random noise instead of learning the true pattern. L2 Regularization penalizes overly complex decision boundaries, forcing the network to smooth out its predictions."
+  },
+  {
+    "objectID": "modules/Building_with_Deep_Learning/02-computer-vision/lab_workflow.html",
+    "href": "modules/Building_with_Deep_Learning/02-computer-vision/lab_workflow.html",
+    "title": "Workflow Hello World",
+    "section": "",
+    "text": "The official Hello World tutorial is a fast way to validate your setup.\nIn about five minutes, you:\n\nbuild and run a simple Workflow\nsend data through a computer vision model\ninspect the output in the UI debugger\n\n\n\n\n\n\n\nNote\n\n\n\nNote: Select Detatched to run the Workflow Builder UI locally without a Roboflow account or API key."
   }
 ]
