@@ -1,0 +1,96 @@
+---
+title: "Agentic Codebase"
+format: revealjs
+---
+
+# Agentic Codebase
+
+## What's an Agentic Codebase?
+
+An **agentic codebase** refers to a software repository that is explicitly optimized for AI coding agents.
+
+## Position-based Prompts: `AGENTS.md`
+
+```text
+./
+├── README.md
+├── package.json
+├── AGENTS.md      <-- Global rules
+
+```
+
+- The persistent baseline. Loaded on every single chat turn across the entire project. Used for non-negotiable architectural decisions, global dependencies, and base project workflows.
+
+## Position-based Prompts: `AGENTS.md`
+
+```md
+├── frontend/
+│   ├── AGENTS.md     <-- Frontend scope
+│   ├── src/
+│   └── components/
+├── backend/
+│   ├── AGENTS.md     <-- Backend scope
+│   ├── app/
+│   └── controllers/
+```
+
+- Path-specific context. The AI automatically loads these *only* when reading or writing files within that specific directory tree, preventing backend rules from muddying frontend context (and vice versa).
+
+## Try: Caveman Prompt in `AGNETS.md`
+
+```md
+Ultra-compressed communication mode. Respond terse like smart caveman. All technical substance stay. Only fluff die.
+
+### Rules
+Drop: articles (a/an/the), filler (just/really/basically/actually/simply), pleasantries (sure/certainly/of course/happy to), hedging. Fragments OK. Short synonyms (big not extensive, fix not "implement a solution for"). Abbreviate common terms (DB/auth/config/req/res/fn/impl). Strip conjunctions. Use arrows for causality (X -> Y). One word when one word enough.
+
+Technical terms stay exact. Code blocks unchanged. Errors quoted exact.
+
+Pattern: [thing] [action] [reason]. [next step].
+```
+
+## Example `AGENT.md` Prompt
+
+```md
+## Tech Stack
+- Frontend: [e.g., React, Next.js (App Router)]
+- Backend: [e.g., Node.js, Express]
+- Database: [e.g., PostgreSQL with Prisma ORM]
+- Styling: [e.g., Tailwind CSS]
+
+## Critical Rules & Guardrails
+1. **No Any:** Never use `any` in TypeScript. Write explicit types or interfaces.
+2. **Error Handling:** Always wrap async operations in try/catch blocks and use custom error boundaries on the frontend.
+3. **Security:** Never hardcode API keys or secrets. Always use `process.env`.
+```
+
+## Example `AGENT.md` Prompt
+
+```md
+## Development Workflow
+- **Start Dev Server:** `npm run dev`
+- **Run Tests:** `npm run test`
+- **Lint Code:** `npm run lint`
+
+## Commit Convention
+Use Conventional Commits: `feat(scope): description`, `fix(scope): description`, or `chore: description`.
+```
+
+## Behavior-specific Prompts: `SKILL.md`
+
+```
+└── .agents/
+    └── skills/                // On-demand
+        ├── deploy/SKILL.md    // Trigger: /deploy
+        ├── test/SKILL.md      // Trigger: /test
+        └── refactor/SKILL.md  // Trigger: /refactor
+```
+
+- **`.agents/skills/*` (Dynamic):** Modular, domain-specific instruction files. They sit completely dormant to save context window space.
+  - **`deploy.md`, `test.md`, `refactor.md`:** These are only pulled into the AI's memory when you explicitly invoke their mapped slash commands (e.g., typing `/deploy` in the chat).
+
+You can [find Official skills from the dev teams of software vendors, plus handpicked & community-adopted skills](https://officialskills.sh/).
+
+## The Codebase Takes Precedence
+
+Even if you setup `AGENTS.md` and `SKILL.md`, the model will prioritize the codebase. LLMs tend to follow examples more than they follow instructions. **Make a good example of your codebase for the model to follow**.
