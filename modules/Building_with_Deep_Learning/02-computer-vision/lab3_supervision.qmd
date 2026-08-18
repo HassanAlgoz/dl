@@ -1,5 +1,5 @@
 ---
-title: Supervision
+title: Supervision (Exercise)
 format: html
 ---
 

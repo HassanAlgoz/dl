@@ -12,7 +12,7 @@ format: html
 1. [🖥️ Clusters in 1D, 2D, 3D](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/unsupervised/02-clustering/clusters_1d_2d_3d.ipynb)
 2. [🎞️ Intro to Clustering with K-Means](modules/unsupervised/01-slides/01-Intro-Clustering-with-K-Means.pdf)
 3. [🖥️ Clustering Optimization](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/unsupervised/02-clustering/clustering_optimization.ipynb)
-   - [🖥️ Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/unsupervised/02-clustering/clustering_optimization_exercise.ipynb)
+   - [📝 Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/unsupervised/02-clustering/clustering_optimization_exercise.ipynb)
 4. [🖥️ Clusters in Nature: Seeds Dataset](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/unsupervised/02-clustering/clusters_in_nature_seeds.ipynb)
 
 #### Practice
@@ -44,14 +44,15 @@ format: html
 1. [🎞️ Introduction to Deep Learning](modules/deep-learning/01-slides/01_intro_deep_learning.qmd)
    - [🖼️ Teachable Machine](https://teachablemachine.withgoogle.com/)
 2. [🎞️ Neural Networks](modules/deep-learning/01-slides/02_neural_networks.qmd)
-   - [🖥️ Exercise: NN Playground](modules/deep-learning/lab_playground/nn_playground.qmd) ([✅ Solution](modules/deep-learning/lab_playground/nn_playground_solution.qmd))
+   - [📝 Exercise: NN Playground](modules/deep-learning/lab_playground/nn_playground.qmd) ([✅ Solution](modules/deep-learning/lab_playground/nn_playground_solution.qmd))
 3. [🖥️ NN Binary Classification](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/deep-learning/02-lab_nn/lab_nn_classification.ipynb)
 4. [🖥️ NN Regression: Modeling Delivery Times](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/deep-learning/03-lab_nn/lab_nn.ipynb)
-   - [🖥️ Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/deep-learning/03-lab_nn/lab_nn_exercise.ipynb)
+   - [📝 Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/deep-learning/03-lab_nn/lab_nn_exercise.ipynb)
 
 #### Practice
 
-In teams of 2, train your models by following the [Bananameter Tutorial on Teachable Machine](https://medium.com/@warronbebster/teachable-machine-tutorial-bananameter-4bfffa765866). (Estimated: 1 hour)
+- In teams of 2, train your models by following the [Bananameter Tutorial on Teachable Machine](https://medium.com/@warronbebster/teachable-machine-tutorial-bananameter-4bfffa765866).
+   - Ideas: (rock, paper, scissors) or (currency) or (facial experessions) or (colors) or (left, up, down, right).
 
 ### M4. Applied Computer Vision
 
@@ -61,7 +62,7 @@ In teams of 2, train your models by following the [Bananameter Tutorial on Teach
    - [🖥️ Lab: Rapid](modules/Building_with_Deep_Learning/02-computer-vision/lab2_rapid.qmd)
    - [🖥️ Lab: Supervision](modules/Building_with_Deep_Learning/02-computer-vision/lab3_supervision.qmd)
    - [🖥️ Lab: Workflows](modules/Building_with_Deep_Learning/02-computer-vision/lab4_workflow.qmd)
-3. [🎞️ Video Processing](modules/Building_with_Deep_Learning/02-computer-vision/03_video.qmd)
+- [🎞️ Video Processing (optional)](modules/Building_with_Deep_Learning/02-computer-vision/03_video.qmd)
 
 #### Resources
 
@@ -71,34 +72,52 @@ In teams of 2, train your models by following the [Bananameter Tutorial on Teach
 - [Intro to Workflows](https://youtu.be/r3Ke7ZEh2Qo): Build and deploy Workflows for common use cases like detecting vehicles, filtering detections, visualizing results, and calculating dwell time on a live video stream.
 - [Build a Smart Parking System](https://youtu.be/tZa-QgFn7jg): License plate detection, object tracking with ByteTrack, and real-time notifications with a Telegram bot.
 
-<!-- ### M4. NLP Pipelines with HuggingFace
+## Day 3: Applied Natural Language Processing
+
+### M5. Text as Vectors
+
+1. [🎞️ Slides](modules/nlp/01-slides/NLP-LLMs%201%20Foundations%20of%20Modern%20NLP.pdf)
+2. [🖥️ Text Frequency Features](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/nlp/02-text-frequency/text-frequency.ipynb)
+   - [📝 Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/nlp/02-text-frequency/text-frequency_exercise.ipynb)
+3. [🖥️ Build a Sentiment Analysis Classifier](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/nlp/03-text-classifier/text-classifier.ipynb)
+   - [📝 Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/nlp/03-text-classifier/text-classifier_exercise.ipynb)
+4. [🖥️ Distributed Word Representations: Word2Vec](https://colab.research.google.com/github/PacktPublishing/Generative-AI-with-Python-and-PyTorch-Second-Edition/blob/main/ch_03/01_word2vec.ipynb#scrollTo=8G12Ukan3bQQ)
+   - [📝 Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/nlp/04-embeddings/word2vec-classifier_exercise.ipynb)
+
+### M6. NLP Pipelines with HuggingFace
 
 1. [🎞️ Deep Learning Ecosystem](modules/Building_with_Deep_Learning/01-llms/01_ecosystem.qmd)
    - [🖥️ YouTube Video Transcription with Whisper](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/Building_with_Deep_Learning/01-llms/youtube_whisper.ipynb)
 2. [🖥️ Using `transformers` Models via Pipelines](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/Building_with_Deep_Learning/01-llms/02_pipelines.ipynb)
-3. [🖥️ Text Classification](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/01_text_classification.ipynb)
-   - [🖥️ Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/01_text_classification_exercise.ipynb)
-4. [🖥️ Token Classification (NER)](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/02_token_classification.ipynb)
-   - [🖥️ Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/02_token_classification_exercise.ipynb)
-5. [🖥️ Seq2Seq: Translation and Summarization](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/03_seq2seq.ipynb)
-   - [🖥️ Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/03_seq2seq_exercise.ipynb)
-6. [🖥️ Inside a Pipeline](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/Building_with_Deep_Learning/01-llms/03_inside_pipeline.ipynb)
-7. [🖥️ Controlling LLM Generation](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/Building_with_Deep_Learning/01-llms/04_llm_generate.ipynb)
-   - [🖥️ LLM Structured Output](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/Building_with_Deep_Learning/01-llms/05_llm_structured_output.ipynb)
-8. [🎞️ Model Selection and Training](modules/Building_with_Deep_Learning/01-llms/06_train.qmd)
-9. [🎞️ Model Serving](modules/Building_with_Deep_Learning/01-llms/07_serve.qmd)
+3. [🖥️ Inside a Pipeline](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/Building_with_Deep_Learning/01-llms/03_inside_pipeline.ipynb)
+4. [🖥️ Text Classification](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/01_text_classification.ipynb)
+   - [📝 Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/01_text_classification_exercise.ipynb)
+5. [🖥️ Token Classification (NER)](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/02_token_classification.ipynb)
+   - [📝 Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/02_token_classification_exercise.ipynb)
+6. [🖥️ Seq2Seq: Translation and Summarization](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/03_seq2seq.ipynb)
+   - [📝 Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/03_seq2seq_exercise.ipynb)
 
 #### Resources
 
-- [🖼️ Visual Story: Generative AI | Financial Times](https://ig.ft.com/generative-ai/)
-- [🖼️ Beam Search Visualizer](https://huggingface.co/spaces/agents-course/beam_search_visualizer)
-- Explore Embeddings: [🖥️ Distributed Word Representations: Word2Vec](https://colab.research.google.com/github/PacktPublishing/Generative-AI-with-Python-and-PyTorch-Second-Edition/blob/main/ch_03/01_word2vec.ipynb#scrollTo=8G12Ukan3bQQ)
-  - (Extra Details) Word2vec from Scratch: [jaketae](https://jaketae.github.io/study/word2vec/) or [nickvdw/word2vec-from-scratch](https://github.com/nickvdw/word2vec-from-scratch).
 - [HuggingFace Tasks](https://huggingface.co/tasks)
   - [🖥️ NLP Tasks](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/Building_with_Deep_Learning/01-llms/tasks_nlp.ipynb)
   - [🖥️ Audio Tasks](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/Building_with_Deep_Learning/01-llms/tasks_audio.ipynb)
 
-### M6. Agentic Engineering
+### M7. Large Language Models
+
+1. [🖼️ Visual Story: Generative AI | Financial Times](https://ig.ft.com/generative-ai/)
+2. [🖼️ Beam Search Visualizer](https://huggingface.co/spaces/agents-course/beam_search_visualizer)
+3. [🖥️ Controlling LLM Generation](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/Building_with_Deep_Learning/01-llms/04_llm_generate.ipynb)
+4. [🖥️ LLM Structured Output](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/Building_with_Deep_Learning/01-llms/05_llm_structured_output.ipynb)
+   - [📝 Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/Building_with_Deep_Learning/01-llms/05_llm_structured_output_exercise.ipynb)
+
+#### Resources
+
+- [🎞️ Model Selection and Training](modules/Building_with_Deep_Learning/01-llms/06_train.qmd)
+
+<!-- ## Day 4
+
+### M7. Agentic Engineering
 
 1. [🎞️ Leveraging GenAI as a Data Scientist](modules/genai/01-slides/Leveraging-GenAI-as-a-Data-Scientist.pdf)
 2. [🖥️ Leveraging GenAI as a Data Scientist](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/genai/02-leveraging-genai-data-science/02_genai_for_ds.ipynb)
@@ -109,10 +128,9 @@ In teams of 2, train your models by following the [Bananameter Tutorial on Teach
 7. [🎞️ Skills for Software Engineers](modules/genai/03-agentic-engineering/05_skills_for_ai.qmd)
 8. [🎞️ The Case for Software Engineering Skills](modules/genai/03-agentic-engineering/06_limits.qmd)
 
-## Day 4
+### M8. Machine Learning Operation (MLOps)
 
-### M9. Machine Learning Operation (MLOps)
-
-1. [🎞️ Deploying and Operating Machine Learning Models](modules/mlops/01-slides/DE_%20Deploying%20and%20Operating%20Machine%20Learning%20Models.pdf)
-2. [Machine learning apps](https://huggingface.co/docs/transformers/pipeline_gradio)
-3. [MLFlow Quick Start](https://mlflow.org/docs/latest/ml/getting-started/quickstart/) -->
+1. [🎞️ Model Serving](modules/Building_with_Deep_Learning/01-llms/07_serve.qmd)
+2. [🎞️ Deploying and Operating Machine Learning Models](modules/mlops/01-slides/DE_%20Deploying%20and%20Operating%20Machine%20Learning%20Models.pdf)
+3. [Machine learning apps](https://huggingface.co/docs/transformers/pipeline_gradio)
+4. [MLFlow Quick Start](https://mlflow.org/docs/latest/ml/getting-started/quickstart/) -->

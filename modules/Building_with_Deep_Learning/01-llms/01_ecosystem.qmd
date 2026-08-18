@@ -5,31 +5,19 @@ format: revealjs
 
 # Deep Learning Ecosystem
 
+Model ecosystems matter more than model architectures.
+
 ## Overview
 
-This course is **applied deep learning**.
-
-::: {.incremental}
-
-- **Deep learning** focuses on representation learning for high-volume, low-signal, mostly unstructured data: images, audio, text, and video.
-- The theory behind it draws on: linear algebra, probability, calculus, and optimization.
-- In practice, we often build with existing model ecosystems instead of training every model from scratch.
-
-:::
-
-## What This Course Emphasizes
-
-Rather than starting from low-level framework internals, we will focus on **open-weight models** and the workflows around them.
+Rather than starting from low-level framework internals, we will focus on the bigger picture.
 
 1. **Choose** the right model for a task.
-2. **Use** it through a clean API.
-3. **Fine-tune** it for a domain-specific task.
-4. **Save** and version model artifacts.
-5. **Deploy** it for real users or downstream systems.
+2. **Evaluate** it by using it on sample data.
+3. **Fine-tune** (if needed) it for a domain-specific task.
+   - **Save** and version model artifacts.
+   - **Deploy** it for real users or downstream systems.
 
-> **Mental model:** in this course, model ecosystems matter as much as model architecture.
-
-## What Are Open Weights?
+## Open Weights
 
 **Open weights:** The released **weights and biases** of a trained neural network.
 

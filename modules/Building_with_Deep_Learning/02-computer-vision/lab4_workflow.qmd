@@ -9,8 +9,6 @@ A pretrained model returns raw predictions — bounding boxes, class names, conf
 
 A **Workflow** is Roboflow's way of wiring those steps together visually. You connect **blocks** (model, filter, visualization, logic) into a pipeline, test it in a debugger, and deploy it through the Inference Server.
 
-Think of it as the **application layer** on top of the model. The lecture slides on [Computer Vision Inference and Deployment](09_roboflow_inference_library.qmd) explain how Workflows fit into the broader Inference ecosystem.
-
 ## Your Task
 
 **Goal:** Build and run a simple object-detection Workflow, visualize its output, and understand how you would call it from code.

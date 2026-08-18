@@ -7,44 +7,28 @@ format: revealjs
 
 ## Why video streaming is different
 
-**RTSP** is the standard control protocol for live IP camera feeds.
+[**RTSP (Real-Time Streaming Protocol)**](https://en.wikipedia.org/wiki/Real-Time_Streaming_Protocol) is the standard control protocol for **live** IP camera feeds.
 
-You will usually meet it in:
+![](../assets/cctv.png){fig-align="center"}
 
-- CCTV and security cameras
-- Traffic and roadside monitoring
-- Baby monitors and smart home cameras
-- Factory and industrial surveillance
+## Realtime Requirements
 
-The important point for ML: live streams do **not** behave like a folder of images or a short local video file.
+If the model is slower than the camera, old frames become stale. Processing every frame can be worse than skipping ahead. A useful pipeline keeps up with the **latest** state of the world.
 
-## The core problem
+This is why live inference needs:
 
-If you write a plain `while` loop with `cv2`, video reading and model inference block each other; decoding waits on inference, and inference waits on decoding.
+1. buffering
+2. frame dropping policy
+3. and reconnect logic
 
-![Blocking I/O and compute make a live feed lag.](../assets/blocking_vs_non-blocking.png){fig-align="center"}
-
-- **Latency**: a 30 FPS camera plus a 10 FPS model creates backlog.
-- **Fragility**: dropped packets or stream hiccups can crash naive loops.
-
-## What "live" really means
-
-In a real deployment, the goal is usually **freshness**, not perfect replay.
-
-- If the model is slower than the camera, old frames become stale.
-- Processing every frame can be worse than skipping ahead.
-- A useful pipeline keeps up with the **latest** state of the world.
-
-This is why live inference needs buffering, frame dropping policy, and reconnect logic.
-
-## The right abstraction
+## Inference Pipeline
 
 The Roboflow [Inference Pipeline](https://inference.roboflow.com/using_inference/inference_pipeline/) is built for streaming sources and asynchronous execution.
 
-- It **accepts** webcams, files, hosted videos, and RTSP streams.
-- It separates **input**, **processing**, and **output** responsibilities.
-- It runs background workers so the stream and the model do not block each other.
-- It can **reconnect** to unstable live sources instead of failing outright.
+1. It **accepts** webcams, files, hosted videos, and RTSP streams.
+2. It separates **input**, **processing**, and **output** responsibilities.
+3. It runs background workers so the stream and the model do not block each other.
+4. It can **reconnect** to unstable live sources instead of failing outright.
 
 # Three Building Blocks
 
@@ -52,26 +36,20 @@ The Roboflow [Inference Pipeline](https://inference.roboflow.com/using_inference
 
 You choose the source when creating the pipeline:
 
-- **Device ID**: e.g. `0` for a webcam
 - **Video file**: process a local file frame by frame
 - **Video URL**: stream a hosted video directly
-- **RTSP URL**: consume a live camera stream
-- **List of inputs**: process multiple streams simultaneously
+- **Device ID**: e.g. `0` for a webcam
+- **RTSP URL** (most common in production): consume a live camera stream
 
-For a live camera use case, the RTSP input is the most common production setup.
+It also supports processing multiple streams simultaneously.
 
 ## 2. Processing: models or workflows
 
-The middle stage answers: **what should happen to each frame?**
+Decide what happens to each frame:
 
-- Pass a `model_id` to run a pre-trained or fine-tuned Roboflow model
-- Use `init_with_workflow()` for multi-step pipelines
-- Provide your own callable when you want custom inference logic
-
-Examples of custom logic:
-
-- run your own PyTorch model
 - preprocess frames before prediction
+- Pass a `model_id` to run a pre-trained or fine-tuned Roboflow model
+  - or run your own PyTorch model
 - combine detection with OCR or tracking
 
 ## 3. Outputs: sinks
@@ -83,7 +61,7 @@ A **sink** decides what to do with each prediction after inference finishes.
 
 The sink is where "model output" becomes "application behavior."
 
-## Mental model
+## Summary
 
 :::: {.columns}
 ::: {.column width="33%"}
@@ -103,32 +81,22 @@ render, save, broadcast, alert, or log
 :::
 ::::
 
-The Inference Pipeline works like this:
-
-video source → frame batches → **inference** → sink
-
 # Custom Logic Example
 
 ## Custom model wrapper
-
-Your model object usually loads weights **once** and exposes one inference method.
 
 ```python
 from inference.core.interfaces.camera.entities import VideoFrame
 
 class MyModel:
+    # loading a model at startup (happens once)
     def __init__(self, weights_path: str):
         self._model = your_model_loader(weights_path)
 
+    # inference typically runs on a **batch** of frames
     def infer(self, video_frames: list[VideoFrame]):
         return self._model([v.image for v in video_frames])
 ```
-
-Why this shape works:
-
-- startup cost happens once
-- the pipeline passes `VideoFrame` objects, not bare arrays
-- inference typically runs on a **batch** of frames
 
 ## Custom sink: normalize the inputs
 
