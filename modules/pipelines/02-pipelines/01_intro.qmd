@@ -44,7 +44,7 @@ See also: [Open Weights at opensource.org](https://opensource.org/ai/open-weight
 
 ## What Is Hugging Face?
 
-![Hugging Face is a **central platform** for the modern deep learning ecosystem.](../assets/huggingface_hub.png){fig-align="center"}
+![Hugging Face is a **central platform** for the modern deep learning ecosystem.](../../Building_with_Deep_Learning/assets/huggingface_hub.png){fig-align="center"}
 
 ## Why Hugging Face Matters
 
@@ -67,13 +67,13 @@ It is especially valuable in an applied course because it turns state-of-the-art
   - related **inference parameters**
 :::
 ::: {.column width="45%"}
-![Use task filters to find checkpoints that match the problem you want to solve.](../assets/tasks.png){fig-align="center"}
+![Use task filters to find checkpoints that match the problem you want to solve.](../../Building_with_Deep_Learning/assets/tasks.png){fig-align="center"}
 :::
 ::::
 
 ## The Models Timeline
 
-![Useful bird's-eye view of the latest models.](../assets/timeline.png){fig-align="center"}
+![Useful bird's-eye view of the latest models.](../../Building_with_Deep_Learning/assets/timeline.png){fig-align="center"}
 
 ## Discovering Models Across Time
 
@@ -111,7 +111,7 @@ On many model pages, the right column also points you to **Spaces using this mod
 
 - Great for trying notebooks without local setup.
 - Useful when you needd GPUs (almost always with deep learning models).
-- Example: [YouTube Video Transcription with Whisper](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/Building_with_Deep_Learning/01-llms/youtube_whisper.ipynb)
+- Example: [YouTube Video Transcription with Whisper](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/youtube_whisper.ipynb)
 
 ## Spaces: Hosted Inference and Demos
 
@@ -122,7 +122,7 @@ On many model pages, the right column also points you to **Spaces using this mod
   - internal tools
   - sharing reproducible examples with others
 
-![ [Spaces](https://huggingface.co/spaces) let the community package models behind simple interfaces.](../assets/hf_spaces.png){fig-align="center"}
+![ [Spaces](https://huggingface.co/spaces) let the community package models behind simple interfaces.](../../Building_with_Deep_Learning/assets/hf_spaces.png){fig-align="center"}
 
 ## Two Common Compute Patterns
 

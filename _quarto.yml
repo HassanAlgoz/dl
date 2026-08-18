@@ -10,6 +10,7 @@ project:
     # - modules/nlp/**/*.qmd
     # - modules/pipelines/**/*.qmd
     # - modules/genai/**/*.qmd
+    - modules/pipelines/02-pipelines/**/*.qmd
     - modules/Building_with_Deep_Learning/01-llms/**/*.qmd
     - modules/Building_with_Deep_Learning/02-computer-vision/**/*.qmd
   preview:
