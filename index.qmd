@@ -87,17 +87,15 @@ format: html
 ### M6. NLP Pipelines with HuggingFace
 
 1. [🎞️ Introduction](modules/pipelines/02-pipelines/01_intro.qmd)
-   - [🖥️ YouTube Video Transcription with Whisper](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/youtube_whisper.ipynb)
 2. [🖥️ Using `transformers` Models via Pipelines](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/02_pipelines.ipynb)
-   - [📝 Exercise: Speech recognition and STST](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/02_pipelines_exercise.ipynb)
-3. [🖥️ Inside a Pipeline](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/03_inside_pipeline.ipynb)
-4. [🖥️ Text Classification](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/04_text_classification.ipynb)
-5. [🖥️ Seq2Seq: Translation and Summarization](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/05_seq2seq.ipynb)
+3. [🖥️ Text Classification](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/04_text_classification.ipynb)
+4. [🖥️ Seq2Seq: Translation and Summarization](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/05_seq2seq.ipynb)
 
 #### Practice
 
 - [📝 Exercise 1: Sentiment and product entities](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/04_text_classification_exercise.ipynb)
 - [📝 Exercise 2: Translation and summarization](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/05_seq2seq_exercise.ipynb)
+- [📝 Exercise 3: Speech recognition and STST](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/02_pipelines_exercise.ipynb)
 
 #### Resources
 
@@ -115,15 +113,22 @@ format: html
 4. [🖥️ LLM Structured Output](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/Building_with_Deep_Learning/01-llms/05_llm_structured_output.ipynb)
    - [📝 Exercise](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/Building_with_Deep_Learning/01-llms/05_llm_structured_output_exercise.ipynb)
 
-#### Resources
+### M8. Machine Learning Operation (MLOps)
 
-- [🎞️ Model Selection and Training](modules/Building_with_Deep_Learning/01-llms/06_train.qmd)
+1. [🎞️ Model Selection and Training](modules/Building_with_Deep_Learning/01-llms/06_train.qmd)
+2. [🎞️ Model Serving](modules/Building_with_Deep_Learning/01-llms/07_serve.qmd)
+3. [🎞️ Deploying and Operating Machine Learning Models](modules/mlops/01-slides/DE_%20Deploying%20and%20Operating%20Machine%20Learning%20Models.pdf)
+4. [Machine learning apps](https://huggingface.co/docs/transformers/pipeline_gradio)
+5. [MLFlow Quick Start](https://mlflow.org/docs/latest/ml/getting-started/quickstart/)
 
-### M8. Agentic Engineering
+### M9. Using AI Providers
 
-1. [🎞️ Leveraging GenAI as a Data Scientist](modules/genai/01-slides/Leveraging-GenAI-as-a-Data-Scientist.pdf)
-2. [🖥️ Leveraging GenAI as a Data Scientist](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/genai/02-leveraging-genai-data-science/02_genai_for_ds.ipynb)
+1. [🎞️ Slides](modules/genai/01-slides/Leveraging-GenAI-as-a-Data-Scientist.pdf)
+2. [🖥️ Lab](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/genai/02-leveraging-genai-data-science/02_genai_for_ds.ipynb)
    - [📝 Exercise: Classify news articles](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/genai/02-leveraging-genai-data-science/03_genai_for_ds_exercise.ipynb)
+
+### M10. Agentic Engineering
+
 3. [🎞️ Agentic Engineering](modules/genai/03-agentic-engineering/01_intro.qmd)
 4. [🎞️ Prompting Coding Agents](modules/genai/03-agentic-engineering/02_prompting.qmd)
 5. [🎞️ Agent Modes](modules/genai/03-agentic-engineering/03_agent_modes.qmd)
@@ -131,9 +136,7 @@ format: html
 7. [🎞️ Skills for Software Engineers](modules/genai/03-agentic-engineering/05_skills_for_ai.qmd)
 8. [🎞️ The Case for Software Engineering Skills](modules/genai/03-agentic-engineering/06_limits.qmd)
 
-### M9. Machine Learning Operation (MLOps)
+## Day 5
 
-1. [🎞️ Model Serving](modules/Building_with_Deep_Learning/01-llms/07_serve.qmd)
-2. [🎞️ Deploying and Operating Machine Learning Models](modules/mlops/01-slides/DE_%20Deploying%20and%20Operating%20Machine%20Learning%20Models.pdf)
-3. [Machine learning apps](https://huggingface.co/docs/transformers/pipeline_gradio)
-4. [MLFlow Quick Start](https://mlflow.org/docs/latest/ml/getting-started/quickstart/)
+### M11. Building Agentic AI Systems
+
