@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Workflow Hello World – Deep Learning with PyTorch</title>
+<title>Run a YOLO Model (Exercise) – Deep Learning with PyTorch</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -84,15 +84,22 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-is-yolo" id="toc-what-is-yolo" class="nav-link active" data-scroll-target="#what-is-yolo">What is YOLO?</a></li>
+  <li><a href="#your-task" id="toc-your-task" class="nav-link" data-scroll-target="#your-task">Your Task</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Workflow Hello World</h1>
+<h1 class="title">Run a YOLO Model (Exercise)</h1>
 </div>
 
 
@@ -109,28 +116,19 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>The official <a href="https://inference.roboflow.com/guides/hello-world/">Hello World tutorial</a> is a fast way to validate your setup.</p>
-<p>In about five minutes, you:</p>
-<ol type="1">
-<li>build and run a simple <strong>Workflow</strong></li>
-<li>send data through a computer vision model</li>
-<li>inspect the output in the UI debugger</li>
-</ol>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Note: Select <strong>Detatched</strong> to run the Workflow Builder UI locally without a Roboflow account or API key.</p>
-</div>
-</div>
+<section id="what-is-yolo" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-yolo">What is YOLO?</h2>
+<p><strong>YOLO</strong> (You Only Look Once) is a family of <strong>real-time computer vision models</strong>. Instead of scanning an image in multiple passes, YOLO processes the whole image at once and returns predictions in a single forward pass — which is why it is fast enough for live video.</p>
+<p><a href="https://www.ultralytics.com/">Ultralytics YOLO26</a> is the latest generation in this family. One pretrained checkpoint can be swapped to different <strong>task heads</strong> — detection, classification, segmentation, pose estimation, and more — without changing the overall workflow.</p>
+<p>If you attended the lecture, revisit <a href="08_roboflow_intro.qmd">Introduction to Computer Vision Tasks</a> for the full task list and examples.</p>
+</section>
+<section id="your-task" class="level2">
+<h2 class="anchored" data-anchor-id="your-task">Your Task</h2>
+<p><strong>Goal:</strong> Explore the YOLO26 task catalog, pick one vision task, and run a pretrained model on an image of your choice.</p>
+<p>Bring any image you like — a photo from your phone, a screenshot, or a sample from the web.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

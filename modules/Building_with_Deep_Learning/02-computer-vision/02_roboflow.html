@@ -9,7 +9,7 @@
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.10.18">
 
-  <title>Deep Learning with PyTorch – Introduction to Computer Vision Tasks</title>
+  <title>Deep Learning with PyTorch – Introducing Roboflow</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -135,7 +135,7 @@
     <div class="slides">
 
 <section class="quarto-title-block center">
-  <h1 class="title">Introduction to Computer Vision Tasks</h1>
+  <h1 class="title">Introducing Roboflow</h1>
 
 <div class="quarto-title-authors">
 </div>
@@ -143,35 +143,17 @@
 </section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>Computer Vision Applications</h1>
+<h1>Roboflow Ecosystem</h1>
 
 </section>
 <section class="slide level2">
-<h2>Overview</h2>
-<p>Computer Vision Applications are about <strong>useful predictions under latency constraints</strong>.</p>
-<ul>
-<li>The system must process frames quickly enough to support live decisions.</li>
-<li>Accuracy still matters, but <strong>speed, memory, and deployment cost</strong> become first-class requirements.</li>
-<li>This is why model families like <strong>YOLO</strong> dominate many production vision pipelines.</li>
-</ul>
-</section>
-<section class="slide level2">
-<h2>YOLO26 at a glance</h2>
-<p><a href="https://www.ultralytics.com/">Ultralytics</a> YOLO26 is a unified family of <strong>real-time vision models</strong> described in the <a href="https://arxiv.org/abs/2606.03748">YOLO26 paper</a>.</p>
-<p>It emphasizes:</p>
-<ul>
-<li>native end-to-end inference</li>
-<li>a lighter detection head</li>
-<li>an updated training recipe</li>
-<li>task-specific heads for multiple vision tasks</li>
-</ul>
-</section>
-<section class="slide level2">
-<h2>One family, many tasks</h2>
+<h2>Model: YOLO26</h2>
+<p><a href="https://www.ultralytics.com/">Ultralytics</a> YOLO26 is a unified family of <strong>real-time vision models</strong> described in the <a href="https://arxiv.org/abs/2606.03748">YOLO26 paper</a>. It has task-specific heads for multiple vision tasks.</p>
 
 <img data-src="../assets/ultralytics_yolo_tasks.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section class="slide level2">
-<h2>One family, many tasks</h2>
+
+<h3>One family, many tasks</h3>
 <p>YOLO26 family supports the following tasks:</p>
 <ol type="1">
 <li><a href="https://docs.ultralytics.com/tasks/classify">Classification</a>: Assigns a single label or category to the whole image (e.g.&nbsp;classifying an image as either “cat” or “dog”).</li>
@@ -180,7 +162,8 @@
 </ol>
 </section>
 <section class="slide level2">
-<h2>One family, many tasks</h2>
+
+<h3>One family, many tasks</h3>
 <ol start="4" type="1">
 <li><strong>Instance and semantic segmentation:</strong> Divides an image into segments at the pixel level.
 <ol type="1">
@@ -194,11 +177,8 @@
 <h2>Computer Vision Projects</h2>
 <p>Strong realtime CV products also need tooling around the model:</p>
 <ul>
-<li><strong>data ingestion</strong> and annotation</li>
-<li><strong>training</strong> and experiment management
-<ul>
-<li><a href="https://platform.ultralytics.com/">Ultralytics</a>: model architectures (PyTorch) and the underlying training engine</li>
-</ul></li>
+<li><strong>data ingestion</strong> and <strong>annotation</strong></li>
+<li><strong>training</strong> and <strong>experiment management</strong></li>
 <li><strong>inference serving</strong> in production</li>
 <li><strong>post-processing</strong> and visualization</li>
 <li><strong>tracking</strong> across video frames</li>
@@ -206,38 +186,25 @@
 </section>
 <section class="slide level2">
 <h2>The Roboflow ecosystem</h2>
-<p><a href="https://docs.roboflow.com/">Roboflow</a> focuses on the application workflow around realtime computer vision, providing an integrated set of tools and libraries for every stage:</p>
-<div class="fragment">
-<h3>Dataset, Model, Training, and Deployment</h3>
+<p><a href="https://docs.roboflow.com/"><strong>Roboflow</strong></a> provides an integrated set of tools and libraries for every stage.</p>
 <ul>
-<li class="fragment"><a href="https://app.roboflow.com/">Roboflow App</a>: upload data, annotate, train, and deploy</li>
-<li class="fragment"><a href="https://universe.roboflow.com/">Universe</a>: browse reusable datasets and models
+<li><a href="https://rapid.roboflow.com/">Roboflow Rapid</a>: lets you go from raw data to a ready-to-use object detection API in five minutes.
 <ul>
-<li class="fragment"><a href="https://docs.roboflow.com/annotate/annotation-tools">Roboflow Annotate</a>: provides a fast, robust interface through which you can annotate images, manually or with AI.</li>
-<li class="fragment"><a href="https://rapid.roboflow.com/">Roboflow Rapid</a>: lets you go from raw data to a ready-to-use object detection API in five minutes.</li>
+<li><a href="https://universe.roboflow.com/">Universe</a>: browse reusable <strong>datasets</strong> and <strong>models</strong></li>
 </ul></li>
+<li><a href="https://app.roboflow.com/">Roboflow App</a>: build <strong>workflows</strong>, upload data, annotate, train, and deploy</li>
 </ul>
-</div>
 </section>
 <section class="slide level2">
-<h2>Inference Workflows</h2>
-<ul>
-<li class="fragment"><a href="https://inference.roboflow.com/">Inference</a>: run models in deployment workflows</li>
-<li class="fragment"><a href="https://supervision.roboflow.com/latest/">Supervision</a>: post-process and visualize predictions</li>
-<li class="fragment"><a href="https://trackers.roboflow.com/latest/">Trackers</a>: track objects across frames with <a href="https://trackers.roboflow.com/latest/#algorithms">algorithms</a> such as SORT, ByteTrack, OC-SORT, and BoT-SORT</li>
-</ul>
-<div class="fragment">
-<p>Each layer builds on the previous, streamlining the process from raw data to usable, realtime computer vision applications.</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>Takeaways</h2>
-<ul>
-<li>YOLO26 is a modern example of a <strong>single family</strong> spanning multiple vision tasks.</li>
-<li>Roboflow’s ecosystem covers the workflow around deployment, not just the model.</li>
-<li>Realtime CV optimizes for <strong>latency-aware usefulness</strong>, not just benchmark accuracy.</li>
-<li>Tracking and post-processing are essential for stable video applications.</li>
-</ul>
+<h2>Inference Library</h2>
+<p><a href="https://inference.roboflow.com/start/overview/">Inference</a> is Roboflow’s open-source hub for <strong>deploying computer vision systems</strong>. It gives you a reusable layer for:</p>
+<ol type="1">
+<li class="fragment">model <strong>serving</strong> (client-server communication)</li>
+<li class="fragment"><strong>Workflow</strong> execution (business logic)</li>
+<li class="fragment"><strong>video stream</strong> handling (I/O)</li>
+<li class="fragment"><strong>pre/post-processing</strong> (per-frame logic)</li>
+<li class="fragment"><strong>CPU/GPU</strong> optimization (performance)</li>
+</ol>
 
 
 </section></section>

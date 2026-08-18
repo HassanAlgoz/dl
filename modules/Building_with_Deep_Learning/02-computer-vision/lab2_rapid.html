@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Interactive Neural Networks Playground (Exercise) – Deep Learning with PyTorch</title>
+<title>Roboflow Rapid (Exercise) – Deep Learning with PyTorch</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -73,35 +73,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../../../styles.css">
 </head>
@@ -118,11 +89,8 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#tensorflow-playground" id="toc-tensorflow-playground" class="nav-link active" data-scroll-target="#tensorflow-playground">TensorFlow Playground</a></li>
-  <li><a href="#activity-1-discover-why-we-need-non-linearity" id="toc-activity-1-discover-why-we-need-non-linearity" class="nav-link" data-scroll-target="#activity-1-discover-why-we-need-non-linearity">Activity 1: Discover Why We Need Non-Linearity</a></li>
-  <li><a href="#activity-2-feature-engineering-vs.-deep-networks" id="toc-activity-2-feature-engineering-vs.-deep-networks" class="nav-link" data-scroll-target="#activity-2-feature-engineering-vs.-deep-networks">Activity 2: Feature Engineering vs.&nbsp;Deep Networks</a></li>
-  <li><a href="#activity-3-the-xor-problem-combining-features" id="toc-activity-3-the-xor-problem-combining-features" class="nav-link" data-scroll-target="#activity-3-the-xor-problem-combining-features">Activity 3: The “XOR” Problem (Combining Features)</a></li>
-  <li><a href="#activity-4-conquer-the-spiral-handling-complex-data" id="toc-activity-4-conquer-the-spiral-handling-complex-data" class="nav-link" data-scroll-target="#activity-4-conquer-the-spiral-handling-complex-data">Activity 4: Conquer the “Spiral” (Handling Complex Data)</a></li>
+  <li><a href="#what-is-roboflow-rapid" id="toc-what-is-roboflow-rapid" class="nav-link active" data-scroll-target="#what-is-roboflow-rapid">What is Roboflow Rapid?</a></li>
+  <li><a href="#your-task" id="toc-your-task" class="nav-link" data-scroll-target="#your-task">Your Task</a></li>
   </ul>
 </nav>
     </div>
@@ -131,7 +99,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Interactive Neural Networks Playground (Exercise)</h1>
+<h1 class="title">Roboflow Rapid (Exercise)</h1>
 </div>
 
 
@@ -148,113 +116,15 @@ window.Quarto = {
 </header>
 
 
-<section id="tensorflow-playground" class="level2">
-<h2 class="anchored" data-anchor-id="tensorflow-playground">TensorFlow Playground</h2>
-<p><a href="https://playground.tensorflow.org/"><strong>TensorFlow Playground</strong></a> is a web-based visualization tool that lets you experiment with neural networks in real time without writing any code.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../assets/tensorflow_playground.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
-</figure>
-</div>
-<p>Visit <a href="https://playground.tensorflow.org/">https://playground.tensorflow.org/</a> to go along with this exercise.</p>
+<section id="what-is-roboflow-rapid" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-roboflow-rapid">What is Roboflow Rapid?</h2>
+<p>Training a custom vision model usually means collecting data, labeling it, choosing hyperparameters, and waiting for training to finish. <a href="https://rapid.roboflow.com/">Roboflow Rapid</a> compresses that loop into minutes: you upload images, annotate what you want the model to find, and Rapid trains a detector for you.</p>
+<p>Rapid is the fastest way to answer a practical question: <strong>“Can a model learn to recognize <em>my</em> objects?”</strong> The result is a model you can test in the browser and deploy as an API — no local GPU required.</p>
 </section>
-<section id="activity-1-discover-why-we-need-non-linearity" class="level2">
-<h2 class="anchored" data-anchor-id="activity-1-discover-why-we-need-non-linearity">Activity 1: Discover Why We Need Non-Linearity</h2>
-<p><strong>Goal:</strong> Understand the limitations of simple linear models and why neural networks need activation functions.</p>
-<ol type="1">
-<li><strong>Select the Dataset:</strong> Choose <strong>Gaussian</strong> (top right under <em>Data</em>).</li>
-<li><strong>Set Up the Network:</strong></li>
-</ol>
-<ul>
-<li><strong>Features:</strong> Keep only <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> selected.</li>
-<li><strong>Hidden Layers:</strong> Set to <strong>0</strong> (no hidden layers).</li>
-<li><strong>Activation:</strong> Set to <strong>Linear</strong>.</li>
-</ul>
-<ol start="3" type="1">
-<li><strong>Run:</strong> Click the <strong>Play</strong> button at the top left.</li>
-</ol>
-<ul>
-<li><em>Result:</em> The network easily draws a straight line separating the orange and blue dots.</li>
-</ul>
-<ol start="4" type="1">
-<li><strong>Switch Dataset:</strong> Now select the <strong>Circle</strong> dataset. Hit <strong>Play</strong> again.</li>
-</ol>
-<ul>
-<li><em>Observation:</em> The straight line moves around, but it <strong>cannot</strong> separate the inner blue dots from the outer orange ring.</li>
-</ul>
-<ol start="5" type="1">
-<li><strong>Fix it with Activation:</strong></li>
-</ol>
-<ul>
-<li>Add <strong>1 Hidden Layer</strong> with <strong>3 neurons</strong>.</li>
-<li>Change <strong>Activation</strong> from <strong>Linear</strong> to <strong>ReLU</strong> or <strong>Tanh</strong>.</li>
-<li>Hit <strong>Play</strong>.</li>
-</ul>
-<blockquote class="blockquote">
-<p><strong>Key Takeaway:</strong> Real-world data is rarely linearly separable. Adding hidden layers combined with non-linear activation functions (like ReLU or Tanh) allows the network to bend and curve its decision boundaries.</p>
-</blockquote>
-<hr>
-</section>
-<section id="activity-2-feature-engineering-vs.-deep-networks" class="level2">
-<h2 class="anchored" data-anchor-id="activity-2-feature-engineering-vs.-deep-networks">Activity 2: Feature Engineering vs.&nbsp;Deep Networks</h2>
-<p><strong>Goal:</strong> Learn how giving a model better input features can simplify the network architecture.</p>
-<ol type="1">
-<li><strong>Select the Dataset:</strong> Choose <strong>Circle</strong>.</li>
-<li><strong>Set Hidden Layers to 1.</strong></li>
-<li><strong>Deselect</strong> <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> as features.</li>
-<li><strong>Select</strong> <span class="math inline">\(X_1^2\)</span> and <span class="math inline">\(X_2^2\)</span> instead.</li>
-<li><strong>Run:</strong> Click <strong>Play</strong>.</li>
-</ol>
-<blockquote class="blockquote">
-<p><strong>Key Takeaway:</strong> With the right features (<span class="math inline">\(X_1^2\)</span> and <span class="math inline">\(X_2^2\)</span> describe a circle mathematically: <span class="math inline">\(x^2 + y^2 = r^2\)</span>), a simple model without any hidden layers can solve a non-linear problem instantly. Deep learning reduces the need for manual feature engineering, but good features still make learning much easier.</p>
-</blockquote>
-<hr>
-</section>
-<section id="activity-3-the-xor-problem-combining-features" class="level2">
-<h2 class="anchored" data-anchor-id="activity-3-the-xor-problem-combining-features">Activity 3: The “XOR” Problem (Combining Features)</h2>
-<p><strong>Goal:</strong> Understand how hidden neurons combine simpler lines into complex geometric shapes.</p>
-<ol type="1">
-<li><strong>Select the Dataset:</strong> Choose <strong>Exclusive OR (XOR)</strong> (four alternating quadrants).</li>
-<li><strong>Set Features:</strong> Select only <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span>.</li>
-<li><strong>Build the Network:</strong></li>
-</ol>
-<ul>
-<li>Add <strong>1 Hidden Layer</strong> with <strong>4 Neurons</strong>.</li>
-<li>Set <strong>Activation</strong> to <strong>Tanh</strong> or <strong>ReLU</strong>.</li>
-</ul>
-<ol start="4" type="1">
-<li><strong>Run and Pause:</strong> Hit <strong>Play</strong>, and as it converges, hover your mouse over each individual neuron in the hidden layer.</li>
-</ol>
-<blockquote class="blockquote">
-<p><strong>Key Takeaway:</strong> Each neuron in the hidden layer learns a distinct straight decision boundary. The final output layer combines these individual boundaries into a box/cross shape that solves the XOR problem.</p>
-</blockquote>
-<hr>
-</section>
-<section id="activity-4-conquer-the-spiral-handling-complex-data" class="level2">
-<h2 class="anchored" data-anchor-id="activity-4-conquer-the-spiral-handling-complex-data">Activity 4: Conquer the “Spiral” (Handling Complex Data)</h2>
-<p><strong>Goal:</strong> Experience how network depth and width impact learning capacity on hard problems.</p>
-<ol type="1">
-<li><strong>Select the Dataset:</strong> Choose <strong>Spiral</strong> (bottom right dataset—the hardest one).</li>
-<li><strong>First Attempt (Underfitting):</strong> Try running it with 1 hidden layer and 2 neurons.</li>
-</ol>
-<ul>
-<li><em>Observation:</em> The network fails to learn the interweaving spirals.</li>
-</ul>
-<ol start="3" type="1">
-<li><strong>Scale Up:</strong></li>
-</ol>
-<ul>
-<li>Add <strong>3 to 4 Hidden Layers</strong>.</li>
-<li>Put <strong>6 to 8 Neurons</strong> in the first few layers.</li>
-<li>Set <strong>Activation</strong> to <strong>ReLU</strong> or <strong>Tanh</strong>.</li>
-<li>Set <strong>Learning Rate</strong> to <strong>0.03</strong>.</li>
-</ul>
-<ol start="4" type="1">
-<li><strong>Run:</strong> Watch the <strong>Test Loss</strong> and <strong>Training Loss</strong> numbers in the top-right graph.</li>
-</ol>
-<blockquote class="blockquote">
-<p><strong>Key Takeaway:</strong> Highly intricate patterns require greater network “capacity” (more layers and neurons) to learn the fine-grained curves of the data distribution.</p>
-</blockquote>
+<section id="your-task" class="level2">
+<h2 class="anchored" data-anchor-id="your-task">Your Task</h2>
+<p><strong>Goal:</strong> Use Roboflow Rapid to train a small custom object detector on images you provide, then test it on a new image.</p>
+<p>Open the tutorial: <a href="https://rapid.roboflow.com/yolotutorial">rapid.roboflow.com/yolotutorial</a></p>
 
 
 </section>

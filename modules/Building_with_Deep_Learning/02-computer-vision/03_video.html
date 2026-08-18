@@ -9,7 +9,7 @@
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.10.18">
 
-  <title>Deep Learning with PyTorch – Computer Vision Applications</title>
+  <title>Deep Learning with PyTorch – RTSP Inference Pipeline</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -33,6 +33,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto-2740581606dc327e82f18f789b69d8a0.css">
   <link rel="stylesheet" href="../../../styles.css">
@@ -135,7 +201,7 @@
     <div class="slides">
 
 <section class="quarto-title-block center">
-  <h1 class="title">Computer Vision Applications</h1>
+  <h1 class="title">RTSP Inference Pipeline</h1>
 
 <div class="quarto-title-authors">
 </div>
@@ -143,184 +209,241 @@
 </section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>Realtime Inference</h1>
+<h1>Inference Pipeline</h1>
+
+</section>
+<section class="slide level2">
+<h2>Why video streaming is different</h2>
+<p><a href="https://en.wikipedia.org/wiki/Real-Time_Streaming_Protocol"><strong>RTSP (Real-Time Streaming Protocol)</strong></a> is the standard control protocol for <strong>live</strong> IP camera feeds.</p>
+
+<img data-src="../assets/cctv.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section class="slide level2">
+<h2>Realtime Requirements</h2>
+<p>If the model is slower than the camera, old frames become stale. Processing every frame can be worse than skipping ahead. A useful pipeline keeps up with the <strong>latest</strong> state of the world.</p>
+<p>This is why live inference needs:</p>
+<ol type="1">
+<li>buffering</li>
+<li>frame dropping policy</li>
+<li>and reconnect logic</li>
+</ol>
+</section>
+<section class="slide level2">
+<h2>Inference Pipeline</h2>
+<p>The Roboflow <a href="https://inference.roboflow.com/using_inference/inference_pipeline/">Inference Pipeline</a> is built for streaming sources and asynchronous execution.</p>
+<ol type="1">
+<li>It <strong>accepts</strong> webcams, files, hosted videos, and RTSP streams.</li>
+<li>It separates <strong>input</strong>, <strong>processing</strong>, and <strong>output</strong> responsibilities.</li>
+<li>It runs background workers so the stream and the model do not block each other.</li>
+<li>It can <strong>reconnect</strong> to unstable live sources instead of failing outright.</li>
+</ol>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Three Building Blocks</h1>
+
+</section>
+<section class="slide level2">
+<h2>1. Inputs: video references</h2>
+<p>You choose the source when creating the pipeline:</p>
+<ul>
+<li><strong>Video file</strong>: process a local file frame by frame</li>
+<li><strong>Video URL</strong>: stream a hosted video directly</li>
+<li><strong>Device ID</strong>: e.g.&nbsp;<code>0</code> for a webcam</li>
+<li><strong>RTSP URL</strong> (most common in production): consume a live camera stream</li>
+</ul>
+<p>It also supports processing multiple streams simultaneously.</p>
+</section>
+<section class="slide level2">
+<h2>2. Processing: models or workflows</h2>
+<p>Decide what happens to each frame:</p>
+<ul>
+<li>preprocess frames before prediction</li>
+<li>Pass a <code>model_id</code> to run a pre-trained or fine-tuned Roboflow model
+<ul>
+<li>or run your own PyTorch model</li>
+</ul></li>
+<li>combine detection with OCR or tracking</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>3. Outputs: sinks</h2>
+<p>A <strong>sink</strong> decides what to do with each prediction after inference finishes.</p>
+<ul>
+<li><strong>Built-in sinks</strong>: draw boxes, save annotated video, send UDP messages</li>
+<li><strong>Custom sinks</strong>: store JSON, send alerts, update dashboards, write to databases</li>
+</ul>
+<p>The sink is where “model output” becomes “application behavior.”</p>
+</section>
+<section class="slide level2">
+<h2>Summary</h2>
+<div class="columns">
+<div class="column" style="width:33%;">
+<p><strong>Input</strong></p>
+<p>webcam, file, URL, RTSP, or many streams</p>
+</div><div class="column" style="width:33%;">
+<p><strong>Processing</strong></p>
+<p>model, workflow, or custom callable</p>
+</div><div class="column" style="width:33%;">
+<p><strong>Output</strong></p>
+<p>render, save, broadcast, alert, or log</p>
+</div></div>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Custom Logic Example</h1>
+
+</section>
+<section class="slide level2">
+<h2>Custom model wrapper</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a aria-label="1"></a><span class="im">from</span> inference.core.interfaces.camera.entities <span class="im">import</span> VideoFrame</span>
+<span id="cb1-2"><a aria-label="2"></a></span>
+<span id="cb1-3"><a aria-label="3"></a><span class="kw">class</span> MyModel:</span>
+<span id="cb1-4"><a aria-label="4"></a>    <span class="co"># loading a model at startup (happens once)</span></span>
+<span id="cb1-5"><a aria-label="5"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, weights_path: <span class="bu">str</span>):</span>
+<span id="cb1-6"><a aria-label="6"></a>        <span class="va">self</span>._model <span class="op">=</span> your_model_loader(weights_path)</span>
+<span id="cb1-7"><a aria-label="7"></a></span>
+<span id="cb1-8"><a aria-label="8"></a>    <span class="co"># inference typically runs on a **batch** of frames</span></span>
+<span id="cb1-9"><a aria-label="9"></a>    <span class="kw">def</span> infer(<span class="va">self</span>, video_frames: <span class="bu">list</span>[VideoFrame]):</span>
+<span id="cb1-10"><a aria-label="10"></a>        <span class="cf">return</span> <span class="va">self</span>._model([v.image <span class="cf">for</span> v <span class="kw">in</span> video_frames])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section class="slide level2">
+<h2>Custom sink: normalize the inputs</h2>
+<p>The sink may receive one prediction or many, depending on the mode.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a aria-label="1"></a><span class="kw">def</span> on_prediction(predictions, video_frame) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb2-2"><a aria-label="2"></a>    <span class="cf">if</span> <span class="kw">not</span> <span class="bu">isinstance</span>(predictions, <span class="bu">list</span>):</span>
+<span id="cb2-3"><a aria-label="3"></a>        predictions <span class="op">=</span> [predictions]</span>
+<span id="cb2-4"><a aria-label="4"></a>        video_frame <span class="op">=</span> [video_frame]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This small normalization step gives you one consistent loop:</p>
+<ul>
+<li>single-frame and batched cases share the same logic</li>
+<li>you avoid branching the rest of the sink code</li>
+<li>the function becomes easier to harden for production</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Custom sink: handle dropped frames safely</h2>
+<p>Live streams are messy, so the sink must tolerate missing items.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a aria-label="1"></a><span class="cf">for</span> prediction, frame <span class="kw">in</span> <span class="bu">zip</span>(predictions, video_frame):</span>
+<span id="cb3-2"><a aria-label="2"></a>    <span class="cf">if</span> prediction <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb3-3"><a aria-label="3"></a>        <span class="cf">continue</span></span>
+<span id="cb3-4"><a aria-label="4"></a></span>
+<span id="cb3-5"><a aria-label="5"></a>    file_path <span class="op">=</span> os.path.join(TARGET_DIR, <span class="ss">f"</span><span class="sc">{</span>frame<span class="sc">.</span>frame_id<span class="sc">}</span><span class="ss">.json"</span>)</span>
+<span id="cb3-6"><a aria-label="6"></a>    <span class="cf">with</span> <span class="bu">open</span>(file_path, <span class="st">"w"</span>) <span class="im">as</span> f:</span>
+<span id="cb3-7"><a aria-label="7"></a>        json.dump(prediction, f)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Key idea:</p>
+<ul>
+<li><code>None</code> is not exceptional here</li>
+<li>skipped frames are part of normal live-stream behavior</li>
+<li>robustness in the sink prevents the whole app from crashing</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Putting it together</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a aria-label="1"></a>pipeline <span class="op">=</span> InferencePipeline.init_with_custom_logic(</span>
+<span id="cb4-2"><a aria-label="2"></a>    video_reference<span class="op">=</span><span class="st">"./my_video.mp4"</span>,</span>
+<span id="cb4-3"><a aria-label="3"></a>    on_video_frame<span class="op">=</span>my_model.infer,</span>
+<span id="cb4-4"><a aria-label="4"></a>    on_prediction<span class="op">=</span>on_prediction,</span>
+<span id="cb4-5"><a aria-label="5"></a>)</span>
+<span id="cb4-6"><a aria-label="6"></a></span>
+<span id="cb4-7"><a aria-label="7"></a>pipeline.start()</span>
+<span id="cb4-8"><a aria-label="8"></a>pipeline.join()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li><code>start()</code> spins up the background workers</li>
+<li><code>join()</code> keeps the script alive until processing is done</li>
+<li>the pipeline handles coordination; you provide the business logic</li>
+</ul>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Under the Hood</h1>
 
 </section>
 <section class="slide level2">
 <h2>Overview</h2>
-<p><strong>Realtime</strong> means the system processes input and reacts fast enough that the user experiences it as happening now (a live camera feed feels interactive. A delayed batch job does not).</p>
+<p>The pipeline spins up a consumer thread for each video source, multiplexes frames, and handles synchronization.</p>
+
+<img data-src="../assets/inference_pipeline_diagram.jpg" class="r-stretch quarto-figure-center"><p class="caption">Overview of the Inference Pipeline architecture.</p></section>
+<section class="slide level2">
+<h2>Stage 1: read and buffer</h2>
+
+<img data-src="../assets/inference_pipeline_1.png" class="r-stretch quarto-figure-center"><p class="caption">Each source gets its own consumer thread.</p><ul>
+<li>The pipeline spawns a separate consumer thread per video source.</li>
+<li>Stored videos can be read frame by frame until completion.</li>
+<li>Live streams may build pressure if inference is slower than arrival rate.</li>
+<li>If connectivity drops, the pipeline attempts to reconnect automatically.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Stage 1 continuation: live stream policy</h2>
+<p>For live sources, the buffer strategy matters more than raw throughput.</p>
+<ul>
+<li><strong>Process every frame</strong> if you care about complete replay.</li>
+<li><strong>Drop old frames</strong> if you care about current state and low latency.</li>
+</ul>
+<p>In most real-time monitoring systems, the second option is the better trade-off:</p>
+<p><strong>the newest frame is usually more valuable than the oldest unprocessed frame.</strong></p>
+</section>
+<section class="slide level2">
+<h2>Stage 2: batch collection</h2>
+
+<img data-src="../assets/inference_pipeline_2.png" class="r-stretch quarto-figure-center"><p class="caption">Frames are grouped into batches with a timeout.</p><ul>
+<li>Incoming frames are grouped using <code>batch_collection_timeout</code>.</li>
+<li>If one source is late, the pipeline can emit a smaller batch.</li>
+<li>Missing frames are padded with <code>None</code> so later stages stay aligned.</li>
+</ul>
+<p>This lets multi-source processing stay synchronized without waiting forever.</p>
+</section>
+<section class="slide level2">
+<h2>Stage 3: execute inference and sinks</h2>
+
+<img data-src="../assets/inference_pipeline_3.png" class="r-stretch quarto-figure-center"><p class="caption">Inference and sink handling run on separate threads.</p><ol type="1">
+<li><code>on_video_frame(...)</code> runs the model on a dedicated processing thread.</li>
+<li><code>on_prediction(...)</code> performs downstream work on a separate thread.</li>
+</ol>
+<p>The sink can run in:</p>
+<ul>
+<li><code>SEQUENTIAL</code> mode: one item at a time</li>
+<li><code>BATCH</code> mode: many items together</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Why this architecture matters</h2>
+<p>It solves the three big production problems from the start:</p>
+<ol type="1">
+<li><strong>Throughput</strong>: reading, inference, and output are decoupled</li>
+<li><strong>Latency</strong>: the system can prefer fresh frames over stale backlog</li>
+<li><strong>Reliability</strong>: reconnects and <code>None</code> padding reduce hard failures</li>
+</ol>
+<p>This is the difference between a demo script and a stream-ready pipeline.</p>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Practical Guidance</h1>
+
+</section>
+<section class="slide level2">
+<h2>Mental checklist</h2>
+<p>Before wiring a live video pipeline, ask:</p>
+<ol type="1">
+<li>Do I care about <strong>every frame</strong> or the <strong>latest frame</strong>?</li>
+<li>What should happen when a stream disconnects?</li>
+<li>What will my sink do with missing predictions?</li>
+<li>Should downstream work be sequential or batched?</li>
+</ol>
+<p>These design choices determine latency, resilience, and operator experience.</p>
+</section>
+<section class="slide level2">
+<h2>Customg Logic</h2>
+<p>Choose <code>init_with_custom_logic()</code> when:</p>
 <div class="fragment">
-<h3>Two Design Axes</h3>
-<p>Every realtime inference system is shaped by two choices:</p>
 <ul>
-<li><strong>Where it runs:</strong> inside your application process or behind a server boundary.</li>
-<li><strong>What it consumes:</strong> a one-off image snapshot or a continuous video stream.</li>
+<li>your model is not a built-in Inference model</li>
+<li>you need custom preprocessing or batching behavior</li>
+<li>you want application-specific post-processing in the sink</li>
 </ul>
+
+
 </div>
-</section>
-<section class="slide level2">
-<h2>What is consumes</h2>
-<p><strong>Image snapshot</strong>:</p>
-<ul>
-<li>Input: Image</li>
-<li>Output: Prediction</li>
-</ul>
-<p><strong>Video stream</strong>: Long-running loop</p>
-<ul>
-<li>Input: Sequence of Images</li>
-<li>Output: events, visuals, or actions</li>
-</ul>
-</section>
-<section class="slide level2">
-<h2>Where it runs</h2>
-<p><a href="https://inference.roboflow.com/quickstart/run_a_model/">Running a model</a> may happen in one of two ways:</p>
-<ul>
-<li><strong>Server:</strong> the <a href="https://inference.roboflow.com/inference_helpers/inference_sdk/"><code>inference-sdk</code></a> sends requests to an <a href="https://inference.roboflow.com/quickstart/docker/">Inference Server</a> over HTTP.</li>
-<li><strong>In-process:</strong> the <a href="https://inference.roboflow.com/using_inference/about/"><code>inference</code> Python package</a> loads and runs models directly in your process.</li>
-</ul>
-<div class="fragment">
-<table class="caption-top">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Question</strong></th>
-<th><strong>In-process</strong></th>
-<th><strong>Server</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Where does the model live?</td>
-<td>Inside your Python app</td>
-<td>In a separate service</td>
-</tr>
-<tr class="even">
-<td>How do you call it?</td>
-<td>Function / package API</td>
-<td>HTTP / SDK request</td>
-</tr>
-<tr class="odd">
-<td>Best when…</td>
-<td>You want tight local control</td>
-<td>Inference is one piece of a bigger system</td>
-</tr>
-<tr class="even">
-<td>Trade-off</td>
-<td>Simple</td>
-<td>Complex integration</td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<section class="slide level2">
-<h2>Inference as a Service</h2>
-<p>The most common production pattern is to treat inference as a <strong>microservice</strong>:</p>
-<ul>
-<li>the client sends input,</li>
-<li>the server returns a <strong>response object</strong>,</li>
-<li>downstream code decides what to do with that response.</li>
-</ul>
-<p>That response might contain:</p>
-<ul>
-<li>detections or classifications,</li>
-<li>a pass/fail inspection result,</li>
-<li>an aggregate such as counts,</li>
-<li>or a visualization artifact.</li>
-</ul>
-<p>Inference Workflows can be <a href="https://inference.roboflow.com/start/overview/#features">deployed anywhere</a>.</p>
-</section>
-<section class="slide level2">
-<h2>Image Snapshots</h2>
-<p>For image workloads, the interaction is usually <strong>synchronous</strong>:</p>
-<ul>
-<li>pass the image as an argument,</li>
-<li>wait for the model to finish,</li>
-<li>receive one response for that image.</li>
-</ul>
-
-<img data-src="../assets/inference_microservice.svg" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section class="slide level2">
-<h2>Snapshot Use Cases</h2>
-
-<img data-src="../assets/inference_image_input_applications_1.png" class="quarto-figure quarto-figure-center r-stretch"><ul>
-<li>tagging user-uploaded images,</li>
-<li>checking whether a machine is configured correctly before startup,</li>
-<li>counting pills or parts in a still image.</li>
-</ul>
-</section>
-<section class="slide level2">
-<h2>Snapshot Use Cases (Continued)</h2>
-
-<img data-src="../assets/inference_image_input_applications_2.png" class="quarto-figure quarto-figure-center r-stretch"><ul>
-<li>detecting wiring mismatches,</li>
-<li>inspecting manufactured goods against spec,</li>
-<li>validating that a surface is defect-free.</li>
-</ul>
-</section>
-<section class="slide level2">
-<h2>Video Streams</h2>
-<p>Video changes the interface completely:</p>
-<ul>
-<li>you start a long-running visual agent,</li>
-<li>frames are processed in a loop until stopped,</li>
-<li>predictions are <strong>polled</strong> or <strong>subscribed to</strong> asynchronously.</li>
-</ul>
-<p>This is why streaming systems are usually designed around <strong>pipelines</strong>, not single request/response calls.</p>
-
-<img data-src="../assets/inference_pipeline_architecture.svg" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section class="slide level2">
-<h2>From Processing to Action</h2>
-<p>Inference can also behave like an <strong>appliance</strong>: a system that continuously watches video and triggers downstream behavior.</p>
-<div class="columns">
-<div class="column" style="width:65%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="../assets/inference_appliance.svg" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
-</figure>
-</div>
-</div><div class="column" style="width:35%;">
-<p><strong>Common actions:</strong></p>
-<ul>
-<li>💾 update a database,</li>
-<li>📤 send notifications,</li>
-<li>🔔 fire webhooks,</li>
-<li>🚨 signal machinery or alarms.</li>
-</ul>
-</div></div>
-</section>
-<section class="slide level2">
-<h2>Video Stream Use Cases</h2>
-
-<img data-src="../assets/inference_video_input_applications.png" class="quarto-figure quarto-figure-center r-stretch"><div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li>measuring retail wait times,</li>
-<li>flagging suspicious activity,</li>
-<li>updating yard or warehouse inventory,</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<ul>
-<li>collecting traffic analytics,</li>
-<li>stopping a conveyor belt on jams,</li>
-<li>sounding an alarm when a scrap heap overflows.</li>
-</ul>
-</div></div>
-</section>
-<section class="slide level2">
-<h2>Takeaway</h2>
-<p>Choose your inference setup based on use case:</p>
-<ul>
-<li><strong>Snapshot image</strong>: synchronous request/response, ideal for HTTP/cloud serving.</li>
-<li><strong>Video stream</strong>: <code>InferencePipeline</code> enables asynchronous, batched processing for real-time video.</li>
-<li><strong>Action system</strong>: orchestrates automated workflows, integrating inference output with other systems.</li>
-</ul>
-
-
 </section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">

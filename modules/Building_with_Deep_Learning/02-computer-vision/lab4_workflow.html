@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Run a YOLO Model – Deep Learning with PyTorch</title>
+<title>Build a Computer Vision Workflow (Exercise) – Deep Learning with PyTorch</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -84,15 +84,22 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-is-a-roboflow-workflow" id="toc-what-is-a-roboflow-workflow" class="nav-link active" data-scroll-target="#what-is-a-roboflow-workflow">What is a Roboflow Workflow?</a></li>
+  <li><a href="#your-task" id="toc-your-task" class="nav-link" data-scroll-target="#your-task">Your Task</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Run a YOLO Model</h1>
+<h1 class="title">Build a Computer Vision Workflow (Exercise)</h1>
 </div>
 
 
@@ -109,9 +116,53 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Navigate the <a href="https://docs.ultralytics.com/tasks">tasks</a> and select a model, to run it on an image you give it to it.</p>
+<section id="what-is-a-roboflow-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-a-roboflow-workflow">What is a Roboflow Workflow?</h2>
+<p>A pretrained model returns raw predictions — bounding boxes, class names, confidence scores. A real application usually needs more: filtering results, counting objects, drawing overlays, or triggering downstream actions.</p>
+<p>A <strong>Workflow</strong> is Roboflow’s way of wiring those steps together visually. You connect <strong>blocks</strong> (model, filter, visualization, logic) into a pipeline, test it in a debugger, and deploy it through the Inference Server.</p>
+</section>
+<section id="your-task" class="level2">
+<h2 class="anchored" data-anchor-id="your-task">Your Task</h2>
+<p><strong>Goal:</strong> Build and run a simple object-detection Workflow, visualize its output, and understand how you would call it from code.</p>
+<p>Follow the official <a href="https://docs.roboflow.com/workflows/tutorials-1/hello-world">Hello World tutorial</a>. It takes about five minutes.</p>
+<p>Pick one setup mode:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Mode</th>
+<th>Best for</th>
+<th>Requirements</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Cloud connected</strong></td>
+<td>Fastest start</td>
+<td>Free <a href="https://app.roboflow.com/workflows">Roboflow account</a></td>
+</tr>
+<tr class="even">
+<td><strong>Detached</strong></td>
+<td>Local, no account</td>
+<td><a href="https://docs.roboflow.com/deployment/self-hosted/self-hosted">Self-hosted Inference Server</a> running locally</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In <strong>Detached</strong> mode, start the server with <code>inference server start --dev</code>, then open the Workflow Builder at <a href="http://localhost:9001/build">localhost:9001/build</a>.</p>
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
