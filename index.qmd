@@ -117,12 +117,13 @@ format: html
 
 - [🎞️ Model Selection and Training](modules/Building_with_Deep_Learning/01-llms/06_train.qmd)
 
-<!-- ## Day 4
+## Day 4: GenAI
 
-### M7. Agentic Engineering
+### M8. Agentic Engineering
 
 1. [🎞️ Leveraging GenAI as a Data Scientist](modules/genai/01-slides/Leveraging-GenAI-as-a-Data-Scientist.pdf)
 2. [🖥️ Leveraging GenAI as a Data Scientist](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/genai/02-leveraging-genai-data-science/02_genai_for_ds.ipynb)
+   - [📝 Exercise: Classify news articles](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/genai/02-leveraging-genai-data-science/03_genai_for_ds_exercise.ipynb)
 3. [🎞️ Agentic Engineering](modules/genai/03-agentic-engineering/01_intro.qmd)
 4. [🎞️ Prompting Coding Agents](modules/genai/03-agentic-engineering/02_prompting.qmd)
 5. [🎞️ Agent Modes](modules/genai/03-agentic-engineering/03_agent_modes.qmd)
@@ -130,9 +131,9 @@ format: html
 7. [🎞️ Skills for Software Engineers](modules/genai/03-agentic-engineering/05_skills_for_ai.qmd)
 8. [🎞️ The Case for Software Engineering Skills](modules/genai/03-agentic-engineering/06_limits.qmd)
 
-### M8. Machine Learning Operation (MLOps)
+### M9. Machine Learning Operation (MLOps)
 
 1. [🎞️ Model Serving](modules/Building_with_Deep_Learning/01-llms/07_serve.qmd)
 2. [🎞️ Deploying and Operating Machine Learning Models](modules/mlops/01-slides/DE_%20Deploying%20and%20Operating%20Machine%20Learning%20Models.pdf)
 3. [Machine learning apps](https://huggingface.co/docs/transformers/pipeline_gradio)
-4. [MLFlow Quick Start](https://mlflow.org/docs/latest/ml/getting-started/quickstart/) -->
+4. [MLFlow Quick Start](https://mlflow.org/docs/latest/ml/getting-started/quickstart/)
