@@ -91,8 +91,7 @@ format: html
 2. [🖥️ Using `transformers` Models via Pipelines](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/Building_with_Deep_Learning/01-llms/02_pipelines.ipynb)
 3. [🖥️ Inside a Pipeline](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/Building_with_Deep_Learning/01-llms/03_inside_pipeline.ipynb)
 4. [🖥️ Text Classification](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/01_text_classification.ipynb)
-5. [🖥️ Token Classification (NER)](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/02_token_classification.ipynb)
-6. [🖥️ Seq2Seq: Translation and Summarization](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/03_seq2seq.ipynb)
+5. [🖥️ Seq2Seq: Translation and Summarization](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/03_seq2seq.ipynb)
 
 #### Practice
 
