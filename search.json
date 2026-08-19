@@ -137,14 +137,14 @@
     "href": "index.html#day-3-applied-natural-language-processing",
     "title": "Deep Learning",
     "section": "Day 3: Applied Natural Language Processing",
-    "text": "Day 3: Applied Natural Language Processing\n\nM5. Text as Vectors\n\n🎞️ Slides\n🖥️ Text Frequency Features\n\n📝 Exercise\n\n🖥️ Build a Sentiment Analysis Classifier\n\n📝 Exercise\n\n🖥️ Distributed Word Representations: Word2Vec\n\n📝 Exercise\n\n\n\n\nM6. NLP Pipelines with HuggingFace\n\n🎞️ Introduction\n🖥️ Using transformers Models via Pipelines\n🖥️ Text Classification\n🖥️ Seq2Seq: Translation and Summarization\n\n\nPractice\n\n📝 Exercise 1: Sentiment and product entities\n📝 Exercise 2: Translation and summarization\n📝 Exercise 3: Speech recognition and STST\n\n\n\nResources\n\nHuggingFace Tasks\n\n🖥️ NLP Tasks\n🖥️ Audio Tasks"
+    "text": "Day 3: Applied Natural Language Processing\n\nM5. Text as Vectors\n\n🎞️ Slides\n🖥️ Text Frequency Features\n\n📝 Exercise\n\n🖥️ Build a Sentiment Analysis Classifier\n\n📝 Exercise\n\n🖥️ Distributed Word Representations: Word2Vec\n\n📝 Exercise\n\n\n\n\nM6. NLP Pipelines with HuggingFace\n\n🎞️ Introduction\n🖥️ Using transformers Models via Pipelines\n🖥️ Text Classification\n🖥️ Seq2Seq: Translation and Summarization\n\n\nPractice\n\n📝 Exercise 1: Sentiment and product entities | (✅ Solution)\n📝 Exercise 2: Translation and summarization | (✅ Solution)\n📝 Exercise 3: Speech recognition and STST\n\n\n\nResources\n\nHuggingFace Tasks\n\n🖥️ NLP Tasks\n🖥️ Audio Tasks"
   },
   {
     "objectID": "index.html#day-4-genai",
     "href": "index.html#day-4-genai",
     "title": "Deep Learning",
     "section": "Day 4: GenAI",
-    "text": "Day 4: GenAI\n\nM7. Large Language Models\n\n🖼️ Visual Story: Generative AI | Financial Times\n🖼️ Beam Search Visualizer\n🖥️ Controlling LLM Generation\n🖥️ LLM Structured Output\n\n📝 Exercise\n\n\n\n\nM8. Machine Learning Operation (MLOps)\n\n🎞️ Model Selection and Training\n🎞️ Model Serving\n🎞️ Deploying and Operating Machine Learning Models\nMachine learning apps\nMLFlow Quick Start\n\n\n\nM9. Using AI Providers\n\n🎞️ Slides\n🖥️ Lab\n\n📝 Exercise: Classify news articles\n\n\n\n\nM10. Agentic Engineering\n\n🎞️ Agentic Engineering\n🎞️ Prompting Coding Agents\n🎞️ Agent Modes\n🎞️ Agentic Codebase\n🎞️ Skills for Software Engineers\n🎞️ The Case for Software Engineering Skills"
+    "text": "Day 4: GenAI\n\nM7. Large Language Models\n\n🖼️ Visual Story: Generative AI | Financial Times\n🖼️ Beam Search Visualizer\n🖥️ Controlling LLM Generation\n🖥️ LLM Structured Output\n\n📝 Exercise\n\n\n\n\nM8. Machine Learning Operation (MLOps)\n\n🎞️ Model Selection and Training\n🎞️ Model Serving\n🎞️ Deploying and Operating Machine Learning Models\n\n\nPractice\n\n📝 Exercise: Machine learning apps (copy)\n📝 Tutorial: MLFlow Quick Start (follow along)\n\n\n\n\nM9. Using AI Providers\n\n🎞️ Slides\n🖥️ Lab\n\n📝 Exercise: Classify news articles\n\n\n\n\nM10. Agentic Engineering\n\n🎞️ Agentic Engineering\n🎞️ Prompting Coding Agents\n🎞️ Agent Modes\n🎞️ Agentic Codebase\n🎞️ Skills for Software Engineers\n🎞️ The Case for Software Engineering Skills"
   },
   {
     "objectID": "docs/lab_setup.html",
