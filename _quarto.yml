@@ -7,12 +7,13 @@ project:
     # Modules
     - modules/unsupervised/**/*.qmd
     - modules/deep-learning/**/*.qmd
-    # - modules/nlp/**/*.qmd
-    # - modules/pipelines/**/*.qmd
-    # - modules/genai/**/*.qmd
-    - modules/pipelines/02-pipelines/**/*.qmd
-    - modules/Building_with_Deep_Learning/01-llms/**/*.qmd
-    - modules/Building_with_Deep_Learning/02-computer-vision/**/*.qmd
+    - modules/nlp/**/*.qmd
+    - modules/pipelines/**/*.qmd
+    - modules/mlops/**/*.qmd
+    - modules/genai/**/*.qmd
+    - modules/Building_with_Deep_Learning/**/*.qmd
+    # - modules/Building_Agentic_AI_Systems/**/*.qmd
+
   preview:
     port: 4200
   resources:

@@ -94,5 +94,4 @@ raw/
 cifar-100-python.tar.gz
 
 old_course/
-modules/**/*.typ
 /.quarto/

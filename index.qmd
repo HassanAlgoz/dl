@@ -129,14 +129,77 @@ format: html
 
 ### M10. Agentic Engineering
 
-3. [🎞️ Agentic Engineering](modules/genai/03-agentic-engineering/01_intro.qmd)
-4. [🎞️ Prompting Coding Agents](modules/genai/03-agentic-engineering/02_prompting.qmd)
-5. [🎞️ Agent Modes](modules/genai/03-agentic-engineering/03_agent_modes.qmd)
-6. [🎞️ Agentic Codebase](modules/genai/03-agentic-engineering/04_agentic_codebase.qmd)
-7. [🎞️ Skills for Software Engineers](modules/genai/03-agentic-engineering/05_skills_for_ai.qmd)
-8. [🎞️ The Case for Software Engineering Skills](modules/genai/03-agentic-engineering/06_limits.qmd)
+1. [🎞️ Agentic Engineering](modules/genai/03-agentic-engineering/01_intro.qmd)
+2. [🎞️ Prompting Coding Agents](modules/genai/03-agentic-engineering/02_prompting.qmd)
+3. [🎞️ Agent Modes](modules/genai/03-agentic-engineering/03_agent_modes.qmd)
+4. [🎞️ Agentic Codebase](modules/genai/03-agentic-engineering/04_agentic_codebase.qmd)
+5. [🎞️ Skills for Software Engineers](modules/genai/03-agentic-engineering/05_skills_for_ai.qmd)
+6. [🎞️ The Case for Software Engineering Skills](modules/genai/03-agentic-engineering/06_limits.qmd)
 
-## Day 5
+<!-- ## Day 5
 
 ### M11. Building Agentic AI Systems
+
+1. [🎞️ Agentic AI: Workflows, and Language Models](modules/Building_Agentic_AI_Systems/lessons/01_agentic_ai.qmd)
+2. [🎞️ Six Agentic AI Patterns from Research Papers](modules/Building_Agentic_AI_Systems/lessons/02_agentic_patterns.qmd)
+
+#### Signatures and Modules
+
+1. [🎞️ Introduction to the DSPy Framework](modules/Building_Agentic_AI_Systems/lessons/03_dspy_overview.qmd)
+2. [🖥️ Setup](modules/Building_Agentic_AI_Systems/lessons/05_dspy_setup.ipynb)
+3. [🖥️ First Program](modules/Building_Agentic_AI_Systems/lessons/06_dspy_first_program.ipynb)
+4. [🖥️ Class-based Signature](modules/Building_Agentic_AI_Systems/lessons/07_dspy_class-based_signature.ipynb)
+5. [🖥️ Changing Modules](modules/Building_Agentic_AI_Systems/lessons/08_dspy_changing_modules.ipynb)
+   - [📝 Exercise: Email Extraction](modules/Building_Agentic_AI_Systems/exercises/email_extraction.ipynb)
+
+Recommended: [Set up MLflow Tracing](modules/Building_Agentic_AI_Systems/lessons/mlflow.md).
+
+#### Agents, Tools, and Code
+
+1. [🖥️ ReAct Loop](modules/Building_Agentic_AI_Systems/lessons/09_dspy_ReAct.ipynb)
+   - [📝 Exercise: Flights Agent](modules/Building_Agentic_AI_Systems/exercises/flights_agent.ipynb)
+2. [🖥️ Composing Modules](modules/Building_Agentic_AI_Systems/lessons/10_dspy_composing_modules.ipynb)
+3. [🖥️ CodeAct Loop](modules/Building_Agentic_AI_Systems/lessons/11_dspy_CodeAct.ipynb)
+   - [📝 Exercise: Flights Coding Agent](modules/Building_Agentic_AI_Systems/exercises/flights_code_agent.ipynb) ([✅ Solution](modules/Building_Agentic_AI_Systems/exercises/flights_code_agent_solution.ipynb))
+
+If you are looking for MCP, see: [Tutorial: Use MCP tools in DSPy](https://dspy.ai/tutorials/mcp/).
+
+#### Optimization
+
+1. [🖥️ Evaluation and Optimization](modules/Building_Agentic_AI_Systems/lessons/12_dspy_evaluation_and_optimization.ipynb)
+2. Inference-time Output Refinement:
+   - [Tutorial: Output Refinement: BestOfN and Refine](https://dspy.ai/tutorials/output_refinement/best-of-n-and-refine/)
+   - [Tutorial: Image Generation Prompt iteration](https://dspy.ai/tutorials/image_generation_prompting/)
+
+#### Deployment
+
+- [Tutorial: Deploying your DSPy program](https://dspy.ai/tutorials/deployment/)
+- [Tutorial: Memory-Enabled ReAct Agents with Mem0](https://dspy.ai/tutorials/mem0_react_agent/)
+
+#### Retrieval Augmented Generation (RAG)
+
+1. [🎞️ What is RAG?](modules/Building_Agentic_AI_Systems/lessons/13_rag.qmd)
+2. [🖥️ ChromaDB: Ingestion and Querying](modules/Building_Agentic_AI_Systems/lessons/14_chromadb.ipynb)
+   - [📝 Exercise: Explore the Embedding Space](modules/Building_Agentic_AI_Systems/exercises/14/visualize_embeddings.ipynb) ([✅ Solution](modules/Building_Agentic_AI_Systems/exercises/14/visualize_embeddings_solution.ipynb))
+   - [Optional: Multi-modal Embeddings](https://docs.trychroma.com/docs/embeddings/multimodal)
+3. [🖥️ Chunking: Searching PDF Documents](modules/Building_Agentic_AI_Systems/lessons/15_chunking.ipynb)
+4. [🖥️ RAG with DSPy](modules/Building_Agentic_AI_Systems/lessons/16_dspy_rag.ipynb)
+
+#### Projects
+
+1. [From Lectures to an Interactive Book](modules/Building_Agentic_AI_Systems/projects/01_lectures_to_interactive_book.md)
+2. [Book Translation](modules/Building_Agentic_AI_Systems/projects/02_translation_pipeline.md)
+3. [Comparative Analysis](modules/Building_Agentic_AI_Systems/projects/03_comparative_analysis.md)
+4. [Writer Assistant](modules/Building_Agentic_AI_Systems/projects/04_writer_assistant.md)
+5. [Code Annotation](modules/Building_Agentic_AI_Systems/projects/05_code_annotation.md)
+6. [Step-by-step](modules/Building_Agentic_AI_Systems/projects/06_step_by_step.md)
+7. [DataMaster Agent](modules/Building_Agentic_AI_Systems/projects/07_data_master_agent.md)
+8. [Hadeeth](modules/Building_Agentic_AI_Systems/projects/08_hadeeth.md)
+9. [oTranscribe](modules/Building_Agentic_AI_Systems/projects/09_oTranscribe.md)
+
+#### Resources
+
+- [Agentic AI Course](https://www.deeplearning.ai/courses/agentic-ai) (Andrew Ng, DeepLearningAI)
+- [DSPy](https://dspy.ai/): Program, don’t prompt, your LLMs.
+- [AI Engineer Roadmap](https://www.aihero.dev/ai-engineer-roadmap) -->
 
