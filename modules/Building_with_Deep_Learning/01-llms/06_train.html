@@ -175,42 +175,61 @@
 </section>
 <section class="slide level2">
 <h2>Three Scaling Factors</h2>
-<p>Large language models are defined by three kinds of scale:</p>
-<ol type="1">
-<li><strong>Parameter count</strong>: often billions of learned weights.</li>
-<li><strong>Training data</strong>: often trillions of tokens.</li>
-<li><strong>Task breadth</strong>: the same model can summarize, classify, translate, code, and answer questions.</li>
-</ol>
-<p>The interesting part is the third: one model family can transfer to many downstream tasks.</p>
+<div class="fragment">
+<h3>1. Parameters</h3>
+<ul>
+<li>GPT-3 has <strong>175 billion</strong> parameters. GPT-4 has <strong>~1.76 trillion</strong> parameters.</li>
+<li>Gemini has 175 (Ultra), 50 (Pro), 10 (Nano) trillion parameters.</li>
+</ul>
+</div>
+<div class="fragment">
+<h3>2. Compute</h3>
+<ul>
+<li>GPT-4 was trained with roughly <strong><span class="math inline">\(12 \times 10^25\)</span> flops</strong> of computing power. Equivalent <strong>~381 human brains</strong> working non-stop for <strong>a full year!</strong>*.</li>
+</ul>
+</div>
+<div class="fragment">
+<h3>3. Training Data</h3>
+<ul>
+<li>GPT-3 was trained on <strong>45 terabytes</strong> of data, including the whole of Wikipedia. This is equivalent to <strong>90 million novels</strong>.</li>
+<li>GPT-4 is trained on 20x as much data (<strong>90TB</strong>), including web pages, books, and other sources.</li>
+</ul>
+</div>
 </section>
 <section class="slide level2">
 <h2>Tom Mitchell’s Definition</h2>
 <p>Tom Mitchell’s definition is our framework for understanding LLMs:</p>
-<p><strong>Machine learning:</strong> A computer program is said to learn from experience <span class="math inline">\(E\)</span> with respect to some class of tasks <span class="math inline">\(T\)</span> and performance measure <span class="math inline">\(P\)</span>, if its performance at tasks in <span class="math inline">\(T\)</span>, as measured by <span class="math inline">\(P\)</span>, improves with experience <span class="math inline">\(E\)</span>.</p>
-<p>For instance, in spam filtering, we have:</p>
-<div class="fragment">
-<ul>
-<li><strong>Task</strong> <span class="math inline">\(T\)</span>: classify an incoming email as spam or not spam.</li>
-<li><strong>Experience</strong> <span class="math inline">\(E\)</span>: previously labeled emails collected over time.</li>
-<li><strong>Performance</strong> <span class="math inline">\(P\)</span>: how accurately the filter handles new emails.</li>
-</ul>
-<p>If more data improves quality, the system is <strong>learning</strong> (a.k.a. <strong>training</strong> or <strong>fitting</strong>).</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Machine learning:</strong> A computer program is said to learn from experience <span class="math inline">\(E\)</span> with respect to some class of tasks <span class="math inline">\(T\)</span> and performance measure <span class="math inline">\(P\)</span>, if its performance at tasks in <span class="math inline">\(T\)</span>, as measured by <span class="math inline">\(P\)</span>, improves with experience <span class="math inline">\(E\)</span>.</p>
+</div>
+</div>
+</div>
+<p>If more data improves quality, the system is <strong>learning</strong> (a.k.a. <strong>training</strong> or <strong>fitting</strong>).</p>
+<p>For instance, in spam filtering, we have:</p>
+<ul>
+<li class="fragment"><strong>Task</strong> <span class="math inline">\(T\)</span>: classify an incoming email as spam or not spam.</li>
+<li class="fragment"><strong>Experience</strong> <span class="math inline">\(E\)</span>: previously labeled emails collected over time.</li>
+<li class="fragment"><strong>Performance</strong> <span class="math inline">\(P\)</span>: how accurately the filter handles new emails.</li>
+</ul>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>Training From Scratch</h1>
+<h1>LLM Training From Scratch</h1>
 
 </section>
 <section class="slide level2">
-<h2>The three-stage picture</h2>
+<h2>LLM three-stage training process</h2>
 <p>Training a useful assistant model from scratch usually looks like:</p>
-<ol type="1">
-<li><strong>Pre-training</strong>: learn language by next-token prediction.</li>
-<li><strong>Supervised fine-tuning</strong>: learn to follow instructions and task formats.</li>
-<li><strong>Alignment</strong>: push behavior toward helpfulness, honesty, and safety.</li>
-</ol>
-<p>Each stage solves a different problem, so each creates a different kind of model.</p>
+
+<img data-src="../assets/llm-3-stage-training-process.png" class="quarto-figure quarto-figure-center r-stretch"><p>Each stage solves a different problem, so each creates a different kind of model.</p>
 </section>
 <section class="slide level2">
 <h2>Stage 1: Pre-training (unsupervised)</h2>
@@ -343,6 +362,15 @@
 <p>This is the default path for almost every applied team.</p>
 </section>
 <section class="slide level2">
+<h2>Fine-tuning Models</h2>
+<p><strong>Fine-tuning</strong> means adapting a pre-trained model on a more specific dataset.</p>
+<ul>
+<li><strong>Embedding models</strong>: trained for similarity and retrieval, not chat. See <a href="https://unsloth.ai/docs/basics/embedding-finetuning">Unsloth’s embedding fine-tuning guide</a>.</li>
+<li><strong>Speech models</strong> like Whisper: trained for transcription. See <a href="https://colab.research.google.com/github/unslothai/notebooks/blob/main/nb/Whisper.ipynb">Fine-tuning Whisper Large V3</a>.</li>
+<li><strong>TTS models</strong>: optimized for speech generation, not instruction following. See <a href="https://unsloth.ai/docs/basics/text-to-speech-tts-fine-tuning">this TTS fine-tuning guide</a>.</li>
+</ul>
+</section>
+<section class="slide level2">
 <h2>Model selection comes first</h2>
 <p>Before adapting a model, choose the best starting point.</p>
 <p>Different leaderboards answer different questions:</p>
@@ -372,20 +400,24 @@
 </section>
 <section class="slide level2">
 <h2>Option A: Full fine-tuning</h2>
-<p><strong>SFT</strong> continues training a pretrained model on a smaller task-specific dataset.</p>
-<p>Use it when you want the model to:</p>
+<p><strong>Supervised Fine-tuning (SFT)</strong> continues training a pretrained model on a smaller task-specific dataset.</p>
+<p>See the <a href="https://huggingface.co/docs/transformers/training">Transformers SFT guide</a>.</p>
+<div class="fragment">
+<h3>When to Use</h3>
 <ul>
+<li>improve on a specific task</li>
+<li>speak in a specific style</li>
 <li>follow a specialized instruction format</li>
-<li>speak in a domain-specific style</li>
-<li>improve on a repeated task family</li>
 </ul>
-<p>Typical cost:</p>
+</div>
+<div class="fragment">
+<h3>Cost</h3>
 <ul>
 <li>far below pre-training</li>
 <li>often less than <span class="math inline">\(1\%\)</span> of the original compute budget</li>
 <li>still requires a lot of compute!</li>
 </ul>
-<p>If you want the standard API first, start with the <a href="https://huggingface.co/docs/transformers/training">Transformers SFT guide</a>.</p>
+</div>
 </section>
 <section class="slide level2">
 <h2>Option B: PEFT</h2>
@@ -396,7 +428,7 @@
 <li>train the adapters instead of the full model</li>
 <li>keep memory and compute costs much lower</li>
 </ul>
-<p>This is why it is possible to fine-tune an <span class="math inline">\(8B\)</span> model on one strong GPU.</p>
+<p>This is why it is possible to fine-tune an <span class="math inline">\(8B\)</span> model on one strong GPU (Colab T4 GPU).</p>
 </section>
 <section class="slide level2">
 <h2>Why PEFT is popular</h2>
@@ -409,84 +441,6 @@
 </ul>
 <p>Operationally, <strong>adapters</strong> are easier to ship than fully retrained model weights.</p>
 <p>For implementation details, see the <a href="https://huggingface.co/docs/transformers/peft">Transformers PEFT guide</a>.</p>
-</section>
-<section class="slide level2">
-<h2>Reinforcement Learning</h2>
-<p>In reinforcement learning, an agent improves by acting, receiving feedback, and updating.</p>
-<p>For language models:</p>
-<ul>
-<li><strong>Action</strong>: the generated response</li>
-<li><strong>Reward</strong>: a signal saying how good or bad that response was</li>
-<li><strong>Environment</strong>: the task context or user prompt</li>
-</ul>
-<p>The core design question becomes: <strong>what reward are we optimizing?</strong></p>
-</section>
-<section class="slide level2">
-<h2>Tiny example: reward over answers</h2>
-<p>Question: “What is 2 + 2?”</p>
-<p>Possible sampled answers:</p>
-<ul>
-<li><code>4</code></li>
-<li><code>3</code></li>
-<li><code>D</code></li>
-<li><code>four</code></li>
-</ul>
-<p>If the reward function scores only exact correctness, then some outputs get rewarded and others do not. The update step then shifts the model toward higher-reward behavior.</p>
-</section>
-<section class="slide level2">
-<h2>Where the update happens</h2>
-<p>There are two broad ways to improve from feedback:</p>
-<ul>
-<li><strong>RLHF</strong>: methods like <strong>GRPO</strong> (Gradient Reversal Policy Optimization) change model parameters/weights.</li>
-<li><strong>Teleprompting</strong>: methods like <strong>GEPA</strong> treat the set of prompts in a connected sequence of LLM modules, as the parameters to optimize.</li>
-</ul>
-<p>Both supported in <a href="https://dspy.ai/">DSPy</a> as <strong>optimizers</strong>.</p>
-</section>
-<section class="slide level2">
-<h2>Reward functions are the real bottleneck</h2>
-<p>The hardest part of RL is rarely “run the optimizer”.</p>
-<p>The hard part is writing a <strong>reward function</strong> or <strong>rubric</strong> that actually captures what good behavior means.</p>
-<p>If the reward is wrong, the model will optimize the wrong thing very efficiently.</p>
-</section>
-<section class="slide level2">
-<h2>Rule-based rewards</h2>
-<p>Verifiable tasks are easiest:</p>
-<ul>
-<li><strong>Math</strong>: equations can be checked by symbolic engines automatically.</li>
-<li><strong>Code</strong>: execution, tests, or exact outputs can be checked programmatically.</li>
-</ul>
-<p>These are attractive because the feedback loop is cheap, fast, and objective.</p>
-</section>
-<section class="slide level2">
-<h2>Rule-based rewards for messy tasks</h2>
-<p>Some tasks are harder, like drafting a reply email.</p>
-<p>Possible rubric items:</p>
-<ul>
-<li>include a required keyword -&gt; reward</li>
-<li>match the ideal response closely -&gt; reward</li>
-<li>stay concise -&gt; avoid penalty</li>
-<li>include the recipient’s name -&gt; reward</li>
-<li>include a signature block -&gt; reward</li>
-</ul>
-<p>Useful, but clearly more brittle than exact math verification.</p>
-</section>
-<section class="slide level2">
-<h2>LLM judges and human feedback</h2>
-<p>When rules are too rigid, we can use richer signals:</p>
-<ul>
-<li><strong>LLM-as-a-judge</strong>: a model scores outputs against a rubric.</li>
-<li><strong>Human feedback</strong>: thumbs up / thumbs down or explicit pairwise preferences.</li>
-</ul>
-<p>This is the core idea behind <strong>RLHF</strong>: use human preference data to train more aligned behavior.</p>
-</section>
-<section class="slide level2">
-<h2>PPO, GRPO, and modern RL fine-tuning</h2>
-<p>Historically:</p>
-<ul>
-<li><a href="https://en.wikipedia.org/wiki/Proximal_policy_optimization">PPO</a> was the classic RLHF workhorse, but operationally heavy.</li>
-<li><a href="https://unsloth.ai/blog/grpo">GRPO</a> simplified some of that recipe for reasoning-style training.</li>
-<li><a href="https://platform.openai.com/docs/guides/reinforcement-fine-tuning">RFT</a> and related newer workflows keep making this space easier to use.</li>
-</ul>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
@@ -509,17 +463,7 @@
 </ul>
 </section>
 <section class="slide level2">
-<h2>SFT for Non-LLM Models</h2>
-<p>Some important models are <strong>not</strong> prompt-response assistants:</p>
-<ul>
-<li><strong>Embedding models</strong>: trained for similarity and retrieval, not chat. See <a href="https://unsloth.ai/docs/basics/embedding-finetuning">Unsloth’s embedding fine-tuning guide</a>.</li>
-<li><strong>Speech models</strong> like Whisper: trained for transcription. See <a href="https://colab.research.google.com/github/unslothai/notebooks/blob/main/nb/Whisper.ipynb">Fine-tuning Whisper Large V3</a>.</li>
-<li><strong>TTS models</strong>: optimized for speech generation, not instruction following. See <a href="https://unsloth.ai/docs/basics/text-to-speech-tts-fine-tuning">this TTS fine-tuning guide</a>.</li>
-</ul>
-<p>So “fine-tuning” always means adapting the <strong>right kind</strong> of base model for the job.</p>
-</section>
-<section class="slide level2">
-<h2>GPUs as an on-demand resource</h2>
+<h2>Hardware: GPUs as an on-demand resource</h2>
 <p>Rented GPUs can be used to fine-tune models without owning a cluster.</p>
 <p>Common pattern:</p>
 <ul>
@@ -533,14 +477,6 @@
 <li><a href="https://huggingface.co/docs/hub/jobs">Hugging Face Jobs</a></li>
 <li><a href="https://huggingface.co/datasets/unsloth/jobs">Unsloth Jobs</a></li>
 </ul>
-</section>
-<section class="slide level2">
-<h2>Fine-tune or Prompt-tune?</h2>
-<p>Given that the problem isn’t solved with RAG.</p>
-<blockquote>
-<p><a href="https://dspy.ai/diving-deeper/choosing-an-optimizer/#8-most-teams-start-prompt-only-and-graduate-to-finetune-only-when-prompt-only-plateaus">Most teams start prompt-only and graduate to finetune only when prompt-only plateaus</a></p>
-<p>Prompt-only optimization costs LM tokens. Finetune costs LM tokens plus training compute plus deployment of new weights. The marginal lift of finetune over <a href="https://dspy.ai/getting-started/gepa-optimization/">GEPA</a> or MIPROv2 is usually small and sometimes negative, while the marginal cost is much larger. <strong>Treat finetune as the last lever, not the first</strong>.</p>
-</blockquote>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
