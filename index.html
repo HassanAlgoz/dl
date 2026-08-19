@@ -104,12 +104,13 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#m5.-text-as-vectors" id="toc-m5.-text-as-vectors" class="nav-link" data-scroll-target="#m5.-text-as-vectors">M5. Text as Vectors</a></li>
   <li><a href="#m6.-nlp-pipelines-with-huggingface" id="toc-m6.-nlp-pipelines-with-huggingface" class="nav-link" data-scroll-target="#m6.-nlp-pipelines-with-huggingface">M6. NLP Pipelines with HuggingFace</a></li>
-  <li><a href="#m7.-large-language-models" id="toc-m7.-large-language-models" class="nav-link" data-scroll-target="#m7.-large-language-models">M7. Large Language Models</a></li>
   </ul></li>
   <li><a href="#day-4-genai" id="toc-day-4-genai" class="nav-link" data-scroll-target="#day-4-genai">Day 4: GenAI</a>
   <ul class="collapse">
-  <li><a href="#m8.-agentic-engineering" id="toc-m8.-agentic-engineering" class="nav-link" data-scroll-target="#m8.-agentic-engineering">M8. Agentic Engineering</a></li>
-  <li><a href="#m9.-machine-learning-operation-mlops" id="toc-m9.-machine-learning-operation-mlops" class="nav-link" data-scroll-target="#m9.-machine-learning-operation-mlops">M9. Machine Learning Operation (MLOps)</a></li>
+  <li><a href="#m7.-large-language-models" id="toc-m7.-large-language-models" class="nav-link" data-scroll-target="#m7.-large-language-models">M7. Large Language Models</a></li>
+  <li><a href="#m8.-machine-learning-operation-mlops" id="toc-m8.-machine-learning-operation-mlops" class="nav-link" data-scroll-target="#m8.-machine-learning-operation-mlops">M8. Machine Learning Operation (MLOps)</a></li>
+  <li><a href="#m9.-using-ai-providers" id="toc-m9.-using-ai-providers" class="nav-link" data-scroll-target="#m9.-using-ai-providers">M9. Using AI Providers</a></li>
+  <li><a href="#m10.-agentic-engineering" id="toc-m10.-agentic-engineering" class="nav-link" data-scroll-target="#m10.-agentic-engineering">M10. Agentic Engineering</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -262,20 +263,17 @@ ul.task-list li input[type="checkbox"] {
 <section id="m6.-nlp-pipelines-with-huggingface" class="level3">
 <h3 class="anchored" data-anchor-id="m6.-nlp-pipelines-with-huggingface">M6. NLP Pipelines with HuggingFace</h3>
 <ol type="1">
-<li><a href="./modules/Building_with_Deep_Learning/01-llms/01_ecosystem.html">🎞️ Deep Learning Ecosystem</a>
-<ul>
-<li><a href="https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/Building_with_Deep_Learning/01-llms/youtube_whisper.ipynb">🖥️ YouTube Video Transcription with Whisper</a></li>
-</ul></li>
-<li><a href="https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/Building_with_Deep_Learning/01-llms/02_pipelines.ipynb">🖥️ Using <code>transformers</code> Models via Pipelines</a></li>
-<li><a href="https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/Building_with_Deep_Learning/01-llms/03_inside_pipeline.ipynb">🖥️ Inside a Pipeline</a></li>
-<li><a href="https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/01_text_classification.ipynb">🖥️ Text Classification</a></li>
-<li><a href="https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/03_seq2seq.ipynb">🖥️ Seq2Seq: Translation and Summarization</a></li>
+<li><a href="./modules/pipelines/02-pipelines/01_intro.html">🎞️ Introduction</a></li>
+<li><a href="https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/02_pipelines.ipynb">🖥️ Using <code>transformers</code> Models via Pipelines</a></li>
+<li><a href="https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/04_text_classification.ipynb">🖥️ Text Classification</a></li>
+<li><a href="https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/05_seq2seq.ipynb">🖥️ Seq2Seq: Translation and Summarization</a></li>
 </ol>
 <section id="practice-3" class="level4">
 <h4 class="anchored" data-anchor-id="practice-3">Practice</h4>
 <ul>
-<li><a href="https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/Building_with_Deep_Learning/01-llms/01_text_classification_exercise.ipynb">📝 Exercise 1: Sentiment and product entities</a></li>
-<li><a href="https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/Building_with_Deep_Learning/01-llms/03_seq2seq_exercise.ipynb">📝 Exercise 2: Translation and summarization</a></li>
+<li><a href="https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/04_text_classification_exercise.ipynb">📝 Exercise 1: Sentiment and product entities</a></li>
+<li><a href="https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/05_seq2seq_exercise.ipynb">📝 Exercise 2: Translation and summarization</a></li>
+<li><a href="https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/02_pipelines_exercise.ipynb">📝 Exercise 3: Speech recognition and STST</a></li>
 </ul>
 </section>
 <section id="resources-2" class="level4">
@@ -283,12 +281,15 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><a href="https://huggingface.co/tasks">HuggingFace Tasks</a>
 <ul>
-<li><a href="https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/Building_with_Deep_Learning/01-llms/tasks_nlp.ipynb">🖥️ NLP Tasks</a></li>
-<li><a href="https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/Building_with_Deep_Learning/01-llms/tasks_audio.ipynb">🖥️ Audio Tasks</a></li>
+<li><a href="https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/tasks_nlp.ipynb">🖥️ NLP Tasks</a></li>
+<li><a href="https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/tasks_audio.ipynb">🖥️ Audio Tasks</a></li>
 </ul></li>
 </ul>
 </section>
 </section>
+</section>
+<section id="day-4-genai" class="level2">
+<h2 class="anchored" data-anchor-id="day-4-genai">Day 4: GenAI</h2>
 <section id="m7.-large-language-models" class="level3">
 <h3 class="anchored" data-anchor-id="m7.-large-language-models">M7. Large Language Models</h3>
 <ol type="1">
@@ -300,40 +301,103 @@ ul.task-list li input[type="checkbox"] {
 <li><a href="https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/Building_with_Deep_Learning/01-llms/05_llm_structured_output_exercise.ipynb">📝 Exercise</a></li>
 </ul></li>
 </ol>
-<section id="resources-3" class="level4">
-<h4 class="anchored" data-anchor-id="resources-3">Resources</h4>
-<ul>
+</section>
+<section id="m8.-machine-learning-operation-mlops" class="level3">
+<h3 class="anchored" data-anchor-id="m8.-machine-learning-operation-mlops">M8. Machine Learning Operation (MLOps)</h3>
+<ol type="1">
 <li><a href="./modules/Building_with_Deep_Learning/01-llms/06_train.html">🎞️ Model Selection and Training</a></li>
-</ul>
-</section>
-</section>
-</section>
-<section id="day-4-genai" class="level2">
-<h2 class="anchored" data-anchor-id="day-4-genai">Day 4: GenAI</h2>
-<section id="m8.-agentic-engineering" class="level3">
-<h3 class="anchored" data-anchor-id="m8.-agentic-engineering">M8. Agentic Engineering</h3>
-<ol type="1">
-<li><a href="modules/genai/01-slides/Leveraging-GenAI-as-a-Data-Scientist.pdf">🎞️ Leveraging GenAI as a Data Scientist</a></li>
-<li><a href="https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/genai/02-leveraging-genai-data-science/02_genai_for_ds.ipynb">🖥️ Leveraging GenAI as a Data Scientist</a>
-<ul>
-<li><a href="https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/genai/02-leveraging-genai-data-science/03_genai_for_ds_exercise.ipynb">📝 Exercise: Classify news articles</a></li>
-</ul></li>
-<li><a href="modules/genai/03-agentic-engineering/01_intro.qmd">🎞️ Agentic Engineering</a></li>
-<li><a href="modules/genai/03-agentic-engineering/02_prompting.qmd">🎞️ Prompting Coding Agents</a></li>
-<li><a href="modules/genai/03-agentic-engineering/03_agent_modes.qmd">🎞️ Agent Modes</a></li>
-<li><a href="modules/genai/03-agentic-engineering/04_agentic_codebase.qmd">🎞️ Agentic Codebase</a></li>
-<li><a href="modules/genai/03-agentic-engineering/05_skills_for_ai.qmd">🎞️ Skills for Software Engineers</a></li>
-<li><a href="modules/genai/03-agentic-engineering/06_limits.qmd">🎞️ The Case for Software Engineering Skills</a></li>
-</ol>
-</section>
-<section id="m9.-machine-learning-operation-mlops" class="level3">
-<h3 class="anchored" data-anchor-id="m9.-machine-learning-operation-mlops">M9. Machine Learning Operation (MLOps)</h3>
-<ol type="1">
 <li><a href="./modules/Building_with_Deep_Learning/01-llms/07_serve.html">🎞️ Model Serving</a></li>
 <li><a href="modules/mlops/01-slides/DE_ Deploying and Operating Machine Learning Models.pdf">🎞️ Deploying and Operating Machine Learning Models</a></li>
 <li><a href="https://huggingface.co/docs/transformers/pipeline_gradio">Machine learning apps</a></li>
 <li><a href="https://mlflow.org/docs/latest/ml/getting-started/quickstart/">MLFlow Quick Start</a></li>
 </ol>
+</section>
+<section id="m9.-using-ai-providers" class="level3">
+<h3 class="anchored" data-anchor-id="m9.-using-ai-providers">M9. Using AI Providers</h3>
+<ol type="1">
+<li><a href="modules/genai/01-slides/Leveraging-GenAI-as-a-Data-Scientist.pdf">🎞️ Slides</a></li>
+<li><a href="https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/genai/02-leveraging-genai-data-science/02_genai_for_ds.ipynb">🖥️ Lab</a>
+<ul>
+<li><a href="https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/genai/02-leveraging-genai-data-science/03_genai_for_ds_exercise.ipynb">📝 Exercise: Classify news articles</a></li>
+</ul></li>
+</ol>
+</section>
+<section id="m10.-agentic-engineering" class="level3">
+<h3 class="anchored" data-anchor-id="m10.-agentic-engineering">M10. Agentic Engineering</h3>
+<ol type="1">
+<li><a href="./modules/genai/03-agentic-engineering/01_intro.html">🎞️ Agentic Engineering</a></li>
+<li><a href="./modules/genai/03-agentic-engineering/02_prompting.html">🎞️ Prompting Coding Agents</a></li>
+<li><a href="./modules/genai/03-agentic-engineering/03_agent_modes.html">🎞️ Agent Modes</a></li>
+<li><a href="./modules/genai/03-agentic-engineering/04_agentic_codebase.html">🎞️ Agentic Codebase</a></li>
+<li><a href="./modules/genai/03-agentic-engineering/05_skills_for_ai.html">🎞️ Skills for Software Engineers</a></li>
+<li><a href="./modules/genai/03-agentic-engineering/06_limits.html">🎞️ The Case for Software Engineering Skills</a></li>
+</ol>
+<!-- ## Day 5
+
+### M11. Building Agentic AI Systems
+
+1. [🎞️ Agentic AI: Workflows, and Language Models](modules/Building_Agentic_AI_Systems/lessons/01_agentic_ai.qmd)
+2. [🎞️ Six Agentic AI Patterns from Research Papers](modules/Building_Agentic_AI_Systems/lessons/02_agentic_patterns.qmd)
+
+#### Signatures and Modules
+
+1. [🎞️ Introduction to the DSPy Framework](modules/Building_Agentic_AI_Systems/lessons/03_dspy_overview.qmd)
+2. [🖥️ Setup](modules/Building_Agentic_AI_Systems/lessons/05_dspy_setup.ipynb)
+3. [🖥️ First Program](modules/Building_Agentic_AI_Systems/lessons/06_dspy_first_program.ipynb)
+4. [🖥️ Class-based Signature](modules/Building_Agentic_AI_Systems/lessons/07_dspy_class-based_signature.ipynb)
+5. [🖥️ Changing Modules](modules/Building_Agentic_AI_Systems/lessons/08_dspy_changing_modules.ipynb)
+   - [📝 Exercise: Email Extraction](modules/Building_Agentic_AI_Systems/exercises/email_extraction.ipynb)
+
+Recommended: [Set up MLflow Tracing](modules/Building_Agentic_AI_Systems/lessons/mlflow.md).
+
+#### Agents, Tools, and Code
+
+1. [🖥️ ReAct Loop](modules/Building_Agentic_AI_Systems/lessons/09_dspy_ReAct.ipynb)
+   - [📝 Exercise: Flights Agent](modules/Building_Agentic_AI_Systems/exercises/flights_agent.ipynb)
+2. [🖥️ Composing Modules](modules/Building_Agentic_AI_Systems/lessons/10_dspy_composing_modules.ipynb)
+3. [🖥️ CodeAct Loop](modules/Building_Agentic_AI_Systems/lessons/11_dspy_CodeAct.ipynb)
+   - [📝 Exercise: Flights Coding Agent](modules/Building_Agentic_AI_Systems/exercises/flights_code_agent.ipynb) ([✅ Solution](modules/Building_Agentic_AI_Systems/exercises/flights_code_agent_solution.ipynb))
+
+If you are looking for MCP, see: [Tutorial: Use MCP tools in DSPy](https://dspy.ai/tutorials/mcp/).
+
+#### Optimization
+
+1. [🖥️ Evaluation and Optimization](modules/Building_Agentic_AI_Systems/lessons/12_dspy_evaluation_and_optimization.ipynb)
+2. Inference-time Output Refinement:
+   - [Tutorial: Output Refinement: BestOfN and Refine](https://dspy.ai/tutorials/output_refinement/best-of-n-and-refine/)
+   - [Tutorial: Image Generation Prompt iteration](https://dspy.ai/tutorials/image_generation_prompting/)
+
+#### Deployment
+
+- [Tutorial: Deploying your DSPy program](https://dspy.ai/tutorials/deployment/)
+- [Tutorial: Memory-Enabled ReAct Agents with Mem0](https://dspy.ai/tutorials/mem0_react_agent/)
+
+#### Retrieval Augmented Generation (RAG)
+
+1. [🎞️ What is RAG?](modules/Building_Agentic_AI_Systems/lessons/13_rag.qmd)
+2. [🖥️ ChromaDB: Ingestion and Querying](modules/Building_Agentic_AI_Systems/lessons/14_chromadb.ipynb)
+   - [📝 Exercise: Explore the Embedding Space](modules/Building_Agentic_AI_Systems/exercises/14/visualize_embeddings.ipynb) ([✅ Solution](modules/Building_Agentic_AI_Systems/exercises/14/visualize_embeddings_solution.ipynb))
+   - [Optional: Multi-modal Embeddings](https://docs.trychroma.com/docs/embeddings/multimodal)
+3. [🖥️ Chunking: Searching PDF Documents](modules/Building_Agentic_AI_Systems/lessons/15_chunking.ipynb)
+4. [🖥️ RAG with DSPy](modules/Building_Agentic_AI_Systems/lessons/16_dspy_rag.ipynb)
+
+#### Projects
+
+1. [From Lectures to an Interactive Book](modules/Building_Agentic_AI_Systems/projects/01_lectures_to_interactive_book.md)
+2. [Book Translation](modules/Building_Agentic_AI_Systems/projects/02_translation_pipeline.md)
+3. [Comparative Analysis](modules/Building_Agentic_AI_Systems/projects/03_comparative_analysis.md)
+4. [Writer Assistant](modules/Building_Agentic_AI_Systems/projects/04_writer_assistant.md)
+5. [Code Annotation](modules/Building_Agentic_AI_Systems/projects/05_code_annotation.md)
+6. [Step-by-step](modules/Building_Agentic_AI_Systems/projects/06_step_by_step.md)
+7. [DataMaster Agent](modules/Building_Agentic_AI_Systems/projects/07_data_master_agent.md)
+8. [Hadeeth](modules/Building_Agentic_AI_Systems/projects/08_hadeeth.md)
+9. [oTranscribe](modules/Building_Agentic_AI_Systems/projects/09_oTranscribe.md)
+
+#### Resources
+
+- [Agentic AI Course](https://www.deeplearning.ai/courses/agentic-ai) (Andrew Ng, DeepLearningAI)
+- [DSPy](https://dspy.ai/): Program, don’t prompt, your LLMs.
+- [AI Engineer Roadmap](https://www.aihero.dev/ai-engineer-roadmap) -->
 
 
 </section>

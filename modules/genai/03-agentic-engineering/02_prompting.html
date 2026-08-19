@@ -9,7 +9,7 @@
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.10.18">
 
-  <title>Deep Learning with PyTorch – Deep Learning Ecosystem</title>
+  <title>Deep Learning with PyTorch – Prompting Coding Agents</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -33,6 +33,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto-2740581606dc327e82f18f789b69d8a0.css">
   <link rel="stylesheet" href="../../../styles.css">
@@ -135,7 +201,7 @@
     <div class="slides">
 
 <section class="quarto-title-block center">
-  <h1 class="title">Deep Learning Ecosystem</h1>
+  <h1 class="title">Prompting Coding Agents</h1>
 
 <div class="quarto-title-authors">
 </div>
@@ -143,223 +209,186 @@
 </section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>Deep Learning Ecosystem</h1>
-<p>Model ecosystems matter more than model architectures.</p>
-</section>
-<section class="slide level2">
-<h2>Overview</h2>
-<p>Rather than starting from low-level framework internals, we will focus on the bigger picture.</p>
-<ol type="1">
-<li><strong>Choose</strong> the right model for a task.</li>
-<li><strong>Evaluate</strong> it by using it on sample data.</li>
-<li><strong>Fine-tune</strong> (if needed) it for a domain-specific task.
-<ul>
-<li><strong>Save</strong> and version model artifacts.</li>
-<li><strong>Deploy</strong> it for real users or downstream systems.</li>
-</ul></li>
-</ol>
-</section>
-<section class="slide level2">
-<h2>Open Weights</h2>
-<p><strong>Open weights:</strong> The released <strong>weights and biases</strong> of a trained neural network.</p>
-<ul>
-<li>These learned parameters determine how the model maps inputs to outputs.</li>
-<li>When shared under an approved license, they let others:
-<ul>
-<li>inspect capabilities</li>
-<li>run inference</li>
-<li>fine-tune for new tasks</li>
-<li>deploy the model in their own systems</li>
-</ul></li>
-</ul>
-<p>See also: <a href="https://opensource.org/ai/open-weights">Open Weights at opensource.org</a></p>
-</section>
-<section class="slide level2">
-<h2>Open Weights vs Open Source AI</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 23%">
-<col style="width: 35%">
-<col style="width: 41%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Feature</th>
-<th>Open Weights</th>
-<th>Open Source AI</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Weights and biases</td>
-<td>Released</td>
-<td>Released</td>
-</tr>
-<tr class="even">
-<td>Training code</td>
-<td>Often not shared</td>
-<td>Fully shared</td>
-</tr>
-<tr class="odd">
-<td>Intermediate checkpoints</td>
-<td>Usually withheld</td>
-<td>Ideally available</td>
-</tr>
-<tr class="even">
-<td>Training dataset</td>
-<td>Not shared or undisclosed</td>
-<td>Released or documented</td>
-</tr>
-<tr class="odd">
-<td>Data composition</td>
-<td>Partial disclosure</td>
-<td>Full disclosure</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li><strong>Key idea:</strong> open weights improve reuse; open-source AI aims for much deeper reproducibility and transparency.</li>
-</ul>
-</section>
-<section class="slide level2">
-<h2>What Is Hugging Face?</h2>
+<h1>Prompting Coding Agents</h1>
 
-<img data-src="../assets/huggingface_hub.png" class="r-stretch quarto-figure-center"><p class="caption">Hugging Face is a <strong>central platform</strong> for the modern deep learning ecosystem.</p></section>
-<section class="slide level2">
-<h2>Why Hugging Face Matters</h2>
-<p>Hugging Face is a <strong>central platform</strong> for the modern deep learning ecosystem.</p>
-<ol type="1">
-<li>Discover models and datasets.</li>
-<li>Reuse work shared by the community.</li>
-<li>Publish your own checkpoints, demos, and data.</li>
-</ol>
-<p>It is especially valuable in an applied course because it turns state-of-the-art research into something accessible for everyone.</p>
 </section>
 <section class="slide level2">
-<h2>Open-weight Models on Hugging Face</h2>
+<h2>Please Bro</h2>
+
+<img data-src="../assets/02/agentic_ai_economy_meme.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section class="slide level2">
+<h2>Context Usage</h2>
+
+<img data-src="../assets/04/04_context_limit.png" class="r-stretch quarto-figure-center"><p class="caption">Context Usage in Cursor Agents</p></section>
+<section class="slide level2">
+<h2>Context Usage</h2>
+<h3>Avoid the Dumb Zone</h3>
 <div class="columns">
-<div class="column" style="width:55%;">
-<ul>
-<li>Each model is usually associated with a <strong>task</strong> or pipeline type.</li>
-<li>The task tells you the expected:
-<ul>
-<li><strong>input</strong> shape</li>
-<li><strong>output</strong> shape</li>
-<li>related <strong>inference parameters</strong></li>
-</ul></li>
-</ul>
-</div><div class="column" style="width:45%;">
+<div class="column" style="width:43%;">
+<p>LLMs attention fades away as context grows resulting in:</p>
+<ol type="1">
+<li>lower performance</li>
+<li>higher latency</li>
+<li>higher costs</li>
+</ol>
+<p>Start a new conversation <code>Ctrl+N</code> for each new feature to keepe context fresh and efficient.</p>
+</div><div class="column" style="width:57%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="../assets/tasks.png"></p>
-<figcaption>Use task filters to find checkpoints that match the problem you want to solve.</figcaption>
+<p><img data-src="../assets/01/zones_smart_vs_dumb.png"></p>
+<figcaption>New context for each new feature</figcaption>
 </figure>
 </div>
 </div></div>
 </section>
 <section class="slide level2">
-<h2>The Models Timeline</h2>
+<h2>Plan and Multi-task</h2>
+<p>Use <strong>Planning Mode</strong> to breakdown your tasks into smaller chunks; then use <strong>Multi-Task Mode</strong> to execute each task in isolated conversations.</p>
 
-<img data-src="../assets/timeline.png" class="r-stretch quarto-figure-center"><p class="caption">Useful bird’s-eye view of the latest models.</p></section>
-<section class="slide level2">
-<h2>Discovering Models Across Time</h2>
-<ul>
-<li>The ecosystem changes quickly across text, vision, audio, video, and multimodal systems.</li>
-<li>A timeline view helps you see:
-<ul>
-<li>how architectures evolved</li>
-<li>which model families arrived when</li>
-<li>which became models are more recent</li>
-</ul></li>
-</ul>
+<img data-src="../assets/plan_coordinate.png" class="r-stretch quarto-figure-center"><p class="caption">Plan and Multi-task</p><p>You can spawn <strong>sub-agents</strong> by specifying that in the prompt. Example:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a aria-label="1"></a>Implement the @plan.md and dedicate a sub-agent for each independent task.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section class="slide level2">
-<h2>Reading a Model Card</h2>
-<p>When you open a model page, start with the <strong>model card</strong>.</p>
-<ol type="1">
-<li>Repository name, such as <a href="https://huggingface.co/openai/whisper-large-v3-turbo"><code>openai/whisper-large-v3-turbo</code></a></li>
-<li>Download activity and community usage</li>
-<li>Parameter count, precision, and variants</li>
-<li>Description of the intended inputs and outputs</li>
-<li>Usage examples and setup instructions</li>
-<li>Fine-tuning notes, limitations, and references</li>
-</ol>
-</section>
-<section class="slide level2">
-<h2>Model Card: What You Look For</h2>
-<ul>
-<li><strong>Task fit</strong>: Does the checkpoint solve the problem you actually have?</li>
-<li><strong>Input and output contract</strong>:
-<ul>
-<li>speech ⇒ text</li>
-<li>image ⇒ label</li>
-<li>text ⇒ text</li>
-</ul></li>
-<li><strong>Memory</strong>: Can your hardware load it (precision × size)?</li>
-<li><strong>Adaptation</strong>: Is there guidance for fine-tuning or domain transfer?</li>
-<li><strong>Deployment</strong>: Are there Spaces, examples, or community integrations already built around it?</li>
-</ul>
-<p>On many model pages, the right column also points you to <strong>Spaces using this model</strong>, which is a fast way to inspect real demos.</p>
-</section>
-<section class="slide level2">
-<h2>Colab</h2>
-<ul>
-<li>Great for trying notebooks without local setup.</li>
-<li>Useful when you needd GPUs (almost always with deep learning models).</li>
-<li>Example: <a href="https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/Building_with_Deep_Learning/01-llms/youtube_whisper.ipynb">YouTube Video Transcription with Whisper</a></li>
-</ul>
-</section>
-<section class="slide level2">
-<h2>Spaces: Hosted Inference and Demos</h2>
-<ul>
-<li><strong>Spaces</strong> are hosted AI demos with <a href="https://gradio.app/">Gradio</a> UIs.</li>
-<li>A Space can turn a model into a simple user-facing application, making them useful for:
-<ul>
-<li>rapid prototyping</li>
-<li>portfolio demos</li>
-<li>internal tools</li>
-<li>sharing reproducible examples with others</li>
-</ul></li>
-</ul>
+<h2>MCP Tools</h2>
+<p><a href="https://cursor.com/docs/customize-cursor">Model Context Protocol (MCP)</a> enables Agents to connect to external tools and data sources; such as databases, APIs, and more.</p>
 
-<img data-src="../assets/hf_spaces.png" class="r-stretch quarto-figure-center"><p class="caption"><a href="https://huggingface.co/spaces">Spaces</a> let the community package models behind simple interfaces.</p></section>
+<img data-src="../assets/mcp_postgres.png" class="r-stretch quarto-figure-center"><p class="caption">PostgresSQL MCP</p></section>
 <section class="slide level2">
-<h2>Two Common Compute Patterns</h2>
+<h2>MCP Tools</h2>
+<h3>Context7 by Upstash</h3>
+<p>Highly recommended tool by Upstash: <a href="https://github.com/mcp/upstash/context7">context7</a>, used to get the <strong>Up-to-date code docs for any prompt</strong>, to decrease the chance of generating stale code or hallucinations.</p>
+</section>
+<section class="slide level2">
+<h2>General Tips</h2>
+<p>Source: <a href="https://code.visualstudio.com/docs/copilot/customization/custom-instructions#_tips-for-writing-effective-instructions">Tips for writing effective instructions | VS Code</a></p>
+<h3>Tip 1. Keep Instructions Short and Self-Contained</h3>
 <ul>
-<li><strong>ZeroGPU</strong>: shared infrastructure (users pay to use it)</li>
-<li><strong>Dedicated GPU</strong>: paid, always-on hardware (developer pays for users to use it)</li>
+<li>Each instruction should be a single, simple statement.</li>
+<li>When you have several things to say, split them into several instructions instead of cramming everything into one sentence.</li>
+<li>Whitespace between instructions is ignored, so format them however reads best: one paragraph, separate lines, or separated by blank lines.</li>
 </ul>
 </section>
 <section class="slide level2">
-<h2>Explore Community Projects</h2>
-<p>The Hub is also a map of <strong>research groups, startups, and open communities</strong> working on specific domains and languages.</p>
-<p>Examples relevant to Arabic NLP and regional AI work:</p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li><a href="https://huggingface.co/humain-ai">HUMAIN</a></li>
-<li><a href="https://huggingface.co/KFUPM-JRCAI">KFUPM-JRCAI</a></li>
-<li><a href="https://huggingface.co/KAUST">KAUST</a></li>
-<li><a href="https://huggingface.co/QCRI">QCRI</a></li>
-<li><a href="https://huggingface.co/MBZUAI">MBZUAI</a></li>
-</ul>
-</div><div class="column" style="width:50%;">
-<ul>
-<li><a href="https://huggingface.co/CAMeL-Lab">CAMeL Lab</a></li>
-<li><a href="https://huggingface.co/core42">Core42</a></li>
-<li><a href="https://huggingface.co/tarteel-ai">Tarteel AI</a></li>
-<li><a href="https://huggingface.co/NAMAA-Space">NAMAA Community</a></li>
-</ul>
-</div></div>
+<h2>Tip 1 — Bad vs Good</h2>
+<h4>Bad</h4>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a aria-label="1"></a>Always use type hints and make sure to validate inputs and also wrap file reads</span>
+<span id="cb2-2"><a aria-label="2"></a>in try/except and remember to log errors and never use a bare <span class="in">`except`</span> anywhere.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<h4>Good</h4>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a aria-label="1"></a><span class="ss">- </span>Use type hints for all function signatures.</span>
+<span id="cb3-2"><a aria-label="2"></a><span class="ss">- </span>Validate function inputs before use.</span>
+<span id="cb3-3"><a aria-label="3"></a><span class="ss">- </span>Wrap file reads in try/except.</span>
+<span id="cb3-4"><a aria-label="4"></a><span class="ss">- </span>Log caught errors with the <span class="in">`logging`</span> module, not <span class="in">`print`</span>.</span>
+<span id="cb3-5"><a aria-label="5"></a><span class="ss">- </span>Never use a bare <span class="in">`except:`</span>.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section class="slide level2">
-<h2>Takeaways</h2>
-<ol type="1">
-<li>Deep learning applications often begin with <strong>reusing</strong> strong existing models.</li>
-<li><strong>Open weights</strong> make adaptation and deployment practical even when full training artifacts are unavailable.</li>
-<li><strong>Hugging Face</strong> is the main discovery, sharing, and deployment hub for this workflow.</li>
-<li><strong>Model cards, task filters, Colab, and Spaces</strong> are core tools for choosing and validating models quickly.</li>
-</ol>
+<h2>General Tips</h2>
+<h3>Tip 2. Include the Reasoning Behind Rules</h3>
+<ul>
+<li>State the rule, then explain <em>why</em> it exists.</li>
+<li>The rationale lets the AI make better decisions in edge cases the rule never explicitly covered.</li>
+<li>A rule without a reason is easy to misapply or ignore when the situation is slightly different.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Tip 2 — Bad vs Good</h2>
+<h4>Bad</h4>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a aria-label="1"></a><span class="ss">- </span>Use <span class="in">`httpx`</span> instead of <span class="in">`requests`</span>.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<h4>Good</h4>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a aria-label="1"></a><span class="ss">- </span>Use <span class="in">`httpx`</span> instead of <span class="in">`requests`</span> because httpx supports async calls and</span>
+<span id="cb5-2"><a aria-label="2"></a>  HTTP/2, which we rely on for our concurrent data-fetching jobs.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section class="slide level2">
+<h2>General Tips</h2>
+<h3>Tip 3. Show Preferred and Avoided Patterns with Code</h3>
+<ul>
+<li>The AI responds more effectively to concrete examples than to abstract rules.</li>
+<li>Pair an “avoid this” snippet with a “prefer this” snippet so the desired pattern is unambiguous.</li>
+<li>Examples remove guesswork about exactly which API or style you mean.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Tip 3 — Bad vs Good</h2>
+<h4>Bad</h4>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a aria-label="1"></a><span class="ss">- </span>Read files the recommended way.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<h4>Good</h4>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a aria-label="1"></a><span class="co"># Read text files with `pathlib`, not via `open()`/`close()`.</span></span>
+<span id="cb7-2"><a aria-label="2"></a><span class="co"># Avoid:</span></span>
+<span id="cb7-3"><a aria-label="3"></a>f <span class="op">=</span> <span class="bu">open</span>(<span class="st">"data.txt"</span>)</span>
+<span id="cb7-4"><a aria-label="4"></a>content <span class="op">=</span> f.read()</span>
+<span id="cb7-5"><a aria-label="5"></a>f.close()</span>
+<span id="cb7-6"><a aria-label="6"></a></span>
+<span id="cb7-7"><a aria-label="7"></a><span class="co"># Prefer:</span></span>
+<span id="cb7-8"><a aria-label="8"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb7-9"><a aria-label="9"></a>content <span class="op">=</span> Path(<span class="st">"data.txt"</span>).read_text()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section class="slide level2">
+<h2>General Tips</h2>
+<h3>Tip 4. Focus on Non-Obvious Rules</h3>
+<ul>
+<li>Skip conventions that standard linters or formatters (like <code>black</code>, <code>ruff</code>, or <code>flake8</code>) already enforce.</li>
+<li>Spend your instruction budget on project-specific knowledge the agent cannot infer from tooling.</li>
+<li>Restating obvious formatting rules just dilutes the instructions that actually matter.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Tip 4 — Bad vs Good</h2>
+<h4>Bad</h4>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a aria-label="1"></a><span class="ss">- </span>Put spaces after commas.</span>
+<span id="cb8-2"><a aria-label="2"></a><span class="ss">- </span>Use 4 spaces for indentation, not tabs.</span>
+<span id="cb8-3"><a aria-label="3"></a><span class="ss">- </span>Remove unused imports and trailing whitespace.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<h4>Good</h4>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a aria-label="1"></a><span class="ss">- </span>Read configuration from <span class="in">`config/settings.py`</span>, never from <span class="in">`os.environ`</span> directly.</span>
+<span id="cb9-2"><a aria-label="2"></a><span class="ss">- </span>New DB columns require an Alembic migration in <span class="in">`migrations/`</span> plus a downgrade step.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section class="slide level2">
+<h2>General Tips</h2>
+<h3>Tip 5. Include Relevant Context</h3>
+<p>Type <code>@</code> in the chat input to attach concrete context to the prompt. The most useful pulls in Plan Mode:</p>
+
+<img data-src="../assets/02/02_insert_context.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section class="slide level2">
+<h2>Tip 5. Include Relevant Context</h2>
+<ul>
+<li><code>@file</code> / <code>@folder</code> — specific files or directories. Type <code>/</code> after a folder to navigate deeper.</li>
+<li><code>@Docs</code> — search indexed library documentation. Add your own with <code>@Docs &gt; Add new doc</code>.</li>
+<li><code>@Past Chats</code> — reference an earlier conversation; useful when starting a fresh chat after a previous one drifted.</li>
+<li><code>@Commit (Diff of Working State)</code> — uncommitted changes. <code>@Branch (Diff with Main)</code> — full branch diff.</li>
+<li><code>@Terminals</code> — recent terminal output, great for <em>“fix this error”</em> prompts.</li>
+<li><code>@Browser</code> — pages opened in Cursor’s built-in browser.</li>
+</ul>
+<p>You can also <strong>paste images</strong> directly (mockups, screenshots, Figma exports) and click the <strong>microphone</strong> icon to dictate.</p>
+<h3>Tip 6. Be Cool</h3>
+<ul>
+<li>Skip pleasantries, apologies, and emotional pleading — the agent is not swayed by politeness or urgency.</li>
+<li>State the task, its constraints, and the expected output as plain facts.</li>
+<li>Spend your words on substance: what to build, where it goes, and the rules it must follow.</li>
+</ul>
+<h4>Bad</h4>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb10-1"><a aria-label="1"></a>Please please I really need your help!! Could you maybe write some kind of</span>
+<span id="cb10-2"><a aria-label="2"></a>script to fix my data? It's super urgent and I'd be so grateful, thank you!!</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section class="slide level2">
+<h2>General Tips</h2>
+<h3>Tip 7. Use Pseudocode</h3>
+<ul>
+<li>Write the procedure as numbered steps that mix plain language with programming constructs (<a href="https://en.wikipedia.org/wiki/Pseudocode">Pseudocode, Wikipedia</a>).</li>
+<li>Lean on system-design verbs that map cleanly to code: <code>initialize</code>, <code>iterate</code>, <code>map</code>, <code>filter</code>, <code>validate</code>, <code>fetch</code>, <code>mutate</code>, <code>return</code>, <code>throw</code>, <code>catch</code>.</li>
+<li>Spelling out the control flow yourself (<code>for each ... if ... else ...</code>) gives fine-grained control over the specifics, instead of leaving them to the agent’s guess.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Tip 7 — Bad vs Good</h2>
+<h4>Bad</h4>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a aria-label="1"></a>Check if the user is valid,</span>
+<span id="cb11-2"><a aria-label="2"></a>then save their profile data to the database</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Why? Vague — it leaves the agent guessing what “valid” means, what data counts as a “profile,” and how to handle failures.</p>
+<h4>Good</h4>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a aria-label="1"></a><span class="ss">1. </span>VALIDATE: Incoming user object must have non-null 'email' (string) and 'age' (int &gt; 18).</span>
+<span id="cb12-2"><a aria-label="2"></a><span class="ss">2. </span>IF invalid: Throw ValidationError with the specific field name.</span>
+<span id="cb12-3"><a aria-label="3"></a><span class="ss">3. </span>MAP: Extract 'email' and 'age' into a new ProfileRecord dictionary.</span>
+<span id="cb12-4"><a aria-label="4"></a><span class="ss">4. </span>ASYNC WRITE: Insert ProfileRecord into the DB.</span>
+<span id="cb12-5"><a aria-label="5"></a><span class="ss">5. </span>RETURN: True on success.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Why? Maps perfectly to specific code blocks: validation, error handling, data mapping, async DB call, and return state.</p>
 
 
 </section></section>
