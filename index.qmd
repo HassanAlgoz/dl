@@ -93,8 +93,8 @@ format: html
 
 #### Practice
 
-- [📝 Exercise 1: Sentiment and product entities](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/04_text_classification_exercise.ipynb)
-- [📝 Exercise 2: Translation and summarization](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/05_seq2seq_exercise.ipynb)
+- [📝 Exercise 1: Sentiment and product entities](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/04_text_classification_exercise.ipynb) | [(✅ Solution)](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/04_text_classification_solution.ipynb)
+- [📝 Exercise 2: Translation and summarization](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/05_seq2seq_exercise.ipynb) | [(✅ Solution)](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/05_seq2seq_solution.ipynb)
 - [📝 Exercise 3: Speech recognition and STST](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/02_pipelines_exercise.ipynb)
 
 #### Resources
@@ -118,8 +118,11 @@ format: html
 1. [🎞️ Model Selection and Training](modules/Building_with_Deep_Learning/01-llms/06_train.qmd)
 2. [🎞️ Model Serving](modules/Building_with_Deep_Learning/01-llms/07_serve.qmd)
 3. [🎞️ Deploying and Operating Machine Learning Models](modules/mlops/01-slides/DE_%20Deploying%20and%20Operating%20Machine%20Learning%20Models.pdf)
-4. [Machine learning apps](https://huggingface.co/docs/transformers/pipeline_gradio)
-5. [MLFlow Quick Start](https://mlflow.org/docs/latest/ml/getting-started/quickstart/)
+
+#### Practice
+
+- [📝 Exercise: Machine learning apps](https://huggingface.co/docs/transformers/pipeline_gradio) (copy)
+- [📝 Tutorial: MLFlow Quick Start](https://mlflow.org/docs/latest/ml/getting-started/quickstart/) (follow along)
 
 ### M9. Using AI Providers
 
