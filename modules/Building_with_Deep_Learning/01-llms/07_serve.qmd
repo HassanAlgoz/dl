@@ -78,7 +78,7 @@ The best 2026 systems rarely choose one model for everything. They combine **sma
 - **Speculative decoding** accelerates larger models with smaller draft models.
 :::
 ::: {.column width="50%"}
-![](../assets/inference_best_of_both_llm_and_slm.png){fig-align="center"}
+![](../assets/inference_best_of_both_llm_and_slm.png){fig-align="center" height=800}
 :::
 ::::
 
