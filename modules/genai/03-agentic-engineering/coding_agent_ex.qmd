@@ -1,0 +1,85 @@
+---
+title: Coding Agent Exercise
+format: html
+---
+
+Ensure you have a new project repo open with a Coding Agent.
+
+Here is the requirements for the Recipe Manager project:
+
+
+```md
+# Recipe Manager
+
+## Problem Statement
+
+Create a digital recipe book that allows users to store, retrieve, and manage your favorite recipes through a Python application that stores data in a .csv file.
+
+## User Stories
+
+1. When I start up the application, I am given the following options:
+1. Add a new recipe to the collection
+2. Search for recipes by ingredient
+3. View all recipes
+4. View a random recipe suggestion
+2. If I choose to add a new recipe, I am asked to provide:
+1. The recipe name
+2. A list of ingredients separated by commas
+3. Preparation time in minutes
+4. Cooking instructions
+5. Difficulty level (Easy, Medium, Hard)
+3. If I choose to search by ingredient:
+1. The program asks for an ingredient to search for
+2. The program displays all recipes that contain that ingredient
+4. If I choose to view all recipes:
+1. The program displays a list of all recipe names with their preparation times
+5. If I choose to get a random recipe suggestion:
+1. The program randomly selects and displays a complete recipe from the collection
+
+## Technical Requirements
+
+- Stores all recipes in a .csv file
+- Loads previously created recipes when the user initializes the application
+
+## Stretch Goals - Mandatory
+
+1. The program allows you to categorize recipes (Breakfast, Lunch, Dinner, Dessert)
+2. The program can scale ingredient quantities based on desired number of servings
+3. The program allows users to rate recipes and sort by rating
+4. The program can generate a shopping list based on selected recipes
+5. The program can track cooking history and suggest recipes you haven't made recently
+```
+
+To effectively construct big projects like this, you want to write prompts like this:
+
+### Prompt 1
+
+```{.md filename=Plan}
+Let's plan the project with the following requirements:
+
+{INSERT PROJECT REQUIREMENTS HERE}
+```
+
+### Prompt 2
+
+```{.md filename=Plan}
+Let's break down the plan into phases.
+Within each phase let's make sure the tasks are independent such that multiple agents can execute them in parallel.
+```
+
+### Prompt 3
+
+You may decide to change the stack or theme or something
+
+```{.md filename=Plan}
+Backend: Flask and sqlite3 for the database
+Frontend: Tailwind css
+```
+
+### Prompt 4
+
+You can **switch** to Agent mode, and execute:
+
+```{.md filename=Agent}
+Let's start executing in parallel by spawning sub-agents.
+```

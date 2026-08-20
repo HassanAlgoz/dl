@@ -95,3 +95,10 @@ cifar-100-python.tar.gz
 
 old_course/
 /.quarto/
+*.bin
+*.sqlite
+*.sqlite3
+*.pth
+*.pkl
+*.db
+*.pickle
