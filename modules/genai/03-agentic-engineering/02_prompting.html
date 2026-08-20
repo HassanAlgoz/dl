@@ -9,7 +9,7 @@
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.10.18">
 
-  <title>Deep Learning with PyTorch – Prompting Coding Agents</title>
+  <title>Deep Learning – Prompting Coding Agents</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -257,23 +257,26 @@
 <h2>MCP Tools</h2>
 <h3>Context7 by Upstash</h3>
 <p>Highly recommended tool by Upstash: <a href="https://github.com/mcp/upstash/context7">context7</a>, used to get the <strong>Up-to-date code docs for any prompt</strong>, to decrease the chance of generating stale code or hallucinations.</p>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>General Tips</h1>
+<p>Source: <a href="https://code.visualstudio.com/docs/copilot/customization/custom-instructions#_tips-for-writing-effective-instructions">Tips for writing effective instructions | VS Code</a></p>
 </section>
 <section class="slide level2">
-<h2>General Tips</h2>
-<p>Source: <a href="https://code.visualstudio.com/docs/copilot/customization/custom-instructions#_tips-for-writing-effective-instructions">Tips for writing effective instructions | VS Code</a></p>
-<h3>Tip 1. Keep Instructions Short and Self-Contained</h3>
+<h2>Tip 1. Keep Instructions Short and Self-Contained</h2>
 <ul>
-<li>Each instruction should be a single, simple statement.</li>
-<li>When you have several things to say, split them into several instructions instead of cramming everything into one sentence.</li>
-<li>Whitespace between instructions is ignored, so format them however reads best: one paragraph, separate lines, or separated by blank lines.</li>
+<li class="fragment">Each instruction should be a single, simple statement.</li>
+<li class="fragment">When you have several things to say, split them into several instructions instead of cramming everything into one sentence.</li>
+<li class="fragment">Whitespace between instructions is ignored, so format them however reads best: one paragraph, separate lines, or separated by blank lines.</li>
 </ul>
 </section>
 <section class="slide level2">
-<h2>Tip 1 — Bad vs Good</h2>
-<h4>Bad</h4>
+
+<h3>Bad</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a aria-label="1"></a>Always use type hints and make sure to validate inputs and also wrap file reads</span>
 <span id="cb2-2"><a aria-label="2"></a>in try/except and remember to log errors and never use a bare <span class="in">`except`</span> anywhere.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<h4>Good</h4>
+<h3>Good</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a aria-label="1"></a><span class="ss">- </span>Use type hints for all function signatures.</span>
 <span id="cb3-2"><a aria-label="2"></a><span class="ss">- </span>Validate function inputs before use.</span>
 <span id="cb3-3"><a aria-label="3"></a><span class="ss">- </span>Wrap file reads in try/except.</span>
@@ -281,8 +284,7 @@
 <span id="cb3-5"><a aria-label="5"></a><span class="ss">- </span>Never use a bare <span class="in">`except:`</span>.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section class="slide level2">
-<h2>General Tips</h2>
-<h3>Tip 2. Include the Reasoning Behind Rules</h3>
+<h2>Tip 2. Include the Reasoning Behind Rules</h2>
 <ul>
 <li>State the rule, then explain <em>why</em> it exists.</li>
 <li>The rationale lets the AI make better decisions in edge cases the rule never explicitly covered.</li>
@@ -290,27 +292,26 @@
 </ul>
 </section>
 <section class="slide level2">
-<h2>Tip 2 — Bad vs Good</h2>
-<h4>Bad</h4>
+
+<h3>Bad</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a aria-label="1"></a><span class="ss">- </span>Use <span class="in">`httpx`</span> instead of <span class="in">`requests`</span>.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<h4>Good</h4>
+<h3>Good</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a aria-label="1"></a><span class="ss">- </span>Use <span class="in">`httpx`</span> instead of <span class="in">`requests`</span> because httpx supports async calls and</span>
 <span id="cb5-2"><a aria-label="2"></a>  HTTP/2, which we rely on for our concurrent data-fetching jobs.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section class="slide level2">
-<h2>General Tips</h2>
-<h3>Tip 3. Show Preferred and Avoided Patterns with Code</h3>
+<h2>Tip 3. Show Preferred and Avoided Patterns with Code</h2>
 <ul>
-<li>The AI responds more effectively to concrete examples than to abstract rules.</li>
-<li>Pair an “avoid this” snippet with a “prefer this” snippet so the desired pattern is unambiguous.</li>
-<li>Examples remove guesswork about exactly which API or style you mean.</li>
+<li class="fragment">The AI responds more effectively to concrete examples than to abstract rules.</li>
+<li class="fragment">Pair an “avoid this” snippet with a “prefer this” snippet so the desired pattern is unambiguous.</li>
+<li class="fragment">Examples remove guesswork about exactly which API or style you mean.</li>
 </ul>
 </section>
 <section class="slide level2">
-<h2>Tip 3 — Bad vs Good</h2>
-<h4>Bad</h4>
+
+<h3>Bad</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a aria-label="1"></a><span class="ss">- </span>Read files the recommended way.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<h4>Good</h4>
+<h3>Good</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a aria-label="1"></a><span class="co"># Read text files with `pathlib`, not via `open()`/`close()`.</span></span>
 <span id="cb7-2"><a aria-label="2"></a><span class="co"># Avoid:</span></span>
 <span id="cb7-3"><a aria-label="3"></a>f <span class="op">=</span> <span class="bu">open</span>(<span class="st">"data.txt"</span>)</span>
@@ -322,7 +323,7 @@
 <span id="cb7-9"><a aria-label="9"></a>content <span class="op">=</span> Path(<span class="st">"data.txt"</span>).read_text()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section class="slide level2">
-<h2>General Tips</h2>
+
 <h3>Tip 4. Focus on Non-Obvious Rules</h3>
 <ul>
 <li>Skip conventions that standard linters or formatters (like <code>black</code>, <code>ruff</code>, or <code>flake8</code>) already enforce.</li>
@@ -331,7 +332,7 @@
 </ul>
 </section>
 <section class="slide level2">
-<h2>Tip 4 — Bad vs Good</h2>
+<h2>Tip 4 — Example</h2>
 <h4>Bad</h4>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a aria-label="1"></a><span class="ss">- </span>Put spaces after commas.</span>
 <span id="cb8-2"><a aria-label="2"></a><span class="ss">- </span>Use 4 spaces for indentation, not tabs.</span>
@@ -341,13 +342,13 @@
 <span id="cb9-2"><a aria-label="2"></a><span class="ss">- </span>New DB columns require an Alembic migration in <span class="in">`migrations/`</span> plus a downgrade step.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section class="slide level2">
-<h2>General Tips</h2>
+
 <h3>Tip 5. Include Relevant Context</h3>
 <p>Type <code>@</code> in the chat input to attach concrete context to the prompt. The most useful pulls in Plan Mode:</p>
 
 <img data-src="../assets/02/02_insert_context.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section class="slide level2">
-<h2>Tip 5. Include Relevant Context</h2>
+
 <ul>
 <li><code>@file</code> / <code>@folder</code> — specific files or directories. Type <code>/</code> after a folder to navigate deeper.</li>
 <li><code>@Docs</code> — search indexed library documentation. Add your own with <code>@Docs &gt; Add new doc</code>.</li>
@@ -357,6 +358,9 @@
 <li><code>@Browser</code> — pages opened in Cursor’s built-in browser.</li>
 </ul>
 <p>You can also <strong>paste images</strong> directly (mockups, screenshots, Figma exports) and click the <strong>microphone</strong> icon to dictate.</p>
+</section>
+<section class="slide level2">
+
 <h3>Tip 6. Be Cool</h3>
 <ul>
 <li>Skip pleasantries, apologies, and emotional pleading — the agent is not swayed by politeness or urgency.</li>
@@ -368,7 +372,7 @@
 <span id="cb10-2"><a aria-label="2"></a>script to fix my data? It's super urgent and I'd be so grateful, thank you!!</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section class="slide level2">
-<h2>General Tips</h2>
+
 <h3>Tip 7. Use Pseudocode</h3>
 <ul>
 <li>Write the procedure as numbered steps that mix plain language with programming constructs (<a href="https://en.wikipedia.org/wiki/Pseudocode">Pseudocode, Wikipedia</a>).</li>
@@ -377,11 +381,12 @@
 </ul>
 </section>
 <section class="slide level2">
-<h2>Tip 7 — Bad vs Good</h2>
+<h2>Tip 7 — Example</h2>
 <h4>Bad</h4>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a aria-label="1"></a>Check if the user is valid,</span>
 <span id="cb11-2"><a aria-label="2"></a>then save their profile data to the database</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Why? Vague — it leaves the agent guessing what “valid” means, what data counts as a “profile,” and how to handle failures.</p>
+<div class="fragment">
 <h4>Good</h4>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a aria-label="1"></a><span class="ss">1. </span>VALIDATE: Incoming user object must have non-null 'email' (string) and 'age' (int &gt; 18).</span>
 <span id="cb12-2"><a aria-label="2"></a><span class="ss">2. </span>IF invalid: Throw ValidationError with the specific field name.</span>
@@ -389,6 +394,7 @@
 <span id="cb12-4"><a aria-label="4"></a><span class="ss">4. </span>ASYNC WRITE: Insert ProfileRecord into the DB.</span>
 <span id="cb12-5"><a aria-label="5"></a><span class="ss">5. </span>RETURN: True on success.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Why? Maps perfectly to specific code blocks: validation, error handling, data mapping, async DB call, and return state.</p>
+</div>
 
 
 </section></section>

@@ -9,7 +9,7 @@
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.10.18">
 
-  <title>Deep Learning with PyTorch – Deep Learning Ecosystem</title>
+  <title>Deep Learning – Deep Learning Ecosystem</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -172,54 +172,16 @@
 <li>deploy the model in their own systems</li>
 </ul></li>
 </ul>
-<p>See also: <a href="https://opensource.org/ai/open-weights">Open Weights at opensource.org</a></p>
 </section>
 <section class="slide level2">
 <h2>Open Weights vs Open Source AI</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 23%">
-<col style="width: 35%">
-<col style="width: 41%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Feature</th>
-<th>Open Weights</th>
-<th>Open Source AI</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Weights and biases</td>
-<td>Released</td>
-<td>Released</td>
-</tr>
-<tr class="even">
-<td>Training code</td>
-<td>Often not shared</td>
-<td>Fully shared</td>
-</tr>
-<tr class="odd">
-<td>Intermediate checkpoints</td>
-<td>Usually withheld</td>
-<td>Ideally available</td>
-</tr>
-<tr class="even">
-<td>Training dataset</td>
-<td>Not shared or undisclosed</td>
-<td>Released or documented</td>
-</tr>
-<tr class="odd">
-<td>Data composition</td>
-<td>Partial disclosure</td>
-<td>Full disclosure</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li><strong>Key idea:</strong> open weights improve reuse; open-source AI aims for much deeper reproducibility and transparency.</li>
-</ul>
+<p>In <em>Open Weights</em> models, weights and biases are released. However, <em>Open Source AI</em> aims for much deeper reproducibility and transparency by also sharing:</p>
+<ol type="1">
+<li>Training code</li>
+<li>Intermediate checkpoints</li>
+<li>Training dataset and composition</li>
+</ol>
+<p>See also: <a href="https://opensource.org/ai/open-weights">Open Weights at opensource.org</a></p>
 </section>
 <section class="slide level2">
 <h2>What Is Hugging Face?</h2>
@@ -239,22 +201,19 @@
 <h2>Open-weight Models on Hugging Face</h2>
 <div class="columns">
 <div class="column" style="width:55%;">
-<ul>
-<li>Each model is usually associated with a <strong>task</strong> or pipeline type.</li>
-<li>The task tells you the expected:
-<ul>
-<li><strong>input</strong> shape</li>
-<li><strong>output</strong> shape</li>
-<li>related <strong>inference parameters</strong></li>
-</ul></li>
-</ul>
-</div><div class="column" style="width:45%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="../../Building_with_Deep_Learning/assets/tasks.png"></p>
 <figcaption>Use task filters to find checkpoints that match the problem you want to solve.</figcaption>
 </figure>
 </div>
+</div><div class="column" style="width:45%;">
+<p>Each model is usually associated with a <strong>task</strong> or pipeline type.</p>
+<ul>
+<li>speech ⇒ text</li>
+<li>image ⇒ label</li>
+<li>text ⇒ text</li>
+</ul>
 </div></div>
 </section>
 <section class="slide level2">
@@ -269,7 +228,6 @@
 <ul>
 <li>how architectures evolved</li>
 <li>which model families arrived when</li>
-<li>which became models are more recent</li>
 </ul></li>
 </ul>
 </section>
@@ -289,12 +247,6 @@
 <h2>Model Card: What You Look For</h2>
 <ul>
 <li><strong>Task fit</strong>: Does the checkpoint solve the problem you actually have?</li>
-<li><strong>Input and output contract</strong>:
-<ul>
-<li>speech ⇒ text</li>
-<li>image ⇒ label</li>
-<li>text ⇒ text</li>
-</ul></li>
 <li><strong>Memory</strong>: Can your hardware load it (precision × size)?</li>
 <li><strong>Adaptation</strong>: Is there guidance for fine-tuning or domain transfer?</li>
 <li><strong>Deployment</strong>: Are there Spaces, examples, or community integrations already built around it?</li>
@@ -302,23 +254,14 @@
 <p>On many model pages, the right column also points you to <strong>Spaces using this model</strong>, which is a fast way to inspect real demos.</p>
 </section>
 <section class="slide level2">
-<h2>Colab</h2>
-<ul>
-<li>Great for trying notebooks without local setup.</li>
-<li>Useful when you needd GPUs (almost always with deep learning models).</li>
-<li>Example: <a href="https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/youtube_whisper.ipynb">YouTube Video Transcription with Whisper</a></li>
-</ul>
-</section>
-<section class="slide level2">
 <h2>Spaces: Hosted Inference and Demos</h2>
 <ul>
 <li><strong>Spaces</strong> are hosted AI demos with <a href="https://gradio.app/">Gradio</a> UIs.</li>
 <li>A Space can turn a model into a simple user-facing application, making them useful for:
 <ul>
-<li>rapid prototyping</li>
+<li>rapid prototyping and sharing reproducible examples with others</li>
 <li>portfolio demos</li>
 <li>internal tools</li>
-<li>sharing reproducible examples with others</li>
 </ul></li>
 </ul>
 

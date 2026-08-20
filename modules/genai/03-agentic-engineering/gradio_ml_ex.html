@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Supervision (Exercise) – Deep Learning</title>
+<title>Build UI for ML Apps – Deep Learning</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -98,7 +98,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Supervision (Exercise)</h1>
+<h1 class="title">Build UI for ML Apps</h1>
 </div>
 
 
@@ -115,23 +115,17 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../assets/supervision_lenny.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<p><a href="https://supervision.roboflow.com/latest/">Supervision</a> is the library used for <strong>post-processing</strong>, which is done in the <code>on_prediction(...)</code> function.</p>
+<p><a href="https://gradio.app/">Gradio</a> is an open-source Python package that allows you to quickly&nbsp;<strong>build</strong>&nbsp;a demo or web application for your machine learning model, API, or any arbitrary Python function. You can then&nbsp;<strong>share</strong>&nbsp;a link to your demo or web application in just a few seconds using Gradio’s built-in sharing features.&nbsp;<em>No JavaScript, CSS, or web hosting experience needed!</em></p>
 <section id="your-task" class="level2">
 <h2 class="anchored" data-anchor-id="your-task">Your Task</h2>
-<p><strong>Goal:</strong> Use Supervision to turn raw model predictions into something useful — annotations, tracks, or counts — by running one of the tutorials below in your own code.</p>
-<p>Pick one of the tutorials below and run it in your code:</p>
-<ul>
-<li><a href="https://supervision.roboflow.com/latest/how_to/detect_and_annotate/">detect and annotate objects</a> on images,</li>
-<li><a href="https://supervision.roboflow.com/latest/how_to/track_objects/">track objects</a> across video,</li>
-<li><a href="https://supervision.roboflow.com/latest/how_to/count_in_zone/">count objects in zones</a>,</li>
-<li><a href="https://supervision.roboflow.com/latest/notebooks/count-objects-crossing-the-line/">count line crossings</a>,</li>
-<li><a href="https://supervision.roboflow.com/latest/notebooks/occupancy_analytics/">build task-specific analytics</a> such as parking occupancy.</li>
-</ul>
+<ol type="1">
+<li>First, follow along the <a href="https://gradio.app/guides/quickstart">Gradio Quick Start</a> to get a high-level understanding of the library</li>
+<li>Follow along this to <a href="https://huggingface.co/docs/transformers/pipeline_gradio">use with HuggingFace pipeline</a> on a task &amp; model of your choice</li>
+<li>Use <a href="https://huggingface.co/openai/whisper-large-v3-turbo">openai/whisper-large-v3-turbo</a> model and build an interface to record for <a href="https://gradio.app/guides/real-time-speech-recognition">Real Time Speech Recognition</a>.</li>
+<li>(optional) <a href="https://gradio.app/guides/using-hugging-face-integrations#hosting-your-gradio-demos-on-spaces">Hosting your gradio demo on <em>Spaces</em></a></li>
+</ol>
+<p>For colors, styles, sizing and fonts, see the <a href="https://gradio.app/guides/theming-guide">Theming Guide</a>.</p>
+<p>If you are using a coding agent, see: <a href="https://gradio.app/guides/Gradio-skills-for-ai-coding-assistants">Gradio Skills for AI Coding Assistants</a>.</p>
 
 
 </section>

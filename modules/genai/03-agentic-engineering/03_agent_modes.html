@@ -9,7 +9,7 @@
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.10.18">
 
-  <title>Deep Learning with PyTorch – Agent Modes</title>
+  <title>Deep Learning – Agent Modes</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -214,18 +214,18 @@
 </section>
 <section class="slide level2">
 <h2>What makes Agents different?</h2>
-<p>An agent is built on three basic components:</p>
+<p>An agent is built on three basic components (M.I.T):</p>
 <ol type="1">
-<li><a href="https://cursor.com/docs/models-and-pricing"><strong>Model</strong></a>: The agent model you pick for the task (LLM)</li>
-<li><strong>Instructions</strong>:
+<li class="fragment"><strong>Model</strong>: The agent model you pick for the task (LLM)</li>
+<li class="fragment"><strong>Instructions</strong>:
 <ol type="1">
-<li>System Prompt: Base instructions written by the developers that guide the agent behavior</li>
-<li>User Prompt: Instructions written by users</li>
+<li class="fragment">System Prompt: Base instructions written by the developers that guide the agent behavior</li>
+<li class="fragment">User Prompt: Instructions written by users</li>
 </ol></li>
-<li><strong>Tools</strong>:
+<li class="fragment"><strong>Tools</strong>:
 <ol type="1">
-<li>Base tools: File editing, <a href="https://cursor.com/docs/agent/tools/search">codebase search</a>, <a href="https://cursor.com/docs/agent/tools/terminal">terminal execution</a>, <a href="https://cursor.com/docs/agent/tools/browser">browser</a>, and more (I/O)</li>
-<li>User tools: Installed by users later (e.g.&nbsp;<a href="https://github.com/mcp/upstash/context7">context7</a>)</li>
+<li class="fragment">Base tools: File editing, <a href="https://cursor.com/docs/agent/tools/search">codebase search</a>, <a href="https://cursor.com/docs/agent/tools/terminal">terminal execution</a>, <a href="https://cursor.com/docs/agent/tools/browser">browser</a>, and more (I/O)</li>
+<li class="fragment">User tools: Installed by users later (e.g.&nbsp;<a href="https://github.com/mcp/upstash/context7">context7</a>)</li>
 </ol></li>
 </ol>
 </section>
@@ -234,8 +234,8 @@
 <p>Cursor’s Coding Agent supports the use of <strong>Modes</strong>:</p>
 <ol type="1">
 <li>Ask</li>
-<li>Plan (humans should spend most time here)</li>
-<li>Agent (execution mode)</li>
+<li>Plan (spend most of your time here)</li>
+<li>Agent (general)</li>
 <li>Debug</li>
 <li>Multitask</li>
 </ol>
@@ -262,19 +262,23 @@
 <h3>A. You’re new to a codebase and want a guided tour.</h3>
 <p>Example 1:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a aria-label="1"></a>"How does authentication work in this codebase?</span>
-<span id="cb1-2"><a aria-label="2"></a>Could you point me to where the middleware is configured and any core auth logic?</span>
-<span id="cb1-3"><a aria-label="3"></a>List relevant files."</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-2"><a aria-label="2"></a></span>
+<span id="cb1-3"><a aria-label="3"></a>Could you point me to where the middleware is configured and any core auth logic?</span>
+<span id="cb1-4"><a aria-label="4"></a></span>
+<span id="cb1-5"><a aria-label="5"></a>List relevant files."</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Example 2:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a aria-label="1"></a>How are frontend errors handled and reported in this project?</span>
-<span id="cb2-2"><a aria-label="2"></a>Show me the main error boundary or error handling utilities, and explain if any logging or monitoring is integrated.</span>
-<span id="cb2-3"><a aria-label="3"></a>List the relevant modules and highlight any custom logic for user error display.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-2"><a aria-label="2"></a></span>
+<span id="cb2-3"><a aria-label="3"></a>Show me the main error boundary or error handling utilities, and explain if any logging or monitoring is integrated.</span>
+<span id="cb2-4"><a aria-label="4"></a></span>
+<span id="cb2-5"><a aria-label="5"></a>List the relevant modules and highlight any custom logic for user error display.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section class="slide level2">
 <h2>Ask Mode examples</h2>
 <p>Example 3: asking about the timeline of a specific function, module, or class utilizing the git history and GitHub issues:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a aria-label="1"></a>Can you tell my why this function has 15 arguments?</span>
 <span id="cb3-2"><a aria-label="2"></a>Use the git history and GitHub issues to answer the question.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Suggested by <a href="https://www.youtube.com/live/6eBSHbLKuN0?si=44v_2r_gq9uNeKQf&amp;t=253">Boris Cherny from Anthropic</a></p>
+<p>Suggested by <a href="https://www.youtube.com/live/6eBSHbLKuN0?si=44v_2r_gq9uNeKQf&amp;t=253">Boris Cherny from Anthropic</a> (creator of Claude Code)</p>
 </section>
 <section class="slide level2">
 <h2>Examples</h2>
@@ -301,6 +305,9 @@
 </ul>
 
 <img data-src="../assets/04/small_deviation_straight_line.png" class="r-stretch quarto-figure-center"><p class="caption">Straight horizontal green line, representing intended trajectory, and two deviating lines.</p><p>Earlier course correction can save you a lot of frustration (and money).</p>
+</section>
+<section class="slide level2">
+
 <p>How much time to spend on each phase?</p>
 <ol type="1">
 <li><strong>Understanding and planning</strong>: ~45% — clarifying intent, exploring the codebase, writing and refining the plan.</li>

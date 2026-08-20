@@ -9,7 +9,7 @@
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.10.18">
 
-  <title>Deep Learning – Skills for Software Engineers</title>
+  <title>Deep Learning – RLHF</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -135,56 +135,100 @@
     <div class="slides">
 
 <section class="quarto-title-block center">
-  <h1 class="title">Skills for Software Engineers</h1>
+  <h1 class="title">RLHF</h1>
 
 <div class="quarto-title-authors">
 </div>
 
 </section>
-<section>
-<section class="title-slide slide level1 center">
-<h1>Agentic Engineering Tips and Tricks</h1>
-
+<section class="slide level2">
+<h2>Reinforcement Learning</h2>
+<p>In reinforcement learning, an agent improves by acting, receiving feedback, and updating.</p>
+<p>For language models:</p>
+<ul>
+<li><strong>Action</strong>: the generated response</li>
+<li><strong>Reward</strong>: a signal saying how good or bad that response was</li>
+<li><strong>Environment</strong>: the task context or user prompt</li>
+</ul>
+<p>The core design question becomes: <strong>what reward are we optimizing?</strong></p>
 </section>
 <section class="slide level2">
-<h2>AI Skills for Real Engineers (by Matt Pocock)</h2>
+<h2>Tiny example: reward over answers</h2>
+<p>Question: “What is 2 + 2?”</p>
+<p>Possible sampled answers:</p>
 <ul>
-<li>Demo: <a href="https://www.aihero.dev/real-world-feature-build-with-claude-code">Real-world feature build with Claude Code: every step explained</a>.</li>
-<li>Skills: <a href="https://github.com/mattpocock/skills/tree/main/skills/engineering">mattpocock/skills</a>.</li>
+<li><code>4</code></li>
+<li><code>3</code></li>
+<li><code>D</code></li>
+<li><code>four</code></li>
+</ul>
+<p>If the reward function scores only exact correctness, then some outputs get rewarded and others do not. The update step then shifts the model toward higher-reward behavior.</p>
+</section>
+<section class="slide level2">
+<h2>Where the update happens</h2>
+<p>There are two broad ways to improve from feedback:</p>
+<ul>
+<li><strong>RLHF</strong>: methods like <strong>GRPO</strong> (Gradient Reversal Policy Optimization) change model parameters/weights.</li>
+<li><strong>Teleprompting</strong>: methods like <strong>GEPA</strong> treat the set of prompts in a connected sequence of LLM modules, as the parameters to optimize.</li>
+</ul>
+<p>Both supported in <a href="https://dspy.ai/">DSPy</a> as <strong>optimizers</strong>.</p>
+</section>
+<section class="slide level2">
+<h2>Reward functions are the real bottleneck</h2>
+<p>The hardest part of RL is rarely “run the optimizer”.</p>
+<p>The hard part is writing a <strong>reward function</strong> or <strong>rubric</strong> that actually captures what good behavior means.</p>
+<p>If the reward is wrong, the model will optimize the wrong thing very efficiently.</p>
+</section>
+<section class="slide level2">
+<h2>Rule-based rewards</h2>
+<p>Verifiable tasks are easiest:</p>
+<ul>
+<li><strong>Math</strong>: equations can be checked by symbolic engines automatically.</li>
+<li><strong>Code</strong>: execution, tests, or exact outputs can be checked programmatically.</li>
+</ul>
+<p>These are attractive because the feedback loop is cheap, fast, and objective.</p>
+</section>
+<section class="slide level2">
+<h2>Rule-based rewards for messy tasks</h2>
+<p>Some tasks are harder, like drafting a reply email.</p>
+<p>Possible rubric items:</p>
+<ul>
+<li>include a required keyword -&gt; reward</li>
+<li>match the ideal response closely -&gt; reward</li>
+<li>stay concise -&gt; avoid penalty</li>
+<li>include the recipient’s name -&gt; reward</li>
+<li>include a signature block -&gt; reward</li>
+</ul>
+<p>Useful, but clearly more brittle than exact math verification.</p>
+</section>
+<section class="slide level2">
+<h2>LLM judges and human feedback</h2>
+<p>When rules are too rigid, we can use richer signals:</p>
+<ul>
+<li><strong>LLM-as-a-judge</strong>: a model scores outputs against a rubric.</li>
+<li><strong>Human feedback</strong>: thumbs up / thumbs down or explicit pairwise preferences.</li>
+</ul>
+<p>This is the core idea behind <strong>RLHF</strong>: use human preference data to train more aligned behavior.</p>
+</section>
+<section class="slide level2">
+<h2>PPO, GRPO, and modern RL fine-tuning</h2>
+<p>Historically:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Proximal_policy_optimization">PPO</a> was the classic RLHF workhorse, but operationally heavy.</li>
+<li><a href="https://unsloth.ai/blog/grpo">GRPO</a> simplified some of that recipe for reasoning-style training.</li>
+<li><a href="https://platform.openai.com/docs/guides/reinforcement-fine-tuning">RFT</a> and related newer workflows keep making this space easier to use.</li>
 </ul>
 </section>
 <section class="slide level2">
-<h2>Layered Design</h2>
-<ul>
-<li>LLMs like coding horizontally; this means you cannot test until all code is done from L1 to L3.</li>
-<li>Structure Todos into vertical slices; so the agent can get immediate feedback using TDD.</li>
-</ul>
+<h2>Fine-tune or Prompt-tune?</h2>
+<p>Given that the problem isn’t solved with RAG.</p>
+<blockquote>
+<p><a href="https://dspy.ai/diving-deeper/choosing-an-optimizer/#8-most-teams-start-prompt-only-and-graduate-to-finetune-only-when-prompt-only-plateaus">Most teams start prompt-only and graduate to finetune only when prompt-only plateaus</a></p>
+<p>Prompt-only optimization costs LM tokens. Finetune costs LM tokens plus training compute plus deployment of new weights. The marginal lift of finetune over <a href="https://dspy.ai/getting-started/gepa-optimization/">GEPA</a> or MIPROv2 is usually small and sometimes negative, while the marginal cost is much larger. <strong>Treat finetune as the last lever, not the first</strong>.</p>
+</blockquote>
 
-<img data-src="../assets/03/layered_design.png" class="r-stretch quarto-figure-center"><p class="caption">Layered vs.&nbsp;vertical slice design.</p><p>See: <a href="https://www.aihero.dev/tracer-bullets">Tracer Bullets: Keeping AI Slop Under Control</a></p>
+
 </section>
-<section class="slide level2">
-<h2>Modular Design</h2>
-<p>Modules: break down code into units; but:</p>
-<ul>
-<li>Shallow modules have wide interface and little functionality; consider deepning it.</li>
-<li>Balance depth such that code surface area is easily navigable by humans and AI alike.</li>
-</ul>
-
-<img data-src="../assets/03/modular_design.png" class="r-stretch quarto-figure-center"><p class="caption">Modular design depth.</p><p>See: <a href="https://www.aihero.dev/how-to-make-codebases-ai-agents-love">How To Make Codebases AI Agents Love</a></p>
-</section>
-<section class="slide level2">
-<h2>Task Dependencies</h2>
-<p>The skill: <code>to-issues</code> breaks down the PRD into issues, and notes down the dependencies to allow parallel work.</p>
-
-<img data-src="../assets/03/task_dependencies.png" class="r-stretch quarto-figure-center"><p class="caption">Task dependencies from PRD.</p></section>
-<section class="slide level2">
-<h2>Feedback Loops</h2>
-<ul>
-<li>The key to working effectively with AI is developing a <strong>verification mindset</strong>. Every response is just a suggestion not a final answer.</li>
-</ul>
-
-
-</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

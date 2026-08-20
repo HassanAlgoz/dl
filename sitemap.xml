@@ -2,94 +2,102 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://hassanalgoz.github.io/dl/modules/Building_with_Deep_Learning/02-computer-vision/lab4_workflow.html</loc>
-    <lastmod>2026-08-19T11:20:27.198Z</lastmod>
+    <lastmod>2026-08-20T04:44:34.625Z</lastmod>
   </url>
   <url>
     <loc>https://hassanalgoz.github.io/dl/modules/Building_with_Deep_Learning/02-computer-vision/lab2_rapid.html</loc>
-    <lastmod>2026-08-19T11:20:27.198Z</lastmod>
+    <lastmod>2026-08-20T04:44:34.625Z</lastmod>
   </url>
   <url>
     <loc>https://hassanalgoz.github.io/dl/modules/Building_with_Deep_Learning/02-computer-vision/03_video.html</loc>
-    <lastmod>2026-08-19T11:20:27.198Z</lastmod>
+    <lastmod>2026-08-20T04:44:34.625Z</lastmod>
   </url>
   <url>
     <loc>https://hassanalgoz.github.io/dl/modules/Building_with_Deep_Learning/02-computer-vision/01_intro.html</loc>
-    <lastmod>2026-08-19T11:20:27.198Z</lastmod>
+    <lastmod>2026-08-20T04:44:34.624Z</lastmod>
   </url>
   <url>
-    <loc>https://hassanalgoz.github.io/dl/modules/Building_with_Deep_Learning/01-llms/06_train.html</loc>
-    <lastmod>2026-08-19T11:20:27.198Z</lastmod>
+    <loc>https://hassanalgoz.github.io/dl/modules/Building_with_Deep_Learning/01-llms/06_train_rlhf.html</loc>
+    <lastmod>2026-08-20T04:44:34.624Z</lastmod>
+  </url>
+  <url>
+    <loc>https://hassanalgoz.github.io/dl/modules/genai/03-agentic-engineering/gradio_ml_ex.html</loc>
+    <lastmod>2026-08-20T04:44:34.704Z</lastmod>
   </url>
   <url>
     <loc>https://hassanalgoz.github.io/dl/modules/genai/03-agentic-engineering/05_skills_for_ai.html</loc>
-    <lastmod>2026-08-19T11:20:27.280Z</lastmod>
+    <lastmod>2026-08-20T04:44:34.704Z</lastmod>
   </url>
   <url>
     <loc>https://hassanalgoz.github.io/dl/modules/genai/03-agentic-engineering/03_agent_modes.html</loc>
-    <lastmod>2026-08-19T11:20:27.280Z</lastmod>
+    <lastmod>2026-08-20T04:44:34.704Z</lastmod>
   </url>
   <url>
     <loc>https://hassanalgoz.github.io/dl/modules/genai/03-agentic-engineering/01_intro.html</loc>
-    <lastmod>2026-08-19T11:20:27.280Z</lastmod>
+    <lastmod>2026-08-20T04:44:34.704Z</lastmod>
   </url>
   <url>
     <loc>https://hassanalgoz.github.io/dl/modules/deep-learning/lab_playground/nn_playground_solution.html</loc>
-    <lastmod>2026-08-19T11:20:27.252Z</lastmod>
+    <lastmod>2026-08-20T04:44:34.676Z</lastmod>
   </url>
   <url>
     <loc>https://hassanalgoz.github.io/dl/modules/deep-learning/01-slides/02_neural_networks.html</loc>
-    <lastmod>2026-08-19T11:20:27.222Z</lastmod>
+    <lastmod>2026-08-20T04:44:34.648Z</lastmod>
   </url>
   <url>
     <loc>https://hassanalgoz.github.io/dl/modules/unsupervised/03-dbscan-agglom-clustering/clustering_geospatial.html</loc>
-    <lastmod>2026-08-19T11:20:27.547Z</lastmod>
+    <lastmod>2026-08-20T04:44:34.953Z</lastmod>
   </url>
   <url>
     <loc>https://hassanalgoz.github.io/dl/index.html</loc>
-    <lastmod>2026-08-19T11:20:27.176Z</lastmod>
+    <lastmod>2026-08-20T04:44:34.604Z</lastmod>
   </url>
   <url>
     <loc>https://hassanalgoz.github.io/dl/docs/lab_setup.html</loc>
-    <lastmod>2026-08-19T11:20:27.174Z</lastmod>
+    <lastmod>2026-08-20T04:44:34.603Z</lastmod>
   </url>
   <url>
     <loc>https://hassanalgoz.github.io/dl/modules/deep-learning/01-slides/01_intro_deep_learning.html</loc>
-    <lastmod>2026-08-19T11:20:27.222Z</lastmod>
+    <lastmod>2026-08-20T04:44:34.648Z</lastmod>
   </url>
   <url>
     <loc>https://hassanalgoz.github.io/dl/modules/deep-learning/lab_playground/nn_playground.html</loc>
-    <lastmod>2026-08-19T11:20:27.250Z</lastmod>
+    <lastmod>2026-08-20T04:44:34.676Z</lastmod>
   </url>
   <url>
     <loc>https://hassanalgoz.github.io/dl/modules/pipelines/02-pipelines/01_intro.html</loc>
-    <lastmod>2026-08-19T11:20:27.488Z</lastmod>
+    <lastmod>2026-08-20T04:44:34.896Z</lastmod>
   </url>
   <url>
     <loc>https://hassanalgoz.github.io/dl/modules/genai/03-agentic-engineering/02_prompting.html</loc>
-    <lastmod>2026-08-19T11:20:27.280Z</lastmod>
+    <lastmod>2026-08-20T04:44:34.704Z</lastmod>
   </url>
   <url>
     <loc>https://hassanalgoz.github.io/dl/modules/genai/03-agentic-engineering/04_agentic_codebase.html</loc>
-    <lastmod>2026-08-19T11:20:27.280Z</lastmod>
+    <lastmod>2026-08-20T04:44:34.704Z</lastmod>
   </url>
   <url>
     <loc>https://hassanalgoz.github.io/dl/modules/genai/03-agentic-engineering/06_limits.html</loc>
-    <lastmod>2026-08-19T11:20:27.280Z</lastmod>
+    <lastmod>2026-08-20T04:44:34.704Z</lastmod>
+  </url>
+  <url>
+    <loc>https://hassanalgoz.github.io/dl/modules/Building_with_Deep_Learning/01-llms/06_train.html</loc>
+    <lastmod>2026-08-20T04:44:34.624Z</lastmod>
   </url>
   <url>
     <loc>https://hassanalgoz.github.io/dl/modules/Building_with_Deep_Learning/01-llms/07_serve.html</loc>
-    <lastmod>2026-08-19T11:20:27.198Z</lastmod>
+    <lastmod>2026-08-20T04:44:34.624Z</lastmod>
   </url>
   <url>
     <loc>https://hassanalgoz.github.io/dl/modules/Building_with_Deep_Learning/02-computer-vision/02_roboflow.html</loc>
-    <lastmod>2026-08-19T11:20:27.198Z</lastmod>
+    <lastmod>2026-08-20T04:44:34.625Z</lastmod>
   </url>
   <url>
     <loc>https://hassanalgoz.github.io/dl/modules/Building_with_Deep_Learning/02-computer-vision/lab1_yolo26.html</loc>
-    <lastmod>2026-08-19T11:20:27.198Z</lastmod>
+    <lastmod>2026-08-20T04:44:34.625Z</lastmod>
   </url>
   <url>
     <loc>https://hassanalgoz.github.io/dl/modules/Building_with_Deep_Learning/02-computer-vision/lab3_supervision.html</loc>
-    <lastmod>2026-08-19T11:20:27.198Z</lastmod>
+    <lastmod>2026-08-20T04:44:34.625Z</lastmod>
   </url>
 </urlset>

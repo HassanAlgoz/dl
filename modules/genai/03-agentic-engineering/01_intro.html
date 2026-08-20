@@ -9,7 +9,7 @@
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.10.18">
 
-  <title>Deep Learning with PyTorch – Agentic Engineering</title>
+  <title>Deep Learning – Agentic Engineering</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -184,22 +184,33 @@
 </section>
 <section class="slide level2">
 <h2>Models: Latency-Quality Tradeoff</h2>
-<p>The <strong>Model</strong> is the core engine; the LLM allowing the <strong>Agent</strong> reason &amp; communicate.</p>
+<p>The <strong>Model</strong> is the core engine of the <em>agent</em> allowing it to reason &amp; respond.</p>
 <ul>
 <li><strong>Faster models</strong> work well for quick edits and routine tasks (GPT-5.4-mini or Gemini Flash)</li>
 <li><strong>More capable models</strong> are better for complex reasoning and multi-file refactoring (GPT-5.4 or Gemini Pro)</li>
 </ul>
-<h3>How to switch between models</h3>
-<p>Use the model picker dropdown at the top of the chat input to switch models, or press <code>Ctrl /</code> to cycle through models. The change applies to the current conversation going forward. Set a default model in <strong>Cursor Settings &gt; Models</strong>.</p>
-<p>You can switch models mid-conversation, for example when a faster model handled exploration but you need deeper reasoning for implementation. See <a href="https://cursor.com/docs/models-and-pricing">Models &amp; Pricing</a> for the full list.</p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>You can switch models mid-conversation, for example when a faster model handled exploration but you need deeper reasoning for implementation. See <a href="https://cursor.com/docs/models-and-pricing">Models &amp; Pricing</a> for the full list</p>
+</div>
+</div>
+</div>
 </section>
 <section class="slide level2">
-<h2>Which One to Pick?</h2>
+<h2>Which Coding Agent to Pick?</h2>
 <p>Addy Osmani <a href="https://addyosmani.com/blog/agent-harness-engineering/">wrote</a>:</p>
 <blockquote>
 <p>Look at the top coding agents side by side (Claude Code, Cursor, Codex, Aider, Cline) and they look more like each other than their underlying models do. The models are different. The harness patterns are converging. I don’t think that’s an accident. It’s the industry slowly finding the load-bearing pieces of scaffolding that turn a generative model into something that can ship.</p>
 <p>– addyosmani</p>
 </blockquote>
+<p>See: <a href="https://arena.ai/leaderboard/code/webdev">Coding Leaderboard on LM Arena</a></p>
 </section>
 <section class="slide level2">
 <h2>Vibe Coding</h2>
@@ -238,29 +249,35 @@
 <li>“You’re absolutely right!” when in reality, you were no where near right.</li>
 </ul>
 <p>For coding, this might means:</p>
-<div class="fragment">
 <ul>
 <li class="fragment">Inventing plausible-sounding API methods that don’t actually exist</li>
 <li class="fragment">Mixing up syntax between different programming libraries or frameworks</li>
 <li class="fragment">Creating configuration options that seem reasonable but aren’t real</li>
 </ul>
-</div>
 </section>
 <section class="slide level2">
 <h2>Hallucinations</h2>
 <h3>Why do models hallucinate?</h3>
+<div class="columns">
+<div class="column">
+<div class="fragment">
 <p>Programs are <strong>deterministic</strong>:</p>
 <ol type="1">
-<li>Given some input,</li>
-<li>if you run the program again,</li>
-<li>you will <strong>definitely</strong> get the same output.</li>
+<li class="fragment">Given some input,</li>
+<li class="fragment">if you run the program again,</li>
+<li class="fragment">you will <strong>definitely</strong> get the same output.</li>
 </ol>
+</div>
+</div><div class="column">
+<div class="fragment">
 <p>LLMs are <strong>statistical models</strong>:</p>
 <ol type="1">
-<li>Given some input,</li>
-<li>if you run the program again,</li>
-<li>you will <strong>probably</strong> get the same output.</li>
+<li class="fragment">Given some input,</li>
+<li class="fragment">if you run the program again,</li>
+<li class="fragment">you will <strong>probably</strong> get the same output.</li>
 </ol>
+</div>
+</div></div>
 </section>
 <section class="slide level2">
 <h2>Hallucinations</h2>
@@ -310,19 +327,15 @@
 <h2>Pricing &amp; Token Limits</h2>
 <p>Why tokens matter?</p>
 <ol type="1">
-<li>Tokens are how models are <strong>priced</strong> You pay per token (word, sub-word, or symbol).</li>
-<li>Tokens are how we measure model <strong>speed</strong> Faster models have a faster TPS (tokens per second).</li>
+<li class="fragment">Tokens are how models are <strong>priced</strong> You pay per token (word, sub-word, or symbol).</li>
+<li class="fragment">Tokens are how we measure model <strong>speed</strong> Faster models have a faster TPS (tokens per second).</li>
 </ol>
 <div class="fragment">
 <p>AI models charge based on two types of tokens:</p>
-</div>
-<div class="fragment">
 <ol type="1">
 <li><strong>Output tokens</strong>, include everything the model generates back to you.</li>
 <li><strong>Input tokens</strong>, include everything you send to the model like your prompt (and the conversation history).</li>
 </ol>
-</div>
-<div class="fragment">
 <p>Output tokens typically <strong>cost 2-4x more than input tokens</strong>, because generating new content requires more computational work than just processing what you sent.</p>
 </div>
 </section>

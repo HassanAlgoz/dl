@@ -42,6 +42,20 @@
     "text": "Your Task\nGoal: Use Roboflow Rapid to train a small custom object detector on images you provide, then test it on a new image.\nOpen the tutorial: rapid.roboflow.com/yolotutorial"
   },
   {
+    "objectID": "modules/genai/03-agentic-engineering/gradio_ml_ex.html",
+    "href": "modules/genai/03-agentic-engineering/gradio_ml_ex.html",
+    "title": "Build UI for ML Apps",
+    "section": "",
+    "text": "Gradio is an open-source Python package that allows you to quickly build a demo or web application for your machine learning model, API, or any arbitrary Python function. You can then share a link to your demo or web application in just a few seconds using Gradio’s built-in sharing features. No JavaScript, CSS, or web hosting experience needed!"
+  },
+  {
+    "objectID": "modules/genai/03-agentic-engineering/gradio_ml_ex.html#your-task",
+    "href": "modules/genai/03-agentic-engineering/gradio_ml_ex.html#your-task",
+    "title": "Build UI for ML Apps",
+    "section": "Your Task",
+    "text": "Your Task\n\nFirst, follow along the Gradio Quick Start to get a high-level understanding of the library\nFollow along this to use with HuggingFace pipeline on a task & model of your choice\nUse openai/whisper-large-v3-turbo model and build an interface to record for Real Time Speech Recognition.\n(optional) Hosting your gradio demo on Spaces\n\nFor colors, styles, sizing and fonts, see the Theming Guide.\nIf you are using a coding agent, see: Gradio Skills for AI Coding Assistants."
+  },
+  {
     "objectID": "modules/deep-learning/lab_playground/nn_playground_solution.html",
     "href": "modules/deep-learning/lab_playground/nn_playground_solution.html",
     "title": "Interactive Neural Networks Playground (Solution)",
@@ -119,32 +133,39 @@
     "text": "Download lecture PDFs for offline reading."
   },
   {
-    "objectID": "index.html#day-1-unsupervised-machine-learning",
-    "href": "index.html#day-1-unsupervised-machine-learning",
+    "objectID": "index.html#day-1",
+    "href": "index.html#day-1",
     "title": "Deep Learning",
-    "section": "Day 1: Unsupervised Machine Learning",
-    "text": "Day 1: Unsupervised Machine Learning\n\nM1. Clustering\n\n🖥️ Clusters in 1D, 2D, 3D\n🎞️ Intro to Clustering with K-Means\n🖥️ Clustering Optimization\n\n📝 Exercise\n\n🖥️ Clusters in Nature: Seeds Dataset\n\n\nPractice\n\nExercise 1: 🖥️ K-Means Clustering with Seeds Data (✅ Solution)\nExercise 2: 🖥️ Evaluating K-Means Clusters with the Iris Dataset (✅ Solution)\n\n\n\n\nM2. DBSCAN and Agglomerative Clustering\n\n🎞️ DBSCAN and Agglomerative Clustering\n🖥️ Application of Clustering in Geospatial Analytics\n🖥️ DBSCAN\n🖥️ Agglomerative Clustering\n\n\nPractice\n\nExercise: 🖥️ DBSCAN Practice (✅ Solution)\n\n\n\n\nResources\n\nOverview of Clustering Methods | scikit-learn\n🖼️ Visualizing K-Means Clustering\n🖼️ Visualizing DBSCAN Clustering"
+    "section": "Day 1",
+    "text": "Day 1\n\nM1. Clustering\n\n🖥️ Clusters in 1D, 2D, 3D\n🎞️ Intro to Clustering with K-Means\n🖥️ Clustering Optimization\n\n📝 Exercise\n\n🖥️ Clusters in Nature: Seeds Dataset\n\n\nPractice\n\nExercise 1: 🖥️ K-Means Clustering with Seeds Data (✅ Solution)\nExercise 2: 🖥️ Evaluating K-Means Clusters with the Iris Dataset (✅ Solution)\n\n\n\n\nM2. DBSCAN and Agglomerative Clustering\n\n🎞️ DBSCAN and Agglomerative Clustering\n🖥️ Application of Clustering in Geospatial Analytics\n🖥️ DBSCAN\n🖥️ Agglomerative Clustering\n\n\nPractice\n\nExercise: 🖥️ DBSCAN Practice (✅ Solution)\n\n\n\n\nResources\n\nOverview of Clustering Methods | scikit-learn\n🖼️ Visualizing K-Means Clustering\n🖼️ Visualizing DBSCAN Clustering"
   },
   {
-    "objectID": "index.html#day-2-deep-learning",
-    "href": "index.html#day-2-deep-learning",
+    "objectID": "index.html#day-2",
+    "href": "index.html#day-2",
     "title": "Deep Learning",
-    "section": "Day 2: Deep Learning",
-    "text": "Day 2: Deep Learning\n\nM3. Neural Network Models\n\n🎞️ Introduction to Deep Learning\n\n🖼️ Teachable Machine\n\n🎞️ Neural Networks\n\n📝 Exercise: NN Playground (✅ Solution)\n\n🖥️ NN Binary Classification\n🖥️ NN Regression: Modeling Delivery Times\n\n📝 Exercise\n\n\n\nPractice\n\nIn teams of 2, train your models by following the Bananameter Tutorial on Teachable Machine.\n\nIdeas: (rock, paper, scissors) or (currency) or (facial experessions) or (colors) or (left, up, down, right).\n\n\n\n\n\nM4. Applied Computer Vision\n\n🎞️ Introduction to Computer Vision\n\n🖥️ Lab: YOLO26\n\n🎞️ The Roboflow Ecosystem\n\n🖥️ Lab: Rapid\n🖥️ Lab: Supervision\n🖥️ Lab: Workflows\n\n\n\n🎞️ Video Processing (optional)\n\n\nResources\nEnd-to-end walkthroughs of computer vision projects built with Workflows and Inference:\n\nBuild an AI-Powered Self-Serve Checkout: Identify different pieces of hardware, calculate the total cost, and record the results to a database.\nIntro to Workflows: Build and deploy Workflows for common use cases like detecting vehicles, filtering detections, visualizing results, and calculating dwell time on a live video stream.\nBuild a Smart Parking System: License plate detection, object tracking with ByteTrack, and real-time notifications with a Telegram bot."
+    "section": "Day 2",
+    "text": "Day 2\n\nM3. Neural Network Models\n\n🎞️ Introduction to Deep Learning\n\n🖼️ Teachable Machine\n\n🎞️ Neural Networks\n\n📝 Exercise: NN Playground (✅ Solution)\n\n🖥️ NN Binary Classification\n🖥️ NN Regression: Modeling Delivery Times\n\n📝 Exercise\n\n\n\nPractice\n\nIn teams of 2, train your models by following the Bananameter Tutorial on Teachable Machine.\n\nIdeas: (rock, paper, scissors) or (currency) or (facial experessions) or (colors) or (left, up, down, right).\n\n\n\n\n\nM4. Applied Computer Vision\n\n🎞️ Introduction to Computer Vision\n\n🖥️ Lab: YOLO26\n\n🎞️ The Roboflow Ecosystem\n\n🖥️ Lab: Rapid\n🖥️ Lab: Supervision\n🖥️ Lab: Workflows\n\n\n\n🎞️ Video Processing (optional)\n\n\nResources\nEnd-to-end walkthroughs of computer vision projects built with Workflows and Inference:\n\nBuild an AI-Powered Self-Serve Checkout: Identify different pieces of hardware, calculate the total cost, and record the results to a database.\nIntro to Workflows: Build and deploy Workflows for common use cases like detecting vehicles, filtering detections, visualizing results, and calculating dwell time on a live video stream.\nBuild a Smart Parking System: License plate detection, object tracking with ByteTrack, and real-time notifications with a Telegram bot."
   },
   {
-    "objectID": "index.html#day-3-applied-natural-language-processing",
-    "href": "index.html#day-3-applied-natural-language-processing",
+    "objectID": "index.html#day-3",
+    "href": "index.html#day-3",
     "title": "Deep Learning",
-    "section": "Day 3: Applied Natural Language Processing",
-    "text": "Day 3: Applied Natural Language Processing\n\nM5. Text as Vectors\n\n🎞️ Slides\n🖥️ Text Frequency Features\n\n📝 Exercise\n\n🖥️ Build a Sentiment Analysis Classifier\n\n📝 Exercise\n\n🖥️ Distributed Word Representations: Word2Vec\n\n📝 Exercise\n\n\n\n\nM6. NLP Pipelines with HuggingFace\n\n🎞️ Introduction\n🖥️ Using transformers Models via Pipelines\n🖥️ Text Classification\n🖥️ Seq2Seq: Translation and Summarization\n\n\nPractice\n\n📝 Exercise 1: Sentiment and product entities | (✅ Solution)\n📝 Exercise 2: Translation and summarization | (✅ Solution)\n📝 Exercise 3: Speech recognition and STST\n\n\n\nResources\n\nHuggingFace Tasks\n\n🖥️ NLP Tasks\n🖥️ Audio Tasks"
+    "section": "Day 3",
+    "text": "Day 3\n\nM5. Text as Vectors\n\n🎞️ Slides\n🖥️ Text Frequency Features\n\n📝 Exercise\n\n🖥️ Build a Sentiment Analysis Classifier\n\n📝 Exercise\n\n🖥️ Distributed Word Representations: Word2Vec\n\n📝 Exercise\n\n\n\n\nM6. NLP Pipelines with HuggingFace\n\n🎞️ Introduction\n🖥️ Using transformers Models via Pipelines\n🖥️ Text Classification\n🖥️ Seq2Seq: Translation and Summarization\n\n\nPractice\n\n📝 Exercise 1: Sentiment and product entities | (✅ Solution)\n📝 Exercise 2: Translation and summarization | (✅ Solution)\n📝 Exercise 3: Speech recognition and STST\n\n\n\nResources\n\nHuggingFace Tasks\n\n🖥️ NLP Tasks\n🖥️ Audio Tasks"
   },
   {
-    "objectID": "index.html#day-4-genai",
-    "href": "index.html#day-4-genai",
+    "objectID": "index.html#day-4",
+    "href": "index.html#day-4",
     "title": "Deep Learning",
-    "section": "Day 4: GenAI",
-    "text": "Day 4: GenAI\n\nM7. Large Language Models\n\n🖼️ Visual Story: Generative AI | Financial Times\n🖼️ Beam Search Visualizer\n🖥️ Controlling LLM Generation\n🖥️ LLM Structured Output\n\n📝 Exercise\n\n\n\n\nM8. Machine Learning Operation (MLOps)\n\n🎞️ Model Selection and Training\n🎞️ Model Serving\n🎞️ Deploying and Operating Machine Learning Models\n\n\nPractice\n\n📝 Exercise: Machine learning apps (copy)\n📝 Tutorial: MLFlow Quick Start (follow along)\n\n\n\n\nM9. Using AI Providers\n\n🎞️ Slides\n🖥️ Lab\n\n📝 Exercise: Classify news articles\n\n\n\n\nM10. Agentic Engineering\n\n🎞️ Agentic Engineering\n🎞️ Prompting Coding Agents\n🎞️ Agent Modes\n🎞️ Agentic Codebase\n🎞️ Skills for Software Engineers\n🎞️ The Case for Software Engineering Skills"
+    "section": "Day 4",
+    "text": "Day 4\n\nM7. Large Language Models\n\n🖼️ Visual Story: Generative AI | Financial Times\n🖼️ Beam Search Visualizer\n🖥️ Controlling LLM Generation\n🖥️ LLM Structured Output\n\n📝 Exercise\n\n\n\n\nM8. Machine Learning Operation (MLOps)\n\n🎞️ Model Selection and Training\n🎞️ Model Serving\n🎞️ Deploying and Operating Machine Learning Models\n\n\nPractice\n\n📝 Tutorial: MLFlow Quick Start (follow along)"
+  },
+  {
+    "objectID": "index.html#day-5",
+    "href": "index.html#day-5",
+    "title": "Deep Learning",
+    "section": "Day 5",
+    "text": "Day 5\n\nM9. Using AI Providers\n\n🎞️ Slides\n🖥️ Lab\n\n📝 Exercise: Classify news articles\n\n\n\n\nM10. Agentic Engineering\n\n🎞️ Agentic Engineering\n🎞️ Prompting Coding Agents\n🎞️ Agent Modes\n🎞️ Agentic Codebase\n🎞️ Skills for Software Engineers\n🎞️ The Case for Software Engineering Skills\n\n\nPractice\n\n📝 Build UI for Models"
   },
   {
     "objectID": "docs/lab_setup.html",
