@@ -28,19 +28,15 @@ Rather than starting from low-level framework internals, we will focus on the bi
   - fine-tune for new tasks
   - deploy the model in their own systems
 
-See also: [Open Weights at opensource.org](https://opensource.org/ai/open-weights)
-
 ## Open Weights vs Open Source AI
 
-| Feature | Open Weights | Open Source AI |
-|---------|--------------|----------------|
-| Weights and biases | Released | Released |
-| Training code | Often not shared | Fully shared |
-| Intermediate checkpoints | Usually withheld | Ideally available |
-| Training dataset | Not shared or undisclosed | Released or documented |
-| Data composition | Partial disclosure | Full disclosure |
+In _Open Weights_ models, weights and biases are released. However, _Open Source AI_ aims for much deeper reproducibility and transparency by also sharing:
 
-- **Key idea:** open weights improve reuse; open-source AI aims for much deeper reproducibility and transparency.
+1. Training code
+2. Intermediate checkpoints
+3. Training dataset and composition
+
+See also: [Open Weights at opensource.org](https://opensource.org/ai/open-weights)
 
 ## What Is Hugging Face?
 
@@ -60,14 +56,15 @@ It is especially valuable in an applied course because it turns state-of-the-art
 
 :::: {.columns}
 ::: {.column width="55%"}
-- Each model is usually associated with a **task** or pipeline type.
-- The task tells you the expected:
-  - **input** shape
-  - **output** shape
-  - related **inference parameters**
+![Use task filters to find checkpoints that match the problem you want to solve.](../../Building_with_Deep_Learning/assets/tasks.png){fig-align="center"}
+
 :::
 ::: {.column width="45%"}
-![Use task filters to find checkpoints that match the problem you want to solve.](../../Building_with_Deep_Learning/assets/tasks.png){fig-align="center"}
+Each model is usually associated with a **task** or pipeline type.
+
+- speech ⇒ text
+- image ⇒ label
+- text ⇒ text
 :::
 ::::
 
@@ -81,7 +78,6 @@ It is especially valuable in an applied course because it turns state-of-the-art
 - A timeline view helps you see:
   - how architectures evolved
   - which model families arrived when
-  - which became models are more recent
 
 ## Reading a Model Card
 
@@ -97,30 +93,19 @@ When you open a model page, start with the **model card**.
 ## Model Card: What You Look For
 
 - **Task fit**: Does the checkpoint solve the problem you actually have?
-- **Input and output contract**:
-  - speech ⇒ text
-  - image ⇒ label
-  - text ⇒ text
 - **Memory**: Can your hardware load it (precision × size)?
 - **Adaptation**: Is there guidance for fine-tuning or domain transfer?
 - **Deployment**: Are there Spaces, examples, or community integrations already built around it?
 
 On many model pages, the right column also points you to **Spaces using this model**, which is a fast way to inspect real demos.
 
-## Colab
-
-- Great for trying notebooks without local setup.
-- Useful when you needd GPUs (almost always with deep learning models).
-- Example: [YouTube Video Transcription with Whisper](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/youtube_whisper.ipynb)
-
 ## Spaces: Hosted Inference and Demos
 
 - **Spaces** are hosted AI demos with [Gradio](https://gradio.app/) UIs.
 - A Space can turn a model into a simple user-facing application, making them useful for:
-  - rapid prototyping
+  - rapid prototyping and sharing reproducible examples with others
   - portfolio demos
   - internal tools
-  - sharing reproducible examples with others
 
 ![ [Spaces](https://huggingface.co/spaces) let the community package models behind simple interfaces.](../../Building_with_Deep_Learning/assets/hf_spaces.png){fig-align="center"}
 

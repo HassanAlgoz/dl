@@ -40,24 +40,24 @@ An agent is an AI system that autonomously plans and executes coding tasks. You 
 
 ## Models: Latency-Quality Tradeoff
 
-The **Model** is the core engine; the LLM allowing the **Agent** reason & communicate.
+The **Model** is the core engine of the _agent_ allowing it to reason & respond.
 
 - **Faster models** work well for quick edits and routine tasks (GPT-5.4-mini or Gemini Flash)
 - **More capable models** are better for complex reasoning and multi-file refactoring (GPT-5.4 or Gemini Pro)
 
-### How to switch between models
+::: {.callout-tip}
+You can switch models mid-conversation, for example when a faster model handled exploration but you need deeper reasoning for implementation. See [Models & Pricing](https://cursor.com/docs/models-and-pricing) for the full list
+:::
 
-Use the model picker dropdown at the top of the chat input to switch models, or press `Ctrl /` to cycle through models. The change applies to the current conversation going forward. Set a default model in **Cursor Settings > Models**.
-
-You can switch models mid-conversation, for example when a faster model handled exploration but you need deeper reasoning for implementation. See [Models & Pricing](https://cursor.com/docs/models-and-pricing) for the full list.
-
-## Which One to Pick?
+## Which Coding Agent to Pick?
 
 Addy Osmani [wrote](https://addyosmani.com/blog/agent-harness-engineering/):
 
 > Look at the top coding agents side by side (Claude Code, Cursor, Codex, Aider, Cline) and they look more like each other than their underlying models do. The models are different. The harness patterns are converging. I don't think that's an accident. It's the industry slowly finding the load-bearing pieces of scaffolding that turn a generative model into something that can ship.
 >
 > -- addyosmani
+
+See: [Coding Leaderboard on LM Arena](https://arena.ai/leaderboard/code/webdev)
 
 ## Vibe Coding
 
@@ -97,8 +97,6 @@ In this course, we learn to mitigate the hallucinations and limitations that are
 
 For coding, this might means:
 
-. . .
-
 ::: {.incremental}
 - Inventing plausible-sounding API methods that don't actually exist
 - Mixing up syntax between different programming libraries or frameworks
@@ -109,17 +107,32 @@ For coding, this might means:
 
 ### Why do models hallucinate?
 
+
+::: {.columns}
+
+::: {.column}
+::: {.fragment}
 Programs are **deterministic**:
 
+::: {.incremental}
 1. Given some input,
 2. if you run the program again,
 3. you will **definitely** get the same output.
-
+:::
+:::
+:::
+::: {.column}
+::: {.fragment}
 LLMs are **statistical models**:
 
+::: {.incremental}
 1. Given some input,
 2. if you run the program again,
 3. you will **probably** get the same output.
+:::
+:::
+:::
+:::
 
 ## Hallucinations
 
@@ -135,21 +148,21 @@ LLMs are **statistical models**:
 
 Why tokens matter?
 
+::: {.incremental}
+
 1. Tokens are how models are **priced** You pay per token (word, sub-word, or symbol).
 2. Tokens are how we measure model **speed** Faster models have a faster TPS (tokens per second).
 
-. . .
+:::
 
+::: {.fragment}
 AI models charge based on two types of tokens:
-
-. . .
 
 1. **Output tokens**, include everything the model generates back to you.
 2. **Input tokens**, include everything you send to the model like your prompt (and the conversation history).
 
-. . .
-
 Output tokens typically **cost 2-4x more than input tokens**, because generating new content requires more computational work than just processing what you sent.
+:::
 
 ## Pricing & Token Limits
 

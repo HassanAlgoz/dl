@@ -5,7 +5,7 @@ format: html
 
 [Download lecture PDFs](https://github.com/HassanAlgoz/dl/releases/tag/pdfs) for offline reading.
 
-## Day 1: Unsupervised Machine Learning
+## Day 1
 
 ### M1. Clustering
 
@@ -37,7 +37,7 @@ format: html
 - [🖼️ Visualizing K-Means Clustering](https://www.naftaliharris.com/blog/visualizing-k-means-clustering/)
 - [🖼️ Visualizing DBSCAN Clustering](https://www.naftaliharris.com/blog/visualizing-dbscan-clustering/)
 
-## Day 2: Deep Learning
+## Day 2
 
 ### M3. Neural Network Models
 
@@ -72,7 +72,7 @@ format: html
 - [Intro to Workflows](https://youtu.be/r3Ke7ZEh2Qo): Build and deploy Workflows for common use cases like detecting vehicles, filtering detections, visualizing results, and calculating dwell time on a live video stream.
 - [Build a Smart Parking System](https://youtu.be/tZa-QgFn7jg): License plate detection, object tracking with ByteTrack, and real-time notifications with a Telegram bot.
 
-## Day 3: Applied Natural Language Processing
+## Day 3
 
 ### M5. Text as Vectors
 
@@ -103,7 +103,7 @@ format: html
   - [🖥️ NLP Tasks](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/tasks_nlp.ipynb)
   - [🖥️ Audio Tasks](https://colab.research.google.com/github/HassanAlgoz/dl/blob/main/modules/pipelines/02-pipelines/tasks_audio.ipynb)
 
-## Day 4: GenAI
+## Day 4
 
 ### M7. Large Language Models
 
@@ -121,8 +121,9 @@ format: html
 
 #### Practice
 
-- [📝 Exercise: Machine learning apps](https://huggingface.co/docs/transformers/pipeline_gradio) (copy)
 - [📝 Tutorial: MLFlow Quick Start](https://mlflow.org/docs/latest/ml/getting-started/quickstart/) (follow along)
+
+## Day 5
 
 ### M9. Using AI Providers
 
@@ -139,7 +140,11 @@ format: html
 5. [🎞️ Skills for Software Engineers](modules/genai/03-agentic-engineering/05_skills_for_ai.qmd)
 6. [🎞️ The Case for Software Engineering Skills](modules/genai/03-agentic-engineering/06_limits.qmd)
 
-<!-- ## Day 5
+#### Practice
+
+- [📝 Build UI for Models](modules/genai/03-agentic-engineering/gradio_ml_ex.qmd)
+
+<!--
 
 ### M11. Building Agentic AI Systems
 

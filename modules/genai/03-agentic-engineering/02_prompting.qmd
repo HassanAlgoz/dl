@@ -56,26 +56,28 @@ Implement the @plan.md and dedicate a sub-agent for each independent task.
 
 Highly recommended tool by Upstash: [context7](https://github.com/mcp/upstash/context7), used to get the **Up-to-date code docs for any prompt**, to decrease the chance of generating stale code or hallucinations.
 
-## General Tips
+# General Tips
 
 Source: [Tips for writing effective instructions | VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-instructions#_tips-for-writing-effective-instructions)
 
-### Tip 1. Keep Instructions Short and Self-Contained
+## Tip 1. Keep Instructions Short and Self-Contained
 
+::: {.incremental}
 - Each instruction should be a single, simple statement.
 - When you have several things to say, split them into several instructions instead of cramming everything into one sentence.
 - Whitespace between instructions is ignored, so format them however reads best: one paragraph, separate lines, or separated by blank lines.
+:::
 
-## Tip 1 — Bad vs Good
+---
 
-#### Bad
+### Bad
 
 ```md
 Always use type hints and make sure to validate inputs and also wrap file reads
 in try/except and remember to log errors and never use a bare `except` anywhere.
 ```
 
-#### Good
+### Good
 
 ```md
 - Use type hints for all function signatures.
@@ -85,46 +87,44 @@ in try/except and remember to log errors and never use a bare `except` anywhere.
 - Never use a bare `except:`.
 ```
 
-## General Tips
-
-### Tip 2. Include the Reasoning Behind Rules
+## Tip 2. Include the Reasoning Behind Rules
 
 - State the rule, then explain *why* it exists.
 - The rationale lets the AI make better decisions in edge cases the rule never explicitly covered.
 - A rule without a reason is easy to misapply or ignore when the situation is slightly different.
 
-## Tip 2 — Bad vs Good
+---
 
-#### Bad
+### Bad
 
 ```md
 - Use `httpx` instead of `requests`.
 ```
 
-#### Good
+### Good
 
 ```md
 - Use `httpx` instead of `requests` because httpx supports async calls and
   HTTP/2, which we rely on for our concurrent data-fetching jobs.
 ```
 
-## General Tips
+## Tip 3. Show Preferred and Avoided Patterns with Code
 
-### Tip 3. Show Preferred and Avoided Patterns with Code
-
+::: {.incremental}
 - The AI responds more effectively to concrete examples than to abstract rules.
 - Pair an "avoid this" snippet with a "prefer this" snippet so the desired pattern is unambiguous.
 - Examples remove guesswork about exactly which API or style you mean.
+:::
 
-## Tip 3 — Bad vs Good
+---
 
-#### Bad
+### Bad
 
 ```md
 - Read files the recommended way.
 ```
 
-#### Good
+### Good
 
 ```py
 # Read text files with `pathlib`, not via `open()`/`close()`.
@@ -138,7 +138,7 @@ from pathlib import Path
 content = Path("data.txt").read_text()
 ```
 
-## General Tips
+---
 
 ### Tip 4. Focus on Non-Obvious Rules
 
@@ -146,7 +146,7 @@ content = Path("data.txt").read_text()
 - Spend your instruction budget on project-specific knowledge the agent cannot infer from tooling.
 - Restating obvious formatting rules just dilutes the instructions that actually matter.
 
-## Tip 4 — Bad vs Good
+## Tip 4 — Example
 
 #### Bad
 
@@ -162,8 +162,7 @@ content = Path("data.txt").read_text()
 - Read configuration from `config/settings.py`, never from `os.environ` directly.
 - New DB columns require an Alembic migration in `migrations/` plus a downgrade step.
 ```
-
-## General Tips
+---
 
 ### Tip 5. Include Relevant Context
 
@@ -171,7 +170,7 @@ Type `@` in the chat input to attach concrete context to the prompt. The most us
 
 ![](../assets/02/02_insert_context.png){fig-align="center"}
 
-## Tip 5. Include Relevant Context
+---
 
 - `@file` / `@folder` — specific files or directories. Type `/` after a folder to navigate deeper.
 - `@Docs` — search indexed library documentation. Add your own with `@Docs > Add new doc`.
@@ -181,6 +180,8 @@ Type `@` in the chat input to attach concrete context to the prompt. The most us
 - `@Browser` — pages opened in Cursor's built-in browser.
 
 You can also **paste images** directly (mockups, screenshots, Figma exports) and click the **microphone** icon to dictate.
+
+---
 
 ### Tip 6. Be Cool
 
@@ -195,7 +196,7 @@ Please please I really need your help!! Could you maybe write some kind of
 script to fix my data? It's super urgent and I'd be so grateful, thank you!!
 ```
 
-## General Tips
+---
 
 ### Tip 7. Use Pseudocode
 
@@ -203,7 +204,7 @@ script to fix my data? It's super urgent and I'd be so grateful, thank you!!
 - Lean on system-design verbs that map cleanly to code: `initialize`, `iterate`, `map`, `filter`, `validate`, `fetch`, `mutate`, `return`, `throw`, `catch`.
 - Spelling out the control flow yourself (`for each ... if ... else ...`) gives fine-grained control over the specifics, instead of leaving them to the agent's guess.
 
-## Tip 7 — Bad vs Good
+## Tip 7 — Example
 
 #### Bad
 
@@ -214,6 +215,8 @@ then save their profile data to the database
 
 Why? Vague — it leaves the agent guessing what "valid" means, what data counts as a "profile," and how to handle failures.
 
+
+::: {.fragment}
 #### Good
 
 ```md
@@ -225,3 +228,4 @@ Why? Vague — it leaves the agent guessing what "valid" means, what data counts
 ```
 
 Why? Maps perfectly to specific code blocks: validation, error handling, data mapping, async DB call, and return state.
+:::

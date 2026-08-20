@@ -7,23 +7,25 @@ format: revealjs
 
 ## What makes Agents different?
 
-An agent is built on three basic components:
+An agent is built on three basic components (M.I.T):
 
-1. [**Model**](https://cursor.com/docs/models-and-pricing): The agent model you pick for the task (LLM)
+::: {.incremental}
+1. **Model**: The agent model you pick for the task (LLM)
 2. **Instructions**:
     1. System Prompt: Base instructions written by the developers that guide the agent behavior
     2. User Prompt: Instructions written by users
 3. **Tools**:
     1. Base tools: File editing, [codebase search](https://cursor.com/docs/agent/tools/search), [terminal execution](https://cursor.com/docs/agent/tools/terminal), [browser](https://cursor.com/docs/agent/tools/browser), and more (I/O)
     2. User tools: Installed by users later (e.g. [context7](https://github.com/mcp/upstash/context7))
+:::
 
 ## Modes
 
 Cursor's Coding Agent supports the use of **Modes**:
 
 1. Ask
-2. Plan (humans should spend most time here)
-3. Agent (execution mode)
+2. Plan (spend most of your time here)
+3. Agent (general)
 4. Debug
 5. Multitask
 
@@ -51,7 +53,9 @@ Example 1:
 
 ```md
 "How does authentication work in this codebase?
+
 Could you point me to where the middleware is configured and any core auth logic?
+
 List relevant files."
 ```
 
@@ -59,7 +63,9 @@ Example 2:
 
 ```md
 How are frontend errors handled and reported in this project?
+
 Show me the main error boundary or error handling utilities, and explain if any logging or monitoring is integrated.
+
 List the relevant modules and highlight any custom logic for user error display.
 ```
 
@@ -72,7 +78,7 @@ Can you tell my why this function has 15 arguments?
 Use the git history and GitHub issues to answer the question.
 ```
 
-Suggested by [Boris Cherny from Anthropic](https://www.youtube.com/live/6eBSHbLKuN0?si=44v_2r_gq9uNeKQf&t=253)
+Suggested by [Boris Cherny from Anthropic](https://www.youtube.com/live/6eBSHbLKuN0?si=44v_2r_gq9uNeKQf&t=253) (creator of Claude Code)
 
 ## Examples
 
@@ -104,6 +110,8 @@ Highlight any environment-specific overrides or loading logic.
 ![Straight horizontal green line, representing intended trajectory, and two deviating lines.](../assets/04/small_deviation_straight_line.png){fig-align="center"}
 
 Earlier course correction can save you a lot of frustration (and money).
+
+---
 
 How much time to spend on each phase?
 

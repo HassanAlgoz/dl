@@ -1,0 +1,94 @@
+---
+title: RLHF
+format: revealjs
+---
+
+## Reinforcement Learning
+
+In reinforcement learning, an agent improves by acting, receiving feedback, and updating.
+
+For language models:
+
+- **Action**: the generated response
+- **Reward**: a signal saying how good or bad that response was
+- **Environment**: the task context or user prompt
+
+The core design question becomes: **what reward are we optimizing?**
+
+## Tiny example: reward over answers
+
+Question: "What is 2 + 2?"
+
+Possible sampled answers:
+
+- `4`
+- `3`
+- `D`
+- `four`
+
+If the reward function scores only exact correctness, then some outputs get rewarded and others do not. The update step then shifts the model toward higher-reward behavior.
+
+## Where the update happens
+
+There are two broad ways to improve from feedback:
+
+- **RLHF**: methods like **GRPO** (Gradient Reversal Policy Optimization) change model parameters/weights.
+- **Teleprompting**: methods like **GEPA** treat the set of prompts in a connected sequence of LLM modules, as the parameters to optimize.
+
+Both supported in [DSPy](https://dspy.ai/) as **optimizers**.
+
+## Reward functions are the real bottleneck
+
+The hardest part of RL is rarely "run the optimizer".
+
+The hard part is writing a **reward function** or **rubric** that actually captures what good behavior means.
+
+If the reward is wrong, the model will optimize the wrong thing very efficiently.
+
+## Rule-based rewards
+
+Verifiable tasks are easiest:
+
+- **Math**: equations can be checked by symbolic engines automatically.
+- **Code**: execution, tests, or exact outputs can be checked programmatically.
+
+These are attractive because the feedback loop is cheap, fast, and objective.
+
+## Rule-based rewards for messy tasks
+
+Some tasks are harder, like drafting a reply email.
+
+Possible rubric items:
+
+- include a required keyword -> reward
+- match the ideal response closely -> reward
+- stay concise -> avoid penalty
+- include the recipient's name -> reward
+- include a signature block -> reward
+
+Useful, but clearly more brittle than exact math verification.
+
+## LLM judges and human feedback
+
+When rules are too rigid, we can use richer signals:
+
+- **LLM-as-a-judge**: a model scores outputs against a rubric.
+- **Human feedback**: thumbs up / thumbs down or explicit pairwise preferences.
+
+This is the core idea behind **RLHF**: use human preference data to train more aligned behavior.
+
+## PPO, GRPO, and modern RL fine-tuning
+
+Historically:
+
+- [PPO](https://en.wikipedia.org/wiki/Proximal_policy_optimization) was the classic RLHF workhorse, but operationally heavy.
+- [GRPO](https://unsloth.ai/blog/grpo) simplified some of that recipe for reasoning-style training.
+- [RFT](https://platform.openai.com/docs/guides/reinforcement-fine-tuning) and related newer workflows keep making this space easier to use.
+
+## Fine-tune or Prompt-tune?
+
+Given that the problem isn't solved with RAG.
+
+> [Most teams start prompt-only and graduate to finetune only when prompt-only plateaus](https://dspy.ai/diving-deeper/choosing-an-optimizer/#8-most-teams-start-prompt-only-and-graduate-to-finetune-only-when-prompt-only-plateaus)
+>
+> Prompt-only optimization costs LM tokens. Finetune costs LM tokens plus training compute plus deployment of new weights. The marginal lift of finetune over [GEPA](https://dspy.ai/getting-started/gepa-optimization/) or MIPROv2 is usually small and sometimes negative, while the marginal cost is much larger. **Treat finetune as the last lever, not the first**.

@@ -79,7 +79,7 @@ Even [Google haven't figured it out yet](https://www.youtube.com/watch?v=2n41YjR
 
 In this Google I/O 2026 session, Adam Bender introduces **software ecology**—a holistic approach to viewing software engineering through the lens of sociotechnical systems. He argues that developers must understand their internal ecosystems as complex, adaptive systems to successfully navigate the rapid changes brought on by AI-driven development (0:26–5:42).
 
-## Key Concepts
+## Key Points
 
 ::: {.incremental}
 1. **The Google Example:** Using Google as a case study, he highlights how *shared fate*—manifested in their monolithic repository and standardized build tools—creates unique capabilities like *Large Scale Changes (LSCs)*, allowing developers to refactor millions of lines of code globally (5:51–12:17).
@@ -87,8 +87,8 @@ In this Google I/O 2026 session, Adam Bender introduces **software ecology**—a
 3. **Strategic Adaptations:** As software systems become more brittle and complex, he advocates for a shift in perspective. Instead of focusing only on individual "trees" (tasks), engineers must manage the whole "forest" (the ecosystem). He emphasizes that AI acts as an **amplifier** for existing practices; if fundamentals like testing, security, and abstraction are poor, AI will only amplify that chaos (24:28–33:17).
 :::
 
-### Call to Action
+---
 
-. . .
+### Call to Action
 
 Bender encourages senior engineers to mentor others and advocates for software quality, emphasizing that individuals have the agency to steer the future of their organizations (35:27–39:39).

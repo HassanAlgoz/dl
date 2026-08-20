@@ -1,0 +1,17 @@
+---
+title: Build UI for ML Apps
+format: html
+---
+
+[Gradio](https://gradio.app/) is an open-source Python package that allows you to quickly **build** a demo or web application for your machine learning model, API, or any arbitrary Python function. You can then **share** a link to your demo or web application in just a few seconds using Gradio's built-in sharing features. _No JavaScript, CSS, or web hosting experience needed!_
+
+## Your Task
+
+1. First, follow along the [Gradio Quick Start](https://gradio.app/guides/quickstart) to get a high-level understanding of the library
+2. Follow along this to [use with HuggingFace pipeline](https://huggingface.co/docs/transformers/pipeline_gradio) on a task & model of your choice
+3. Use [openai/whisper-large-v3-turbo](https://huggingface.co/openai/whisper-large-v3-turbo) model and build an interface to record for [Real Time Speech Recognition](https://gradio.app/guides/real-time-speech-recognition).
+4. (optional) [Hosting your gradio demo on _Spaces_](https://gradio.app/guides/using-hugging-face-integrations#hosting-your-gradio-demos-on-spaces)
+
+For colors, styles, sizing and fonts, see the [Theming Guide](https://gradio.app/guides/theming-guide).
+
+If you are using a coding agent, see: [Gradio Skills for AI Coding Assistants](https://gradio.app/guides/Gradio-skills-for-ai-coding-assistants).
