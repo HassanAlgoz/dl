@@ -21,7 +21,7 @@ project:
     - modules/**/*.pdf
 
 website:
-  title: "Deep Learning with PyTorch"
+  title: "Deep Learning"
   site-url: https://hassanalgoz.github.io/dl/
 
 format:
