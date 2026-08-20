@@ -1,0 +1,55 @@
+emails:
+  - subject: "Order Confirmation #12345 - Your MacBook Pro is on the way"
+    sender: "orders@techstore.com"
+    body: |
+      Dear John Smith,
+
+      Thank you for your order #12345!
+
+      Order Details:
+      - Product: MacBook Pro 14-inch Space Gray
+      - Total: $2,399.00
+      - Estimated delivery: December 15, 2024
+
+      Your tracking number will be sent once the package ships.
+
+      If you have any questions, contact customer support at support@techstore.com or call 1-800-555-0199.
+
+      Best regards,
+      TechStore Orders Team
+
+  - subject: "URGENT: Server Outage - Immediate Action Required"
+    sender: "sre@company.com"
+    body: |
+      CRITICAL ALERT
+
+      The Site Reliability Team is reporting a critical server outage that began at 2:30 PM EST.
+      All users are currently unable to access the platform.
+
+      Immediate action required:
+      - DevOps Team: join the emergency bridge call immediately
+      - On-call engineers: respond to this alert now
+
+      Bridge link: https://meet.company.com/emergency-bridge
+
+      Site Reliability Team
+
+  - subject: "Meeting Invitation: Q4 Planning Session"
+    sender: "sarah.johnson@company.com"
+    body: |
+      Hi Team,
+
+      You are invited to our Q4 Planning Session.
+
+      When: December 20, 2024, 2:00 PM - 4:00 PM EST
+      Where: Conference Room A
+
+      Agenda:
+      - Review Q3 results
+      - Set Q4 priorities and milestones
+
+      Please confirm your participation by December 18th.
+
+      Thanks,
+      Sarah Johnson
+      Product Manager

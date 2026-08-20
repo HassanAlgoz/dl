@@ -12,7 +12,7 @@ project:
     - modules/mlops/**/*.qmd
     - modules/genai/**/*.qmd
     - modules/Building_with_Deep_Learning/**/*.qmd
-    # - modules/Building_Agentic_AI_Systems/**/*.qmd
+    - modules/Building_Agentic_AI_Systems/**/*.qmd
 
   preview:
     port: 4200

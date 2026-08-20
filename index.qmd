@@ -144,8 +144,6 @@ format: html
 
 - [📝 Build UI for Models](modules/genai/03-agentic-engineering/gradio_ml_ex.qmd)
 
-<!--
-
 ### M11. Building Agentic AI Systems
 
 1. [🎞️ Agentic AI: Workflows, and Language Models](modules/Building_Agentic_AI_Systems/lessons/01_agentic_ai.qmd)
@@ -197,5 +195,4 @@ If you are looking for MCP, see: [Tutorial: Use MCP tools in DSPy](https://dspy.
 
 - [Agentic AI Course](https://www.deeplearning.ai/courses/agentic-ai) (Andrew Ng, DeepLearningAI)
 - [DSPy](https://dspy.ai/): Program, don’t prompt, your LLMs.
-- [AI Engineer Roadmap](https://www.aihero.dev/ai-engineer-roadmap) -->
-
+- [AI Engineer Roadmap](https://www.aihero.dev/ai-engineer-roadmap)
